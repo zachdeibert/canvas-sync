@@ -16,7 +16,9 @@ module.exports = callback => {
         [ "Username Selector: ", "usernameSel" ],
         [ "Password: ", "password" ],
         [ "Password Selector: ", "passwordSel" ],
-        [ "Login Button Selector: ", "loginSel" ]
+        [ "Login Button Selector: ", "loginSel" ],
+        [ "MongoDB Connection String: ", "dbURL" ],
+        [ "MongoDB Database: ", "dbName" ]
     ];
     let config = {
         "version": module.exports.version
@@ -57,7 +59,7 @@ module.exports = callback => {
     });
 };
 
-module.exports.version = 1;
+module.exports.version = 2;
 
 if (require.main === module) {
     module.exports(err => {
