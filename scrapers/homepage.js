@@ -23,11 +23,13 @@ module.exports = (driver, db, config) => {
                             return Promise.all(els.map(el => {
                                 return Promise.all([
                                     el.getAttribute("title"),
-                                    el.getAttribute("class")
+                                    el.getAttribute("class"),
+                                    el.getAttribute("href")
                                 ]).then(args => {
                                     return {
                                         "name": args[0],
-                                        "type": args[1].split(" ", 2)[0]
+                                        "type": args[1].split(" ", 2)[0],
+                                        "slug": `/${args[2].split("/").slice(5).join("/")}`
                                     };
                                 });
                             }));

@@ -4,6 +4,7 @@ const { MongoClient } = require("mongodb");
 const { Builder, By, Condition, until } = require("selenium-webdriver");
 const courseList = require("./scrapers/courseList");
 const homepage = require("./scrapers/homepage");
+const pages = require("./scrapers/pages");
 require("./config-safe")(config => {
 
     const mongo = new MongoClient(config.dbURL);
@@ -31,7 +32,9 @@ require("./config-safe")(config => {
             })
             .then(() => courseList(driver, db))
             .then(() => homepage(driver, db, config))
+            .then(() => pages(driver, db, config))
             .then(() => {
+                console.log("Done!");
                 driver.quit();
                 mongo.close();
             }).catch(err => {
