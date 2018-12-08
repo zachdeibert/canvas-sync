@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+const { Builder, By, Condition, until } = require("selenium-webdriver");
+require("./config-safe")(config => {
+
+    const driver = new Builder()
+        .forBrowser("firefox")
+        .build();
+    driver.get(`https://${config.domain}/courses`);
+    driver.wait(until.titleIs("Courses")).then(() => {
+        driver.wait(new Condition("document loaded", d => d.executeScript("return document.readyState;").then(s => s === "complete"))).then(() => {
+            driver.findElements(By.className("course-list-table-row")).then(courses => {
+                Promise.all(courses.map(course =>
+                    Promise.all([
+                        course.findElement(By.className("course-list-course-title-column")).getText(),
+                        course.findElement(By.className("course-list-term-column")).getText(),
+                        course.findElement(By.className("course-list-enrolled-as-column")).getText(),
+                        course.findElement(By.className("course-list-published-column")).getText(),
+                        new Promise(resolve => course.findElement(By.tagName("a")).getAttribute("href").then(resolve).catch(() => resolve()))
+                    ]).then(args => {
+                        return {
+                            "name": args[0],
+                            "term": args[1],
+                            "enrolledAs": args[2],
+                            "published": args[3],
+                            "courseId": args[4] && args[4].substr(args[4].lastIndexOf("/") + 1)
+                        };
+                    }))).then(courses => {
+                        courses.filter(course => course.courseId).forEach(course => {
+                            console.log(course);
+                        });
+                    });
+            });
+        });
+    });
+});
