@@ -23,16 +23,12 @@ require("./config-safe")(config => {
                     Promise.all([
                         course.findElement(By.className("course-list-course-title-column")).getText(),
                         course.findElement(By.className("course-list-term-column")).getText(),
-                        course.findElement(By.className("course-list-enrolled-as-column")).getText(),
-                        course.findElement(By.className("course-list-published-column")).getText(),
                         new Promise(resolve => course.findElement(By.tagName("a")).getAttribute("href").then(resolve).catch(() => resolve()))
                     ]).then(args => {
                         return {
                             "name": args[0],
                             "term": args[1],
-                            "enrolledAs": args[2],
-                            "published": args[3],
-                            "courseId": args[4] && args[4].substr(args[4].lastIndexOf("/") + 1)
+                            "courseId": args[2] && parseInt(args[2].substr(args[2].lastIndexOf("/") + 1))
                         };
                     }))).then(courses => {
                         courses.filter(course => course.courseId).forEach(course => {
