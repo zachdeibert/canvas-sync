@@ -1,11 +1,29 @@
 const fs = require("fs");
+const configGen = require("./config-gen");
 
 module.exports = callback => {
     fs.access("config.js", err => {
         if (err) {
-            require("./config-gen")(callback);
+            configGen((err, config) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    callback(config);
+                }
+            });
         } else {
-            callback(require("./config"));
+            const config = require("./config");
+            if (config.version === configGen.version) {
+                callback(config);
+            } else {
+                configGen((err, config) => {
+                    if (err) {
+                        console.error(err);
+                    } else {
+                        callback(config);
+                    }
+                });
+            }
         }
     });
 };
