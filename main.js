@@ -3,6 +3,7 @@
 const { MongoClient } = require("mongodb");
 const { Builder, By, Condition, until } = require("selenium-webdriver");
 const courseList = require("./scrapers/courseList");
+const homepage = require("./scrapers/homepage");
 require("./config-safe")(config => {
 
     const mongo = new MongoClient(config.dbURL);
@@ -27,9 +28,14 @@ require("./config-safe")(config => {
             }).catch(() => {});
             driver.wait(until.titleIs("Courses")).then(() => {
                 driver.wait(new Condition("document loaded", d => d.executeScript("return document.readyState;").then(s => s === "complete")))
-            }).then(() => courseList(driver, db))
-            .then(courses => {
-                console.log(courses);
+            })
+            .then(() => courseList(driver, db))
+            .then(() => homepage(driver, db, config))
+            .then(() => {
+                driver.quit();
+                mongo.close();
+            }).catch(err => {
+                console.error(err);
                 driver.quit();
                 mongo.close();
             });
