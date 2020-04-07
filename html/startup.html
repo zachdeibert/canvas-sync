@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Canvas Downloader Setup</title>
+        <link rel="stylesheet" type="text/css" href="/node_modules/materialize-css/dist/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" href="/main.css" />
+        <script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/startup.js"></script>
+    </head>
+    <body>
+        <form method="GET" action="#" onsubmit="submitting()">
+            <div class="row">
+                <h1>Canvas Downloader</h1>
+            </div>
+            <div class="row">
+                <div class="col s12 input-field">
+                    <input type="url" name="url" id="url" class="validate" required />
+                    <label for="url">Canvas URL:</label>
+                </div>
+                <div class="col s12 input-field">
+                    <input type="text" name="out" id="out" class="validate" required />
+                    <label for="out">Output Directory:</label>
+                </div>
+                <div class="col s12">
+                    <input type="submit" value="Start" class="waves-effect waves-light btn" />
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
