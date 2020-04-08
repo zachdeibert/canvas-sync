@@ -1,4 +1,15 @@
 body {
-    width: 100vw;
-    overflow: hidden;
+    margin: 1vw;
+    width: 98vw;
+    overflow-x: hidden;
+}
+label.checkbox {
+    padding-left: 50%;
+}
+label.checkbox > * {
+    margin-left: -10px;
+}
+label.checkbox span {
+    padding-left: 20px !important;
+    height: 20px !important;
 }

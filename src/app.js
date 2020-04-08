@@ -11,7 +11,7 @@ module.exports = {
         }
     },
     "runScript": name => new Promise((resolve, reject) => {
-        fs.readFile(`${__dirname}/scrapers/${name}.js`, "utf8", (err, data) => {
+        fs.readFile(`${__dirname}/scrapers/injections/${name}.js`, "utf8", (err, data) => {
             if (err) {
                 reject(err);
             } else {
