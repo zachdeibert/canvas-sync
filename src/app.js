@@ -1,4 +1,5 @@
 const electron = require("electron");
+const fs = require("fs");
 
 let loadPromise = electron.app.whenReady();
 
@@ -8,7 +9,16 @@ module.exports = {
         if (typeof(callback) === "function") {
             loadPromise = loadPromise.then(() => callback());
         }
-    }
+    },
+    "runScript": name => new Promise((resolve, reject) => {
+        fs.readFile(`${__dirname}/scrapers/${name}.js`, "utf8", (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                module.exports.window.webContents.executeJavaScript(data).then(resolve).catch(reject)
+            }
+        });
+    })
 };
 
 module.exports.onLoad(() => {

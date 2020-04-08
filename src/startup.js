@@ -1,4 +1,5 @@
 const app = require("./app");
+const options = require("./options");
 
 const authenticatedRegex = /^https:\/\/[-a-zA-Z0-9]+.instructure.com\/$/;
 
@@ -13,11 +14,10 @@ app.onLoad(() => {
         app.window.webContents.loadURL(query["url"]);
         let listener = () => {
             const url = app.window.webContents.getURL();
-            console.log(url);
             if (authenticatedRegex.test(url)) {
                 app.window.webContents.removeListener("did-redirect-navigation", listener);
                 app.window.webContents.removeListener("did-navigate", listener);
-                console.log("Ready!");
+                options.startCollection(query["out"]);
             }
         };
         app.window.webContents.on("did-redirect-navigation", listener);
