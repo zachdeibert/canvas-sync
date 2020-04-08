@@ -12,7 +12,7 @@ module.exports = {
                 let resolve;
                 let queue = new Promise((_resolve, reject) => {
                     resolve = _resolve;
-                });
+                }).then(() => app.window.webContents.loadURL("static://loading/loading.html"));
                 res.forEach(course => {
                     let needed = false;
                     course.scrapers.forEach(s => {
@@ -23,9 +23,7 @@ module.exports = {
                         queue = queue.then(() => scraper.execute(course.id, course.scrapers, subDb));
                     }
                 });
-                queue.then(() => {
-                    console.log("Done!");
-                });
+                queue.then(() => app.window.webContents.loadURL("static://done/done.html"));
                 resolve();
             });
         });
