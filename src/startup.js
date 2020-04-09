@@ -1,5 +1,6 @@
 const app = require("./app");
 const db = require("./db");
+const canvas = require("./canvas");
 const proto = require("./proto");
 const options = require("./options");
 
@@ -11,6 +12,7 @@ app.onLoad(() => {
         let listener = () => {
             const url = app.window.webContents.getURL();
             if (authenticatedRegex.test(url)) {
+                canvas.baseURL = url;
                 app.window.webContents.removeListener("did-redirect-navigation", listener);
                 app.window.webContents.removeListener("did-navigate", listener);
                 options.startCollection(new db.DataBase(query["out"]));

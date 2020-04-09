@@ -1,1 +1,1 @@
-require("./example");
+require("./announcements");

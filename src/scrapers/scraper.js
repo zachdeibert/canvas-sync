@@ -10,13 +10,12 @@ module.exports = {
     "getNames": () => {
         return scrapers.map(s => s.name);
     },
-    "execute": (courseId, config, db) => {
-        scrapers.forEach((scraper, idx) => {
+    "execute": (courseId, config, db) => 
+        Promise.all(scrapers.map((scraper, idx) => {
             if (config[idx].update || config[idx].delete) {
                 return scraper.callback(courseId, db.forScraper(scraper.name), config[idx].update, config[idx].delete);
             } else {
                 return Promise.resolve();
             }
-        });
-    }
+        }))
 };
