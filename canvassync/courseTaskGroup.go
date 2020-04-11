@@ -11,12 +11,11 @@ import (
 
 func courseTaskGroup(c *canvas.Canvas, db string, course courseDiscoveryResult) func(*task.Task, func()) {
 	return func(t *task.Task, finish func()) {
-		p := t.CreateProgress(1)
+		t.InheritProgress()
+		var done int = 0
 		children := coursetasks.CreateTasks(t, c, path.Join(db, fmt.Sprintf("%d - %s", course.id, course.name)), course.id)
-		p.SetWork(len(children))
 		listener := func(_ *task.Task) {
-			p.Finish(1)
-			if p.GetStatus() == 1 {
+			if done++; done == len(children) {
 				finish()
 			}
 		}

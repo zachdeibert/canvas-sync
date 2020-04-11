@@ -21,6 +21,7 @@ type Task struct {
 	progress             []taskProgress
 	state                taskState
 	startFunc            func(*Task, func())
+	inheritingProgress   bool
 	progressListeners    []func(*Task, float32)
 	lastProgressDispatch float32
 	childrenListeners    []func(*Task, *Task, []*Task)
@@ -37,6 +38,7 @@ func CreateRootTask() *Task {
 		progress:             []taskProgress{},
 		state:                taskStateFinished,
 		startFunc:            nil,
+		inheritingProgress:   false,
 		progressListeners:    []func(*Task, float32){},
 		lastProgressDispatch: -1,
 		childrenListeners:    []func(*Task, *Task, []*Task){},
@@ -75,14 +77,26 @@ func (t *Task) CreateProgress(scale float32) *Progress {
 	return progress
 }
 
-// GetProgress for the task
-func (t *Task) GetProgress() float32 {
+func (t *Task) getProgress() (float32, float32) {
 	var sum float32 = 0
 	var total float32 = 0
 	for _, p := range t.progress {
 		sum += p.scale * p.progress.GetStatus()
 		total += p.scale
 	}
+	if t.inheritingProgress {
+		for _, c := range t.children {
+			ds, dt := c.getProgress()
+			sum += ds
+			total += dt
+		}
+	}
+	return sum, total
+}
+
+// GetProgress for the task
+func (t *Task) GetProgress() float32 {
+	sum, total := t.getProgress()
 	if total == 0 {
 		return 0
 	}
@@ -105,7 +119,27 @@ func (t *Task) CreateSubtask(name string, start func(*Task, func())) *Task {
 	t.children = append(t.children, task)
 	t.dispatchChildren(task)
 	task.AddPanicListener(t.dispatchPanic)
+	if t.inheritingProgress {
+		t.addInheritProgressListener(task)
+		t.dispatchProgress()
+	}
 	return task
+}
+
+func (t *Task) addInheritProgressListener(child *Task) {
+	child.AddProgressListener(func(_ *Task, p float32) {
+		t.dispatchProgress()
+	})
+}
+
+// InheritProgress causes this task's progress to be based on its childrens' progress
+func (t *Task) InheritProgress() {
+	if !t.inheritingProgress {
+		t.inheritingProgress = true
+		for _, child := range t.children {
+			t.addInheritProgressListener(child)
+		}
+	}
 }
 
 func (t *Task) dispatchProgress() {
