@@ -1,6 +1,7 @@
 package canvassync
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -15,6 +16,8 @@ func Run(c *canvas.Canvas) {
 	name := make(chan string)
 	dbCh := make(chan string)
 	root.CreateSubtask("Database Check", databaseCheckTask(c, name, dbCh))
+	coursesCh := make(chan []courseDiscoveryResult)
+	root.CreateSubtask("Course Discovery", courseDiscoveryTask(c, coursesCh))
 	mon := task.CreateMonitor(root)
 	defer mon.Close()
 	header := mon.GetHeader()
@@ -35,6 +38,9 @@ func Run(c *canvas.Canvas) {
 			header.SetText(1, task.AlignLeft, n)
 			break
 		case <-dbCh:
+			break
+		case courses := <-coursesCh:
+			fmt.Println(courses)
 			break
 		}
 	}

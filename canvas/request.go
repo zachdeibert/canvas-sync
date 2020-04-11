@@ -10,11 +10,11 @@ import (
 )
 
 var (
-	linkRe = regexp.MustCompile("\\b<([^>]+)>;\\s*rel=\"([^\"]+)\",?\\b")
+	linkRe = regexp.MustCompile("<([^>]+)>;\\s*rel=\"([^\"]+)\"")
 )
 
 // Request sends a request to the API
-func (c *Canvas) Request(endpoint string, params map[string]interface{}, response interface{}, callback func(interface{}) error) error {
+func (c *Canvas) Request(endpoint string, params map[string]interface{}, responseCtor func() interface{}, callback func(interface{}) error) error {
 	sParams := make([]string, len(params))
 	i := 0
 	if params != nil {
@@ -45,6 +45,7 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, respons
 		if err != nil {
 			return err
 		}
+		response := responseCtor()
 		if err = json.Unmarshal(body, response); err != nil {
 			return err
 		}
@@ -57,8 +58,8 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, respons
 		}
 		found := false
 		for _, link := range links {
-			if link[1] == "next" {
-				url = link[0]
+			if link[2] == "next" {
+				url = link[1]
 				found = true
 				break
 			}
