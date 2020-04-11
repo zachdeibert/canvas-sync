@@ -16,7 +16,7 @@ func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string)
 	return func(t *task.Task, finish func()) {
 		p := t.CreateProgress(1)
 		p.SetWork(4)
-		if err := c.Request("users/self", nil, func() interface{} {
+		if err := c.Request("users/self", nil, t.CreateProgress(1), func() interface{} {
 			return &model.User{}
 		}, func(obj interface{}) error {
 			// Get name and find database path

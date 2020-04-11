@@ -24,6 +24,12 @@ func (p *Progress) SetWork(totalUnits int) {
 	p.dispatch()
 }
 
+// AddWork adds more to the total number of units of work to do
+func (p *Progress) AddWork(moreUnits int) {
+	p.total += moreUnits
+	p.dispatch()
+}
+
 // Finish a quantity of work units
 func (p *Progress) Finish(units int) {
 	if n := p.done + units; n > p.total {

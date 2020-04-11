@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+
+	"../task"
 )
 
 var (
@@ -14,7 +16,7 @@ var (
 )
 
 // Request sends a request to the API
-func (c *Canvas) Request(endpoint string, params map[string]interface{}, responseCtor func() interface{}, callback func(interface{}) error) error {
+func (c *Canvas) Request(endpoint string, params map[string]interface{}, progress *task.Progress, responseCtor func() interface{}, callback func(interface{}) error) error {
 	sParams := make([]string, len(params))
 	i := 0
 	if params != nil {
@@ -27,6 +29,8 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, respons
 		}
 	}
 	url := fmt.Sprintf("https://%s.instructure.com/api/v1/%s?%s", c.subdomain, endpoint, strings.Join(sParams, "&"))
+	progress.SetWork(1)
+	first := true
 	for {
 		req, err := http.NewRequest("GET", url, nil)
 		if err != nil {
@@ -52,17 +56,37 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, respons
 		if err = callback(response); err != nil {
 			return err
 		}
+		progress.Finish(1)
 		links := linkRe.FindAllStringSubmatch(res.Header.Get("Link"), -1)
 		if links == nil {
 			return nil
 		}
 		found := false
 		for _, link := range links {
-			if link[2] == "next" {
+			switch link[2] {
+			case "next":
 				url = link[1]
 				found = true
 				break
+			case "last":
+				if first {
+					query := strings.Split(strings.Split(link[1], "?")[1], "&")
+					for _, param := range query {
+						parts := strings.Split(param, "=")
+						if parts[0] == "page" {
+							var numPages int
+							fmt.Sscanf(parts[1], "%d", &numPages)
+							progress.SetWork(numPages)
+							first = false
+							break
+						}
+					}
+				}
+				break
 			}
+		}
+		if first && found {
+			progress.AddWork(1)
 		}
 		if !found {
 			return nil

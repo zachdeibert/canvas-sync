@@ -14,7 +14,7 @@ type courseDiscoveryResult struct {
 func courseDiscoveryTask(c *canvas.Canvas, coursesCh chan<- []courseDiscoveryResult) func(*task.Task, func()) {
 	return func(t *task.Task, finish func()) {
 		res := []courseDiscoveryResult{}
-		if err := c.Request("courses", nil, func() interface{} {
+		if err := c.Request("courses", nil, t.CreateProgress(1), func() interface{} {
 			return &[]model.Course{}
 		}, func(obj interface{}) error {
 			courses := *obj.(*[]model.Course)
