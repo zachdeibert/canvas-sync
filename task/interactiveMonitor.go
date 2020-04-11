@@ -35,6 +35,18 @@ const (
 	monitorNameFrac = 0.3
 )
 
+type progressUpdate struct {
+	row      int
+	progress int
+}
+
+type renderJob struct {
+	header   [][]string
+	footer   [][]string
+	progress []progressUpdate
+	all      bool
+}
+
 type monitoredTask struct {
 	task         *Task
 	lastProgress int
@@ -54,15 +66,18 @@ type monitorLayout struct {
 }
 
 type interactiveMonitor struct {
-	root          *Task
-	header        *Section
-	footer        *Section
-	layout        monitorLayout
-	ticker        *time.Ticker
-	tickerCleanup chan interface{}
-	stdout        *bufio.Writer
-	closed        bool
-	mutex         *sync.Mutex
+	root           *Task
+	header         *Section
+	footer         *Section
+	layout         monitorLayout
+	ticker         *time.Ticker
+	tickerCleanup  chan interface{}
+	stdout         *bufio.Writer
+	closed         bool
+	pendingJob     renderJob
+	mutex          *sync.Mutex
+	rendererIdle   bool
+	rendererNotify chan interface{}
 }
 
 func createInteractiveMonitor(root *Task) *interactiveMonitor {
@@ -71,43 +86,54 @@ func createInteractiveMonitor(root *Task) *interactiveMonitor {
 		header:        CreateSection(),
 		footer:        CreateSection(),
 		tickerCleanup: make(chan interface{}),
-		stdout:        bufio.NewWriterSize(os.Stdout, 8192),
+		stdout:        bufio.NewWriterSize(os.Stdout, 81920),
 		closed:        false,
-		mutex:         &sync.Mutex{},
+		pendingJob: renderJob{
+			header:   nil,
+			footer:   nil,
+			progress: []progressUpdate{},
+			all:      true,
+		},
+		mutex:          &sync.Mutex{},
+		rendererIdle:   true,
+		rendererNotify: make(chan interface{}),
 	}
-	m.mutex.Lock()
-	defer m.mutex.Unlock()
 	m.header.AddListener(func(_ *Section, text [][]string) {
 		m.mutex.Lock()
-		defer m.mutex.Unlock()
-		m.renderHeader(text)
-		m.flushRender()
+		m.pendingJob.header = text
+		m.mutex.Unlock()
+		m.notifyRenderer()
 	})
 	m.footer.AddListener(func(_ *Section, text [][]string) {
 		m.mutex.Lock()
-		defer m.mutex.Unlock()
-		m.renderFooter(text)
-		m.flushRender()
+		m.pendingJob.footer = text
+		m.mutex.Unlock()
+		m.notifyRenderer()
 	})
 	progressListener := func(t *Task, progress float32) {
 		m.mutex.Lock()
-		defer m.mutex.Unlock()
-		for row, mon := range m.layout.tasks {
-			if mon.task == t {
-				bar := m.calculateProgressBar(progress)
-				if bar != mon.lastProgress {
-					m.renderProgress(row, bar)
-					m.flushRender()
+		if !m.pendingJob.all {
+			for row, mon := range m.layout.tasks {
+				if mon.task == t {
+					bar := m.calculateProgressBar(progress)
+					if bar != mon.lastProgress {
+						m.pendingJob.progress = append(m.pendingJob.progress, progressUpdate{
+							row:      row,
+							progress: bar,
+						})
+					}
+					break
 				}
-				break
 			}
 		}
+		m.mutex.Unlock()
+		m.notifyRenderer()
 	}
 	finishListener := func(t *Task) {
 		m.mutex.Lock()
-		defer m.mutex.Unlock()
-		m.relayout()
-		m.flushRender()
+		m.pendingJob.all = true
+		m.mutex.Unlock()
+		m.notifyRenderer()
 	}
 	var childrenListener func(parent *Task, child *Task, children []*Task)
 	childrenListener = func(parent *Task, child *Task, children []*Task) {
@@ -115,9 +141,9 @@ func createInteractiveMonitor(root *Task) *interactiveMonitor {
 		child.AddChildrenListener(childrenListener)
 		child.AddFinishListener(finishListener)
 		m.mutex.Lock()
-		defer m.mutex.Unlock()
-		m.renderAll()
-		m.flushRender()
+		m.pendingJob.all = true
+		m.mutex.Unlock()
+		m.notifyRenderer()
 	}
 	m.registerListeners(root, progressListener, childrenListener, finishListener)
 	m.detectScreenSize(false)
@@ -126,7 +152,6 @@ func createInteractiveMonitor(root *Task) *interactiveMonitor {
 		fmt.Fprintln(m.stdout)
 	}
 	fmt.Fprint(m.stdout, "\033[2J")
-	m.flushRender()
 	m.ticker = time.NewTicker(time.Second)
 	go func() {
 		for {
@@ -139,9 +164,49 @@ func createInteractiveMonitor(root *Task) *interactiveMonitor {
 			}
 		}
 	}()
-	m.relayout()
-	m.flushRender()
+	go func() {
+		for !m.closed {
+			<-m.rendererNotify
+			m.rendererIdle = false
+			for !m.closed {
+				m.mutex.Lock()
+				job := m.pendingJob
+				m.pendingJob = renderJob{
+					header:   nil,
+					footer:   nil,
+					progress: []progressUpdate{},
+					all:      false,
+				}
+				m.mutex.Unlock()
+				if job.header == nil && job.footer == nil && len(job.progress) == 0 && !job.all {
+					m.rendererIdle = true
+					break
+				}
+				if job.all {
+					m.relayout()
+				} else {
+					for _, p := range job.progress {
+						m.renderProgress(p.row, p.progress)
+					}
+					if job.header != nil {
+						m.renderHeader(job.header)
+					}
+					if job.footer != nil {
+						m.renderFooter(job.footer)
+					}
+				}
+				m.flushRender()
+			}
+		}
+	}()
+	m.notifyRenderer()
 	return m
+}
+
+func (m *interactiveMonitor) notifyRenderer() {
+	if m.rendererIdle {
+		m.rendererNotify <- nil
+	}
 }
 
 func (m *interactiveMonitor) registerListeners(t *Task, progressListener func(*Task, float32), childrenListener func(*Task, *Task, []*Task), finishListener func(*Task)) {
@@ -158,6 +223,8 @@ func (m *interactiveMonitor) Close() {
 		m.closed = true
 		m.ticker.Stop()
 		m.tickerCleanup <- nil
+		m.rendererIdle = true
+		m.notifyRenderer()
 		fmt.Printf("\033[%d;1H\033[?25h\n", m.layout.screenHeight)
 	}
 }
@@ -369,10 +436,6 @@ func (m *interactiveMonitor) relayout() {
 	layout.progressWidth = layout.screenWidth - layout.progressStart - 2
 	layout.tasks = make([]monitoredTask, layout.screenHeight-layout.headerHeight-layout.footerHeight)
 	used := m.layoutTask(m.root, layout.tasks, 0)
-	if used <= 1 {
-		m.Close()
-		return
-	}
 	layout.tasks = layout.tasks[0:used]
 	indentTemplate := []bool{}
 	last := m.root
