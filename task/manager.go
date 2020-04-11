@@ -68,7 +68,7 @@ func (m *Manager) registerListeners(t *Task, childrenListener func(*Task, *Task,
 
 func (m *Manager) getLevel(t *Task) int {
 	level := 0
-	for task := t; task.parent != m.root; level++ {
+	for task := t; task != m.root; level++ {
 		task = task.parent
 	}
 	return level
