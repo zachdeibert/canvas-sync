@@ -49,6 +49,10 @@ var (
 			Regex:       regexp.MustCompile("([a-z]|\\A)Uuid([A-Z]|\\z)"),
 			Replacement: "${1}UUID${2}",
 		},
+		replacement{
+			Regex:       regexp.MustCompile("([a-z]|\\A)Url([A-Z]|\\z)"),
+			Replacement: "${1}URL${2}",
+		},
 	}
 	commentRegex = regexp.MustCompile("(?m:^\\s*//.+)")
 )

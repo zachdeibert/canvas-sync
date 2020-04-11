@@ -17,12 +17,14 @@ var (
 func (c *Canvas) Request(endpoint string, params map[string]interface{}, response interface{}, callback func(interface{}) error) error {
 	sParams := make([]string, len(params))
 	i := 0
-	for k, v := range params {
-		var err error
-		if sParams[i], err = c.serializeParameter(k, v); err != nil {
-			return err
+	if params != nil {
+		for k, v := range params {
+			var err error
+			if sParams[i], err = c.serializeParameter(k, v); err != nil {
+				return err
+			}
+			i++
 		}
-		i++
 	}
 	url := fmt.Sprintf("https://%s.instructure.com/api/v1/%s?%s", c.subdomain, endpoint, strings.Join(sParams, "&"))
 	for {

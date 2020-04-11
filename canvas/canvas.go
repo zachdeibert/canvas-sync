@@ -1,6 +1,9 @@
 package canvas
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
 // Canvas represents the Canvas API
 type Canvas struct {
@@ -22,4 +25,14 @@ func CreateCanvas(subdomain, token string) (*Canvas, error) {
 		return nil, err
 	}
 	return c, nil
+}
+
+// GetSubdomian of the Canvas API
+func (c *Canvas) GetSubdomain() string {
+	return c.subdomain
+}
+
+// GetBaseURL of the Canvas API
+func (c *Canvas) GetBaseURL() string {
+	return fmt.Sprintf("https://%s.instructure.com/", c.subdomain)
 }

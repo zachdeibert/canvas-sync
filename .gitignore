@@ -16,3 +16,6 @@
 
 # Private token files
 *.pri
+
+# Canvas databases
+db/
