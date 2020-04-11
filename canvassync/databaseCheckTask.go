@@ -52,7 +52,7 @@ func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string)
 				panic(err)
 			}
 			if !status.IsClean() {
-				panic("Database is not clean; Previous run of program did not exit cleanly.")
+				panic(fmt.Sprintf("Database is not clean; Previous run of program did not exit cleanly.\n%s", status.String()))
 			}
 			p.Finish(1)
 			// Done!
