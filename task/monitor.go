@@ -177,7 +177,9 @@ func (m *Monitor) GetFooter() *Section {
 
 func (m *Monitor) flushRender() {
 	fmt.Fprint(m.stdout, "\033[1;1H")
-	m.stdout.Flush()
+	if !m.closed {
+		m.stdout.Flush()
+	}
 }
 
 func (m *Monitor) renderSection(text [][]string, top int) {

@@ -34,7 +34,7 @@ func CreateRootTask() *Task {
 		parent:               nil,
 		children:             []*Task{},
 		progress:             []taskProgress{},
-		state:                taskStateQueued,
+		state:                taskStateFinished,
 		startFunc:            nil,
 		progressListeners:    []func(*Task, float32){},
 		lastProgressDispatch: -1,
