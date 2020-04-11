@@ -225,7 +225,7 @@ func (m *interactiveMonitor) Close() {
 		m.tickerCleanup <- nil
 		m.rendererIdle = true
 		m.notifyRenderer()
-		fmt.Printf("\033[%d;1H\033[?25h\n", m.layout.screenHeight)
+		fmt.Print("\033[1;1H\033[2J\033[?25h")
 	}
 }
 
