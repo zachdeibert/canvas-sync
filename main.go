@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"./canvas"
-	"./canvassync"
+	"github.com/zachdeibert/canvas-sync/canvas"
+	"github.com/zachdeibert/canvas-sync/canvassync"
 )
 
 func main() {

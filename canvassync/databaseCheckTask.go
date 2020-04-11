@@ -5,11 +5,11 @@ import (
 	"os"
 	"path"
 
-	"github.com/go-git/go-git"
+	"github.com/go-git/go-git/v5"
 
-	"../canvas"
-	"../canvas/model"
-	"../task"
+	"github.com/zachdeibert/canvas-sync/canvas"
+	"github.com/zachdeibert/canvas-sync/canvas/model"
+	"github.com/zachdeibert/canvas-sync/task"
 )
 
 func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string) func(*task.Task, func()) {

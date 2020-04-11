@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"../canvas"
-	"../task"
+	"github.com/zachdeibert/canvas-sync/canvas"
+	"github.com/zachdeibert/canvas-sync/task"
 )
 
 // Run the Canvas Sync program

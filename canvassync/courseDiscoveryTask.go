@@ -1,9 +1,9 @@
 package canvassync
 
 import (
-	"../canvas"
-	"../canvas/model"
-	"../task"
+	"github.com/zachdeibert/canvas-sync/canvas"
+	"github.com/zachdeibert/canvas-sync/canvas/model"
+	"github.com/zachdeibert/canvas-sync/task"
 )
 
 type courseDiscoveryResult struct {

@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"../task"
+	"github.com/zachdeibert/canvas-sync/task"
 )
 
 var (
