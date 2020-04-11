@@ -27,7 +27,7 @@ func CreateCanvas(subdomain, token string) (*Canvas, error) {
 	return c, nil
 }
 
-// GetSubdomian of the Canvas API
+// GetSubdomain of the Canvas API
 func (c *Canvas) GetSubdomain() string {
 	return c.subdomain
 }

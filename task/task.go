@@ -130,7 +130,7 @@ func (t *Task) dispatchFinish() {
 	}
 }
 
-// AddFinishListener adds a new lister that's fired when the task finishes
+// AddFinishListener adds a new listener that's fired when the task finishes
 func (t *Task) AddFinishListener(listener func(*Task)) {
 	t.finishListeners = append(t.finishListeners, listener)
 }
