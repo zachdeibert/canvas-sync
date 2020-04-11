@@ -25,6 +25,7 @@ type Task struct {
 	lastProgressDispatch float32
 	childrenListeners    []func(*Task, *Task, []*Task)
 	finishListeners      []func(*Task)
+	panicListeners       []func(*Task, interface{})
 }
 
 // CreateRootTask creates a root task
@@ -39,6 +40,7 @@ func CreateRootTask() *Task {
 		progressListeners:    []func(*Task, float32){},
 		lastProgressDispatch: -1,
 		childrenListeners:    []func(*Task, *Task, []*Task){},
+		panicListeners:       []func(*Task, interface{}){},
 	}
 }
 
@@ -46,10 +48,17 @@ func CreateRootTask() *Task {
 func (t *Task) Start() {
 	if t.startFunc != nil && t.state == taskStateQueued {
 		t.state = taskStateRunning
-		go t.startFunc(t, func() {
-			t.state = taskStateFinished
-			t.dispatchFinish()
-		})
+		go func() {
+			defer func() {
+				if err := recover(); err != nil {
+					t.dispatchPanic(t, err)
+				}
+			}()
+			t.startFunc(t, func() {
+				t.state = taskStateFinished
+				t.dispatchFinish()
+			})
+		}()
 	}
 }
 
@@ -95,6 +104,7 @@ func (t *Task) CreateSubtask(name string, start func(*Task, func())) *Task {
 	}
 	t.children = append(t.children, task)
 	t.dispatchChildren(task)
+	task.AddPanicListener(t.dispatchPanic)
 	return task
 }
 
@@ -133,4 +143,15 @@ func (t *Task) dispatchFinish() {
 // AddFinishListener adds a new listener that's fired when the task finishes
 func (t *Task) AddFinishListener(listener func(*Task)) {
 	t.finishListeners = append(t.finishListeners, listener)
+}
+
+func (t *Task) dispatchPanic(src *Task, err interface{}) {
+	for _, l := range t.panicListeners {
+		l(src, err)
+	}
+}
+
+// AddPanicListener adds a new listener that's fired when the task causes a panic
+func (t *Task) AddPanicListener(listener func(*Task, interface{})) {
+	t.panicListeners = append(t.panicListeners, listener)
 }
