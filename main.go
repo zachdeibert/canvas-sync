@@ -25,7 +25,7 @@ func main() {
 			}
 		}
 		token = string(b)
-	} else {
+	} else if len(os.Args) >= 3 {
 		token = os.Args[2]
 	}
 	if len(subdomain) == 0 || len(token) == 0 || len(os.Args) > 3 {
