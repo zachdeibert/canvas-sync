@@ -19,3 +19,6 @@
 
 # Canvas databases
 db/
+
+# VS Code files
+.vscode/launch.json
