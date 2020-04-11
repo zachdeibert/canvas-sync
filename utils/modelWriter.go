@@ -41,17 +41,21 @@ type replacement struct {
 
 var (
 	replacements = []replacement{
-		replacement{
+		{
 			Regex:       regexp.MustCompile("([a-z]|\\A)Id([A-Z]|\\z)"),
 			Replacement: "${1}ID${2}",
 		},
-		replacement{
+		{
 			Regex:       regexp.MustCompile("([a-z]|\\A)Uuid([A-Z]|\\z)"),
 			Replacement: "${1}UUID${2}",
 		},
-		replacement{
+		{
 			Regex:       regexp.MustCompile("([a-z]|\\A)Url([A-Z]|\\z)"),
 			Replacement: "${1}URL${2}",
+		},
+		{
+			Regex:       regexp.MustCompile("([a-z]|\\A)Html([A-Z]|\\z)"),
+			Replacement: "${1}HTML${2}",
 		},
 	}
 	commentRegex = regexp.MustCompile("(?m:^\\s*//.+)")
@@ -63,11 +67,11 @@ func main() {
 		os.Exit(1)
 	}
 	filename := path.Join("..", "canvas", "model", fmt.Sprintf("%s.go", os.Args[1]))
-	if _, err := os.Stat(filename); os.IsExist(err) {
+	if _, err := os.Stat(filename); !os.IsNotExist(err) {
 		fmt.Fprintf(os.Stderr, "Error: file %s already exists.\n", filename)
 		os.Exit(1)
 	}
-	f, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 0755)
+	f, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		panic(err)
 	}
