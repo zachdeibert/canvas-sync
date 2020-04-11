@@ -1,7 +1,6 @@
 package canvassync
 
 import (
-	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -12,7 +11,16 @@ import (
 
 // Run the Canvas Sync program
 func Run(c *canvas.Canvas) {
-	root := task.CreateRootTask()
+	dummyRoot := task.CreateRootTask()
+	dummyExit := make(chan interface{})
+	root := dummyRoot.CreateSubtask("Dummy", func(t *task.Task, finish func()) {
+		<-dummyExit
+		finish()
+	})
+	panicCh := make(chan interface{})
+	root.AddPanicListener(func(src *task.Task, err interface{}) {
+		panicCh <- err
+	})
 	name := make(chan string)
 	dbCh := make(chan string)
 	root.CreateSubtask("Database Check", databaseCheckTask(c, name, dbCh))
@@ -24,12 +32,13 @@ func Run(c *canvas.Canvas) {
 	header.SetSize(3)
 	header.SetText(0, task.AlignCenter, "Canvas Sync Utility")
 	header.SetText(1, task.AlignCenter, c.GetBaseURL())
-	manager := task.CreateManager(root, []int{0, 1, 3}, 0)
+	manager := task.CreateManager(dummyRoot, []int{0, 1, 1, 3}, 0)
 	ch := make(chan os.Signal)
 	manager.AddListener(func() {
 		ch <- nil
 	})
 	signal.Notify(ch, os.Interrupt, syscall.SIGTERM)
+	var db string
 	for {
 		select {
 		case <-ch:
@@ -37,11 +46,15 @@ func Run(c *canvas.Canvas) {
 		case n := <-name:
 			header.SetText(1, task.AlignLeft, n)
 			break
-		case <-dbCh:
+		case db = <-dbCh:
 			break
-		case courses := <-coursesCh:
-			fmt.Println(courses)
+		case <-coursesCh:
+			root.CreateSubtask("Write Database to Disk", writeDatabaseTask(db))
+			dummyExit <- nil
 			break
+		case err := <-panicCh:
+			mon.Close()
+			panic(err)
 		}
 	}
 }
