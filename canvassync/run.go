@@ -1,6 +1,7 @@
 package canvassync
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -48,7 +49,10 @@ func Run(c *canvas.Canvas) {
 			break
 		case db = <-dbCh:
 			break
-		case <-coursesCh:
+		case courses := <-coursesCh:
+			for _, course := range courses {
+				root.CreateSubtask(fmt.Sprintf("Sync '%s'", course.name), courseTaskGroup(c, db, course)).Start()
+			}
 			root.CreateSubtask("Write Database to Disk", writeDatabaseTask(db))
 			dummyExit <- nil
 			break
