@@ -115,6 +115,9 @@ func (m *Manager) recalculate(level int) calculationResult {
 			if t.state != taskStateFinished {
 				levelFinished = false
 			}
+			if t.state == taskStateRunning {
+				limit--
+			}
 			if limit > 0 && t.state == taskStateQueued {
 				t.Start()
 				limit--
