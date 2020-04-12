@@ -8,6 +8,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/sergi/go-diff/diffmatchpatch"
 	"github.com/zachdeibert/canvas-sync/utils/apisync"
 )
 
@@ -39,8 +40,28 @@ func main() {
 	}
 	dir := path.Join(os.Args[1], "app", "controllers")
 	outFile := path.Join("..", "canvas", "api.go")
+	origOutFile := fmt.Sprintf("%s.orig", outFile)
+	patch := []diffmatchpatch.Patch{}
+	dmf := diffmatchpatch.New()
+	if origContents, err := ioutil.ReadFile(origOutFile); !os.IsNotExist(err) {
+		if err != nil {
+			panic(err)
+		}
+		if goContents, err := ioutil.ReadFile(outFile); !os.IsNotExist(err) {
+			if err != nil {
+				panic(err)
+			}
+			patch = dmf.PatchMake(string(origContents), string(goContents))
+		}
+		if err = os.Remove(origOutFile); err != nil {
+			panic(err)
+		}
+	}
 	backup := fmt.Sprintf("%s.bk", outFile)
 	if _, err := os.Stat(backup); !os.IsNotExist(err) {
+		if err != nil {
+			panic(err)
+		}
 		if err = os.Remove(backup); err != nil {
 			panic(err)
 		}
@@ -131,6 +152,18 @@ func main() {
 		}
 		txt = fmt.Sprintf(multiImport, strings.Join(imports, "\n"), strings.Join(parts, "\n\n"))
 		break
+	}
+	if err = ioutil.WriteFile(origOutFile, []byte(txt), 0644); err != nil {
+		panic(err)
+	}
+	if len(patch) > 0 {
+		var oks []bool
+		txt, oks = dmf.PatchApply(patch, txt)
+		for i, ok := range oks {
+			if !ok {
+				fmt.Fprintf(os.Stderr, "Unable to apply patch:\n%s\n", patch[i].String())
+			}
+		}
 	}
 	if err = ioutil.WriteFile(outFile, []byte(txt), 0644); err != nil {
 		panic(err)
