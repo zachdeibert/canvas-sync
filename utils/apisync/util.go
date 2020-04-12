@@ -116,7 +116,17 @@ func toGoIdentifier(jsonIdentifier string, exported bool) string {
 	if !exported {
 		words[0] = strings.ToLower(words[0])
 	}
-	return strings.Join(words, "")
+	str := strings.Join(words, "")
+	switch str {
+	case "type":
+		return "typeName"
+	case "select":
+		return "selectField"
+	case "error":
+		return "err"
+	default:
+		return str
+	}
 }
 
 func addImport(imports *[]string, pkg string) {

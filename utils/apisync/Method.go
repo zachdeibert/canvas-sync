@@ -29,7 +29,7 @@ type Method struct {
 var (
 	methodTopRegex      = regexp.MustCompile("(?m:\\s@([^\\s]+) *([^\n]*)((?:\n\\s*[^@\\s][^\n]+)*))")
 	methodArgumentRegex = regexp.MustCompile("^([^ ]+)(?: \\[([^\\]]+)\\]$)?")
-	methodEndPointRegex = regexp.MustCompile("https://<canvas>/api/v1/([^\\s?]+)")
+	methodEndPointRegex = regexp.MustCompile("https://<canvas>/api/v1/([^\\s?\"]+)")
 )
 
 // ParseMethod parses a method from a string

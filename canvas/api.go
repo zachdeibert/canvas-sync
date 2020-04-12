@@ -3660,9 +3660,8 @@ type PageRevision struct {
 // AccountNotificationsIndexOfActiveGlobalNotificationForTheUser API call: Returns a list of all global notifications in
 // the account for the current user Any notifications that have been closed by the user will not be returned
 func (c *Canvas) AccountNotificationsIndexOfActiveGlobalNotificationForTheUser(progress *task.Progress) ([]AccountNotification, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/2/users/self/account_notifications")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]AccountNotification{}
 	}
@@ -3681,9 +3680,8 @@ func (c *Canvas) AccountNotificationsIndexOfActiveGlobalNotificationForTheUser(p
 // AccountNotificationsShowAGlobalNotification API call: Returns a global notification for the current user A
 // notification that has been closed by the user will not be returned
 func (c *Canvas) AccountNotificationsShowAGlobalNotification(progress *task.Progress) (*AccountNotification, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/2/users/self/account_notifications/4")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AccountNotification{}
 	}
@@ -3701,9 +3699,8 @@ func (c *Canvas) AccountNotificationsShowAGlobalNotification(progress *task.Prog
 // AccountNotificationsCloseNotificationForUser API call: If the current user no long wants to see this notification it
 // can be excused with this call
 func (c *Canvas) AccountNotificationsCloseNotificationForUser(progress *task.Progress) (*AccountNotification, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/2/users/self/account_notifications/4")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AccountNotification{}
 	}
@@ -3719,10 +3716,11 @@ func (c *Canvas) AccountNotificationsCloseNotificationForUser(progress *task.Pro
 }
 
 // AccountNotificationsCreateAGlobalNotification API call: Create and return a new global notification for an account.
-func (c *Canvas) AccountNotificationsCreateAGlobalNotification(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountNotificationsCreateAGlobalNotification(progress *task.Progress, accountNotification string, accountNotificationRoles string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/2/account_notifications")
 	params := map[string]interface{}{}
-
+    params["account_notification"] = accountNotification
+    params["account_notification_roles"] = accountNotificationRoles
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -3738,10 +3736,11 @@ func (c *Canvas) AccountNotificationsCreateAGlobalNotification(progress *task.Pr
 }
 
 // AccountNotificationsUpdateAGlobalNotification API call: Update global notification for an account.
-func (c *Canvas) AccountNotificationsUpdateAGlobalNotification(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountNotificationsUpdateAGlobalNotification(progress *task.Progress, accountNotification string, accountNotificationRoles string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/2/account_notifications/1")
 	params := map[string]interface{}{}
-
+    params["account_notification"] = accountNotification
+    params["account_notification_roles"] = accountNotificationRoles
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -3757,10 +3756,9 @@ func (c *Canvas) AccountNotificationsUpdateAGlobalNotification(progress *task.Pr
 }
 
 // AccountReportsListAvailableReports API call: Returns a paginated list of reports for the current context.
-func (c *Canvas) AccountReportsListAvailableReports(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountReportsListAvailableReports(progress *task.Progress, accountID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/%s/reports/", accountID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -3779,10 +3777,10 @@ func (c *Canvas) AccountReportsListAvailableReports(progress *task.Progress) (*m
 // must match one of the available report names. To fetch a list of available report names and parameters for each
 // report (including whether or not those parameters are required), see {api:AccountReportsController#available_reports
 // List Available Reports}.
-func (c *Canvas) AccountReportsStartAReport(progress *task.Progress) (*Report, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountReportsStartAReport(progress *task.Progress, parameters interface{}) (*Report, error) {
+	endpoint := fmt.Sprintf("accounts/1/reports/provisioning_csv")
 	params := map[string]interface{}{}
-
+    params["parameters"] = parameters
 	responseCtor := func() interface{} {
 		return &Report{}
 	}
@@ -3798,10 +3796,9 @@ func (c *Canvas) AccountReportsStartAReport(progress *task.Progress) (*Report, e
 }
 
 // AccountReportsIndexOfReports API call: Shows all reports that have been run for the account of a specific type.
-func (c *Canvas) AccountReportsIndexOfReports(progress *task.Progress) ([]Report, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountReportsIndexOfReports(progress *task.Progress, accountID string, reportType string) ([]Report, error) {
+	endpoint := fmt.Sprintf("accounts/%s/reports/%s", accountID, reportType)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Report{}
 	}
@@ -3818,10 +3815,9 @@ func (c *Canvas) AccountReportsIndexOfReports(progress *task.Progress) ([]Report
 }
 
 // AccountReportsStatusOfAReport API call: Returns the status of a report.
-func (c *Canvas) AccountReportsStatusOfAReport(progress *task.Progress) (*Report, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountReportsStatusOfAReport(progress *task.Progress, accountID string, reportType string, reportID string) (*Report, error) {
+	endpoint := fmt.Sprintf("accounts/%s/reports/%s/%s", accountID, reportType, reportID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Report{}
 	}
@@ -3837,10 +3833,9 @@ func (c *Canvas) AccountReportsStatusOfAReport(progress *task.Progress) (*Report
 }
 
 // AccountReportsDeleteAReport API call: Deletes a generated report instance.
-func (c *Canvas) AccountReportsDeleteAReport(progress *task.Progress) (*Report, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountReportsDeleteAReport(progress *task.Progress, accountID string, reportType string, id string) (*Report, error) {
+	endpoint := fmt.Sprintf("accounts/%s/reports/%s/%s", accountID, reportType, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Report{}
 	}
@@ -3858,10 +3853,10 @@ func (c *Canvas) AccountReportsDeleteAReport(progress *task.Progress) (*Report, 
 // AccountsListAccounts API call: A paginated list of accounts that the current user can view or manage. Typically,
 // students and even teachers will get an empty list in response, only account admins can view the accounts that they
 // are in.
-func (c *Canvas) AccountsListAccounts(progress *task.Progress) ([]Account, error) {
+func (c *Canvas) AccountsListAccounts(progress *task.Progress, include string) ([]Account, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Account{}
 	}
@@ -3883,7 +3878,6 @@ func (c *Canvas) AccountsListAccounts(progress *task.Progress) ([]Account, error
 func (c *Canvas) AccountsListAccountsForCourseAdmins(progress *task.Progress) ([]Account, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Account{}
 	}
@@ -3903,7 +3897,6 @@ func (c *Canvas) AccountsListAccountsForCourseAdmins(progress *task.Progress) ([
 func (c *Canvas) AccountsGetASingleAccount(progress *task.Progress) (*Account, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Account{}
 	}
@@ -3922,10 +3915,10 @@ func (c *Canvas) AccountsGetASingleAccount(progress *task.Progress) (*Account, e
 // `self` as the account id to check permissions against the domain root account. The caller must have an account role
 // or admin (teacher/TA/designer) enrollment in a course in the account. See also the {api:CoursesController#permissions
 // Course} and {api:GroupsController#permissions Group} counterparts.
-func (c *Canvas) AccountsPermissions(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountsPermissions(progress *task.Progress, permissions string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/self/permissions")
 	params := map[string]interface{}{}
-
+    params["permissions"] = permissions
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -3941,10 +3934,10 @@ func (c *Canvas) AccountsPermissions(progress *task.Progress) (*map[string]inter
 }
 
 // AccountsGetTheSubAccountsOfAnAccount API call: List accounts that are sub-accounts of the given account.
-func (c *Canvas) AccountsGetTheSubAccountsOfAnAccount(progress *task.Progress) ([]Account, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountsGetTheSubAccountsOfAnAccount(progress *task.Progress, recursive interface{}, accountID string) ([]Account, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sub_accounts", accountID)
 	params := map[string]interface{}{}
-	
+    params["recursive"] = recursive
 	responseCtor := func() interface{} {
 		return &[]Account{}
 	}
@@ -3964,7 +3957,6 @@ func (c *Canvas) AccountsGetTheSubAccountsOfAnAccount(progress *task.Progress) (
 func (c *Canvas) AccountsGetTheTermsOfService(progress *task.Progress) (*TermsOfService, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &TermsOfService{}
 	}
@@ -3983,7 +3975,6 @@ func (c *Canvas) AccountsGetTheTermsOfService(progress *task.Progress) (*TermsOf
 func (c *Canvas) AccountsGetHelpLinks(progress *task.Progress) (*HelpLinks, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &HelpLinks{}
 	}
@@ -3999,10 +3990,27 @@ func (c *Canvas) AccountsGetHelpLinks(progress *task.Progress) (*HelpLinks, erro
 }
 
 // AccountsListActiveCoursesInAnAccount API call: Retrieve a paginated list of courses in this account.
-func (c *Canvas) AccountsListActiveCoursesInAnAccount(progress *task.Progress) ([]Course, error) {
+func (c *Canvas) AccountsListActiveCoursesInAnAccount(progress *task.Progress, withEnrollments bool, enrollmentType string, published bool, completed bool, blueprint bool, blueprintAssociated bool, byTeachers int, bySubaccounts int, hideEnrollmentlessCourses bool, state interface{}, enrollmentTermID int, searchTerm string, include string, sort string, order string, searchBy string, startsBefore time.Time, endsAfter time.Time) ([]Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["with_enrollments"] = withEnrollments
+    params["enrollment_type"] = enrollmentType
+    params["published"] = published
+    params["completed"] = completed
+    params["blueprint"] = blueprint
+    params["blueprint_associated"] = blueprintAssociated
+    params["by_teachers"] = byTeachers
+    params["by_subaccounts"] = bySubaccounts
+    params["hide_enrollmentless_courses"] = hideEnrollmentlessCourses
+    params["state"] = state
+    params["enrollment_term_id"] = enrollmentTermID
+    params["search_term"] = searchTerm
+    params["include"] = include
+    params["sort"] = sort
+    params["order"] = order
+    params["search_by"] = searchBy
+    params["starts_before"] = startsBefore
+    params["ends_after"] = endsAfter
 	responseCtor := func() interface{} {
 		return &[]Course{}
 	}
@@ -4019,10 +4027,10 @@ func (c *Canvas) AccountsListActiveCoursesInAnAccount(progress *task.Progress) (
 }
 
 // AccountsUpdateAnAccount API call: Update an existing account.
-func (c *Canvas) AccountsUpdateAnAccount(progress *task.Progress) (*Account, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AccountsUpdateAnAccount(progress *task.Progress, account string, accountID string) (*Account, error) {
+	endpoint := fmt.Sprintf("accounts/%s", accountID)
 	params := map[string]interface{}{}
-
+    params["account"] = account
 	responseCtor := func() interface{} {
 		return &Account{}
 	}
@@ -4042,9 +4050,8 @@ func (c *Canvas) AccountsUpdateAnAccount(progress *task.Progress) (*Account, err
 // the other accounts. WARNING: This API will allow a user to remove themselves from the account. If they do this, they
 // won't be able to make API calls or log into Canvas at that account.
 func (c *Canvas) AccountsDeleteAUserFromTheRootAccount(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/3/users/5")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -4060,10 +4067,13 @@ func (c *Canvas) AccountsDeleteAUserFromTheRootAccount(progress *task.Progress) 
 }
 
 // AdminsMakeAnAccountAdmin API call: Flag an existing user as an admin within the account.
-func (c *Canvas) AdminsMakeAnAccountAdmin(progress *task.Progress) (*Admin, error) {
+func (c *Canvas) AdminsMakeAnAccountAdmin(progress *task.Progress, userID int, role string, roleID int, sendConfirmation bool) (*Admin, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user_id"] = userID
+    params["role"] = role
+    params["role_id"] = roleID
+    params["send_confirmation"] = sendConfirmation
 	responseCtor := func() interface{} {
 		return &Admin{}
 	}
@@ -4079,10 +4089,11 @@ func (c *Canvas) AdminsMakeAnAccountAdmin(progress *task.Progress) (*Admin, erro
 }
 
 // AdminsRemoveAccountAdmin API call: Remove the rights associated with an account admin role from a user.
-func (c *Canvas) AdminsRemoveAccountAdmin(progress *task.Progress) (*Admin, error) {
+func (c *Canvas) AdminsRemoveAccountAdmin(progress *task.Progress, role string, roleID int) (*Admin, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["role"] = role
+    params["role_id"] = roleID
 	responseCtor := func() interface{} {
 		return &Admin{}
 	}
@@ -4098,10 +4109,10 @@ func (c *Canvas) AdminsRemoveAccountAdmin(progress *task.Progress) (*Admin, erro
 }
 
 // AdminsListAccountAdmins API call: A paginated list of the admins in the account
-func (c *Canvas) AdminsListAccountAdmins(progress *task.Progress) ([]Admin, error) {
+func (c *Canvas) AdminsListAccountAdmins(progress *task.Progress, userID interface{}) ([]Admin, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["user_id"] = userID
 	responseCtor := func() interface{} {
 		return &[]Admin{}
 	}
@@ -4120,10 +4131,14 @@ func (c *Canvas) AdminsListAccountAdmins(progress *task.Progress) ([]Admin, erro
 // AnnouncementsListAnnouncements API call: Returns the paginated list of announcements for the given courses and date
 // range.  Note that a +context_code+ field is added to the responses so you can tell which course each announcement
 // belongs to.
-func (c *Canvas) AnnouncementsListAnnouncements(progress *task.Progress) ([]DiscussionTopic, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AnnouncementsListAnnouncements(progress *task.Progress, contextCodes interface{}, startDate time.Time, endDate time.Time, activeOnly bool, include []interface{}) ([]DiscussionTopic, error) {
+	endpoint := fmt.Sprintf("announcements")
 	params := map[string]interface{}{}
-	
+    params["context_codes"] = contextCodes
+    params["start_date"] = startDate
+    params["end_date"] = endDate
+    params["active_only"] = activeOnly
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]DiscussionTopic{}
 	}
@@ -4141,10 +4156,10 @@ func (c *Canvas) AnnouncementsListAnnouncements(progress *task.Progress) ([]Disc
 
 // ModeratedGradingShowProvisionalGradeStatusForAStudent API call: Determine whether or not the student's submission
 // needs one or more provisional grades.
-func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent(progress *task.Progress, anonymousID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/1/assignments/2/anonymous_provisional_grades/status")
 	params := map[string]interface{}{}
-
+    params["anonymous_id"] = anonymousID
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4161,10 +4176,13 @@ func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent(progress 
 
 // AppointmentGroupsListAppointmentGroups API call: Retrieve the paginated list of appointment groups that can be
 // reserved or managed by the current user.
-func (c *Canvas) AppointmentGroupsListAppointmentGroups(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AppointmentGroupsListAppointmentGroups(progress *task.Progress, scope string, contextCodes string, includePastAppointments bool, include interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["scope"] = scope
+    params["context_codes"] = contextCodes
+    params["include_past_appointments"] = includePastAppointments
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4182,10 +4200,10 @@ func (c *Canvas) AppointmentGroupsListAppointmentGroups(progress *task.Progress)
 // AppointmentGroupsCreateAnAppointmentGroup API call: Create and return a new appointment group. If new_appointments
 // are specified, the response will return a new_appointments array (same format as appointments array, see "List
 // appointment groups" action)
-func (c *Canvas) AppointmentGroupsCreateAnAppointmentGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AppointmentGroupsCreateAnAppointmentGroup(progress *task.Progress, appointmentGroup string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("appointment_groups.json'")
 	params := map[string]interface{}{}
-
+    params["appointment_group"] = appointmentGroup
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4201,10 +4219,10 @@ func (c *Canvas) AppointmentGroupsCreateAnAppointmentGroup(progress *task.Progre
 }
 
 // AppointmentGroupsGetASingleAppointmentGroup API call: Returns information for a single appointment group
-func (c *Canvas) AppointmentGroupsGetASingleAppointmentGroup(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AppointmentGroupsGetASingleAppointmentGroup(progress *task.Progress, include interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4222,10 +4240,10 @@ func (c *Canvas) AppointmentGroupsGetASingleAppointmentGroup(progress *task.Prog
 // AppointmentGroupsUpdateAnAppointmentGroup API call: Update and return an appointment group. If new_appointments are
 // specified, the response will return a new_appointments array (same format as appointments array, see "List
 // appointment groups" action).
-func (c *Canvas) AppointmentGroupsUpdateAnAppointmentGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AppointmentGroupsUpdateAnAppointmentGroup(progress *task.Progress, appointmentGroup string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("appointment_groups/543.json'")
 	params := map[string]interface{}{}
-
+    params["appointment_group"] = appointmentGroup
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4242,10 +4260,10 @@ func (c *Canvas) AppointmentGroupsUpdateAnAppointmentGroup(progress *task.Progre
 
 // AppointmentGroupsDeleteAnAppointmentGroup API call: Delete an appointment group (and associated time slots and
 // reservations) and return the deleted group
-func (c *Canvas) AppointmentGroupsDeleteAnAppointmentGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AppointmentGroupsDeleteAnAppointmentGroup(progress *task.Progress, cancelReason string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("appointment_groups/543.json'")
 	params := map[string]interface{}{}
-
+    params["cancel_reason"] = cancelReason
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4263,10 +4281,10 @@ func (c *Canvas) AppointmentGroupsDeleteAnAppointmentGroup(progress *task.Progre
 // AppointmentGroupsListUserParticipants API call: A paginated list of users that are (or may be) participating in this
 // appointment group.  Refer to the Users API for the response fields. Returns no results for appointment groups with
 // the "Group" participant_type.
-func (c *Canvas) AppointmentGroupsListUserParticipants(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AppointmentGroupsListUserParticipants(progress *task.Progress, registrationStatus interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["registration_status"] = registrationStatus
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4284,10 +4302,10 @@ func (c *Canvas) AppointmentGroupsListUserParticipants(progress *task.Progress) 
 // AppointmentGroupsListStudentGroupParticipants API call: A paginated list of student groups that are (or may be)
 // participating in this appointment group. Refer to the Groups API for the response fields. Returns no results for
 // appointment groups with the "User" participant_type.
-func (c *Canvas) AppointmentGroupsListStudentGroupParticipants(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AppointmentGroupsListStudentGroupParticipants(progress *task.Progress, registrationStatus interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["registration_status"] = registrationStatus
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4304,10 +4322,10 @@ func (c *Canvas) AppointmentGroupsListStudentGroupParticipants(progress *task.Pr
 
 // AppointmentGroupsGetNextAppointment API call: Return the next appointment available to sign up for. The appointment
 // is returned in a one-element array. If no future appointments are available, an empty array is returned.
-func (c *Canvas) AppointmentGroupsGetNextAppointment(progress *task.Progress) ([]CalendarEvent, error) {
+func (c *Canvas) AppointmentGroupsGetNextAppointment(progress *task.Progress, appointmentGroupIds string) ([]CalendarEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["appointment_group_ids"] = appointmentGroupIds
 	responseCtor := func() interface{} {
 		return &[]CalendarEvent{}
 	}
@@ -4324,10 +4342,10 @@ func (c *Canvas) AppointmentGroupsGetNextAppointment(progress *task.Progress) ([
 }
 
 // AssignmentExtensionsSetExtensionsForStudentAssignmentSubmissions API call
-func (c *Canvas) AssignmentExtensionsSetExtensionsForStudentAssignmentSubmissions(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AssignmentExtensionsSetExtensionsForStudentAssignmentSubmissions(progress *task.Progress, assignmentExtensions int) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["assignment_extensions"] = assignmentExtensions
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4344,10 +4362,14 @@ func (c *Canvas) AssignmentExtensionsSetExtensionsForStudentAssignmentSubmission
 
 // AssignmentGroupsListAssignmentGroups API call: Returns the paginated list of assignment groups for the current
 // context. The returned groups are sorted by their position field.
-func (c *Canvas) AssignmentGroupsListAssignmentGroups(progress *task.Progress) ([]AssignmentGroup, error) {
+func (c *Canvas) AssignmentGroupsListAssignmentGroups(progress *task.Progress, include string, excludeAssignmentSubmissionTypes string, overrideAssignmentDates bool, gradingPeriodID int, scopeAssignmentsToStudent bool) ([]AssignmentGroup, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["exclude_assignment_submission_types"] = excludeAssignmentSubmissionTypes
+    params["override_assignment_dates"] = overrideAssignmentDates
+    params["grading_period_id"] = gradingPeriodID
+    params["scope_assignments_to_student"] = scopeAssignmentsToStudent
 	responseCtor := func() interface{} {
 		return &[]AssignmentGroup{}
 	}
@@ -4368,7 +4390,6 @@ func (c *Canvas) AssignmentGroupsListAssignmentGroups(progress *task.Progress) (
 func (c *Canvas) AssignmentsListAssignmentOverrides(progress *task.Progress) ([]AssignmentOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]AssignmentOverride{}
 	}
@@ -4388,7 +4409,6 @@ func (c *Canvas) AssignmentsListAssignmentOverrides(progress *task.Progress) ([]
 func (c *Canvas) AssignmentsGetASingleAssignmentOverride(progress *task.Progress) (*AssignmentOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AssignmentOverride{}
 	}
@@ -4408,7 +4428,6 @@ func (c *Canvas) AssignmentsGetASingleAssignmentOverride(progress *task.Progress
 func (c *Canvas) AssignmentsRedirectToTheAssignmentOverrideForAGroup(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4428,7 +4447,6 @@ func (c *Canvas) AssignmentsRedirectToTheAssignmentOverrideForAGroup(progress *t
 func (c *Canvas) AssignmentsRedirectToTheAssignmentOverrideForASection(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4444,10 +4462,10 @@ func (c *Canvas) AssignmentsRedirectToTheAssignmentOverrideForASection(progress 
 }
 
 // AssignmentsCreateAnAssignmentOverride API call
-func (c *Canvas) AssignmentsCreateAnAssignmentOverride(progress *task.Progress) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsCreateAnAssignmentOverride(progress *task.Progress, assignmentOverride interface{}) (*AssignmentOverride, error) {
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides.json'")
 	params := map[string]interface{}{}
-
+    params["assignment_override"] = assignmentOverride
 	responseCtor := func() interface{} {
 		return &AssignmentOverride{}
 	}
@@ -4463,10 +4481,10 @@ func (c *Canvas) AssignmentsCreateAnAssignmentOverride(progress *task.Progress) 
 }
 
 // AssignmentsUpdateAnAssignmentOverride API call
-func (c *Canvas) AssignmentsUpdateAnAssignmentOverride(progress *task.Progress) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsUpdateAnAssignmentOverride(progress *task.Progress, assignmentOverride interface{}) (*AssignmentOverride, error) {
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json'")
 	params := map[string]interface{}{}
-
+    params["assignment_override"] = assignmentOverride
 	responseCtor := func() interface{} {
 		return &AssignmentOverride{}
 	}
@@ -4483,9 +4501,8 @@ func (c *Canvas) AssignmentsUpdateAnAssignmentOverride(progress *task.Progress) 
 
 // AssignmentsDeleteAnAssignmentOverride API call: Deletes an override and returns its former details.
 func (c *Canvas) AssignmentsDeleteAnAssignmentOverride(progress *task.Progress) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AssignmentOverride{}
 	}
@@ -4503,10 +4520,10 @@ func (c *Canvas) AssignmentsDeleteAnAssignmentOverride(progress *task.Progress) 
 // AssignmentsBatchRetrieveOverridesInACourse API call: Returns a list of specified overrides in this course, providing
 // they target sections/groups/students visible to the current user. Returns null elements in the list for requests that
 // were not found.
-func (c *Canvas) AssignmentsBatchRetrieveOverridesInACourse(progress *task.Progress) ([]AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsBatchRetrieveOverridesInACourse(progress *task.Progress, assignmentOverrides interface{}) ([]AssignmentOverride, error) {
+	endpoint := fmt.Sprintf("courses/12/assignments/overrides.json")
 	params := map[string]interface{}{}
-	
+    params["assignment_overrides"] = assignmentOverrides
 	responseCtor := func() interface{} {
 		return &[]AssignmentOverride{}
 	}
@@ -4528,10 +4545,10 @@ func (c *Canvas) AssignmentsBatchRetrieveOverridesInACourse(progress *task.Progr
 // then group_id, then course_section_id) is used and any others are ignored. Errors are reported in an errors
 // attribute, an array of errors corresponding to inputs.  Global errors will be reported as a single element errors
 // array
-func (c *Canvas) AssignmentsBatchCreateOverridesInACourse(progress *task.Progress) ([]AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsBatchCreateOverridesInACourse(progress *task.Progress, assignmentOverrides interface{}) ([]AssignmentOverride, error) {
+	endpoint := fmt.Sprintf("courses/12/assignments/overrides.json")
 	params := map[string]interface{}{}
-	
+    params["assignment_overrides"] = assignmentOverrides
 	responseCtor := func() interface{} {
 		return &[]AssignmentOverride{}
 	}
@@ -4555,10 +4572,10 @@ func (c *Canvas) AssignmentsBatchCreateOverridesInACourse(progress *task.Progres
 // target override set is unchanged. Target override sets cannot be changed for group or section overrides. Errors are
 // reported in an errors attribute, an array of errors corresponding to inputs.  Global errors will be reported as a
 // single element errors array
-func (c *Canvas) AssignmentsBatchUpdateOverridesInACourse(progress *task.Progress) ([]AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsBatchUpdateOverridesInACourse(progress *task.Progress, assignmentOverrides interface{}) ([]AssignmentOverride, error) {
+	endpoint := fmt.Sprintf("courses/12/assignments/overrides.json")
 	params := map[string]interface{}{}
-	
+    params["assignment_overrides"] = assignmentOverrides
 	responseCtor := func() interface{} {
 		return &[]AssignmentOverride{}
 	}
@@ -4576,10 +4593,17 @@ func (c *Canvas) AssignmentsBatchUpdateOverridesInACourse(progress *task.Progres
 
 // AssignmentsListAssignments API call: Returns the paginated list of assignments for the current course or assignment
 // group.
-func (c *Canvas) AssignmentsListAssignments(progress *task.Progress) ([]Assignment, error) {
+func (c *Canvas) AssignmentsListAssignments(progress *task.Progress, include string, searchTerm string, overrideAssignmentDates bool, needsGradingCountBySection bool, bucket string, assignmentIds interface{}, orderBy string, postToSis bool) ([]Assignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["search_term"] = searchTerm
+    params["override_assignment_dates"] = overrideAssignmentDates
+    params["needs_grading_count_by_section"] = needsGradingCountBySection
+    params["bucket"] = bucket
+    params["assignment_ids"] = assignmentIds
+    params["order_by"] = orderBy
+    params["post_to_sis"] = postToSis
 	responseCtor := func() interface{} {
 		return &[]Assignment{}
 	}
@@ -4600,7 +4624,6 @@ func (c *Canvas) AssignmentsListAssignments(progress *task.Progress) ([]Assignme
 func (c *Canvas) AssignmentsListAssignmentsForUser(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4616,10 +4639,13 @@ func (c *Canvas) AssignmentsListAssignmentsForUser(progress *task.Progress) (*ma
 }
 
 // AssignmentsGetASingleAssignment API call: Returns the assignment with the given id.
-func (c *Canvas) AssignmentsGetASingleAssignment(progress *task.Progress) (*Assignment, error) {
+func (c *Canvas) AssignmentsGetASingleAssignment(progress *task.Progress, include string, overrideAssignmentDates bool, needsGradingCountBySection bool, allDates bool) (*Assignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
+    params["override_assignment_dates"] = overrideAssignmentDates
+    params["needs_grading_count_by_section"] = needsGradingCountBySection
+    params["all_dates"] = allDates
 	responseCtor := func() interface{} {
 		return &Assignment{}
 	}
@@ -4636,10 +4662,10 @@ func (c *Canvas) AssignmentsGetASingleAssignment(progress *task.Progress) (*Assi
 
 // AssignmentsCreateAnAssignment API call: Create a new assignment for this course. The assignment is created in the
 // active state.
-func (c *Canvas) AssignmentsCreateAnAssignment(progress *task.Progress) (*Assignment, error) {
+func (c *Canvas) AssignmentsCreateAnAssignment(progress *task.Progress, assignment interface{}) (*Assignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["assignment"] = assignment
 	responseCtor := func() interface{} {
 		return &Assignment{}
 	}
@@ -4655,10 +4681,10 @@ func (c *Canvas) AssignmentsCreateAnAssignment(progress *task.Progress) (*Assign
 }
 
 // AssignmentsEditAnAssignment API call: Modify an existing assignment.
-func (c *Canvas) AssignmentsEditAnAssignment(progress *task.Progress) (*Assignment, error) {
+func (c *Canvas) AssignmentsEditAnAssignment(progress *task.Progress, assignment interface{}) (*Assignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["assignment"] = assignment
 	responseCtor := func() interface{} {
 		return &Assignment{}
 	}
@@ -4683,9 +4709,8 @@ func (c *Canvas) AssignmentsEditAnAssignment(progress *task.Progress) (*Assignme
 // will be returned if any provided dates are invalid, and no changes will be saved. The bulk update is performed in a
 // background job, use the {api:ProgressController#show Progress API} to check its status.
 func (c *Canvas) AssignmentsBulkUpdateAssignmentDates(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/assignments/bulk_update'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -4701,10 +4726,11 @@ func (c *Canvas) AssignmentsBulkUpdateAssignmentDates(progress *task.Progress) (
 }
 
 // AuthenticationsLogQueryByLogin API call: List authentication events for a given login.
-func (c *Canvas) AuthenticationsLogQueryByLogin(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AuthenticationsLogQueryByLogin(progress *task.Progress, startTime time.Time, endTime time.Time) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4720,10 +4746,11 @@ func (c *Canvas) AuthenticationsLogQueryByLogin(progress *task.Progress) (*map[s
 }
 
 // AuthenticationsLogQueryByAccount API call: List authentication events for a given account.
-func (c *Canvas) AuthenticationsLogQueryByAccount(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AuthenticationsLogQueryByAccount(progress *task.Progress, startTime time.Time, endTime time.Time) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4739,10 +4766,11 @@ func (c *Canvas) AuthenticationsLogQueryByAccount(progress *task.Progress) (*map
 }
 
 // AuthenticationsLogQueryByUser API call: List authentication events for a given user.
-func (c *Canvas) AuthenticationsLogQueryByUser(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) AuthenticationsLogQueryByUser(progress *task.Progress, startTime time.Time, endTime time.Time) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4758,10 +4786,9 @@ func (c *Canvas) AuthenticationsLogQueryByUser(progress *task.Progress) (*map[st
 }
 
 // AuthenticationProvidersListAuthenticationProviders API call: Returns a paginated list of authentication providers
-func (c *Canvas) AuthenticationProvidersListAuthenticationProviders(progress *task.Progress) ([]AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersListAuthenticationProviders(progress *task.Progress, accountID string) ([]AuthenticationProvider, error) {
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers'", accountID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]AuthenticationProvider{}
 	}
@@ -4874,10 +4901,9 @@ func (c *Canvas) AuthenticationProvidersListAuthenticationProviders(progress *ta
 // Accepts a boolean value, true designates the authentication service for use on parent registrations.  Only one
 // service can be selected at a time so if set to true all others will be set to false - federated_attributes [Optional]
 // See FederatedAttributesConfig. Valid provider attributes are 'name', 'screen_name', 'time_zone', and 'user_id'.
-func (c *Canvas) AuthenticationProvidersAddAuthenticationProvider(progress *task.Progress) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersAddAuthenticationProvider(progress *task.Progress, accountID string) (*AuthenticationProvider, error) {
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers'", accountID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
 	}
@@ -4894,10 +4920,9 @@ func (c *Canvas) AuthenticationProvidersAddAuthenticationProvider(progress *task
 
 // AuthenticationProvidersUpdateAuthenticationProvider API call: Update an authentication provider using the same
 // options as the create endpoint. You can not update an existing provider to a new authentication type.
-func (c *Canvas) AuthenticationProvidersUpdateAuthenticationProvider(progress *task.Progress) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersUpdateAuthenticationProvider(progress *task.Progress, accountID string, id string) (*AuthenticationProvider, error) {
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
 	}
@@ -4913,10 +4938,9 @@ func (c *Canvas) AuthenticationProvidersUpdateAuthenticationProvider(progress *t
 }
 
 // AuthenticationProvidersGetAuthenticationProvider API call: Get the specified authentication provider
-func (c *Canvas) AuthenticationProvidersGetAuthenticationProvider(progress *task.Progress) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersGetAuthenticationProvider(progress *task.Progress, accountID string, id string) (*AuthenticationProvider, error) {
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
 	}
@@ -4932,10 +4956,9 @@ func (c *Canvas) AuthenticationProvidersGetAuthenticationProvider(progress *task
 }
 
 // AuthenticationProvidersDeleteAuthenticationProvider API call: Delete the config
-func (c *Canvas) AuthenticationProvidersDeleteAuthenticationProvider(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersDeleteAuthenticationProvider(progress *task.Progress, accountID string, id string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -4953,10 +4976,9 @@ func (c *Canvas) AuthenticationProvidersDeleteAuthenticationProvider(progress *t
 // AuthenticationProvidersShowAccountAuthSettings API call: The way to get the current state of each account level
 // setting that's relevant to Single Sign On configuration You can list the current state of each setting with
 // "update_sso_settings"
-func (c *Canvas) AuthenticationProvidersShowAccountAuthSettings(progress *task.Progress) (*SSOSettings, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersShowAccountAuthSettings(progress *task.Progress, accountID string) (*SSOSettings, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sso_settings'", accountID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SSOSettings{}
 	}
@@ -4976,10 +4998,9 @@ func (c *Canvas) AuthenticationProvidersShowAccountAuthSettings(progress *task.P
 // PUT request to set several possible account settings. All setting are optional on each request, any that are not
 // provided at all are simply retained as is.  Any that provide the key but a null-ish value (blank string, null,
 // undefined) will be UN-set. You can list the current state of each setting with "show_sso_settings"
-func (c *Canvas) AuthenticationProvidersUpdateAccountAuthSettings(progress *task.Progress) (*SSOSettings, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AuthenticationProvidersUpdateAccountAuthSettings(progress *task.Progress, accountID string) (*SSOSettings, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sso_settings'", accountID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SSOSettings{}
 	}
@@ -4996,10 +5017,16 @@ func (c *Canvas) AuthenticationProvidersUpdateAccountAuthSettings(progress *task
 
 // CalendarEventsListCalendarEvents API call: Retrieve the paginated list of calendar events or assignments for the
 // current user
-func (c *Canvas) CalendarEventsListCalendarEvents(progress *task.Progress) ([]CalendarEvent, error) {
+func (c *Canvas) CalendarEventsListCalendarEvents(progress *task.Progress, typeName interface{}, startDate time.Time, endDate time.Time, undated bool, allEvents bool, contextCodes string, excludes []interface{}) ([]CalendarEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["type"] = typeName
+    params["start_date"] = startDate
+    params["end_date"] = endDate
+    params["undated"] = undated
+    params["all_events"] = allEvents
+    params["context_codes"] = contextCodes
+    params["excludes"] = excludes
 	responseCtor := func() interface{} {
 		return &[]CalendarEvent{}
 	}
@@ -5018,10 +5045,18 @@ func (c *Canvas) CalendarEventsListCalendarEvents(progress *task.Progress) ([]Ca
 // CalendarEventsListCalendarEventsForAUser API call: Retrieve the paginated list of calendar events or assignments for
 // the specified user. To view calendar events for a user other than yourself, you must either be an observer of that
 // user or an administrator.
-func (c *Canvas) CalendarEventsListCalendarEventsForAUser(progress *task.Progress) ([]CalendarEvent, error) {
+func (c *Canvas) CalendarEventsListCalendarEventsForAUser(progress *task.Progress, typeName interface{}, startDate time.Time, endDate time.Time, undated bool, allEvents bool, contextCodes string, excludes []interface{}, submissionTypes []interface{}, excludeSubmissionTypes []interface{}) ([]CalendarEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["type"] = typeName
+    params["start_date"] = startDate
+    params["end_date"] = endDate
+    params["undated"] = undated
+    params["all_events"] = allEvents
+    params["context_codes"] = contextCodes
+    params["excludes"] = excludes
+    params["submission_types"] = submissionTypes
+    params["exclude_submission_types"] = excludeSubmissionTypes
 	responseCtor := func() interface{} {
 		return &[]CalendarEvent{}
 	}
@@ -5038,10 +5073,10 @@ func (c *Canvas) CalendarEventsListCalendarEventsForAUser(progress *task.Progres
 }
 
 // CalendarEventsCreateACalendarEvent API call: Create and return a new calendar event
-func (c *Canvas) CalendarEventsCreateACalendarEvent(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CalendarEventsCreateACalendarEvent(progress *task.Progress, calendarEvent string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("calendar_events.json'")
 	params := map[string]interface{}{}
-
+    params["calendar_event"] = calendarEvent
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5060,7 +5095,6 @@ func (c *Canvas) CalendarEventsCreateACalendarEvent(progress *task.Progress) (*m
 func (c *Canvas) CalendarEventsGetASingleCalendarEventOrAssignment(progress *task.Progress) (*CalendarEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CalendarEvent{}
 	}
@@ -5076,10 +5110,12 @@ func (c *Canvas) CalendarEventsGetASingleCalendarEventOrAssignment(progress *tas
 }
 
 // CalendarEventsReserveATimeSlot API call: Reserves a particular time slot and return the new reservation
-func (c *Canvas) CalendarEventsReserveATimeSlot(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CalendarEventsReserveATimeSlot(progress *task.Progress, participantID string, comments string, cancelExisting bool) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("calendar_events/345/reservations.json'")
 	params := map[string]interface{}{}
-
+    params["participant_id"] = participantID
+    params["comments"] = comments
+    params["cancel_existing"] = cancelExisting
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5095,10 +5131,10 @@ func (c *Canvas) CalendarEventsReserveATimeSlot(progress *task.Progress) (*map[s
 }
 
 // CalendarEventsUpdateACalendarEvent API call: Update and return a calendar event
-func (c *Canvas) CalendarEventsUpdateACalendarEvent(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CalendarEventsUpdateACalendarEvent(progress *task.Progress, calendarEvent string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("calendar_events/234.json'")
 	params := map[string]interface{}{}
-
+    params["calendar_event"] = calendarEvent
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5114,10 +5150,10 @@ func (c *Canvas) CalendarEventsUpdateACalendarEvent(progress *task.Progress) (*m
 }
 
 // CalendarEventsDeleteACalendarEvent API call: Delete an event from the calendar and return the deleted event
-func (c *Canvas) CalendarEventsDeleteACalendarEvent(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CalendarEventsDeleteACalendarEvent(progress *task.Progress, cancelReason string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("calendar_events/234.json'")
 	params := map[string]interface{}{}
-
+    params["cancel_reason"] = cancelReason
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5136,10 +5172,10 @@ func (c *Canvas) CalendarEventsDeleteACalendarEvent(progress *task.Progress) (*m
 // generate a series of calendar events based on simple schedules (e.g. "Monday and Wednesday at 2:00pm" ) Existing
 // timetable events for the course and course sections will be updated if they still are part of the timetable.
 // Otherwise, they will be deleted.
-func (c *Canvas) CalendarEventsSetACourseTimetable(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CalendarEventsSetACourseTimetable(progress *task.Progress, timetables []interface{}) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("calendar_events/timetable'")
 	params := map[string]interface{}{}
-
+    params["timetables"] = timetables
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5159,7 +5195,6 @@ func (c *Canvas) CalendarEventsSetACourseTimetable(progress *task.Progress) (*ma
 func (c *Canvas) CalendarEventsGetCourseTimetable(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5178,10 +5213,11 @@ func (c *Canvas) CalendarEventsGetCourseTimetable(progress *task.Progress) (*map
 // course or course section. Similar to {api:CalendarEventsApiController#set_course_timetable setting a course
 // timetable}, but instead of generating a list of events based on a timetable schedule, this endpoint expects a
 // complete list of events.
-func (c *Canvas) CalendarEventsCreateOrUpdateEventsDirectlyForACourseTimetable(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) CalendarEventsCreateOrUpdateEventsDirectlyForACourseTimetable(progress *task.Progress, courseSectionID string, events []interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course_section_id"] = courseSectionID
+    params["events"] = events
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5202,7 +5238,6 @@ func (c *Canvas) CalendarEventsCreateOrUpdateEventsDirectlyForACourseTimetable(p
 func (c *Canvas) CollaborationsListCollaborations(progress *task.Progress) ([]Collaboration, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Collaboration{}
 	}
@@ -5219,10 +5254,10 @@ func (c *Canvas) CollaborationsListCollaborations(progress *task.Progress) ([]Co
 }
 
 // CollaborationsListMembersOfACollaboration API call: A paginated list of the collaborators of a given collaboration
-func (c *Canvas) CollaborationsListMembersOfACollaboration(progress *task.Progress) ([]Collaborator, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CollaborationsListMembersOfACollaboration(progress *task.Progress, include string) ([]Collaborator, error) {
+	endpoint := fmt.Sprintf("courses/1/collaborations/1/members")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Collaborator{}
 	}
@@ -5244,7 +5279,6 @@ func (c *Canvas) CollaborationsListMembersOfACollaboration(progress *task.Progre
 func (c *Canvas) CollaborationsListPotentialMembers(progress *task.Progress) ([]User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -5261,10 +5295,12 @@ func (c *Canvas) CollaborationsListPotentialMembers(progress *task.Progress) ([]
 }
 
 // CommmessagesListOfCommmessagesForAUser API call: Retrieve a paginated list of messages sent to a user.
-func (c *Canvas) CommmessagesListOfCommmessagesForAUser(progress *task.Progress) ([]CommMessage, error) {
+func (c *Canvas) CommmessagesListOfCommmessagesForAUser(progress *task.Progress, userID string, startTime time.Time, endTime time.Time) ([]CommMessage, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["user_id"] = userID
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]CommMessage{}
 	}
@@ -5283,9 +5319,8 @@ func (c *Canvas) CommmessagesListOfCommmessagesForAUser(progress *task.Progress)
 // CommunicationChannelsListUserCommunicationChannels API call: Returns a paginated list of communication channels for
 // the specified user, sorted by position.
 func (c *Canvas) CommunicationChannelsListUserCommunicationChannels(progress *task.Progress) ([]CommunicationChannel, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/12345/communication_channels")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]CommunicationChannel{}
 	}
@@ -5303,10 +5338,11 @@ func (c *Canvas) CommunicationChannelsListUserCommunicationChannels(progress *ta
 
 // CommunicationChannelsCreateACommunicationChannel API call: Creates a new communication channel for the specified
 // user.
-func (c *Canvas) CommunicationChannelsCreateACommunicationChannel(progress *task.Progress) (*CommunicationChannel, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CommunicationChannelsCreateACommunicationChannel(progress *task.Progress, communicationChannel string, skipConfirmation bool) (*CommunicationChannel, error) {
+	endpoint := fmt.Sprintf("users/1/communication_channels")
 	params := map[string]interface{}{}
-
+    params["communication_channel"] = communicationChannel
+    params["skip_confirmation"] = skipConfirmation
 	responseCtor := func() interface{} {
 		return &CommunicationChannel{}
 	}
@@ -5323,9 +5359,8 @@ func (c *Canvas) CommunicationChannelsCreateACommunicationChannel(progress *task
 
 // CommunicationChannelsDeleteACommunicationChannel API call: Delete an existing communication channel.
 func (c *Canvas) CommunicationChannelsDeleteACommunicationChannel(progress *task.Progress) (*CommunicationChannel, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/5/communication_channels/3")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CommunicationChannel{}
 	}
@@ -5342,9 +5377,8 @@ func (c *Canvas) CommunicationChannelsDeleteACommunicationChannel(progress *task
 
 // CommunicationChannelsDeleteAPushNotificationEndpoint API call
 func (c *Canvas) CommunicationChannelsDeleteAPushNotificationEndpoint(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/communication_channels/push")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5361,10 +5395,9 @@ func (c *Canvas) CommunicationChannelsDeleteAPushNotificationEndpoint(progress *
 
 // ConferencesListConferences API call: Retrieve the paginated list of conferences for this context This API returns a
 // JSON object containing the list of conferences, the key for the list of conferences is "conferences"
-func (c *Canvas) ConferencesListConferences(progress *task.Progress) ([]Conference, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ConferencesListConferences(progress *task.Progress, courseID string) ([]Conference, error) {
+	endpoint := fmt.Sprintf("courses/%s/conferences'", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Conference{}
 	}
@@ -5383,10 +5416,10 @@ func (c *Canvas) ConferencesListConferences(progress *task.Progress) ([]Conferen
 // ConferencesListConferencesForTheCurrentUser API call: Retrieve the paginated list of conferences for all courses and
 // groups the current user belongs to This API returns a JSON object containing the list of conferences. The key for the
 // list of conferences is "conferences".
-func (c *Canvas) ConferencesListConferencesForTheCurrentUser(progress *task.Progress) ([]Conference, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ConferencesListConferencesForTheCurrentUser(progress *task.Progress, state string) ([]Conference, error) {
+	endpoint := fmt.Sprintf("conferences'")
 	params := map[string]interface{}{}
-	
+    params["state"] = state
 	responseCtor := func() interface{} {
 		return &[]Conference{}
 	}
@@ -5407,7 +5440,6 @@ func (c *Canvas) ConferencesListConferencesForTheCurrentUser(progress *task.Prog
 func (c *Canvas) ContentExportsListContentExports(progress *task.Progress) ([]ContentExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]ContentExport{}
 	}
@@ -5427,7 +5459,6 @@ func (c *Canvas) ContentExportsListContentExports(progress *task.Progress) ([]Co
 func (c *Canvas) ContentExportsShowContentExport(progress *task.Progress) (*ContentExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ContentExport{}
 	}
@@ -5446,10 +5477,12 @@ func (c *Canvas) ContentExportsShowContentExport(progress *task.Progress) (*Cont
 // {api:ProgressController#show Progress API} to track the progress of the export. The migration's progress is linked to
 // with the _progress_url_ value. When the export completes, use the {api:ContentExportsApiController#show Show content
 // export} endpoint to retrieve a download URL for the exported content.
-func (c *Canvas) ContentExportsExportContent(progress *task.Progress) (*ContentExport, error) {
+func (c *Canvas) ContentExportsExportContent(progress *task.Progress, exportType string, skipNotifications bool, selectField string) (*ContentExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["export_type"] = exportType
+    params["skip_notifications"] = skipNotifications
+    params["select"] = selectField
 	responseCtor := func() interface{} {
 		return &ContentExport{}
 	}
@@ -5465,10 +5498,9 @@ func (c *Canvas) ContentExportsExportContent(progress *task.Progress) (*ContentE
 }
 
 // ContentMigrationsListContentMigrations API call: Returns paginated content migrations
-func (c *Canvas) ContentMigrationsListContentMigrations(progress *task.Progress) ([]ContentMigration, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsListContentMigrations(progress *task.Progress, courseID string) ([]ContentMigration, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]ContentMigration{}
 	}
@@ -5485,10 +5517,9 @@ func (c *Canvas) ContentMigrationsListContentMigrations(progress *task.Progress)
 }
 
 // ContentMigrationsGetAContentMigration API call: Returns data on an individual content migration
-func (c *Canvas) ContentMigrationsGetAContentMigration(progress *task.Progress) (*ContentMigration, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsGetAContentMigration(progress *task.Progress, courseID string, id string) (*ContentMigration, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations/%s", courseID, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ContentMigration{}
 	}
@@ -5514,10 +5545,15 @@ func (c *Canvas) ContentMigrationsGetAContentMigration(progress *task.Progress) 
 // *pre_attachment* 2. Do {file:file_uploads.html file upload processing} using the data in the *pre_attachment* data 3.
 // {api:ContentMigrationsController#show GET} the ContentMigration 4. Use the {api:ProgressController#show Progress}
 // specified in _progress_url_ to monitor progress
-func (c *Canvas) ContentMigrationsCreateAContentMigration(progress *task.Progress) (*ContentMigration, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsCreateAContentMigration(progress *task.Progress, migrationType string, preAttachment string, settings interface{}, dateShiftOptions bool, selectiveImport bool, selectField string, courseID string) (*ContentMigration, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations'", courseID)
 	params := map[string]interface{}{}
-
+    params["migration_type"] = migrationType
+    params["pre_attachment"] = preAttachment
+    params["settings"] = settings
+    params["date_shift_options"] = dateShiftOptions
+    params["selective_import"] = selectiveImport
+    params["select"] = selectField
 	responseCtor := func() interface{} {
 		return &ContentMigration{}
 	}
@@ -5540,7 +5576,6 @@ func (c *Canvas) ContentMigrationsCreateAContentMigration(progress *task.Progres
 func (c *Canvas) ContentMigrationsUpdateAContentMigration(progress *task.Progress) (*ContentMigration, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ContentMigration{}
 	}
@@ -5560,7 +5595,6 @@ func (c *Canvas) ContentMigrationsUpdateAContentMigration(progress *task.Progres
 func (c *Canvas) ContentMigrationsListMigrationSystems(progress *task.Progress) ([]Migrator, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Migrator{}
 	}
@@ -5583,10 +5617,10 @@ func (c *Canvas) ContentMigrationsListMigrationSystems(progress *task.Progress) 
 // obtain copy parameters for a subset of the resources in a given node. If no +type+ is sent you will get a list of the
 // top-level sections in the content. It will look something like this: [{ "type": "course_settings", "property":
 // "copy[all_course_settings]", "title": "Course Settings" },
-func (c *Canvas) ContentMigrationsListItemsForSelectiveImport(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentMigrationsListItemsForSelectiveImport(progress *task.Progress, typeName interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["type"] = typeName
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5602,10 +5636,12 @@ func (c *Canvas) ContentMigrationsListItemsForSelectiveImport(progress *task.Pro
 }
 
 // ContentSharesCreateAContentShare API call: Share content directly between two or more users
-func (c *Canvas) ContentSharesCreateAContentShare(progress *task.Progress) (*ContentShare, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentSharesCreateAContentShare(progress *task.Progress, receiverIds []interface{}, contentType string, contentID int) (*ContentShare, error) {
+	endpoint := fmt.Sprintf("users/self/content_shares")
 	params := map[string]interface{}{}
-
+    params["receiver_ids"] = receiverIds
+    params["content_type"] = contentType
+    params["content_id"] = contentID
 	responseCtor := func() interface{} {
 		return &ContentShare{}
 	}
@@ -5624,9 +5660,8 @@ func (c *Canvas) ContentSharesCreateAContentShare(progress *task.Progress) (*Con
 // +self+ as the user_id to retrieve your own content shares. Only linked observers and administrators may view other
 // users' content shares.
 func (c *Canvas) ContentSharesListContentShares(progress *task.Progress) ([]ContentShare, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/content_shares/received'")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]ContentShare{}
 	}
@@ -5646,9 +5681,8 @@ func (c *Canvas) ContentSharesListContentShares(progress *task.Progress) ([]Cont
 // been read. Use +self+ as the user_id to retrieve your own content shares. Only linked observers and administrators
 // may view other users' content shares.
 func (c *Canvas) ContentSharesGetUnreadSharesCount(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/content_shares/unread_count'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5666,9 +5700,8 @@ func (c *Canvas) ContentSharesGetUnreadSharesCount(progress *task.Progress) (*ma
 // ContentSharesGetContentShare API call: Return information about a single content share. You may use +self+ as the
 // user_id to retrieve your own content share.
 func (c *Canvas) ContentSharesGetContentShare(progress *task.Progress) (*ContentShare, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/content_shares/123'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ContentShare{}
 	}
@@ -5686,9 +5719,8 @@ func (c *Canvas) ContentSharesGetContentShare(progress *task.Progress) (*Content
 // ContentSharesRemoveContentShare API call: Remove a content share from your list. Use +self+ as the user_id. Note that
 // this endpoint does not delete other users' copies of the content share.
 func (c *Canvas) ContentSharesRemoveContentShare(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/content_shares/123'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5704,10 +5736,10 @@ func (c *Canvas) ContentSharesRemoveContentShare(progress *task.Progress) (*map[
 }
 
 // ContentSharesAddUsersToContentShare API call: Send a previously created content share to additional users
-func (c *Canvas) ContentSharesAddUsersToContentShare(progress *task.Progress) (*ContentShare, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentSharesAddUsersToContentShare(progress *task.Progress, receiverIds []interface{}) (*ContentShare, error) {
+	endpoint := fmt.Sprintf("users/self/content_shares/123/add_users")
 	params := map[string]interface{}{}
-
+    params["receiver_ids"] = receiverIds
 	responseCtor := func() interface{} {
 		return &ContentShare{}
 	}
@@ -5723,10 +5755,10 @@ func (c *Canvas) ContentSharesAddUsersToContentShare(progress *task.Progress) (*
 }
 
 // ContentSharesUpdateAContentShare API call: Mark a content share read or unread
-func (c *Canvas) ContentSharesUpdateAContentShare(progress *task.Progress) (*ContentShare, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentSharesUpdateAContentShare(progress *task.Progress, readState string) (*ContentShare, error) {
+	endpoint := fmt.Sprintf("users/self/content_shares/123")
 	params := map[string]interface{}{}
-
+    params["read_state"] = readState
 	responseCtor := func() interface{} {
 		return &ContentShare{}
 	}
@@ -5742,10 +5774,12 @@ func (c *Canvas) ContentSharesUpdateAContentShare(progress *task.Progress) (*Con
 }
 
 // ModulesListModuleItems API call: A paginated list of the items in a module
-func (c *Canvas) ModulesListModuleItems(progress *task.Progress) ([]ModuleItem, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesListModuleItems(progress *task.Progress, include string, searchTerm string, studentID interface{}) ([]ModuleItem, error) {
+	endpoint := fmt.Sprintf("courses/222/modules/123/items")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["search_term"] = searchTerm
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &[]ModuleItem{}
 	}
@@ -5762,10 +5796,11 @@ func (c *Canvas) ModulesListModuleItems(progress *task.Progress) ([]ModuleItem, 
 }
 
 // ModulesShowModuleItem API call: Get information about a single module item
-func (c *Canvas) ModulesShowModuleItem(progress *task.Progress) (*ModuleItem, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesShowModuleItem(progress *task.Progress, include string, studentID interface{}) (*ModuleItem, error) {
+	endpoint := fmt.Sprintf("courses/222/modules/123/items/768")
 	params := map[string]interface{}{}
-
+    params["include"] = include
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &ModuleItem{}
 	}
@@ -5781,10 +5816,10 @@ func (c *Canvas) ModulesShowModuleItem(progress *task.Progress) (*ModuleItem, er
 }
 
 // ModulesCreateAModuleItem API call: Create and return a new module item
-func (c *Canvas) ModulesCreateAModuleItem(progress *task.Progress) (*ModuleItem, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesCreateAModuleItem(progress *task.Progress, moduleItem string, courseID string, moduleID string) (*ModuleItem, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items", courseID, moduleID)
 	params := map[string]interface{}{}
-
+    params["module_item"] = moduleItem
 	responseCtor := func() interface{} {
 		return &ModuleItem{}
 	}
@@ -5800,10 +5835,10 @@ func (c *Canvas) ModulesCreateAModuleItem(progress *task.Progress) (*ModuleItem,
 }
 
 // ModulesUpdateAModuleItem API call: Update and return an existing module item
-func (c *Canvas) ModulesUpdateAModuleItem(progress *task.Progress) (*ModuleItem, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesUpdateAModuleItem(progress *task.Progress, moduleItem string, courseID string, moduleID string, itemID string) (*ModuleItem, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items/%s", courseID, moduleID, itemID)
 	params := map[string]interface{}{}
-
+    params["module_item"] = moduleItem
 	responseCtor := func() interface{} {
 		return &ModuleItem{}
 	}
@@ -5821,10 +5856,11 @@ func (c *Canvas) ModulesUpdateAModuleItem(progress *task.Progress) (*ModuleItem,
 // ModulesSelectAMasteryPath API call: Select a mastery path when module item includes several possible paths. Requires
 // Mastery Paths feature to be enabled.  Returns a compound document with the assignments included in the given path and
 // any module items related to those assignments
-func (c *Canvas) ModulesSelectAMasteryPath(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesSelectAMasteryPath(progress *task.Progress, assignmentSetID interface{}, studentID interface{}, courseID string, moduleID string, itemID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items/%s/select_master_path", courseID, moduleID, itemID)
 	params := map[string]interface{}{}
-
+    params["assignment_set_id"] = assignmentSetID
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5840,10 +5876,9 @@ func (c *Canvas) ModulesSelectAMasteryPath(progress *task.Progress) (*map[string
 }
 
 // ModulesDeleteModuleItem API call: Delete a module item
-func (c *Canvas) ModulesDeleteModuleItem(progress *task.Progress) (*ModuleItem, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesDeleteModuleItem(progress *task.Progress, courseID string, moduleID string, itemID string) (*ModuleItem, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items/%s", courseID, moduleID, itemID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ModuleItem{}
 	}
@@ -5860,10 +5895,9 @@ func (c *Canvas) ModulesDeleteModuleItem(progress *task.Progress) (*ModuleItem, 
 
 // ModulesMarkModuleItemAsDoneNotDone API call: Mark a module item as done/not done. Use HTTP method PUT to mark as
 // done, and DELETE to mark as not done.
-func (c *Canvas) ModulesMarkModuleItemAsDoneNotDone(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesMarkModuleItemAsDoneNotDone(progress *task.Progress, courseID string, moduleID string, itemID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items/%s/done", courseID, moduleID, itemID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5880,10 +5914,11 @@ func (c *Canvas) ModulesMarkModuleItemAsDoneNotDone(progress *task.Progress) (*m
 
 // ModulesGetModuleItemSequence API call: Given an asset in a course, find the ModuleItem it belongs to, the previous
 // and next Module Items in the course sequence, and also any applicable mastery path rules
-func (c *Canvas) ModulesGetModuleItemSequence(progress *task.Progress) (*ModuleItemSequence, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesGetModuleItemSequence(progress *task.Progress, assetType string, assetID int, courseID string) (*ModuleItemSequence, error) {
+	endpoint := fmt.Sprintf("courses/%s/module_item_sequence", courseID)
 	params := map[string]interface{}{}
-
+    params["asset_type"] = assetType
+    params["asset_id"] = assetID
 	responseCtor := func() interface{} {
 		return &ModuleItemSequence{}
 	}
@@ -5902,10 +5937,9 @@ func (c *Canvas) ModulesGetModuleItemSequence(progress *task.Progress) (*ModuleI
 // to do this explicitly, but it is provided for applications that need to access external content directly (bypassing
 // the html_url redirect that normally allows Canvas to fulfill "must view" requirements). This endpoint cannot be used
 // to complete requirements on locked or unpublished module items.
-func (c *Canvas) ModulesMarkModuleItemRead(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesMarkModuleItemRead(progress *task.Progress, courseID string, moduleID string, itemID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/items/%s/mark_read", courseID, moduleID, itemID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5922,10 +5956,9 @@ func (c *Canvas) ModulesMarkModuleItemRead(progress *task.Progress) (*map[string
 
 // ModulesDuplicateModuleItem API call: Makes a copy of an assignment, discussion or wiki page module item, within the
 // same module. It also creates a duplicate copy of the assignment, discussion, or wiki page.
-func (c *Canvas) ModulesDuplicateModuleItem(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesDuplicateModuleItem(progress *task.Progress, courseID string, itemID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/items/%s/duplicate", courseID, itemID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -5941,10 +5974,12 @@ func (c *Canvas) ModulesDuplicateModuleItem(progress *task.Progress) (*map[strin
 }
 
 // ModulesListModules API call: A paginated list of the modules in a course
-func (c *Canvas) ModulesListModules(progress *task.Progress) ([]Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesListModules(progress *task.Progress, include string, searchTerm string, studentID interface{}) ([]Module, error) {
+	endpoint := fmt.Sprintf("courses/222/modules")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["search_term"] = searchTerm
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &[]Module{}
 	}
@@ -5961,10 +5996,11 @@ func (c *Canvas) ModulesListModules(progress *task.Progress) ([]Module, error) {
 }
 
 // ModulesShowModule API call: Get information about a single module
-func (c *Canvas) ModulesShowModule(progress *task.Progress) (*Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesShowModule(progress *task.Progress, include string, studentID interface{}) (*Module, error) {
+	endpoint := fmt.Sprintf("courses/222/modules/123")
 	params := map[string]interface{}{}
-
+    params["include"] = include
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &Module{}
 	}
@@ -5980,10 +6016,10 @@ func (c *Canvas) ModulesShowModule(progress *task.Progress) (*Module, error) {
 }
 
 // ModulesCreateAModule API call: Create and return a new module
-func (c *Canvas) ModulesCreateAModule(progress *task.Progress) (*Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesCreateAModule(progress *task.Progress, module string, courseID string) (*Module, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules", courseID)
 	params := map[string]interface{}{}
-
+    params["module"] = module
 	responseCtor := func() interface{} {
 		return &Module{}
 	}
@@ -5999,10 +6035,10 @@ func (c *Canvas) ModulesCreateAModule(progress *task.Progress) (*Module, error) 
 }
 
 // ModulesUpdateAModule API call: Update and return an existing module
-func (c *Canvas) ModulesUpdateAModule(progress *task.Progress) (*Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesUpdateAModule(progress *task.Progress, module string, courseID string, moduleID string) (*Module, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s", courseID, moduleID)
 	params := map[string]interface{}{}
-
+    params["module"] = module
 	responseCtor := func() interface{} {
 		return &Module{}
 	}
@@ -6018,10 +6054,9 @@ func (c *Canvas) ModulesUpdateAModule(progress *task.Progress) (*Module, error) 
 }
 
 // ModulesDeleteModule API call: Delete a module
-func (c *Canvas) ModulesDeleteModule(progress *task.Progress) (*Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesDeleteModule(progress *task.Progress, courseID string, moduleID string) (*Module, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s", courseID, moduleID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Module{}
 	}
@@ -6039,10 +6074,9 @@ func (c *Canvas) ModulesDeleteModule(progress *task.Progress) (*Module, error) {
 // ModulesReLockModuleProgressions API call: Resets module progressions to their default locked state and recalculates
 // them based on the current requirements. Adding progression requirements to an active course will not lock students
 // out of modules they have already unlocked unless this action is called.
-func (c *Canvas) ModulesReLockModuleProgressions(progress *task.Progress) (*Module, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModulesReLockModuleProgressions(progress *task.Progress, courseID string, moduleID string) (*Module, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules/%s/relock", courseID, moduleID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Module{}
 	}
@@ -6059,10 +6093,15 @@ func (c *Canvas) ModulesReLockModuleProgressions(progress *task.Progress) (*Modu
 
 // ConversationsListConversations API call: Returns the paginated list of conversations for the current user, most
 // recent ones first.
-func (c *Canvas) ConversationsListConversations(progress *task.Progress) ([]Conversation, error) {
+func (c *Canvas) ConversationsListConversations(progress *task.Progress, scope string, filter string, filterMode interface{}, interleaveSubmissions interface{}, includeAllConversationIds interface{}, include string) ([]Conversation, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["scope"] = scope
+    params["filter"] = filter
+    params["filter_mode"] = filterMode
+    params["interleave_submissions"] = interleaveSubmissions
+    params["include_all_conversation_ids"] = includeAllConversationIds
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Conversation{}
 	}
@@ -6080,10 +6119,23 @@ func (c *Canvas) ConversationsListConversations(progress *task.Progress) ([]Conv
 
 // ConversationsCreateAConversation API call: Create a new conversation with one or more recipients. If there is already
 // an existing private conversation with the given recipients, it will be reused.
-func (c *Canvas) ConversationsCreateAConversation(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsCreateAConversation(progress *task.Progress, recipients string, subject string, body string, forceNew bool, groupConversation bool, attachmentIds string, mediaCommentID string, mediaCommentType string, userNote bool, mode string, scope string, filter string, filterMode interface{}, contextCode string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["recipients"] = recipients
+    params["subject"] = subject
+    params["body"] = body
+    params["force_new"] = forceNew
+    params["group_conversation"] = groupConversation
+    params["attachment_ids"] = attachmentIds
+    params["media_comment_id"] = mediaCommentID
+    params["media_comment_type"] = mediaCommentType
+    params["user_note"] = userNote
+    params["mode"] = mode
+    params["scope"] = scope
+    params["filter"] = filter
+    params["filter_mode"] = filterMode
+    params["context_code"] = contextCode
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6104,7 +6156,6 @@ func (c *Canvas) ConversationsCreateAConversation(progress *task.Progress) (*map
 func (c *Canvas) ConversationsGetRunningBatches(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6122,10 +6173,14 @@ func (c *Canvas) ConversationsGetRunningBatches(progress *task.Progress) (*map[s
 // ConversationsGetASingleConversation API call: Returns information for a single conversation for the current user.
 // Response includes all fields that are present in the list/index action as well as messages and extended participant
 // information.
-func (c *Canvas) ConversationsGetASingleConversation(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsGetASingleConversation(progress *task.Progress, interleaveSubmissions interface{}, scope string, filter string, filterMode interface{}, autoMarkAsRead interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["interleave_submissions"] = interleaveSubmissions
+    params["scope"] = scope
+    params["filter"] = filter
+    params["filter_mode"] = filterMode
+    params["auto_mark_as_read"] = autoMarkAsRead
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6141,10 +6196,13 @@ func (c *Canvas) ConversationsGetASingleConversation(progress *task.Progress) (*
 }
 
 // ConversationsEditAConversation API call: Updates attributes for a single conversation.
-func (c *Canvas) ConversationsEditAConversation(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsEditAConversation(progress *task.Progress, conversation string, scope string, filter string, filterMode interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["conversation"] = conversation
+    params["scope"] = scope
+    params["filter"] = filter
+    params["filter_mode"] = filterMode
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6163,7 +6221,6 @@ func (c *Canvas) ConversationsEditAConversation(progress *task.Progress) (*map[s
 func (c *Canvas) ConversationsMarkAllAsRead(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6183,7 +6240,6 @@ func (c *Canvas) ConversationsMarkAllAsRead(progress *task.Progress) (*map[strin
 func (c *Canvas) ConversationsDeleteAConversation(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6200,10 +6256,10 @@ func (c *Canvas) ConversationsDeleteAConversation(progress *task.Progress) (*map
 
 // ConversationsAddRecipients API call: Add recipients to an existing group conversation. Response is similar to the
 // GET/show action, except that only includes the latest message (e.g. "joe was added to the conversation by bob")
-func (c *Canvas) ConversationsAddRecipients(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsAddRecipients(progress *task.Progress, recipients string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["recipients"] = recipients
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6220,10 +6276,16 @@ func (c *Canvas) ConversationsAddRecipients(progress *task.Progress) (*map[strin
 
 // ConversationsAddAMessage API call: Add a message to an existing conversation. Response is similar to the GET/show
 // action, except that only includes the latest message (i.e. what we just sent)
-func (c *Canvas) ConversationsAddAMessage(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsAddAMessage(progress *task.Progress, body string, attachmentIds string, mediaCommentID string, mediaCommentType string, recipients string, includedMessages string, userNote bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["body"] = body
+    params["attachment_ids"] = attachmentIds
+    params["media_comment_id"] = mediaCommentID
+    params["media_comment_type"] = mediaCommentType
+    params["recipients"] = recipients
+    params["included_messages"] = includedMessages
+    params["user_note"] = userNote
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6240,10 +6302,10 @@ func (c *Canvas) ConversationsAddAMessage(progress *task.Progress) (*map[string]
 
 // ConversationsDeleteAMessage API call: Delete messages from this conversation. Note that this only affects this user's
 // view of the conversation. If all messages are deleted, the conversation will be as well (equivalent to DELETE)
-func (c *Canvas) ConversationsDeleteAMessage(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ConversationsDeleteAMessage(progress *task.Progress, remove string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["remove"] = remove
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6260,10 +6322,11 @@ func (c *Canvas) ConversationsDeleteAMessage(progress *task.Progress) (*map[stri
 
 // ConversationsBatchUpdateConversations API call: Perform a change on a set of conversations. Operates asynchronously;
 // use the {api:ProgressController#show progress endpoint} to query the status of an operation.
-func (c *Canvas) ConversationsBatchUpdateConversations(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ConversationsBatchUpdateConversations(progress *task.Progress, conversationIds string, event string) (*Progress, error) {
+	endpoint := fmt.Sprintf("conversations")
 	params := map[string]interface{}{}
-
+    params["conversation_ids"] = conversationIds
+    params["event"] = event
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -6283,7 +6346,6 @@ func (c *Canvas) ConversationsBatchUpdateConversations(progress *task.Progress) 
 func (c *Canvas) ConversationsFindRecipients(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6302,7 +6364,6 @@ func (c *Canvas) ConversationsFindRecipients(progress *task.Progress) (*map[stri
 func (c *Canvas) ConversationsUnreadCount(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6318,10 +6379,11 @@ func (c *Canvas) ConversationsUnreadCount(progress *task.Progress) (*map[string]
 }
 
 // CourseAuditLogQueryByCourse API call: List course change events for a given course.
-func (c *Canvas) CourseAuditLogQueryByCourse(progress *task.Progress) ([]CourseEvent, error) {
+func (c *Canvas) CourseAuditLogQueryByCourse(progress *task.Progress, startTime time.Time, endTime time.Time) ([]CourseEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]CourseEvent{}
 	}
@@ -6338,10 +6400,11 @@ func (c *Canvas) CourseAuditLogQueryByCourse(progress *task.Progress) ([]CourseE
 }
 
 // CourseAuditLogQueryByAccount API call: List course change events for a given account.
-func (c *Canvas) CourseAuditLogQueryByAccount(progress *task.Progress) ([]CourseEvent, error) {
+func (c *Canvas) CourseAuditLogQueryByAccount(progress *task.Progress, startTime time.Time, endTime time.Time) ([]CourseEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]CourseEvent{}
 	}
@@ -6359,9 +6422,8 @@ func (c *Canvas) CourseAuditLogQueryByAccount(progress *task.Progress) ([]Course
 
 // UsersListCourseNicknames API call: Returns all course nicknames you have set.
 func (c *Canvas) UsersListCourseNicknames(progress *task.Progress) ([]CourseNickname, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/course_nicknames")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]CourseNickname{}
 	}
@@ -6378,10 +6440,9 @@ func (c *Canvas) UsersListCourseNicknames(progress *task.Progress) ([]CourseNick
 }
 
 // UsersGetCourseNickname API call: Returns the nickname for a specific course.
-func (c *Canvas) UsersGetCourseNickname(progress *task.Progress) (*CourseNickname, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetCourseNickname(progress *task.Progress, courseID string) (*CourseNickname, error) {
+	endpoint := fmt.Sprintf("users/self/course_nicknames/%s", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CourseNickname{}
 	}
@@ -6398,10 +6459,10 @@ func (c *Canvas) UsersGetCourseNickname(progress *task.Progress) (*CourseNicknam
 
 // UsersSetCourseNickname API call: Set a nickname for the given course. This will replace the course's name in output
 // of API calls you make subsequently, as well as in selected places in the Canvas web user interface.
-func (c *Canvas) UsersSetCourseNickname(progress *task.Progress) (*CourseNickname, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersSetCourseNickname(progress *task.Progress, nickname string, courseID string) (*CourseNickname, error) {
+	endpoint := fmt.Sprintf("users/self/course_nicknames/%s", courseID)
 	params := map[string]interface{}{}
-
+    params["nickname"] = nickname
 	responseCtor := func() interface{} {
 		return &CourseNickname{}
 	}
@@ -6418,10 +6479,9 @@ func (c *Canvas) UsersSetCourseNickname(progress *task.Progress) (*CourseNicknam
 
 // UsersRemoveCourseNickname API call: Remove the nickname for the given course. Subsequent course API calls will return
 // the actual name for the course.
-func (c *Canvas) UsersRemoveCourseNickname(progress *task.Progress) (*CourseNickname, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersRemoveCourseNickname(progress *task.Progress, courseID string) (*CourseNickname, error) {
+	endpoint := fmt.Sprintf("users/self/course_nicknames/%s", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CourseNickname{}
 	}
@@ -6438,9 +6498,8 @@ func (c *Canvas) UsersRemoveCourseNickname(progress *task.Progress) (*CourseNick
 
 // UsersClearCourseNicknames API call: Remove all stored course nicknames.
 func (c *Canvas) UsersClearCourseNicknames(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/course_nicknames")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6456,10 +6515,16 @@ func (c *Canvas) UsersClearCourseNicknames(progress *task.Progress) (*map[string
 }
 
 // CoursesListYourCourses API call: Returns the paginated list of active courses for the current user.
-func (c *Canvas) CoursesListYourCourses(progress *task.Progress) ([]Course, error) {
+func (c *Canvas) CoursesListYourCourses(progress *task.Progress, enrollmentType string, enrollmentRole interface{}, enrollmentRoleID int, enrollmentState string, excludeBlueprintCourses bool, include string, state string) ([]Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["enrollment_type"] = enrollmentType
+    params["enrollment_role"] = enrollmentRole
+    params["enrollment_role_id"] = enrollmentRoleID
+    params["enrollment_state"] = enrollmentState
+    params["exclude_blueprint_courses"] = excludeBlueprintCourses
+    params["include"] = include
+    params["state"] = state
 	responseCtor := func() interface{} {
 		return &[]Course{}
 	}
@@ -6477,10 +6542,12 @@ func (c *Canvas) CoursesListYourCourses(progress *task.Progress) ([]Course, erro
 
 // CoursesListCoursesForAUser API call: Returns a paginated list of active courses for this user. To view the course
 // list for a user other than yourself, you must be either an observer of that user or an administrator.
-func (c *Canvas) CoursesListCoursesForAUser(progress *task.Progress) ([]Course, error) {
+func (c *Canvas) CoursesListCoursesForAUser(progress *task.Progress, include string, state string, enrollmentState string) ([]Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["state"] = state
+    params["enrollment_state"] = enrollmentState
 	responseCtor := func() interface{} {
 		return &[]Course{}
 	}
@@ -6497,10 +6564,13 @@ func (c *Canvas) CoursesListCoursesForAUser(progress *task.Progress) ([]Course, 
 }
 
 // CoursesCreateANewCourse API call: Create a new course
-func (c *Canvas) CoursesCreateANewCourse(progress *task.Progress) (*Course, error) {
+func (c *Canvas) CoursesCreateANewCourse(progress *task.Progress, course string, offer bool, enrollMe bool, enableSisReactivation bool) (*Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course"] = course
+    params["offer"] = offer
+    params["enroll_me"] = enrollMe
+    params["enable_sis_reactivation"] = enableSisReactivation
 	responseCtor := func() interface{} {
 		return &Course{}
 	}
@@ -6522,7 +6592,6 @@ func (c *Canvas) CoursesCreateANewCourse(progress *task.Progress) (*Course, erro
 func (c *Canvas) CoursesUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6542,7 +6611,6 @@ func (c *Canvas) CoursesUploadAFile(progress *task.Progress) (*map[string]interf
 func (c *Canvas) CoursesListStudents(progress *task.Progress) ([]User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -6560,10 +6628,18 @@ func (c *Canvas) CoursesListStudents(progress *task.Progress) ([]User, error) {
 
 // CoursesListUsersInCourse API call: Returns the paginated list of users in this course. And optionally the user's
 // enrollments in the course.
-func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress) ([]User, error) {
+func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress, searchTerm string, sort string, enrollmentType string, enrollmentRole interface{}, enrollmentRoleID int, include string, userID string, userIds int, enrollmentState string) ([]User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["search_term"] = searchTerm
+    params["sort"] = sort
+    params["enrollment_type"] = enrollmentType
+    params["enrollment_role"] = enrollmentRole
+    params["enrollment_role_id"] = enrollmentRoleID
+    params["include"] = include
+    params["user_id"] = userID
+    params["user_ids"] = userIds
+    params["enrollment_state"] = enrollmentState
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -6582,10 +6658,9 @@ func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress) ([]User, erro
 // CoursesListRecentlyLoggedInStudents API call: Returns the paginated list of users in this course, ordered by how
 // recently they have logged in. The records include the 'last_login' field which contains a timestamp of the last time
 // that user logged into canvas.  The querying user must have the 'View usage reports' permission.
-func (c *Canvas) CoursesListRecentlyLoggedInStudents(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesListRecentlyLoggedInStudents(progress *task.Progress, courseID string) ([]User, error) {
+	endpoint := fmt.Sprintf("courses/%s/recent_users", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -6606,7 +6681,6 @@ func (c *Canvas) CoursesListRecentlyLoggedInStudents(progress *task.Progress) ([
 func (c *Canvas) CoursesGetSingleUser(progress *task.Progress) (*User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -6623,10 +6697,10 @@ func (c *Canvas) CoursesGetSingleUser(progress *task.Progress) (*User, error) {
 
 // CoursesSearchForContentShareUsers API call: Returns a paginated list of users you can share content with.  Requires
 // the content share feature and the user must have the manage content permission for the course.
-func (c *Canvas) CoursesSearchForContentShareUsers(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesSearchForContentShareUsers(progress *task.Progress, searchTerm string, courseID string) ([]User, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_share_users", courseID)
 	params := map[string]interface{}{}
-	
+    params["search_term"] = searchTerm
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -6643,10 +6717,10 @@ func (c *Canvas) CoursesSearchForContentShareUsers(progress *task.Progress) ([]U
 }
 
 // CoursesPreviewProcessedHTML API call: Preview html content processed for this course
-func (c *Canvas) CoursesPreviewProcessedHTML(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesPreviewProcessedHTML(progress *task.Progress, html interface{}, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/preview_html", courseID)
 	params := map[string]interface{}{}
-
+    params["html"] = html
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6666,7 +6740,6 @@ func (c *Canvas) CoursesPreviewProcessedHTML(progress *task.Progress) (*map[stri
 func (c *Canvas) CoursesCourseActivityStream(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6686,7 +6759,6 @@ func (c *Canvas) CoursesCourseActivityStream(progress *task.Progress) (*map[stri
 func (c *Canvas) CoursesCourseActivityStreamSummary(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6706,7 +6778,6 @@ func (c *Canvas) CoursesCourseActivityStreamSummary(progress *task.Progress) (*m
 func (c *Canvas) CoursesCourseTodoItems(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6722,10 +6793,10 @@ func (c *Canvas) CoursesCourseTodoItems(progress *task.Progress) (*map[string]in
 }
 
 // CoursesDeleteConcludeACourse API call: Delete or conclude an existing course
-func (c *Canvas) CoursesDeleteConcludeACourse(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) CoursesDeleteConcludeACourse(progress *task.Progress, event string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["event"] = event
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6741,10 +6812,9 @@ func (c *Canvas) CoursesDeleteConcludeACourse(progress *task.Progress) (*map[str
 }
 
 // CoursesGetCourseSettings API call: Returns some of a course's settings.
-func (c *Canvas) CoursesGetCourseSettings(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesGetCourseSettings(progress *task.Progress, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/settings", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6760,10 +6830,22 @@ func (c *Canvas) CoursesGetCourseSettings(progress *task.Progress) (*map[string]
 }
 
 // CoursesUpdateCourseSettings API call: Can update the following course settings:
-func (c *Canvas) CoursesUpdateCourseSettings(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesUpdateCourseSettings(progress *task.Progress, allowStudentDiscussionTopics bool, allowStudentForumAttachments bool, allowStudentDiscussionEditing bool, allowStudentOrganizedGroups bool, filterSpeedGraderByStudentGroup bool, hideFinalGrades bool, hideDistributionGraphs bool, lockAllAnnouncements bool, usageRightsRequired bool, restrictStudentPastView bool, restrictStudentFutureView bool, showAnnouncementsOnHomePage bool, homePageAnnouncementLimit int, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/settings", courseID)
 	params := map[string]interface{}{}
-
+    params["allow_student_discussion_topics"] = allowStudentDiscussionTopics
+    params["allow_student_forum_attachments"] = allowStudentForumAttachments
+    params["allow_student_discussion_editing"] = allowStudentDiscussionEditing
+    params["allow_student_organized_groups"] = allowStudentOrganizedGroups
+    params["filter_speed_grader_by_student_group"] = filterSpeedGraderByStudentGroup
+    params["hide_final_grades"] = hideFinalGrades
+    params["hide_distribution_graphs"] = hideDistributionGraphs
+    params["lock_all_announcements"] = lockAllAnnouncements
+    params["usage_rights_required"] = usageRightsRequired
+    params["restrict_student_past_view"] = restrictStudentPastView
+    params["restrict_student_future_view"] = restrictStudentFutureView
+    params["show_announcements_on_home_page"] = showAnnouncementsOnHomePage
+    params["home_page_announcement_limit"] = homePageAnnouncementLimit
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6781,10 +6863,9 @@ func (c *Canvas) CoursesUpdateCourseSettings(progress *task.Progress) (*map[stri
 // CoursesReturnTestStudentForCourse API call: Returns information for a test student in this course. Creates a test
 // student if one does not already exist for the course. The caller must have permission to access the course's student
 // view.
-func (c *Canvas) CoursesReturnTestStudentForCourse(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesReturnTestStudentForCourse(progress *task.Progress, courseID string) (*User, error) {
+	endpoint := fmt.Sprintf("courses/%s/student_view_student", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -6801,10 +6882,11 @@ func (c *Canvas) CoursesReturnTestStudentForCourse(progress *task.Progress) (*Us
 
 // CoursesGetASingleCourse API call: Return information on a single course. Accepts the same include[] parameters as the
 // list action plus:
-func (c *Canvas) CoursesGetASingleCourse(progress *task.Progress) (*Course, error) {
+func (c *Canvas) CoursesGetASingleCourse(progress *task.Progress, include string, teacherLimit int) (*Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
+    params["teacher_limit"] = teacherLimit
 	responseCtor := func() interface{} {
 		return &Course{}
 	}
@@ -6822,10 +6904,11 @@ func (c *Canvas) CoursesGetASingleCourse(progress *task.Progress) (*Course, erro
 // CoursesUpdateACourse API call: Update an existing course. Arguments are the same as Courses#create, with a few
 // exceptions (enroll_me). If a user has content management rights, but not full course editing rights, the only
 // attribute editable through this endpoint will be "syllabus_body"
-func (c *Canvas) CoursesUpdateACourse(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesUpdateACourse(progress *task.Progress, course int, offer bool, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s", courseID)
 	params := map[string]interface{}{}
-
+    params["course"] = course
+    params["offer"] = offer
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6842,10 +6925,11 @@ func (c *Canvas) CoursesUpdateACourse(progress *task.Progress) (*map[string]inte
 
 // CoursesUpdateCourses API call: Update multiple courses in an account.  Operates asynchronously; use the
 // {api:ProgressController#show progress endpoint} to query the status of an operation.
-func (c *Canvas) CoursesUpdateCourses(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesUpdateCourses(progress *task.Progress, courseIds interface{}, event string, accountID string) (*Progress, error) {
+	endpoint := fmt.Sprintf("accounts/%s/courses", accountID)
 	params := map[string]interface{}{}
-
+    params["course_ids"] = courseIds
+    params["event"] = event
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -6865,7 +6949,6 @@ func (c *Canvas) CoursesUpdateCourses(progress *task.Progress) (*Progress, error
 func (c *Canvas) CoursesResetACourse(progress *task.Progress) (*Course, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Course{}
 	}
@@ -6885,10 +6968,10 @@ func (c *Canvas) CoursesResetACourse(progress *task.Progress) (*Course, error) {
 // IDs and values as a collection containing keys representing student IDs and values representing the student's
 // effective due_at, the grading_period_id of which the due_at falls in, and whether or not the grading period is closed
 // (in_closed_grading_period)
-func (c *Canvas) CoursesGetEffectiveDueDates(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesGetEffectiveDueDates(progress *task.Progress, assignmentIds string, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/effective_due_dates", courseID)
 	params := map[string]interface{}{}
-
+    params["assignment_ids"] = assignmentIds
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6905,10 +6988,10 @@ func (c *Canvas) CoursesGetEffectiveDueDates(progress *task.Progress) (*map[stri
 
 // CoursesPermissions API call: Returns permission information for the calling user in the given course. See also the
 // {api:AccountsController#permissions Account} and {api:GroupsController#permissions Group} counterparts.
-func (c *Canvas) CoursesPermissions(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesPermissions(progress *task.Progress, permissions string, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/permissions", courseID)
 	params := map[string]interface{}{}
-
+    params["permissions"] = permissions
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6927,7 +7010,6 @@ func (c *Canvas) CoursesPermissions(progress *task.Progress) (*map[string]interf
 func (c *Canvas) ContentSecurityPolicySettingsGetCurrentSettingsForAccountOrCourse(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6945,10 +7027,10 @@ func (c *Canvas) ContentSecurityPolicySettingsGetCurrentSettingsForAccountOrCour
 // ContentSecurityPolicySettingsEnableDisableOrClearExplicitCspSetting API call: Either explicitly sets CSP to be on or
 // off for courses and sub-accounts, or clear the explicit settings to default to those set by a parent account Note: If
 // "inherited" and "settings_locked" are both true for this account or course, then the CSP setting cannot be modified.
-func (c *Canvas) ContentSecurityPolicySettingsEnableDisableOrClearExplicitCspSetting(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentSecurityPolicySettingsEnableDisableOrClearExplicitCspSetting(progress *task.Progress, status string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["status"] = status
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6965,10 +7047,10 @@ func (c *Canvas) ContentSecurityPolicySettingsEnableDisableOrClearExplicitCspSet
 
 // ContentSecurityPolicySettingsLockOrUnlockCurrentCspSettingsForSubAccountsAndCourses API call: Can only be set if CSP
 // is explicitly enabled or disabled on this account (i.e. "inherited" is false).
-func (c *Canvas) ContentSecurityPolicySettingsLockOrUnlockCurrentCspSettingsForSubAccountsAndCourses(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentSecurityPolicySettingsLockOrUnlockCurrentCspSettingsForSubAccountsAndCourses(progress *task.Progress, settingsLocked bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["settings_locked"] = settingsLocked
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -6985,10 +7067,10 @@ func (c *Canvas) ContentSecurityPolicySettingsLockOrUnlockCurrentCspSettingsForS
 
 // ContentSecurityPolicySettingsAddADomainToAccountWhitelist API call: Adds a domain to the whitelist for the current
 // account. Note: this will not take effect unless CSP is explicitly enabled on this account.
-func (c *Canvas) ContentSecurityPolicySettingsAddADomainToAccountWhitelist(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentSecurityPolicySettingsAddADomainToAccountWhitelist(progress *task.Progress, domain string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["domain"] = domain
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7005,10 +7087,10 @@ func (c *Canvas) ContentSecurityPolicySettingsAddADomainToAccountWhitelist(progr
 
 // ContentSecurityPolicySettingsAddMultipleDomainsToAccountWhitelist API call: Adds multiple domains to the whitelist
 // for the current account. Note: this will not take effect unless CSP is explicitly enabled on this account.
-func (c *Canvas) ContentSecurityPolicySettingsAddMultipleDomainsToAccountWhitelist(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentSecurityPolicySettingsAddMultipleDomainsToAccountWhitelist(progress *task.Progress, domains []interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["domains"] = domains
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7027,7 +7109,6 @@ func (c *Canvas) ContentSecurityPolicySettingsAddMultipleDomainsToAccountWhiteli
 func (c *Canvas) ContentSecurityPolicySettingsRetrieveReportedCspViolationsForAccount(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7044,10 +7125,10 @@ func (c *Canvas) ContentSecurityPolicySettingsRetrieveReportedCspViolationsForAc
 
 // ContentSecurityPolicySettingsRemoveADomainFromAccountWhitelist API call: Removes a domain from the whitelist for the
 // current account.
-func (c *Canvas) ContentSecurityPolicySettingsRemoveADomainFromAccountWhitelist(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ContentSecurityPolicySettingsRemoveADomainFromAccountWhitelist(progress *task.Progress, domain string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["domain"] = domain
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7072,10 +7153,11 @@ func (c *Canvas) ContentSecurityPolicySettingsRemoveADomainFromAccountWhitelist(
 // multipart/form-data or Content-Type application/x-www-form-urlencoded can only be used to store strings. Example PUT
 // with multipart/form-data data: curl 'https://<canvas>/api/v1/users/<user_id>/custom_data/telephone' \ -X PUT \ -F
 // 'ns=com.my-organization.canvas-app' \ -F 'data=555-1234' \ -H 'Authorization: Bearer <token>' Response: !!!javascript
-func (c *Canvas) UsersStoreCustomData(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersStoreCustomData(progress *task.Progress, ns string, data map[string]interface{}, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/custom_data/food_app'", userID)
 	params := map[string]interface{}{}
-
+    params["ns"] = ns
+    params["data"] = data
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7095,10 +7177,10 @@ func (c *Canvas) UsersStoreCustomData(progress *task.Progress) (*map[string]inte
 // details and examples. On success, this endpoint returns an object containing the data that was requested. Responds
 // with status code 400 if the namespace parameter, +ns+, is missing or invalid, or if the specified scope does not
 // contain any data.
-func (c *Canvas) UsersLoadCustomData(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersLoadCustomData(progress *task.Progress, ns string, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/custom_data/food_app/favorites/dessert'", userID)
 	params := map[string]interface{}{}
-
+    params["ns"] = ns
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7120,10 +7202,10 @@ func (c *Canvas) UsersLoadCustomData(progress *task.Progress) (*map[string]inter
 // valid JSON data: curl 'https://<canvas>/api/v1/users/<user_id>/custom_data' \ -X PUT \ -F
 // 'ns=com.my-organization.canvas-app' \ -F 'data[fruit][apple]=so tasty' \ -F 'data[fruit][kiwi]=a bit sour' \ -F
 // 'data[veggies][root][onion]=tear-jerking' \ -H 'Authorization: Bearer <token>' Response: !!!javascript
-func (c *Canvas) UsersDeleteCustomData(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersDeleteCustomData(progress *task.Progress, ns string, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/custom_data/fruit/kiwi'", userID)
 	params := map[string]interface{}{}
-
+    params["ns"] = ns
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7140,10 +7222,10 @@ func (c *Canvas) UsersDeleteCustomData(progress *task.Progress) (*map[string]int
 
 // CustomGradebookColumnsListEntriesForAColumn API call: This does not list entries for students without associated
 // data.
-func (c *Canvas) CustomGradebookColumnsListEntriesForAColumn(progress *task.Progress) ([]ColumnDatum, error) {
+func (c *Canvas) CustomGradebookColumnsListEntriesForAColumn(progress *task.Progress, includeHidden bool) ([]ColumnDatum, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include_hidden"] = includeHidden
 	responseCtor := func() interface{} {
 		return &[]ColumnDatum{}
 	}
@@ -7160,10 +7242,10 @@ func (c *Canvas) CustomGradebookColumnsListEntriesForAColumn(progress *task.Prog
 }
 
 // CustomGradebookColumnsUpdateColumnData API call: Set the content of a custom column
-func (c *Canvas) CustomGradebookColumnsUpdateColumnData(progress *task.Progress) (*ColumnDatum, error) {
+func (c *Canvas) CustomGradebookColumnsUpdateColumnData(progress *task.Progress, columnData string) (*ColumnDatum, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["column_data"] = columnData
 	responseCtor := func() interface{} {
 		return &ColumnDatum{}
 	}
@@ -7179,10 +7261,10 @@ func (c *Canvas) CustomGradebookColumnsUpdateColumnData(progress *task.Progress)
 }
 
 // CustomGradebookColumnsBulkUpdateColumnData API call: Set the content of custom columns
-func (c *Canvas) CustomGradebookColumnsBulkUpdateColumnData(progress *task.Progress) (*Progress, error) {
+func (c *Canvas) CustomGradebookColumnsBulkUpdateColumnData(progress *task.Progress, columnData []interface{}) (*Progress, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["column_data"] = columnData
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -7199,10 +7281,10 @@ func (c *Canvas) CustomGradebookColumnsBulkUpdateColumnData(progress *task.Progr
 
 // CustomGradebookColumnsListCustomGradebookColumns API call: A paginated list of all custom gradebook columns for a
 // course
-func (c *Canvas) CustomGradebookColumnsListCustomGradebookColumns(progress *task.Progress) ([]CustomColumn, error) {
+func (c *Canvas) CustomGradebookColumnsListCustomGradebookColumns(progress *task.Progress, includeHidden bool) ([]CustomColumn, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include_hidden"] = includeHidden
 	responseCtor := func() interface{} {
 		return &[]CustomColumn{}
 	}
@@ -7219,10 +7301,10 @@ func (c *Canvas) CustomGradebookColumnsListCustomGradebookColumns(progress *task
 }
 
 // CustomGradebookColumnsCreateACustomGradebookColumn API call: Create a custom gradebook column
-func (c *Canvas) CustomGradebookColumnsCreateACustomGradebookColumn(progress *task.Progress) (*CustomColumn, error) {
+func (c *Canvas) CustomGradebookColumnsCreateACustomGradebookColumn(progress *task.Progress, column string) (*CustomColumn, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["column"] = column
 	responseCtor := func() interface{} {
 		return &CustomColumn{}
 	}
@@ -7242,7 +7324,6 @@ func (c *Canvas) CustomGradebookColumnsCreateACustomGradebookColumn(progress *ta
 func (c *Canvas) CustomGradebookColumnsUpdateACustomGradebookColumn(progress *task.Progress) (*CustomColumn, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CustomColumn{}
 	}
@@ -7262,7 +7343,6 @@ func (c *Canvas) CustomGradebookColumnsUpdateACustomGradebookColumn(progress *ta
 func (c *Canvas) CustomGradebookColumnsDeleteACustomGradebookColumn(progress *task.Progress) (*CustomColumn, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &CustomColumn{}
 	}
@@ -7278,10 +7358,10 @@ func (c *Canvas) CustomGradebookColumnsDeleteACustomGradebookColumn(progress *ta
 }
 
 // CustomGradebookColumnsReorderCustomColumns API call: Puts the given columns in the specified order
-func (c *Canvas) CustomGradebookColumnsReorderCustomColumns(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) CustomGradebookColumnsReorderCustomColumns(progress *task.Progress, order int) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["order"] = order
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7299,10 +7379,10 @@ func (c *Canvas) CustomGradebookColumnsReorderCustomColumns(progress *task.Progr
 // DeveloperKeyAccountBindingsCreateADeveloperKeyAccountBinding API call: Create a new Developer Key Account Binding.
 // The developer key specified in the request URL must be available in the requested account or the requeted account's
 // account chain. If the binding already exists for the specified account/key combination it will be updated.
-func (c *Canvas) DeveloperKeyAccountBindingsCreateADeveloperKeyAccountBinding(progress *task.Progress) (*DeveloperKeyAccountBinding, error) {
+func (c *Canvas) DeveloperKeyAccountBindingsCreateADeveloperKeyAccountBinding(progress *task.Progress, workflowState string) (*DeveloperKeyAccountBinding, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["workflow_state"] = workflowState
 	responseCtor := func() interface{} {
 		return &DeveloperKeyAccountBinding{}
 	}
@@ -7322,7 +7402,6 @@ func (c *Canvas) DeveloperKeyAccountBindingsCreateADeveloperKeyAccountBinding(pr
 func (c *Canvas) DeveloperKeyAccountBindingsListDeveloperKeyAccountBinding(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7339,10 +7418,11 @@ func (c *Canvas) DeveloperKeyAccountBindingsListDeveloperKeyAccountBinding(progr
 
 // SisIntegrationDisableAssignmentsCurrentlyEnabledForGradeExportToSis API call: Disable all assignments flagged as
 // "post_to_sis", with the option of making it specific to a grading period, in a course.
-func (c *Canvas) SisIntegrationDisableAssignmentsCurrentlyEnabledForGradeExportToSis(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SisIntegrationDisableAssignmentsCurrentlyEnabledForGradeExportToSis(progress *task.Progress, courseID interface{}, gradingPeriodID interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course_id"] = courseID
+    params["grading_period_id"] = gradingPeriodID
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7359,10 +7439,16 @@ func (c *Canvas) SisIntegrationDisableAssignmentsCurrentlyEnabledForGradeExportT
 
 // DiscussionTopicsListDiscussionTopics API call: Returns the paginated list of discussion topics for this course or
 // group.
-func (c *Canvas) DiscussionTopicsListDiscussionTopics(progress *task.Progress) ([]DiscussionTopic, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) DiscussionTopicsListDiscussionTopics(progress *task.Progress, include string, orderBy string, scope string, onlyAnnouncements bool, filterBy string, searchTerm string, excludeContextModuleLockedTopics bool, courseID string) ([]DiscussionTopic, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics", courseID)
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["order_by"] = orderBy
+    params["scope"] = scope
+    params["only_announcements"] = onlyAnnouncements
+    params["filter_by"] = filterBy
+    params["search_term"] = searchTerm
+    params["exclude_context_module_locked_topics"] = excludeContextModuleLockedTopics
 	responseCtor := func() interface{} {
 		return &[]DiscussionTopic{}
 	}
@@ -7379,10 +7465,28 @@ func (c *Canvas) DiscussionTopicsListDiscussionTopics(progress *task.Progress) (
 }
 
 // DiscussionTopicsCreateANewDiscussionTopic API call: Create an new discussion topic for the course or group.
-func (c *Canvas) DiscussionTopicsCreateANewDiscussionTopic(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) DiscussionTopicsCreateANewDiscussionTopic(progress *task.Progress, title string, message string, discussionType string, published bool, delayedPostAt time.Time, allowRating bool, lockAt time.Time, podcastEnabled bool, podcastHasStudentPosts bool, requireInitialPost bool, assignment Assignment, isAnnouncement bool, pinned bool, positionAfter string, groupCategoryID int, onlyGradersCanRate bool, sortByRating bool, attachment File, specificSections string, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics", courseID)
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["message"] = message
+    params["discussion_type"] = discussionType
+    params["published"] = published
+    params["delayed_post_at"] = delayedPostAt
+    params["allow_rating"] = allowRating
+    params["lock_at"] = lockAt
+    params["podcast_enabled"] = podcastEnabled
+    params["podcast_has_student_posts"] = podcastHasStudentPosts
+    params["require_initial_post"] = requireInitialPost
+    params["assignment"] = assignment
+    params["is_announcement"] = isAnnouncement
+    params["pinned"] = pinned
+    params["position_after"] = positionAfter
+    params["group_category_id"] = groupCategoryID
+    params["only_graders_can_rate"] = onlyGradersCanRate
+    params["sort_by_rating"] = sortByRating
+    params["attachment"] = attachment
+    params["specific_sections"] = specificSections
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7398,10 +7502,27 @@ func (c *Canvas) DiscussionTopicsCreateANewDiscussionTopic(progress *task.Progre
 }
 
 // DiscussionTopicsUpdateATopic API call: Update an existing discussion topic for the course or group.
-func (c *Canvas) DiscussionTopicsUpdateATopic(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) DiscussionTopicsUpdateATopic(progress *task.Progress, title string, message string, discussionType string, published bool, delayedPostAt time.Time, lockAt time.Time, podcastEnabled bool, podcastHasStudentPosts bool, requireInitialPost bool, assignment Assignment, isAnnouncement bool, pinned bool, positionAfter string, groupCategoryID int, allowRating bool, onlyGradersCanRate bool, sortByRating bool, specificSections string, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s", courseID, topicID)
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["message"] = message
+    params["discussion_type"] = discussionType
+    params["published"] = published
+    params["delayed_post_at"] = delayedPostAt
+    params["lock_at"] = lockAt
+    params["podcast_enabled"] = podcastEnabled
+    params["podcast_has_student_posts"] = podcastHasStudentPosts
+    params["require_initial_post"] = requireInitialPost
+    params["assignment"] = assignment
+    params["is_announcement"] = isAnnouncement
+    params["pinned"] = pinned
+    params["position_after"] = positionAfter
+    params["group_category_id"] = groupCategoryID
+    params["allow_rating"] = allowRating
+    params["only_graders_can_rate"] = onlyGradersCanRate
+    params["sort_by_rating"] = sortByRating
+    params["specific_sections"] = specificSections
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7418,10 +7539,9 @@ func (c *Canvas) DiscussionTopicsUpdateATopic(progress *task.Progress) (*map[str
 
 // DiscussionTopicsDeleteATopic API call: Deletes the discussion topic. This will also delete the assignment, if it's an
 // assignment discussion.
-func (c *Canvas) DiscussionTopicsDeleteATopic(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) DiscussionTopicsDeleteATopic(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s", courseID, topicID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7438,10 +7558,10 @@ func (c *Canvas) DiscussionTopicsDeleteATopic(progress *task.Progress) (*map[str
 
 // DiscussionTopicsReorderPinnedTopics API call: Puts the pinned discussion topics in the specified order. All pinned
 // topics should be included.
-func (c *Canvas) DiscussionTopicsReorderPinnedTopics(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) DiscussionTopicsReorderPinnedTopics(progress *task.Progress, order int) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["order"] = order
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7461,10 +7581,21 @@ func (c *Canvas) DiscussionTopicsReorderPinnedTopics(progress *task.Progress) (*
 // student, teacher, TA, and observer enrollments. If a user has multiple enrollments in a context (e.g. as a teacher
 // and a student or in multiple course sections), each enrollment will be listed separately. note: Currently, only a
 // root level admin user can return other users' enrollments. A user can, however, return his/her own enrollments.
-func (c *Canvas) EnrollmentsListEnrollments(progress *task.Progress) ([]Enrollment, error) {
+func (c *Canvas) EnrollmentsListEnrollments(progress *task.Progress, typeName string, role string, state string, include string, userID string, gradingPeriodID int, enrollmentTermID int, sisAccountID string, sisCourseID string, sisSectionID string, sisUserID string, createdForSisID bool) ([]Enrollment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["type"] = typeName
+    params["role"] = role
+    params["state"] = state
+    params["include"] = include
+    params["user_id"] = userID
+    params["grading_period_id"] = gradingPeriodID
+    params["enrollment_term_id"] = enrollmentTermID
+    params["sis_account_id"] = sisAccountID
+    params["sis_course_id"] = sisCourseID
+    params["sis_section_id"] = sisSectionID
+    params["sis_user_id"] = sisUserID
+    params["created_for_sis_id"] = createdForSisID
 	responseCtor := func() interface{} {
 		return &[]Enrollment{}
 	}
@@ -7481,10 +7612,10 @@ func (c *Canvas) EnrollmentsListEnrollments(progress *task.Progress) ([]Enrollme
 }
 
 // EnrollmentsEnrollmentByID API call: Get an Enrollment object by Enrollment ID
-func (c *Canvas) EnrollmentsEnrollmentByID(progress *task.Progress) (*Enrollment, error) {
+func (c *Canvas) EnrollmentsEnrollmentByID(progress *task.Progress, id int) (*Enrollment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &Enrollment{}
 	}
@@ -7500,10 +7631,10 @@ func (c *Canvas) EnrollmentsEnrollmentByID(progress *task.Progress) (*Enrollment
 }
 
 // EnrollmentsEnrollAUser API call: Create a new user enrollment for a course or section.
-func (c *Canvas) EnrollmentsEnrollAUser(progress *task.Progress) (*Enrollment, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) EnrollmentsEnrollAUser(progress *task.Progress, enrollment string) (*Enrollment, error) {
+	endpoint := fmt.Sprintf("courses/:course_id/enrollments")
 	params := map[string]interface{}{}
-
+    params["enrollment"] = enrollment
 	responseCtor := func() interface{} {
 		return &Enrollment{}
 	}
@@ -7520,10 +7651,10 @@ func (c *Canvas) EnrollmentsEnrollAUser(progress *task.Progress) (*Enrollment, e
 
 // EnrollmentsConcludeDeactivateOrDeleteAnEnrollment API call: Conclude, deactivate, or delete an enrollment. If the
 // +task+ argument isn't given, the enrollment will be concluded.
-func (c *Canvas) EnrollmentsConcludeDeactivateOrDeleteAnEnrollment(progress *task.Progress) (*Enrollment, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) EnrollmentsConcludeDeactivateOrDeleteAnEnrollment(progress *task.Progress, task string) (*Enrollment, error) {
+	endpoint := fmt.Sprintf("courses/:course_id/enrollments/:enrollment_id")
 	params := map[string]interface{}{}
-
+    params["task"] = task
 	responseCtor := func() interface{} {
 		return &Enrollment{}
 	}
@@ -7539,10 +7670,9 @@ func (c *Canvas) EnrollmentsConcludeDeactivateOrDeleteAnEnrollment(progress *tas
 }
 
 // EnrollmentsAcceptCourseInvitation API call: accepts a pending course invitation for the current user
-func (c *Canvas) EnrollmentsAcceptCourseInvitation(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) EnrollmentsAcceptCourseInvitation(progress *task.Progress, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/enrollments/:id/accept", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7558,10 +7688,9 @@ func (c *Canvas) EnrollmentsAcceptCourseInvitation(progress *task.Progress) (*ma
 }
 
 // EnrollmentsRejectCourseInvitation API call: rejects a pending course invitation for the current user
-func (c *Canvas) EnrollmentsRejectCourseInvitation(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) EnrollmentsRejectCourseInvitation(progress *task.Progress, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/enrollments/:id/reject", courseID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7578,9 +7707,8 @@ func (c *Canvas) EnrollmentsRejectCourseInvitation(progress *task.Progress) (*ma
 
 // EnrollmentsReActivateAnEnrollment API call: Activates an inactive enrollment
 func (c *Canvas) EnrollmentsReActivateAnEnrollment(progress *task.Progress) (*Enrollment, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/:course_id/enrollments/:enrollment_id/reactivate")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Enrollment{}
 	}
@@ -7597,9 +7725,8 @@ func (c *Canvas) EnrollmentsReActivateAnEnrollment(progress *task.Progress) (*En
 
 // EnrollmentsAddsLastAttendedDateToStudentEnrollmentInCourse API call
 func (c *Canvas) EnrollmentsAddsLastAttendedDateToStudentEnrollmentInCourse(progress *task.Progress) (*Enrollment, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/:course_id/user/:user_id/last_attended")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Enrollment{}
 	}
@@ -7619,7 +7746,6 @@ func (c *Canvas) EnrollmentsAddsLastAttendedDateToStudentEnrollmentInCourse(prog
 func (c *Canvas) EpubExportsListCoursesWithTheirLatestEpubExport(progress *task.Progress) ([]CourseEpubExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]CourseEpubExport{}
 	}
@@ -7642,7 +7768,6 @@ func (c *Canvas) EpubExportsListCoursesWithTheirLatestEpubExport(progress *task.
 func (c *Canvas) EpubExportsCreateEpubExport(progress *task.Progress) (*EpubExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &EpubExport{}
 	}
@@ -7661,7 +7786,6 @@ func (c *Canvas) EpubExportsCreateEpubExport(progress *task.Progress) (*EpubExpo
 func (c *Canvas) EpubExportsShowEpubExport(progress *task.Progress) (*EpubExport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &EpubExport{}
 	}
@@ -7678,10 +7802,10 @@ func (c *Canvas) EpubExportsShowEpubExport(progress *task.Progress) (*EpubExport
 
 // ErrorReportsCreateErrorReport API call: Create a new error report documenting an experienced problem Performs the
 // same action as when a user uses the "help -> report a problem" dialog.
-func (c *Canvas) ErrorReportsCreateErrorReport(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ErrorReportsCreateErrorReport(progress *task.Progress, err string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("error_reports'")
 	params := map[string]interface{}{}
-
+    params["error"] = err
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7698,10 +7822,9 @@ func (c *Canvas) ErrorReportsCreateErrorReport(progress *task.Progress) (*map[st
 
 // AnnouncementExternalFeedsListExternalFeeds API call: Returns the paginated list of External Feeds this course or
 // group.
-func (c *Canvas) AnnouncementExternalFeedsListExternalFeeds(progress *task.Progress) ([]ExternalFeed, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AnnouncementExternalFeedsListExternalFeeds(progress *task.Progress, courseID string) ([]ExternalFeed, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_feeds", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]ExternalFeed{}
 	}
@@ -7718,10 +7841,12 @@ func (c *Canvas) AnnouncementExternalFeedsListExternalFeeds(progress *task.Progr
 }
 
 // AnnouncementExternalFeedsCreateAnExternalFeed API call: Create a new external feed for the course or group.
-func (c *Canvas) AnnouncementExternalFeedsCreateAnExternalFeed(progress *task.Progress) (*ExternalFeed, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AnnouncementExternalFeedsCreateAnExternalFeed(progress *task.Progress, url string, headerMatch bool, verbosity string, courseID string) (*ExternalFeed, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_feeds", courseID)
 	params := map[string]interface{}{}
-
+    params["url"] = url
+    params["header_match"] = headerMatch
+    params["verbosity"] = verbosity
 	responseCtor := func() interface{} {
 		return &ExternalFeed{}
 	}
@@ -7737,10 +7862,9 @@ func (c *Canvas) AnnouncementExternalFeedsCreateAnExternalFeed(progress *task.Pr
 }
 
 // AnnouncementExternalFeedsDeleteAnExternalFeed API call: Deletes the external feed.
-func (c *Canvas) AnnouncementExternalFeedsDeleteAnExternalFeed(progress *task.Progress) (*ExternalFeed, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AnnouncementExternalFeedsDeleteAnExternalFeed(progress *task.Progress, courseID string, feedID string) (*ExternalFeed, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_feeds/%s", courseID, feedID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &ExternalFeed{}
 	}
@@ -7757,10 +7881,12 @@ func (c *Canvas) AnnouncementExternalFeedsDeleteAnExternalFeed(progress *task.Pr
 
 // ExternalToolsListExternalTools API call: Returns the paginated list of external tools for the current context. See
 // the get request docs for a single tool for a list of properties on an external tool.
-func (c *Canvas) ExternalToolsListExternalTools(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ExternalToolsListExternalTools(progress *task.Progress, searchTerm string, selectable bool, includeParents bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["search_term"] = searchTerm
+    params["selectable"] = selectable
+    params["include_parents"] = includeParents
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7777,10 +7903,14 @@ func (c *Canvas) ExternalToolsListExternalTools(progress *task.Progress) (*map[s
 
 // ExternalToolsGetASessionlessLaunchURLForAnExternalTool API call: Returns a sessionless launch url for an external
 // tool. NOTE: Either the id or url must be provided unless launch_type is assessment or module_item.
-func (c *Canvas) ExternalToolsGetASessionlessLaunchURLForAnExternalTool(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ExternalToolsGetASessionlessLaunchURLForAnExternalTool(progress *task.Progress, id string, url string, assignmentID string, moduleItemID string, launchType string, courseID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_tools/sessionless_launch'", courseID)
 	params := map[string]interface{}{}
-
+    params["id"] = id
+    params["url"] = url
+    params["assignment_id"] = assignmentID
+    params["module_item_id"] = moduleItemID
+    params["launch_type"] = launchType
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7799,7 +7929,6 @@ func (c *Canvas) ExternalToolsGetASessionlessLaunchURLForAnExternalTool(progress
 func (c *Canvas) ExternalToolsGetASingleExternalTool(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7817,10 +7946,35 @@ func (c *Canvas) ExternalToolsGetASingleExternalTool(progress *task.Progress) (*
 // ExternalToolsCreateAnExternalTool API call: Create an external tool in the specified course/account. The created tool
 // will be returned, see the "show" endpoint for an example. If a client ID is supplied canvas will attempt to create a
 // context external tool using the LTI 1.3 standard.
-func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clientID string, name string, privacyLevel string, consumerKey string, sharedSecret string, description string, url string, domain string, iconURL string, text string, customFields string, accountNavigation string, userNavigation string, courseHomeSubNavigation string, courseNavigation bool, editorButton string, homeworkSubmission string, linkSelection string, migrationSelection string, toolConfiguration string, resourceSelection string, configType string, configXml string, configURL string, notSelectable bool, oauthCompliant bool, accountID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/%s/external_tools'", accountID)
 	params := map[string]interface{}{}
-
+    params["client_id"] = clientID
+    params["name"] = name
+    params["privacy_level"] = privacyLevel
+    params["consumer_key"] = consumerKey
+    params["shared_secret"] = sharedSecret
+    params["description"] = description
+    params["url"] = url
+    params["domain"] = domain
+    params["icon_url"] = iconURL
+    params["text"] = text
+    params["custom_fields"] = customFields
+    params["account_navigation"] = accountNavigation
+    params["user_navigation"] = userNavigation
+    params["course_home_sub_navigation"] = courseHomeSubNavigation
+    params["course_navigation"] = courseNavigation
+    params["editor_button"] = editorButton
+    params["homework_submission"] = homeworkSubmission
+    params["link_selection"] = linkSelection
+    params["migration_selection"] = migrationSelection
+    params["tool_configuration"] = toolConfiguration
+    params["resource_selection"] = resourceSelection
+    params["config_type"] = configType
+    params["config_xml"] = configXml
+    params["config_url"] = configURL
+    params["not_selectable"] = notSelectable
+    params["oauth_compliant"] = oauthCompliant
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7836,10 +7990,9 @@ func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress) (*ma
 }
 
 // ExternalToolsEditAnExternalTool API call: Update the specified external tool. Uses same parameters as create
-func (c *Canvas) ExternalToolsEditAnExternalTool(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ExternalToolsEditAnExternalTool(progress *task.Progress, courseID string, externalToolID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_tools/%s'", courseID, externalToolID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7855,10 +8008,9 @@ func (c *Canvas) ExternalToolsEditAnExternalTool(progress *task.Progress) (*map[
 }
 
 // ExternalToolsDeleteAnExternalTool API call: Remove the specified external tool
-func (c *Canvas) ExternalToolsDeleteAnExternalTool(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ExternalToolsDeleteAnExternalTool(progress *task.Progress, courseID string, externalToolID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/external_tools/%s'", courseID, externalToolID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -7875,10 +8027,10 @@ func (c *Canvas) ExternalToolsDeleteAnExternalTool(progress *task.Progress) (*ma
 
 // FavoritesListFavoriteCourses API call: Retrieve the paginated list of favorite courses for the current user. If the
 // user has not chosen any favorites, then a selection of currently enrolled courses will be returned.
-func (c *Canvas) FavoritesListFavoriteCourses(progress *task.Progress) ([]Course, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FavoritesListFavoriteCourses(progress *task.Progress, excludeBlueprintCourses bool) ([]Course, error) {
+	endpoint := fmt.Sprintf("users/self/favorites/courses")
 	params := map[string]interface{}{}
-	
+    params["exclude_blueprint_courses"] = excludeBlueprintCourses
 	responseCtor := func() interface{} {
 		return &[]Course{}
 	}
@@ -7897,9 +8049,8 @@ func (c *Canvas) FavoritesListFavoriteCourses(progress *task.Progress) ([]Course
 // FavoritesListFavoriteGroups API call: Retrieve the paginated list of favorite groups for the current user. If the
 // user has not chosen any favorites, then a selection of groups that the user is a member of will be returned.
 func (c *Canvas) FavoritesListFavoriteGroups(progress *task.Progress) ([]Group, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/favorites/groups")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Group{}
 	}
@@ -7917,10 +8068,10 @@ func (c *Canvas) FavoritesListFavoriteGroups(progress *task.Progress) ([]Group, 
 
 // FavoritesAddCourseToFavorites API call: Add a course to the current user's favorites.  If the course is already in
 // the user's favorites, nothing happens.
-func (c *Canvas) FavoritesAddCourseToFavorites(progress *task.Progress) (*Favorite, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FavoritesAddCourseToFavorites(progress *task.Progress, id string) (*Favorite, error) {
+	endpoint := fmt.Sprintf("users/self/favorites/courses/1170")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &Favorite{}
 	}
@@ -7937,10 +8088,10 @@ func (c *Canvas) FavoritesAddCourseToFavorites(progress *task.Progress) (*Favori
 
 // FavoritesAddGroupToFavorites API call: Add a group to the current user's favorites.  If the group is already in the
 // user's favorites, nothing happens.
-func (c *Canvas) FavoritesAddGroupToFavorites(progress *task.Progress) (*Favorite, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FavoritesAddGroupToFavorites(progress *task.Progress, id string) (*Favorite, error) {
+	endpoint := fmt.Sprintf("users/self/favorites/group/1170")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &Favorite{}
 	}
@@ -7956,10 +8107,10 @@ func (c *Canvas) FavoritesAddGroupToFavorites(progress *task.Progress) (*Favorit
 }
 
 // FavoritesRemoveCourseFromFavorites API call: Remove a course from the current user's favorites.
-func (c *Canvas) FavoritesRemoveCourseFromFavorites(progress *task.Progress) (*Favorite, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FavoritesRemoveCourseFromFavorites(progress *task.Progress, id string) (*Favorite, error) {
+	endpoint := fmt.Sprintf("users/self/favorites/courses/1170")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &Favorite{}
 	}
@@ -7975,10 +8126,10 @@ func (c *Canvas) FavoritesRemoveCourseFromFavorites(progress *task.Progress) (*F
 }
 
 // FavoritesRemoveGroupFromFavorites API call: Remove a group from the current user's favorites.
-func (c *Canvas) FavoritesRemoveGroupFromFavorites(progress *task.Progress) (*Favorite, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FavoritesRemoveGroupFromFavorites(progress *task.Progress, id string) (*Favorite, error) {
+	endpoint := fmt.Sprintf("users/self/favorites/groups/1170")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &Favorite{}
 	}
@@ -7996,9 +8147,8 @@ func (c *Canvas) FavoritesRemoveGroupFromFavorites(progress *task.Progress) (*Fa
 // FavoritesResetCourseFavorites API call: Reset the current user's course favorites to the default automatically
 // generated list of enrolled courses
 func (c *Canvas) FavoritesResetCourseFavorites(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/favorites/courses")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8016,9 +8166,8 @@ func (c *Canvas) FavoritesResetCourseFavorites(progress *task.Progress) (*map[st
 // FavoritesResetGroupFavorites API call: Reset the current user's group favorites to the default automatically
 // generated list of enrolled group
 func (c *Canvas) FavoritesResetGroupFavorites(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/favorites/group")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8037,7 +8186,6 @@ func (c *Canvas) FavoritesResetGroupFavorites(progress *task.Progress) (*map[str
 func (c *Canvas) FeatureFlagsListFeatures(progress *task.Progress) ([]Feature, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Feature{}
 	}
@@ -8058,7 +8206,6 @@ func (c *Canvas) FeatureFlagsListFeatures(progress *task.Progress) ([]Feature, e
 func (c *Canvas) FeatureFlagsListEnabledFeatures(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8080,7 +8227,6 @@ func (c *Canvas) FeatureFlagsListEnabledFeatures(progress *task.Progress) (*map[
 func (c *Canvas) FeatureFlagsGetFeatureFlag(progress *task.Progress) (*FeatureFlag, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &FeatureFlag{}
 	}
@@ -8097,10 +8243,10 @@ func (c *Canvas) FeatureFlagsGetFeatureFlag(progress *task.Progress) (*FeatureFl
 
 // FeatureFlagsSetFeatureFlag API call: Set a feature flag for a given Account, Course, or User. This call will fail if
 // a parent account sets a feature flag for the same feature in any state other than "allowed".
-func (c *Canvas) FeatureFlagsSetFeatureFlag(progress *task.Progress) (*FeatureFlag, error) {
+func (c *Canvas) FeatureFlagsSetFeatureFlag(progress *task.Progress, state string) (*FeatureFlag, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["state"] = state
 	responseCtor := func() interface{} {
 		return &FeatureFlag{}
 	}
@@ -8122,7 +8268,6 @@ func (c *Canvas) FeatureFlagsSetFeatureFlag(progress *task.Progress) (*FeatureFl
 func (c *Canvas) FeatureFlagsRemoveFeatureFlag(progress *task.Progress) (*FeatureFlag, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &FeatureFlag{}
 	}
@@ -8139,9 +8284,8 @@ func (c *Canvas) FeatureFlagsRemoveFeatureFlag(progress *task.Progress) (*Featur
 
 // FilesGetQuotaInformation API call: Returns the total and used storage quota for the course, group, or user.
 func (c *Canvas) FilesGetQuotaInformation(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/files/quota'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8157,10 +8301,16 @@ func (c *Canvas) FilesGetQuotaInformation(progress *task.Progress) (*map[string]
 }
 
 // FilesListFiles API call: Returns the paginated list of files for the folder or course.
-func (c *Canvas) FilesListFiles(progress *task.Progress) ([]File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesListFiles(progress *task.Progress, contentTypes string, excludeContentTypes string, searchTerm string, include interface{}, only []interface{}, sort string, order string, folderID string) ([]File, error) {
+	endpoint := fmt.Sprintf("folders/%s/files", folderID)
 	params := map[string]interface{}{}
-	
+    params["content_types"] = contentTypes
+    params["exclude_content_types"] = excludeContentTypes
+    params["search_term"] = searchTerm
+    params["include"] = include
+    params["only"] = only
+    params["sort"] = sort
+    params["order"] = order
 	responseCtor := func() interface{} {
 		return &[]File{}
 	}
@@ -8177,10 +8327,10 @@ func (c *Canvas) FilesListFiles(progress *task.Progress) ([]File, error) {
 }
 
 // FilesGetPublicInlinePreviewURL API call: Determine the URL that should be used for inline preview of the file.
-func (c *Canvas) FilesGetPublicInlinePreviewURL(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesGetPublicInlinePreviewURL(progress *task.Progress, submissionID int) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("files/1/public_url'")
 	params := map[string]interface{}{}
-
+    params["submission_id"] = submissionID
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8196,10 +8346,10 @@ func (c *Canvas) FilesGetPublicInlinePreviewURL(progress *task.Progress) (*map[s
 }
 
 // FilesGetFile API call: Returns the standard attachment json object
-func (c *Canvas) FilesGetFile(progress *task.Progress) (*File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesGetFile(progress *task.Progress, include interface{}, fileID string) (*File, error) {
+	endpoint := fmt.Sprintf("files/%s'", fileID)
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &File{}
 	}
@@ -8215,10 +8365,16 @@ func (c *Canvas) FilesGetFile(progress *task.Progress) (*File, error) {
 }
 
 // FilesUpdateFile API call: Update some settings on the specified file
-func (c *Canvas) FilesUpdateFile(progress *task.Progress) (*File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesUpdateFile(progress *task.Progress, name string, parentFolderID string, onDuplicate string, lockAt time.Time, unlockAt time.Time, locked bool, hidden bool, fileID string) (*File, error) {
+	endpoint := fmt.Sprintf("files/%s'", fileID)
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["parent_folder_id"] = parentFolderID
+    params["on_duplicate"] = onDuplicate
+    params["lock_at"] = lockAt
+    params["unlock_at"] = unlockAt
+    params["locked"] = locked
+    params["hidden"] = hidden
 	responseCtor := func() interface{} {
 		return &File{}
 	}
@@ -8236,10 +8392,10 @@ func (c *Canvas) FilesUpdateFile(progress *task.Progress) (*File, error) {
 // FilesDeleteFile API call: Remove the specified file. Unlike most other DELETE endpoints, using this endpoint will
 // result in comprehensive, irretrievable destruction of the file. It should be used with the `replace` parameter set to
 // true in cases where the file preview also needs to be destroyed (such as to remove files that violate privacy laws).
-func (c *Canvas) FilesDeleteFile(progress *task.Progress) (*File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesDeleteFile(progress *task.Progress, replace bool, fileID string) (*File, error) {
+	endpoint := fmt.Sprintf("files/%s'", fileID)
 	params := map[string]interface{}{}
-
+    params["replace"] = replace
 	responseCtor := func() interface{} {
 		return &File{}
 	}
@@ -8257,10 +8413,9 @@ func (c *Canvas) FilesDeleteFile(progress *task.Progress) (*File, error) {
 // FilesResetLinkVerifier API call: Resets the link verifier. Any existing links to the file using the previous
 // hard-coded "verifier" parameter will no longer automatically grant access. Must have manage files and become other
 // users permissions
-func (c *Canvas) FilesResetLinkVerifier(progress *task.Progress) (*File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesResetLinkVerifier(progress *task.Progress, fileID string) (*File, error) {
+	endpoint := fmt.Sprintf("files/%s/reset_verifier'", fileID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &File{}
 	}
@@ -8276,10 +8431,9 @@ func (c *Canvas) FilesResetLinkVerifier(progress *task.Progress) (*File, error) 
 }
 
 // FilesListFolders API call
-func (c *Canvas) FilesListFolders(progress *task.Progress) ([]Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesListFolders(progress *task.Progress, folderID string) ([]Folder, error) {
+	endpoint := fmt.Sprintf("folders/%s/folders'", folderID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Folder{}
 	}
@@ -8296,10 +8450,9 @@ func (c *Canvas) FilesListFolders(progress *task.Progress) ([]Folder, error) {
 }
 
 // FilesListAllFolders API call
-func (c *Canvas) FilesListAllFolders(progress *task.Progress) ([]Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesListAllFolders(progress *task.Progress, courseID string) ([]Folder, error) {
+	endpoint := fmt.Sprintf("courses/%s/folders'", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Folder{}
 	}
@@ -8316,10 +8469,9 @@ func (c *Canvas) FilesListAllFolders(progress *task.Progress) ([]Folder, error) 
 }
 
 // FilesResolvePath API call
-func (c *Canvas) FilesResolvePath(progress *task.Progress) ([]Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesResolvePath(progress *task.Progress, courseID string) ([]Folder, error) {
+	endpoint := fmt.Sprintf("courses/%s/folders/by_path/foo/bar/baz'", courseID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Folder{}
 	}
@@ -8336,10 +8488,9 @@ func (c *Canvas) FilesResolvePath(progress *task.Progress) ([]Folder, error) {
 }
 
 // FilesGetFolder API call
-func (c *Canvas) FilesGetFolder(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesGetFolder(progress *task.Progress, folderID string) (*Folder, error) {
+	endpoint := fmt.Sprintf("folders/%s'", folderID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Folder{}
 	}
@@ -8355,10 +8506,16 @@ func (c *Canvas) FilesGetFolder(progress *task.Progress) (*Folder, error) {
 }
 
 // FilesUpdateFolder API call
-func (c *Canvas) FilesUpdateFolder(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesUpdateFolder(progress *task.Progress, name string, parentFolderID string, lockAt time.Time, unlockAt time.Time, locked bool, hidden bool, position int, folderID string) (*Folder, error) {
+	endpoint := fmt.Sprintf("folders/%s'", folderID)
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["parent_folder_id"] = parentFolderID
+    params["lock_at"] = lockAt
+    params["unlock_at"] = unlockAt
+    params["locked"] = locked
+    params["hidden"] = hidden
+    params["position"] = position
 	responseCtor := func() interface{} {
 		return &Folder{}
 	}
@@ -8374,10 +8531,17 @@ func (c *Canvas) FilesUpdateFolder(progress *task.Progress) (*Folder, error) {
 }
 
 // FilesCreateFolder API call
-func (c *Canvas) FilesCreateFolder(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesCreateFolder(progress *task.Progress, name string, parentFolderID string, parentFolderPath string, lockAt time.Time, unlockAt time.Time, locked bool, hidden bool, position int, courseID string) (*Folder, error) {
+	endpoint := fmt.Sprintf("courses/%s/folders'", courseID)
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["parent_folder_id"] = parentFolderID
+    params["parent_folder_path"] = parentFolderPath
+    params["lock_at"] = lockAt
+    params["unlock_at"] = unlockAt
+    params["locked"] = locked
+    params["hidden"] = hidden
+    params["position"] = position
 	responseCtor := func() interface{} {
 		return &Folder{}
 	}
@@ -8393,10 +8557,10 @@ func (c *Canvas) FilesCreateFolder(progress *task.Progress) (*Folder, error) {
 }
 
 // FilesDeleteFolder API call
-func (c *Canvas) FilesDeleteFolder(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesDeleteFolder(progress *task.Progress, force bool, folderID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("folders/%s'", folderID)
 	params := map[string]interface{}{}
-
+    params["force"] = force
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8417,7 +8581,6 @@ func (c *Canvas) FilesDeleteFolder(progress *task.Progress) (*map[string]interfa
 func (c *Canvas) FilesUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8434,10 +8597,11 @@ func (c *Canvas) FilesUploadAFile(progress *task.Progress) (*map[string]interfac
 
 // FilesCopyAFile API call: Copy a file from elsewhere in Canvas into a folder. Copying a file across contexts (between
 // courses and users) is permitted, but the source and destination must belong to the same institution.
-func (c *Canvas) FilesCopyAFile(progress *task.Progress) (*File, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesCopyAFile(progress *task.Progress, sourceFileID string, onDuplicate string) (*File, error) {
+	endpoint := fmt.Sprintf("folders/123/copy_file'")
 	params := map[string]interface{}{}
-
+    params["source_file_id"] = sourceFileID
+    params["on_duplicate"] = onDuplicate
 	responseCtor := func() interface{} {
 		return &File{}
 	}
@@ -8456,10 +8620,10 @@ func (c *Canvas) FilesCopyAFile(progress *task.Progress) (*File, error) {
 // across contexts (between courses and users) is permitted, but the source and destination must belong to the same
 // institution. If the source and destination folders are in the same context, the source folder may not contain the
 // destination folder. A folder will be renamed at its destination if another folder with the same name already exists.
-func (c *Canvas) FilesCopyAFolder(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) FilesCopyAFolder(progress *task.Progress, sourceFolderID string) (*Folder, error) {
+	endpoint := fmt.Sprintf("folders/123/copy_folder'")
 	params := map[string]interface{}{}
-
+    params["source_folder_id"] = sourceFolderID
 	responseCtor := func() interface{} {
 		return &Folder{}
 	}
@@ -8476,9 +8640,8 @@ func (c *Canvas) FilesCopyAFolder(progress *task.Progress) (*Folder, error) {
 
 // FilesGetUploadedMediaFolderForUser API call
 func (c *Canvas) FilesGetUploadedMediaFolderForUser(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1337/folders/media'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Folder{}
 	}
@@ -8494,10 +8657,11 @@ func (c *Canvas) FilesGetUploadedMediaFolderForUser(progress *task.Progress) (*F
 }
 
 // GradeChangeLogQueryByAssignment API call: List grade change events for a given assignment.
-func (c *Canvas) GradeChangeLogQueryByAssignment(progress *task.Progress) ([]GradeChangeEvent, error) {
+func (c *Canvas) GradeChangeLogQueryByAssignment(progress *task.Progress, startTime time.Time, endTime time.Time) ([]GradeChangeEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]GradeChangeEvent{}
 	}
@@ -8514,10 +8678,11 @@ func (c *Canvas) GradeChangeLogQueryByAssignment(progress *task.Progress) ([]Gra
 }
 
 // GradeChangeLogQueryByCourse API call: List grade change events for a given course.
-func (c *Canvas) GradeChangeLogQueryByCourse(progress *task.Progress) ([]GradeChangeEvent, error) {
+func (c *Canvas) GradeChangeLogQueryByCourse(progress *task.Progress, startTime time.Time, endTime time.Time) ([]GradeChangeEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]GradeChangeEvent{}
 	}
@@ -8534,10 +8699,11 @@ func (c *Canvas) GradeChangeLogQueryByCourse(progress *task.Progress) ([]GradeCh
 }
 
 // GradeChangeLogQueryByStudent API call: List grade change events for a given student.
-func (c *Canvas) GradeChangeLogQueryByStudent(progress *task.Progress) ([]GradeChangeEvent, error) {
+func (c *Canvas) GradeChangeLogQueryByStudent(progress *task.Progress, startTime time.Time, endTime time.Time) ([]GradeChangeEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]GradeChangeEvent{}
 	}
@@ -8554,10 +8720,11 @@ func (c *Canvas) GradeChangeLogQueryByStudent(progress *task.Progress) ([]GradeC
 }
 
 // GradeChangeLogQueryByGrader API call: List grade change events for a given grader.
-func (c *Canvas) GradeChangeLogQueryByGrader(progress *task.Progress) ([]GradeChangeEvent, error) {
+func (c *Canvas) GradeChangeLogQueryByGrader(progress *task.Progress, startTime time.Time, endTime time.Time) ([]GradeChangeEvent, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]GradeChangeEvent{}
 	}
@@ -8574,10 +8741,10 @@ func (c *Canvas) GradeChangeLogQueryByGrader(progress *task.Progress) ([]GradeCh
 }
 
 // GradebookHistoryDaysInGradebookHistoryForThisCourse API call: Returns a map of dates to grader/assignment groups
-func (c *Canvas) GradebookHistoryDaysInGradebookHistoryForThisCourse(progress *task.Progress) ([]Day, error) {
+func (c *Canvas) GradebookHistoryDaysInGradebookHistoryForThisCourse(progress *task.Progress, courseID int) ([]Day, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["course_id"] = courseID
 	responseCtor := func() interface{} {
 		return &[]Day{}
 	}
@@ -8596,10 +8763,11 @@ func (c *Canvas) GradebookHistoryDaysInGradebookHistoryForThisCourse(progress *t
 // GradebookHistoryDetailsForAGivenDateInGradebookHistoryForThisCourse API call: Returns the graders who worked on this
 // day, along with the assignments they worked on. More details can be obtained by selecting a grader and assignment and
 // calling the 'submissions' api endpoint for a given date.
-func (c *Canvas) GradebookHistoryDetailsForAGivenDateInGradebookHistoryForThisCourse(progress *task.Progress) ([]Grader, error) {
+func (c *Canvas) GradebookHistoryDetailsForAGivenDateInGradebookHistoryForThisCourse(progress *task.Progress, courseID int, date string) ([]Grader, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["course_id"] = courseID
+    params["date"] = date
 	responseCtor := func() interface{} {
 		return &[]Grader{}
 	}
@@ -8616,10 +8784,13 @@ func (c *Canvas) GradebookHistoryDetailsForAGivenDateInGradebookHistoryForThisCo
 }
 
 // GradebookHistoryListsSubmissions API call: Gives a nested list of submission versions
-func (c *Canvas) GradebookHistoryListsSubmissions(progress *task.Progress) ([]SubmissionHistory, error) {
+func (c *Canvas) GradebookHistoryListsSubmissions(progress *task.Progress, courseID int, date string, graderID int, assignmentID int) ([]SubmissionHistory, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["course_id"] = courseID
+    params["date"] = date
+    params["grader_id"] = graderID
+    params["assignment_id"] = assignmentID
 	responseCtor := func() interface{} {
 		return &[]SubmissionHistory{}
 	}
@@ -8638,10 +8809,13 @@ func (c *Canvas) GradebookHistoryListsSubmissions(progress *task.Progress) ([]Su
 // GradebookHistoryListUncollatedSubmissionVersions API call: Gives a paginated, uncollated list of submission versions
 // for all matching submissions in the context. This SubmissionVersion objects will not include the +new_grade+ or
 // +previous_grade+ keys, only the +grade+; same for +graded_at+ and +grader+.
-func (c *Canvas) GradebookHistoryListUncollatedSubmissionVersions(progress *task.Progress) ([]SubmissionVersion, error) {
+func (c *Canvas) GradebookHistoryListUncollatedSubmissionVersions(progress *task.Progress, courseID int, assignmentID int, userID int, ascending bool) ([]SubmissionVersion, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["course_id"] = courseID
+    params["assignment_id"] = assignmentID
+    params["user_id"] = userID
+    params["ascending"] = ascending
 	responseCtor := func() interface{} {
 		return &[]SubmissionVersion{}
 	}
@@ -8661,7 +8835,6 @@ func (c *Canvas) GradebookHistoryListUncollatedSubmissionVersions(progress *task
 func (c *Canvas) GradingPeriodsListGradingPeriods(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8680,7 +8853,6 @@ func (c *Canvas) GradingPeriodsListGradingPeriods(progress *task.Progress) (*map
 func (c *Canvas) GradingPeriodsGetASingleGradingPeriod(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8696,10 +8868,10 @@ func (c *Canvas) GradingPeriodsGetASingleGradingPeriod(progress *task.Progress) 
 }
 
 // GradingPeriodsUpdateASingleGradingPeriod API call: Update an existing grading period.
-func (c *Canvas) GradingPeriodsUpdateASingleGradingPeriod(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) GradingPeriodsUpdateASingleGradingPeriod(progress *task.Progress, gradingPeriods time.Time) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["grading_periods"] = gradingPeriods
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8719,7 +8891,6 @@ func (c *Canvas) GradingPeriodsUpdateASingleGradingPeriod(progress *task.Progres
 func (c *Canvas) GradingPeriodsDeleteAGradingPeriod(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8737,10 +8908,11 @@ func (c *Canvas) GradingPeriodsDeleteAGradingPeriod(progress *task.Progress) (*m
 // GradingStandardsCreateANewGradingStandard API call: Create a new grading standard If grading_scheme_entry arguments
 // are omitted, then a default grading scheme will be set. The default scheme is as follows: "A" : 94, "A-" : 90, "B+" :
 // 87, "B" : 84, "B-" : 80, "C+" : 77, "C" : 74, "C-" : 70, "D+" : 67, "D" : 64, "D-" : 61, "F" : 0,
-func (c *Canvas) GradingStandardsCreateANewGradingStandard(progress *task.Progress) (*GradingStandard, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GradingStandardsCreateANewGradingStandard(progress *task.Progress, title string, gradingSchemeEntry string, courseID string) (*GradingStandard, error) {
+	endpoint := fmt.Sprintf("courses/%s/grading_standards", courseID)
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["grading_scheme_entry"] = gradingSchemeEntry
 	responseCtor := func() interface{} {
 		return &GradingStandard{}
 	}
@@ -8758,9 +8930,8 @@ func (c *Canvas) GradingStandardsCreateANewGradingStandard(progress *task.Progre
 // GradingStandardsListTheGradingStandardsAvailableInAContext API call: Returns the paginated list of grading standards
 // for the given context that are visible to the user.
 func (c *Canvas) GradingStandardsListTheGradingStandardsAvailableInAContext(progress *task.Progress) ([]GradingStandard, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/grading_standards")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]GradingStandard{}
 	}
@@ -8779,9 +8950,8 @@ func (c *Canvas) GradingStandardsListTheGradingStandardsAvailableInAContext(prog
 // GradingStandardsGetASingleGradingStandardInAContext API call: Returns a grading standard for the given context that
 // is visible to the user.
 func (c *Canvas) GradingStandardsGetASingleGradingStandardInAContext(progress *task.Progress) (*GradingStandard, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/grading_standards/5")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &GradingStandard{}
 	}
@@ -8797,10 +8967,9 @@ func (c *Canvas) GradingStandardsGetASingleGradingStandardInAContext(progress *t
 }
 
 // GroupCategoriesListGroupCategoriesForAContext API call: Returns a paginated list of group categories in a context
-func (c *Canvas) GroupCategoriesListGroupCategoriesForAContext(progress *task.Progress) ([]GroupCategory, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesListGroupCategoriesForAContext(progress *task.Progress, accountID string) ([]GroupCategory, error) {
+	endpoint := fmt.Sprintf("accounts/%s/group_categories", accountID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]GroupCategory{}
 	}
@@ -8818,10 +8987,9 @@ func (c *Canvas) GroupCategoriesListGroupCategoriesForAContext(progress *task.Pr
 
 // GroupCategoriesGetASingleGroupCategory API call: Returns the data for a single group category, or a 401 if the caller
 // doesn't have the rights to see it.
-func (c *Canvas) GroupCategoriesGetASingleGroupCategory(progress *task.Progress) (*GroupCategory, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesGetASingleGroupCategory(progress *task.Progress, groupCategoryID string) (*GroupCategory, error) {
+	endpoint := fmt.Sprintf("group_categories/%s", groupCategoryID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &GroupCategory{}
 	}
@@ -8837,10 +9005,16 @@ func (c *Canvas) GroupCategoriesGetASingleGroupCategory(progress *task.Progress)
 }
 
 // GroupCategoriesCreateAGroupCategory API call: Create a new group category
-func (c *Canvas) GroupCategoriesCreateAGroupCategory(progress *task.Progress) (*GroupCategory, error) {
+func (c *Canvas) GroupCategoriesCreateAGroupCategory(progress *task.Progress, name string, selfSignup string, autoLeader string, groupLimit int, sisGroupCategoryID string, createGroupCount int, splitGroupCount interface{}) (*GroupCategory, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["self_signup"] = selfSignup
+    params["auto_leader"] = autoLeader
+    params["group_limit"] = groupLimit
+    params["sis_group_category_id"] = sisGroupCategoryID
+    params["create_group_count"] = createGroupCount
+    params["split_group_count"] = splitGroupCount
 	responseCtor := func() interface{} {
 		return &GroupCategory{}
 	}
@@ -8856,10 +9030,16 @@ func (c *Canvas) GroupCategoriesCreateAGroupCategory(progress *task.Progress) (*
 }
 
 // GroupCategoriesUpdateAGroupCategory API call: Modifies an existing group category.
-func (c *Canvas) GroupCategoriesUpdateAGroupCategory(progress *task.Progress) (*GroupCategory, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesUpdateAGroupCategory(progress *task.Progress, name string, selfSignup string, autoLeader string, groupLimit int, sisGroupCategoryID string, createGroupCount int, splitGroupCount interface{}, groupCategoryID string) (*GroupCategory, error) {
+	endpoint := fmt.Sprintf("group_categories/%s", groupCategoryID)
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["self_signup"] = selfSignup
+    params["auto_leader"] = autoLeader
+    params["group_limit"] = groupLimit
+    params["sis_group_category_id"] = sisGroupCategoryID
+    params["create_group_count"] = createGroupCount
+    params["split_group_count"] = splitGroupCount
 	responseCtor := func() interface{} {
 		return &GroupCategory{}
 	}
@@ -8876,10 +9056,9 @@ func (c *Canvas) GroupCategoriesUpdateAGroupCategory(progress *task.Progress) (*
 
 // GroupCategoriesDeleteAGroupCategory API call: Deletes a group category and all groups under it. Protected group
 // categories can not be deleted, i.e. "communities" and "student_organized".
-func (c *Canvas) GroupCategoriesDeleteAGroupCategory(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesDeleteAGroupCategory(progress *task.Progress, groupCategoryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("group_categories/%s", groupCategoryID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8895,10 +9074,9 @@ func (c *Canvas) GroupCategoriesDeleteAGroupCategory(progress *task.Progress) (*
 }
 
 // GroupCategoriesListGroupsInGroupCategory API call: Returns a paginated list of groups in a group category
-func (c *Canvas) GroupCategoriesListGroupsInGroupCategory(progress *task.Progress) ([]Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesListGroupsInGroupCategory(progress *task.Progress, groupCateogryID string) ([]Group, error) {
+	endpoint := fmt.Sprintf("group_categories/%s/groups", groupCateogryID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Group{}
 	}
@@ -8915,10 +9093,11 @@ func (c *Canvas) GroupCategoriesListGroupsInGroupCategory(progress *task.Progres
 }
 
 // GroupCategoriesListUsersInGroupCategory API call: Returns a paginated list of users in the group category.
-func (c *Canvas) GroupCategoriesListUsersInGroupCategory(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesListUsersInGroupCategory(progress *task.Progress, searchTerm string, unassigned bool) ([]User, error) {
+	endpoint := fmt.Sprintf("group_categories/1/users")
 	params := map[string]interface{}{}
-	
+    params["search_term"] = searchTerm
+    params["unassigned"] = unassigned
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -8936,10 +9115,10 @@ func (c *Canvas) GroupCategoriesListUsersInGroupCategory(progress *task.Progress
 
 // GroupCategoriesAssignUnassignedMembers API call: Assign all unassigned members as evenly as possible among the
 // existing student groups.
-func (c *Canvas) GroupCategoriesAssignUnassignedMembers(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupCategoriesAssignUnassignedMembers(progress *task.Progress, sync bool) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("group_categories/1/assign_unassigned_members")
 	params := map[string]interface{}{}
-
+    params["sync"] = sync
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -8955,10 +9134,10 @@ func (c *Canvas) GroupCategoriesAssignUnassignedMembers(progress *task.Progress)
 }
 
 // GroupsListGroupMemberships API call
-func (c *Canvas) GroupsListGroupMemberships(progress *task.Progress) ([]GroupMembership, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsListGroupMemberships(progress *task.Progress, filterStates string, groupID string) ([]GroupMembership, error) {
+	endpoint := fmt.Sprintf("groups/%s/memberships", groupID)
 	params := map[string]interface{}{}
-	
+    params["filter_states"] = filterStates
 	responseCtor := func() interface{} {
 		return &[]GroupMembership{}
 	}
@@ -8975,10 +9154,9 @@ func (c *Canvas) GroupsListGroupMemberships(progress *task.Progress) ([]GroupMem
 }
 
 // GroupsGetASingleGroupMembership API call
-func (c *Canvas) GroupsGetASingleGroupMembership(progress *task.Progress) (*GroupMembership, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsGetASingleGroupMembership(progress *task.Progress, groupID string, userID string) (*GroupMembership, error) {
+	endpoint := fmt.Sprintf("groups/%s/users/%s", groupID, userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &GroupMembership{}
 	}
@@ -8994,10 +9172,10 @@ func (c *Canvas) GroupsGetASingleGroupMembership(progress *task.Progress) (*Grou
 }
 
 // GroupsCreateAMembership API call
-func (c *Canvas) GroupsCreateAMembership(progress *task.Progress) (*GroupMembership, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsCreateAMembership(progress *task.Progress, userID string, groupID string) (*GroupMembership, error) {
+	endpoint := fmt.Sprintf("groups/%s/memberships", groupID)
 	params := map[string]interface{}{}
-
+    params["user_id"] = userID
 	responseCtor := func() interface{} {
 		return &GroupMembership{}
 	}
@@ -9013,10 +9191,11 @@ func (c *Canvas) GroupsCreateAMembership(progress *task.Progress) (*GroupMembers
 }
 
 // GroupsUpdateAMembership API call
-func (c *Canvas) GroupsUpdateAMembership(progress *task.Progress) (*GroupMembership, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsUpdateAMembership(progress *task.Progress, workflowState string, moderator interface{}, groupID string, userID string) (*GroupMembership, error) {
+	endpoint := fmt.Sprintf("groups/%s/users/%s", groupID, userID)
 	params := map[string]interface{}{}
-
+    params["workflow_state"] = workflowState
+    params["moderator"] = moderator
 	responseCtor := func() interface{} {
 		return &GroupMembership{}
 	}
@@ -9032,10 +9211,9 @@ func (c *Canvas) GroupsUpdateAMembership(progress *task.Progress) (*GroupMembers
 }
 
 // GroupsLeaveAGroup API call
-func (c *Canvas) GroupsLeaveAGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsLeaveAGroup(progress *task.Progress, groupID string, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("groups/%s/users/%s", groupID, userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9051,10 +9229,11 @@ func (c *Canvas) GroupsLeaveAGroup(progress *task.Progress) (*map[string]interfa
 }
 
 // GroupsListYourGroups API call: Returns a paginated list of active groups for the current user.
-func (c *Canvas) GroupsListYourGroups(progress *task.Progress) ([]Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsListYourGroups(progress *task.Progress, contextType string, include string) ([]Group, error) {
+	endpoint := fmt.Sprintf("users/self/groups")
 	params := map[string]interface{}{}
-	
+    params["context_type"] = contextType
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Group{}
 	}
@@ -9072,10 +9251,11 @@ func (c *Canvas) GroupsListYourGroups(progress *task.Progress) ([]Group, error) 
 
 // GroupsListTheGroupsAvailableInAContext API call: Returns the paginated list of active groups in the given context
 // that are visible to user.
-func (c *Canvas) GroupsListTheGroupsAvailableInAContext(progress *task.Progress) ([]Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsListTheGroupsAvailableInAContext(progress *task.Progress, onlyOwnGroups bool, include string) ([]Group, error) {
+	endpoint := fmt.Sprintf("courses/1/groups")
 	params := map[string]interface{}{}
-	
+    params["only_own_groups"] = onlyOwnGroups
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Group{}
 	}
@@ -9093,10 +9273,10 @@ func (c *Canvas) GroupsListTheGroupsAvailableInAContext(progress *task.Progress)
 
 // GroupsGetASingleGroup API call: Returns the data for a single group, or a 401 if the caller doesn't have the rights
 // to see it.
-func (c *Canvas) GroupsGetASingleGroup(progress *task.Progress) (*Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsGetASingleGroup(progress *task.Progress, include string, groupID string) (*Group, error) {
+	endpoint := fmt.Sprintf("groups/%s", groupID)
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &Group{}
 	}
@@ -9113,10 +9293,15 @@ func (c *Canvas) GroupsGetASingleGroup(progress *task.Progress) (*Group, error) 
 
 // GroupsCreateAGroup API call: Creates a new group. Groups created using the "/api/v1/groups/" endpoint will be
 // community groups.
-func (c *Canvas) GroupsCreateAGroup(progress *task.Progress) (*Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsCreateAGroup(progress *task.Progress, name string, description string, isPublic bool, joinLevel string, storageQuotaMb int, sisGroupID string) (*Group, error) {
+	endpoint := fmt.Sprintf("groups")
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["description"] = description
+    params["is_public"] = isPublic
+    params["join_level"] = joinLevel
+    params["storage_quota_mb"] = storageQuotaMb
+    params["sis_group_id"] = sisGroupID
 	responseCtor := func() interface{} {
 		return &Group{}
 	}
@@ -9134,10 +9319,17 @@ func (c *Canvas) GroupsCreateAGroup(progress *task.Progress) (*Group, error) {
 // GroupsEditAGroup API call: Modifies an existing group.  Note that to set an avatar image for the group, you must
 // first upload the image file to the group, and the use the id in the response as the argument to this function.  See
 // the {file:file_uploads.html File Upload Documentation} for details on the file upload workflow.
-func (c *Canvas) GroupsEditAGroup(progress *task.Progress) (*Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsEditAGroup(progress *task.Progress, name string, description string, isPublic bool, joinLevel string, avatarID int, storageQuotaMb int, members string, sisGroupID string, groupID string) (*Group, error) {
+	endpoint := fmt.Sprintf("groups/%s", groupID)
 	params := map[string]interface{}{}
-
+    params["name"] = name
+    params["description"] = description
+    params["is_public"] = isPublic
+    params["join_level"] = joinLevel
+    params["avatar_id"] = avatarID
+    params["storage_quota_mb"] = storageQuotaMb
+    params["members"] = members
+    params["sis_group_id"] = sisGroupID
 	responseCtor := func() interface{} {
 		return &Group{}
 	}
@@ -9153,10 +9345,9 @@ func (c *Canvas) GroupsEditAGroup(progress *task.Progress) (*Group, error) {
 }
 
 // GroupsDeleteAGroup API call: Deletes a group and removes all members.
-func (c *Canvas) GroupsDeleteAGroup(progress *task.Progress) (*Group, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsDeleteAGroup(progress *task.Progress, groupID string) (*Group, error) {
+	endpoint := fmt.Sprintf("groups/%s", groupID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Group{}
 	}
@@ -9172,10 +9363,10 @@ func (c *Canvas) GroupsDeleteAGroup(progress *task.Progress) (*Group, error) {
 }
 
 // GroupsInviteOthersToAGroup API call
-func (c *Canvas) GroupsInviteOthersToAGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsInviteOthersToAGroup(progress *task.Progress, invitees string, groupID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("groups/%s/invite", groupID)
 	params := map[string]interface{}{}
-
+    params["invitees"] = invitees
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9191,10 +9382,12 @@ func (c *Canvas) GroupsInviteOthersToAGroup(progress *task.Progress) (*map[strin
 }
 
 // GroupsListGroupSUsers API call: Returns a paginated list of users in the group.
-func (c *Canvas) GroupsListGroupSUsers(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsListGroupSUsers(progress *task.Progress, searchTerm string, include string, excludeInactive bool) ([]User, error) {
+	endpoint := fmt.Sprintf("groups/1/users")
 	params := map[string]interface{}{}
-	
+    params["search_term"] = searchTerm
+    params["include"] = include
+    params["exclude_inactive"] = excludeInactive
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -9217,7 +9410,6 @@ func (c *Canvas) GroupsListGroupSUsers(progress *task.Progress) ([]User, error) 
 func (c *Canvas) GroupsUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9233,10 +9425,10 @@ func (c *Canvas) GroupsUploadAFile(progress *task.Progress) (*map[string]interfa
 }
 
 // GroupsPreviewProcessedHTML API call: Preview html content processed for this group
-func (c *Canvas) GroupsPreviewProcessedHTML(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsPreviewProcessedHTML(progress *task.Progress, html string, groupID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("groups/%s/preview_html", groupID)
 	params := map[string]interface{}{}
-
+    params["html"] = html
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9256,7 +9448,6 @@ func (c *Canvas) GroupsPreviewProcessedHTML(progress *task.Progress) (*map[strin
 func (c *Canvas) GroupsGroupActivityStream(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9276,7 +9467,6 @@ func (c *Canvas) GroupsGroupActivityStream(progress *task.Progress) (*map[string
 func (c *Canvas) GroupsGroupActivityStreamSummary(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9293,10 +9483,10 @@ func (c *Canvas) GroupsGroupActivityStreamSummary(progress *task.Progress) (*map
 
 // GroupsPermissions API call: Returns permission information for the calling user in the given group. See also the
 // {api:AccountsController#permissions Account} and {api:CoursesController#permissions Course} counterparts.
-func (c *Canvas) GroupsPermissions(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) GroupsPermissions(progress *task.Progress, permissions string, groupID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("groups/%s/permissions", groupID)
 	params := map[string]interface{}{}
-
+    params["permissions"] = permissions
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9314,10 +9504,10 @@ func (c *Canvas) GroupsPermissions(progress *task.Progress) (*map[string]interfa
 // ImageSearchFindImages API call: Find public domain images for use in courses and user content.  If you select an
 // image using this API, please use the {api:InternetImageController#image_selection Confirm image selection API} to
 // indicate photo usage to the server.
-func (c *Canvas) ImageSearchFindImages(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ImageSearchFindImages(progress *task.Progress, query string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["query"] = query
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9334,10 +9524,10 @@ func (c *Canvas) ImageSearchFindImages(progress *task.Progress) (*map[string]int
 
 // ImageSearchConfirmImageSelection API call: After you have used the search API, you should hit this API to indicate
 // photo usage to the server.
-func (c *Canvas) ImageSearchConfirmImageSelection(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) ImageSearchConfirmImageSelection(progress *task.Progress, id string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["id"] = id
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9355,9 +9545,8 @@ func (c *Canvas) ImageSearchConfirmImageSelection(progress *task.Progress) (*map
 // JwtsCreateJwt API call: Create a unique jwt for using with other canvas services Generates a different JWT each time
 // it's called, each one expires after a short window (1 hour)
 func (c *Canvas) JwtsCreateJwt(progress *task.Progress) (*JWT, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("jwts'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &JWT{}
 	}
@@ -9374,10 +9563,10 @@ func (c *Canvas) JwtsCreateJwt(progress *task.Progress) (*JWT, error) {
 
 // JwtsRefreshJwt API call: Refresh a JWT for use with other canvas services Generates a different JWT each time it's
 // called, each one expires after a short window (1 hour).
-func (c *Canvas) JwtsRefreshJwt(progress *task.Progress) (*JWT, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) JwtsRefreshJwt(progress *task.Progress, jwt string) (*JWT, error) {
+	endpoint := fmt.Sprintf("jwts/refresh'")
 	params := map[string]interface{}{}
-
+    params["jwt"] = jwt
 	responseCtor := func() interface{} {
 		return &JWT{}
 	}
@@ -9396,7 +9585,6 @@ func (c *Canvas) JwtsRefreshJwt(progress *task.Progress) (*JWT, error) {
 func (c *Canvas) LatePolicyGetALatePolicy(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9413,10 +9601,10 @@ func (c *Canvas) LatePolicyGetALatePolicy(progress *task.Progress) (*map[string]
 
 // LatePolicyCreateALatePolicy API call: Create a late policy. If the course already has a late policy, a bad_request is
 // returned since there can only be one late policy per course.
-func (c *Canvas) LatePolicyCreateALatePolicy(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) LatePolicyCreateALatePolicy(progress *task.Progress, latePolicy bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["late_policy"] = latePolicy
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9432,10 +9620,10 @@ func (c *Canvas) LatePolicyCreateALatePolicy(progress *task.Progress) (*map[stri
 }
 
 // LatePolicyPatchALatePolicy API call: Patch a late policy. No body is returned upon success.
-func (c *Canvas) LatePolicyPatchALatePolicy(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) LatePolicyPatchALatePolicy(progress *task.Progress, latePolicy bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["late_policy"] = latePolicy
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9452,10 +9640,12 @@ func (c *Canvas) LatePolicyPatchALatePolicy(progress *task.Progress) (*map[strin
 
 // MediaObjectsListMediaObjects API call: Returns Media Objects created by the user making the request. When using the
 // second version, returns only those Media Objects associated with the given course.
-func (c *Canvas) MediaObjectsListMediaObjects(progress *task.Progress) ([]map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) MediaObjectsListMediaObjects(progress *task.Progress, sort string, order string, exclude string) ([]map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("media_objects")
 	params := map[string]interface{}{}
-	
+    params["sort"] = sort
+    params["order"] = order
+    params["exclude"] = exclude
 	responseCtor := func() interface{} {
 		return &[]map[string]interface{}{}
 	}
@@ -9472,10 +9662,10 @@ func (c *Canvas) MediaObjectsListMediaObjects(progress *task.Progress) ([]map[st
 }
 
 // MediaObjectsUpdateMediaObject API call
-func (c *Canvas) MediaObjectsUpdateMediaObject(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) MediaObjectsUpdateMediaObject(progress *task.Progress, userEnteredTitle interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user_entered_title"] = userEnteredTitle
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9491,10 +9681,10 @@ func (c *Canvas) MediaObjectsUpdateMediaObject(progress *task.Progress) (*map[st
 }
 
 // MediaObjectsListMediaTracksForAMediaObject API call: List the media tracks associated with a media object
-func (c *Canvas) MediaObjectsListMediaTracksForAMediaObject(progress *task.Progress) ([]map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) MediaObjectsListMediaTracksForAMediaObject(progress *task.Progress, include string, mediaObjectID string) ([]map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("media_objects/%s/media_tracks", mediaObjectID)
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]map[string]interface{}{}
 	}
@@ -9513,10 +9703,10 @@ func (c *Canvas) MediaObjectsListMediaTracksForAMediaObject(progress *task.Progr
 // MediaObjectsUpdateMediaTracks API call: Replace the media tracks associated with a media object with the array of
 // tracks provided in the body. Update will delete any existing tracks not listed, leave untouched any tracks with no
 // content field, and update or create tracks with a content field.
-func (c *Canvas) MediaObjectsUpdateMediaTracks(progress *task.Progress) ([]map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) MediaObjectsUpdateMediaTracks(progress *task.Progress, include string, mediaObjectID string) ([]map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("media_objects/%s/mediatracksinclude[]=content", mediaObjectID)
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]map[string]interface{}{}
 	}
@@ -9533,10 +9723,9 @@ func (c *Canvas) MediaObjectsUpdateMediaTracks(progress *task.Progress) ([]map[s
 }
 
 // ContentMigrationsListMigrationIssues API call: Returns paginated migration issues
-func (c *Canvas) ContentMigrationsListMigrationIssues(progress *task.Progress) ([]MigrationIssue, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsListMigrationIssues(progress *task.Progress, courseID string, contentMigrationID string) ([]MigrationIssue, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations/%s/migration_issues", courseID, contentMigrationID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]MigrationIssue{}
 	}
@@ -9553,10 +9742,9 @@ func (c *Canvas) ContentMigrationsListMigrationIssues(progress *task.Progress) (
 }
 
 // ContentMigrationsGetAMigrationIssue API call: Returns data on an individual migration issue
-func (c *Canvas) ContentMigrationsGetAMigrationIssue(progress *task.Progress) (*MigrationIssue, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsGetAMigrationIssue(progress *task.Progress, courseID string, contentMigrationID string, id string) (*MigrationIssue, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations/%s/migration_issues/%s", courseID, contentMigrationID, id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &MigrationIssue{}
 	}
@@ -9572,10 +9760,10 @@ func (c *Canvas) ContentMigrationsGetAMigrationIssue(progress *task.Progress) (*
 }
 
 // ContentMigrationsUpdateAMigrationIssue API call: Update the workflow_state of a migration issue
-func (c *Canvas) ContentMigrationsUpdateAMigrationIssue(progress *task.Progress) (*MigrationIssue, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ContentMigrationsUpdateAMigrationIssue(progress *task.Progress, workflowState string, courseID string, contentMigrationID string, id string) (*MigrationIssue, error) {
+	endpoint := fmt.Sprintf("courses/%s/content_migrations/%s/migration_issues/%s", courseID, contentMigrationID, id)
 	params := map[string]interface{}{}
-
+    params["workflow_state"] = workflowState
 	responseCtor := func() interface{} {
 		return &MigrationIssue{}
 	}
@@ -9595,7 +9783,6 @@ func (c *Canvas) ContentMigrationsUpdateAMigrationIssue(progress *task.Progress)
 func (c *Canvas) ModeratedGradingListStudentsSelectedForModeration(progress *task.Progress) ([]User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -9612,10 +9799,10 @@ func (c *Canvas) ModeratedGradingListStudentsSelectedForModeration(progress *tas
 }
 
 // ModeratedGradingSelectStudentsForModeration API call: Returns an array of users that were selected for moderation
-func (c *Canvas) ModeratedGradingSelectStudentsForModeration(progress *task.Progress) ([]User, error) {
+func (c *Canvas) ModeratedGradingSelectStudentsForModeration(progress *task.Progress, studentIds float64) ([]User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["student_ids"] = studentIds
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -9635,7 +9822,6 @@ func (c *Canvas) ModeratedGradingSelectStudentsForModeration(progress *task.Prog
 func (c *Canvas) NotificationPreferencesListPreferences(progress *task.Progress) ([]NotificationPreference, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]NotificationPreference{}
 	}
@@ -9656,7 +9842,6 @@ func (c *Canvas) NotificationPreferencesListPreferences(progress *task.Progress)
 func (c *Canvas) NotificationPreferencesListOfPreferenceCategories(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9676,7 +9861,6 @@ func (c *Canvas) NotificationPreferencesListOfPreferenceCategories(progress *tas
 func (c *Canvas) NotificationPreferencesGetAPreference(progress *task.Progress) (*NotificationPreference, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &NotificationPreference{}
 	}
@@ -9693,10 +9877,10 @@ func (c *Canvas) NotificationPreferencesGetAPreference(progress *task.Progress) 
 
 // NotificationPreferencesUpdateAPreference API call: Change the preference for a single notification for a single
 // communication channel
-func (c *Canvas) NotificationPreferencesUpdateAPreference(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) NotificationPreferencesUpdateAPreference(progress *task.Progress, notificationPreferences interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["notification_preferences"] = notificationPreferences
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9713,10 +9897,11 @@ func (c *Canvas) NotificationPreferencesUpdateAPreference(progress *task.Progres
 
 // NotificationPreferencesUpdatePreferencesByCategory API call: Change the preferences for multiple notifications based
 // on the category for a single communication channel
-func (c *Canvas) NotificationPreferencesUpdatePreferencesByCategory(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) NotificationPreferencesUpdatePreferencesByCategory(progress *task.Progress, category interface{}, notificationPreferences interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["category"] = category
+    params["notification_preferences"] = notificationPreferences
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9733,10 +9918,10 @@ func (c *Canvas) NotificationPreferencesUpdatePreferencesByCategory(progress *ta
 
 // NotificationPreferencesUpdateMultiplePreferences API call: Change the preferences for multiple notifications for a
 // single communication channel at once
-func (c *Canvas) NotificationPreferencesUpdateMultiplePreferences(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) NotificationPreferencesUpdateMultiplePreferences(progress *task.Progress, notificationPreferences interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["notification_preferences"] = notificationPreferences
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9756,7 +9941,6 @@ func (c *Canvas) NotificationPreferencesUpdateMultiplePreferences(progress *task
 func (c *Canvas) OutcomeGroupsRedirectToRootOutcomeGroupForContext(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -9775,7 +9959,6 @@ func (c *Canvas) OutcomeGroupsRedirectToRootOutcomeGroupForContext(progress *tas
 func (c *Canvas) OutcomeGroupsGetAllOutcomeGroupsForContext(progress *task.Progress) ([]OutcomeGroup, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]OutcomeGroup{}
 	}
@@ -9792,10 +9975,11 @@ func (c *Canvas) OutcomeGroupsGetAllOutcomeGroupsForContext(progress *task.Progr
 }
 
 // OutcomeGroupsGetAllOutcomeLinksForContext API call
-func (c *Canvas) OutcomeGroupsGetAllOutcomeLinksForContext(progress *task.Progress) ([]OutcomeLink, error) {
+func (c *Canvas) OutcomeGroupsGetAllOutcomeLinksForContext(progress *task.Progress, outcomeStyle string, outcomeGroupStyle string) ([]OutcomeLink, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["outcome_style"] = outcomeStyle
+    params["outcome_group_style"] = outcomeGroupStyle
 	responseCtor := func() interface{} {
 		return &[]OutcomeLink{}
 	}
@@ -9815,7 +9999,6 @@ func (c *Canvas) OutcomeGroupsGetAllOutcomeLinksForContext(progress *task.Progre
 func (c *Canvas) OutcomeGroupsShowAnOutcomeGroup(progress *task.Progress) (*OutcomeGroup, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
 	}
@@ -9833,10 +10016,13 @@ func (c *Canvas) OutcomeGroupsShowAnOutcomeGroup(progress *task.Progress) (*Outc
 // OutcomeGroupsUpdateAnOutcomeGroup API call: Modify an existing outcome group. Fields not provided are left as is;
 // unrecognized fields are ignored. When changing the parent outcome group, the new parent group must belong to the same
 // context as this outcome group, and must not be a descendant of this outcome group (i.e. no cycles allowed).
-func (c *Canvas) OutcomeGroupsUpdateAnOutcomeGroup(progress *task.Progress) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) OutcomeGroupsUpdateAnOutcomeGroup(progress *task.Progress, title string, description string, vendorGUID string, parentOutcomeGroupID int) (*OutcomeGroup, error) {
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json'")
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["description"] = description
+    params["vendor_guid"] = vendorGUID
+    params["parent_outcome_group_id"] = parentOutcomeGroupID
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
 	}
@@ -9856,9 +10042,8 @@ func (c *Canvas) OutcomeGroupsUpdateAnOutcomeGroup(progress *task.Progress) (*Ou
 // cannot be deleted; as such, if all remaining links to an aligned outcome are included in this group's descendants,
 // the group deletion will fail.
 func (c *Canvas) OutcomeGroupsDeleteAnOutcomeGroup(progress *task.Progress) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
 	}
@@ -9875,10 +10060,10 @@ func (c *Canvas) OutcomeGroupsDeleteAnOutcomeGroup(progress *task.Progress) (*Ou
 
 // OutcomeGroupsListLinkedOutcomes API call: A paginated list of the immediate OutcomeLink children of the outcome
 // group.
-func (c *Canvas) OutcomeGroupsListLinkedOutcomes(progress *task.Progress) ([]OutcomeLink, error) {
+func (c *Canvas) OutcomeGroupsListLinkedOutcomes(progress *task.Progress, outcomeStyle string) ([]OutcomeLink, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["outcome_style"] = outcomeStyle
 	responseCtor := func() interface{} {
 		return &[]OutcomeLink{}
 	}
@@ -9906,10 +10091,19 @@ func (c *Canvas) OutcomeGroupsListLinkedOutcomes(progress *task.Progress) ([]Out
 // the maximum points in the highest rating if not specified in the mastery_points parameter. Any ratings lacking a
 // description are given a default of "No description". Any ratings lacking a point value are given a default of 0. If
 // no ratings are provided, the mastery_points parameter is ignored.
-func (c *Canvas) OutcomeGroupsCreateLinkAnOutcome(progress *task.Progress) (*OutcomeLink, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) OutcomeGroupsCreateLinkAnOutcome(progress *task.Progress, outcomeID int, moveFrom int, title string, displayName string, description string, vendorGUID string, masteryPoints int, ratings string, calculationMethod string, calculationInt int) (*OutcomeLink, error) {
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes.json'")
 	params := map[string]interface{}{}
-
+    params["outcome_id"] = outcomeID
+    params["move_from"] = moveFrom
+    params["title"] = title
+    params["display_name"] = displayName
+    params["description"] = description
+    params["vendor_guid"] = vendorGUID
+    params["mastery_points"] = masteryPoints
+    params["ratings"] = ratings
+    params["calculation_method"] = calculationMethod
+    params["calculation_int"] = calculationInt
 	responseCtor := func() interface{} {
 		return &OutcomeLink{}
 	}
@@ -9928,9 +10122,8 @@ func (c *Canvas) OutcomeGroupsCreateLinkAnOutcome(progress *task.Progress) (*Out
 // to the outcome in any group in any context. Aligned outcomes cannot be deleted; as such, if this is the last link to
 // an aligned outcome, the unlinking will fail.
 func (c *Canvas) OutcomeGroupsUnlinkAnOutcome(progress *task.Progress) (*OutcomeLink, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes/1.json'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &OutcomeLink{}
 	}
@@ -9949,7 +10142,6 @@ func (c *Canvas) OutcomeGroupsUnlinkAnOutcome(progress *task.Progress) (*Outcome
 func (c *Canvas) OutcomeGroupsListSubgroups(progress *task.Progress) ([]OutcomeGroup, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]OutcomeGroup{}
 	}
@@ -9967,10 +10159,12 @@ func (c *Canvas) OutcomeGroupsListSubgroups(progress *task.Progress) ([]OutcomeG
 
 // OutcomeGroupsCreateASubgroup API call: Creates a new empty subgroup under the outcome group with the given title and
 // description.
-func (c *Canvas) OutcomeGroupsCreateASubgroup(progress *task.Progress) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) OutcomeGroupsCreateASubgroup(progress *task.Progress, title string, description string, vendorGUID string) (*OutcomeGroup, error) {
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/subgroups.json'")
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["description"] = description
+    params["vendor_guid"] = vendorGUID
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
 	}
@@ -9991,10 +10185,11 @@ func (c *Canvas) OutcomeGroupsCreateASubgroup(progress *task.Progress) (*Outcome
 // Allows you to copy organizational structure, but does not create copies of the outcomes themselves, only new links.
 // The source group must be either global, from the same context as this outcome group, or from an associated account.
 // The source group cannot be the root outcome group of its context.
-func (c *Canvas) OutcomeGroupsImportAnOutcomeGroup(progress *task.Progress) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) OutcomeGroupsImportAnOutcomeGroup(progress *task.Progress, sourceOutcomeGroupID int, async bool) (*OutcomeGroup, error) {
+	endpoint := fmt.Sprintf("accounts/2/outcome_groups/3/import.json'")
 	params := map[string]interface{}{}
-
+    params["source_outcome_group_id"] = sourceOutcomeGroupID
+    params["async"] = async
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
 	}
@@ -10011,10 +10206,12 @@ func (c *Canvas) OutcomeGroupsImportAnOutcomeGroup(progress *task.Progress) (*Ou
 
 // OutcomeImportsImportOutcomes API call: Import outcomes into Canvas. For more information on the format that's
 // expected here, please see the "Outcomes CSV" section in the API docs.
-func (c *Canvas) OutcomeImportsImportOutcomes(progress *task.Progress) (*OutcomeImport, error) {
+func (c *Canvas) OutcomeImportsImportOutcomes(progress *task.Progress, importType string, attachment interface{}, extension string) (*OutcomeImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["import_type"] = importType
+    params["attachment"] = attachment
+    params["extension"] = extension
 	responseCtor := func() interface{} {
 		return &OutcomeImport{}
 	}
@@ -10037,7 +10234,6 @@ func (c *Canvas) OutcomeImportsImportOutcomes(progress *task.Progress) (*Outcome
 func (c *Canvas) OutcomeImportsGetOutcomeImportStatus(progress *task.Progress) (*OutcomeImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &OutcomeImport{}
 	}
@@ -10054,10 +10250,10 @@ func (c *Canvas) OutcomeImportsGetOutcomeImportStatus(progress *task.Progress) (
 
 // ProficiencyRatingsCreateUpdateProficiencyRatings API call: Create or update account-level proficiency ratings. These
 // ratings will apply to all sub-accounts, unless they have their own account-level proficiency ratings defined.
-func (c *Canvas) ProficiencyRatingsCreateUpdateProficiencyRatings(progress *task.Progress) (*Proficiency, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ProficiencyRatingsCreateUpdateProficiencyRatings(progress *task.Progress, ratings string, accountID string) (*Proficiency, error) {
+	endpoint := fmt.Sprintf("accounts/%s/outcome_proficiency'", accountID)
 	params := map[string]interface{}{}
-
+    params["ratings"] = ratings
 	responseCtor := func() interface{} {
 		return &Proficiency{}
 	}
@@ -10079,7 +10275,6 @@ func (c *Canvas) ProficiencyRatingsCreateUpdateProficiencyRatings(progress *task
 func (c *Canvas) ProficiencyRatingsGetProficiencyRatings(progress *task.Progress) (*Proficiency, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Proficiency{}
 	}
@@ -10095,10 +10290,13 @@ func (c *Canvas) ProficiencyRatingsGetProficiencyRatings(progress *task.Progress
 }
 
 // OutcomeResultsGetOutcomeResults API call: Gets the outcome results for users and outcomes in the specified context.
-func (c *Canvas) OutcomeResultsGetOutcomeResults(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) OutcomeResultsGetOutcomeResults(progress *task.Progress, userIds int, outcomeIds int, include string, includeHidden bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user_ids"] = userIds
+    params["outcome_ids"] = outcomeIds
+    params["include"] = include
+    params["include_hidden"] = includeHidden
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10115,10 +10313,18 @@ func (c *Canvas) OutcomeResultsGetOutcomeResults(progress *task.Progress) (*map[
 
 // OutcomeResultsGetOutcomeResultRollups API call: Gets the outcome rollups for the users and outcomes in the specified
 // context.
-func (c *Canvas) OutcomeResultsGetOutcomeResultRollups(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) OutcomeResultsGetOutcomeResultRollups(progress *task.Progress, aggregate string, aggregateStat string, userIds int, outcomeIds int, include string, exclude string, sortBy string, sortOutcomeID int, sortOrder string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["aggregate"] = aggregate
+    params["aggregate_stat"] = aggregateStat
+    params["user_ids"] = userIds
+    params["outcome_ids"] = outcomeIds
+    params["include"] = include
+    params["exclude"] = exclude
+    params["sort_by"] = sortBy
+    params["sort_outcome_id"] = sortOutcomeID
+    params["sort_order"] = sortOrder
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10137,7 +10343,6 @@ func (c *Canvas) OutcomeResultsGetOutcomeResultRollups(progress *task.Progress) 
 func (c *Canvas) OutcomesShowAnOutcome(progress *task.Progress) (*Outcome, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Outcome{}
 	}
@@ -10158,10 +10363,17 @@ func (c *Canvas) OutcomesShowAnOutcome(progress *task.Progress) (*Outcome, error
 // embedded rubric criterion's mastery_points default to the maximum points in the highest rating if not specified in
 // the mastery_points parameter. Any new ratings lacking a description are given a default of "No description". Any new
 // ratings lacking a point value are given a default of 0.
-func (c *Canvas) OutcomesUpdateAnOutcome(progress *task.Progress) (*Outcome, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) OutcomesUpdateAnOutcome(progress *task.Progress, title string, displayName string, description string, vendorGUID string, masteryPoints int, ratings string, calculationMethod string, calculationInt int) (*Outcome, error) {
+	endpoint := fmt.Sprintf("outcomes/1.json'")
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["display_name"] = displayName
+    params["description"] = description
+    params["vendor_guid"] = vendorGUID
+    params["mastery_points"] = masteryPoints
+    params["ratings"] = ratings
+    params["calculation_method"] = calculationMethod
+    params["calculation_int"] = calculationInt
 	responseCtor := func() interface{} {
 		return &Outcome{}
 	}
@@ -10177,10 +10389,11 @@ func (c *Canvas) OutcomesUpdateAnOutcome(progress *task.Progress) (*Outcome, err
 }
 
 // OutcomesGetAlignedAssignmentsForAnOutcomeInACourseForAParticularStudent API call
-func (c *Canvas) OutcomesGetAlignedAssignmentsForAnOutcomeInACourseForAParticularStudent(progress *task.Progress) ([]OutcomeAlignment, error) {
+func (c *Canvas) OutcomesGetAlignedAssignmentsForAnOutcomeInACourseForAParticularStudent(progress *task.Progress, courseID int, studentID int) ([]OutcomeAlignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["course_id"] = courseID
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &[]OutcomeAlignment{}
 	}
@@ -10198,10 +10411,11 @@ func (c *Canvas) OutcomesGetAlignedAssignmentsForAnOutcomeInACourseForAParticula
 
 // UsersListUserPageViews API call: Return a paginated list of the user's page view history in json format, similar to
 // the available CSV download. Page views are returned in descending order, newest to oldest.
-func (c *Canvas) UsersListUserPageViews(progress *task.Progress) ([]PageView, error) {
+func (c *Canvas) UsersListUserPageViews(progress *task.Progress, startTime time.Time, endTime time.Time) ([]PageView, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_time"] = startTime
+    params["end_time"] = endTime
 	responseCtor := func() interface{} {
 		return &[]PageView{}
 	}
@@ -10218,10 +10432,10 @@ func (c *Canvas) UsersListUserPageViews(progress *task.Progress) ([]PageView, er
 }
 
 // PeerReviewsGetAllPeerReviews API call: Get a list of all Peer Reviews for this assignment
-func (c *Canvas) PeerReviewsGetAllPeerReviews(progress *task.Progress) ([]PeerReview, error) {
+func (c *Canvas) PeerReviewsGetAllPeerReviews(progress *task.Progress, include string) ([]PeerReview, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]PeerReview{}
 	}
@@ -10238,10 +10452,10 @@ func (c *Canvas) PeerReviewsGetAllPeerReviews(progress *task.Progress) ([]PeerRe
 }
 
 // PeerReviewsCreatePeerReview API call: Create a peer review for the assignment
-func (c *Canvas) PeerReviewsCreatePeerReview(progress *task.Progress) (*PeerReview, error) {
+func (c *Canvas) PeerReviewsCreatePeerReview(progress *task.Progress, userID int) (*PeerReview, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user_id"] = userID
 	responseCtor := func() interface{} {
 		return &PeerReview{}
 	}
@@ -10257,10 +10471,10 @@ func (c *Canvas) PeerReviewsCreatePeerReview(progress *task.Progress) (*PeerRevi
 }
 
 // PeerReviewsDeletePeerReview API call: Delete a peer review for the assignment
-func (c *Canvas) PeerReviewsDeletePeerReview(progress *task.Progress) (*PeerReview, error) {
+func (c *Canvas) PeerReviewsDeletePeerReview(progress *task.Progress, userID int) (*PeerReview, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user_id"] = userID
 	responseCtor := func() interface{} {
 		return &PeerReview{}
 	}
@@ -10278,10 +10492,13 @@ func (c *Canvas) PeerReviewsDeletePeerReview(progress *task.Progress) (*PeerRevi
 // PlannerListPlannerItems API call: Retrieve the paginated list of objects to be shown on the planner for the current
 // user with the associated planner override to override an item's visibility if set. Planner items for a student may
 // also be retrieved by a linked observer. Use the path that accepts a user_id and supply the student's id.
-func (c *Canvas) PlannerListPlannerItems(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) PlannerListPlannerItems(progress *task.Progress, startDate time.Time, endDate time.Time, contextCodes string, filter string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["start_date"] = startDate
+    params["end_date"] = endDate
+    params["context_codes"] = contextCodes
+    params["filter"] = filter
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10297,10 +10514,12 @@ func (c *Canvas) PlannerListPlannerItems(progress *task.Progress) (*map[string]i
 }
 
 // PlannerListPlannerNotes API call: Retrieve planner note for a user
-func (c *Canvas) PlannerListPlannerNotes(progress *task.Progress) ([]PlannerNote, error) {
+func (c *Canvas) PlannerListPlannerNotes(progress *task.Progress, startDate time.Time, endDate time.Time, contextCodes string) ([]PlannerNote, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["start_date"] = startDate
+    params["end_date"] = endDate
+    params["context_codes"] = contextCodes
 	responseCtor := func() interface{} {
 		return &[]PlannerNote{}
 	}
@@ -10320,7 +10539,6 @@ func (c *Canvas) PlannerListPlannerNotes(progress *task.Progress) ([]PlannerNote
 func (c *Canvas) PlannerShowAPlannerNote(progress *task.Progress) (*PlannerNote, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &PlannerNote{}
 	}
@@ -10336,10 +10554,13 @@ func (c *Canvas) PlannerShowAPlannerNote(progress *task.Progress) (*PlannerNote,
 }
 
 // PlannerUpdateAPlannerNote API call: Update a planner note for the current user
-func (c *Canvas) PlannerUpdateAPlannerNote(progress *task.Progress) (*PlannerNote, error) {
+func (c *Canvas) PlannerUpdateAPlannerNote(progress *task.Progress, title string, details string, todoDate time.Time, courseID int) (*PlannerNote, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["details"] = details
+    params["todo_date"] = todoDate
+    params["course_id"] = courseID
 	responseCtor := func() interface{} {
 		return &PlannerNote{}
 	}
@@ -10355,10 +10576,15 @@ func (c *Canvas) PlannerUpdateAPlannerNote(progress *task.Progress) (*PlannerNot
 }
 
 // PlannerCreateAPlannerNote API call: Create a planner note for the current user
-func (c *Canvas) PlannerCreateAPlannerNote(progress *task.Progress) (*PlannerNote, error) {
+func (c *Canvas) PlannerCreateAPlannerNote(progress *task.Progress, title string, details string, todoDate time.Time, courseID int, linkedObjectType string, linkedObjectID int) (*PlannerNote, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["title"] = title
+    params["details"] = details
+    params["todo_date"] = todoDate
+    params["course_id"] = courseID
+    params["linked_object_type"] = linkedObjectType
+    params["linked_object_id"] = linkedObjectID
 	responseCtor := func() interface{} {
 		return &PlannerNote{}
 	}
@@ -10377,7 +10603,6 @@ func (c *Canvas) PlannerCreateAPlannerNote(progress *task.Progress) (*PlannerNot
 func (c *Canvas) PlannerDeleteAPlannerNote(progress *task.Progress) (*PlannerNote, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &PlannerNote{}
 	}
@@ -10396,7 +10621,6 @@ func (c *Canvas) PlannerDeleteAPlannerNote(progress *task.Progress) (*PlannerNot
 func (c *Canvas) PlannerListPlannerOverrides(progress *task.Progress) ([]PlannerOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]PlannerOverride{}
 	}
@@ -10416,7 +10640,6 @@ func (c *Canvas) PlannerListPlannerOverrides(progress *task.Progress) ([]Planner
 func (c *Canvas) PlannerShowAPlannerOverride(progress *task.Progress) (*PlannerOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &PlannerOverride{}
 	}
@@ -10432,10 +10655,11 @@ func (c *Canvas) PlannerShowAPlannerOverride(progress *task.Progress) (*PlannerO
 }
 
 // PlannerUpdateAPlannerOverride API call: Update a planner override's visibilty for the current user
-func (c *Canvas) PlannerUpdateAPlannerOverride(progress *task.Progress) (*PlannerOverride, error) {
+func (c *Canvas) PlannerUpdateAPlannerOverride(progress *task.Progress, markedComplete interface{}, dismissed interface{}) (*PlannerOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["marked_complete"] = markedComplete
+    params["dismissed"] = dismissed
 	responseCtor := func() interface{} {
 		return &PlannerOverride{}
 	}
@@ -10451,10 +10675,13 @@ func (c *Canvas) PlannerUpdateAPlannerOverride(progress *task.Progress) (*Planne
 }
 
 // PlannerCreateAPlannerOverride API call: Create a planner override for the current user
-func (c *Canvas) PlannerCreateAPlannerOverride(progress *task.Progress) (*PlannerOverride, error) {
+func (c *Canvas) PlannerCreateAPlannerOverride(progress *task.Progress, plannableType string, plannableID int, markedComplete bool, dismissed bool) (*PlannerOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["plannable_type"] = plannableType
+    params["plannable_id"] = plannableID
+    params["marked_complete"] = markedComplete
+    params["dismissed"] = dismissed
 	responseCtor := func() interface{} {
 		return &PlannerOverride{}
 	}
@@ -10473,7 +10700,6 @@ func (c *Canvas) PlannerCreateAPlannerOverride(progress *task.Progress) (*Planne
 func (c *Canvas) PlannerDeleteAPlannerOverride(progress *task.Progress) (*PlannerOverride, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &PlannerOverride{}
 	}
@@ -10493,7 +10719,6 @@ func (c *Canvas) PlannerDeleteAPlannerOverride(progress *task.Progress) (*Planne
 func (c *Canvas) UsersGetUserProfile(progress *task.Progress) (*Profile, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Profile{}
 	}
@@ -10520,9 +10745,8 @@ func (c *Canvas) UsersGetUserProfile(progress *task.Progress) (*Profile, error) 
 // the attachment content-type:: ['attachment' type only] the content-type of the attachment filename:: ['attachment'
 // type only] the filename of the attachment size:: ['attachment' type only] the size of the attachment
 func (c *Canvas) UsersListAvatarOptions(progress *task.Progress) ([]Avatar, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/1/avatars.json'")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]Avatar{}
 	}
@@ -10542,7 +10766,6 @@ func (c *Canvas) UsersListAvatarOptions(progress *task.Progress) ([]Avatar, erro
 func (c *Canvas) ProgressQueryProgress(progress *task.Progress) (*Progress, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -10563,7 +10786,6 @@ func (c *Canvas) ProgressQueryProgress(progress *task.Progress) (*Progress, erro
 func (c *Canvas) ModeratedGradingBulkSelectProvisionalGrades(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10580,10 +10802,10 @@ func (c *Canvas) ModeratedGradingBulkSelectProvisionalGrades(progress *task.Prog
 
 // ModeratedGradingShowProvisionalGradeStatusForAStudent2 API call: Tell whether the student's submission needs one or
 // more provisional grades.
-func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent2(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent2(progress *task.Progress, studentID int) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/1/assignments/2/provisional_grades/status")
 	params := map[string]interface{}{}
-
+    params["student_id"] = studentID
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10603,7 +10825,6 @@ func (c *Canvas) ModeratedGradingShowProvisionalGradeStatusForAStudent2(progress
 func (c *Canvas) ModeratedGradingSelectProvisionalGrade(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10623,9 +10844,8 @@ func (c *Canvas) ModeratedGradingSelectProvisionalGrade(progress *task.Progress)
 // publish for a particular submission. Students not in the moderation set will have their one and only provisional
 // grade published. WARNING: This is irreversible. This will overwrite existing grades in the gradebook.
 func (c *Canvas) ModeratedGradingPublishProvisionalGradesForAnAssignment(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/provisional_grades/publish'")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10644,7 +10864,6 @@ func (c *Canvas) ModeratedGradingPublishProvisionalGradesForAnAssignment(progres
 func (c *Canvas) LoginsListUserLogins(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10660,10 +10879,11 @@ func (c *Canvas) LoginsListUserLogins(progress *task.Progress) (*map[string]inte
 }
 
 // LoginsCreateAUserLogin API call: Create a new login for an existing user in the given account.
-func (c *Canvas) LoginsCreateAUserLogin(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) LoginsCreateAUserLogin(progress *task.Progress, user string, login string, accountID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("accounts/%s/logins'", accountID)
 	params := map[string]interface{}{}
-
+    params["user"] = user
+    params["login"] = login
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10679,10 +10899,10 @@ func (c *Canvas) LoginsCreateAUserLogin(progress *task.Progress) (*map[string]in
 }
 
 // LoginsEditAUserLogin API call: Update an existing login for a user in the given account.
-func (c *Canvas) LoginsEditAUserLogin(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) LoginsEditAUserLogin(progress *task.Progress, login string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["login"] = login
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10699,9 +10919,8 @@ func (c *Canvas) LoginsEditAUserLogin(progress *task.Progress) (*map[string]inte
 
 // LoginsDeleteAUserLogin API call: Delete an existing login.
 func (c *Canvas) LoginsDeleteAUserLogin(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/:user_id/logins/:login_id")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10717,10 +10936,12 @@ func (c *Canvas) LoginsDeleteAUserLogin(progress *task.Progress) (*map[string]in
 }
 
 // RolesListRoles API call: A paginated list of the roles available to an account.
-func (c *Canvas) RolesListRoles(progress *task.Progress) ([]Role, error) {
+func (c *Canvas) RolesListRoles(progress *task.Progress, accountID string, state string, showInherited bool) ([]Role, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["account_id"] = accountID
+    params["state"] = state
+    params["show_inherited"] = showInherited
 	responseCtor := func() interface{} {
 		return &[]Role{}
 	}
@@ -10737,10 +10958,12 @@ func (c *Canvas) RolesListRoles(progress *task.Progress) ([]Role, error) {
 }
 
 // RolesGetASingleRole API call: Retrieve information about a single role
-func (c *Canvas) RolesGetASingleRole(progress *task.Progress) (*Role, error) {
+func (c *Canvas) RolesGetASingleRole(progress *task.Progress, accountID string, roleID int, role string) (*Role, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["account_id"] = accountID
+    params["role_id"] = roleID
+    params["role"] = role
 	responseCtor := func() interface{} {
 		return &Role{}
 	}
@@ -10756,10 +10979,13 @@ func (c *Canvas) RolesGetASingleRole(progress *task.Progress) (*Role, error) {
 }
 
 // RolesCreateANewRole API call: Create a new course-level or account-level role.
-func (c *Canvas) RolesCreateANewRole(progress *task.Progress) (*Role, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) RolesCreateANewRole(progress *task.Progress, label string, role string, baseRoleType string, permissions bool, accountID string) (*Role, error) {
+	endpoint := fmt.Sprintf("accounts/%s/roles.json'", accountID)
 	params := map[string]interface{}{}
-
+    params["label"] = label
+    params["role"] = role
+    params["base_role_type"] = baseRoleType
+    params["permissions"] = permissions
 	responseCtor := func() interface{} {
 		return &Role{}
 	}
@@ -10777,10 +11003,11 @@ func (c *Canvas) RolesCreateANewRole(progress *task.Progress) (*Role, error) {
 // RolesDeactivateARole API call: Deactivates a custom role.  This hides it in the user interface and prevents it from
 // being assigned to new users.  Existing users assigned to the role will continue to function with the same permissions
 // they had previously. Built-in roles cannot be deactivated.
-func (c *Canvas) RolesDeactivateARole(progress *task.Progress) (*Role, error) {
+func (c *Canvas) RolesDeactivateARole(progress *task.Progress, roleID int, role string) (*Role, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["role_id"] = roleID
+    params["role"] = role
 	responseCtor := func() interface{} {
 		return &Role{}
 	}
@@ -10796,10 +11023,11 @@ func (c *Canvas) RolesDeactivateARole(progress *task.Progress) (*Role, error) {
 }
 
 // RolesActivateARole API call: Re-activates an inactive role (allowing it to be assigned to new users)
-func (c *Canvas) RolesActivateARole(progress *task.Progress) (*Role, error) {
+func (c *Canvas) RolesActivateARole(progress *task.Progress, roleID int, role string) (*Role, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["role_id"] = roleID
+    params["role"] = role
 	responseCtor := func() interface{} {
 		return &Role{}
 	}
@@ -10817,10 +11045,11 @@ func (c *Canvas) RolesActivateARole(progress *task.Progress) (*Role, error) {
 // RolesUpdateARole API call: Update permissions for an existing role. Recognized roles are: * TeacherEnrollment *
 // StudentEnrollment * TaEnrollment * ObserverEnrollment * DesignerEnrollment * AccountAdmin * Any previously created
 // custom role
-func (c *Canvas) RolesUpdateARole(progress *task.Progress) (*Role, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) RolesUpdateARole(progress *task.Progress, label string, permissions bool) (*Role, error) {
+	endpoint := fmt.Sprintf("accounts/:account_id/roles/2")
 	params := map[string]interface{}{}
-
+    params["label"] = label
+    params["permissions"] = permissions
 	responseCtor := func() interface{} {
 		return &Role{}
 	}
@@ -10837,10 +11066,15 @@ func (c *Canvas) RolesUpdateARole(progress *task.Progress) (*Role, error) {
 
 // RubricsCreateASingleRubricAssessment API call: Returns the rubric assessment with the given id. The returned object
 // also provides the information of :ratings, :assessor_name, :related_group_submissions_and_assessments, :artifact
-func (c *Canvas) RubricsCreateASingleRubricAssessment(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) RubricsCreateASingleRubricAssessment(progress *task.Progress, courseID int, rubricAssociationID int, provisional string, final string, gradedAnonymously bool, rubricAssessment string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course_id"] = courseID
+    params["rubric_association_id"] = rubricAssociationID
+    params["provisional"] = provisional
+    params["final"] = final
+    params["graded_anonymously"] = gradedAnonymously
+    params["rubric_assessment"] = rubricAssessment
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10857,10 +11091,16 @@ func (c *Canvas) RubricsCreateASingleRubricAssessment(progress *task.Progress) (
 
 // RubricsUpdateASingleRubricAssessment API call: Returns the rubric assessment with the given id. The returned object
 // also provides the information of :ratings, :assessor_name, :related_group_submissions_and_assessments, :artifact
-func (c *Canvas) RubricsUpdateASingleRubricAssessment(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) RubricsUpdateASingleRubricAssessment(progress *task.Progress, id int, courseID int, rubricAssociationID int, provisional string, final string, gradedAnonymously bool, rubricAssessment string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["id"] = id
+    params["course_id"] = courseID
+    params["rubric_association_id"] = rubricAssociationID
+    params["provisional"] = provisional
+    params["final"] = final
+    params["graded_anonymously"] = gradedAnonymously
+    params["rubric_assessment"] = rubricAssessment
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10879,7 +11119,6 @@ func (c *Canvas) RubricsUpdateASingleRubricAssessment(progress *task.Progress) (
 func (c *Canvas) RubricsDeleteASingleRubricAssessment(progress *task.Progress) (*RubricAssessment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &RubricAssessment{}
 	}
@@ -10895,10 +11134,10 @@ func (c *Canvas) RubricsDeleteASingleRubricAssessment(progress *task.Progress) (
 }
 
 // RubricsCreateARubricassociation API call: Returns the rubric with the given id.
-func (c *Canvas) RubricsCreateARubricassociation(progress *task.Progress) (*RubricAssociation, error) {
+func (c *Canvas) RubricsCreateARubricassociation(progress *task.Progress, rubricAssociation int) (*RubricAssociation, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["rubric_association"] = rubricAssociation
 	responseCtor := func() interface{} {
 		return &RubricAssociation{}
 	}
@@ -10914,10 +11153,11 @@ func (c *Canvas) RubricsCreateARubricassociation(progress *task.Progress) (*Rubr
 }
 
 // RubricsUpdateARubricassociation API call: Returns the rubric with the given id.
-func (c *Canvas) RubricsUpdateARubricassociation(progress *task.Progress) (*RubricAssociation, error) {
+func (c *Canvas) RubricsUpdateARubricassociation(progress *task.Progress, id int, rubricAssociation int) (*RubricAssociation, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["id"] = id
+    params["rubric_association"] = rubricAssociation
 	responseCtor := func() interface{} {
 		return &RubricAssociation{}
 	}
@@ -10936,7 +11176,6 @@ func (c *Canvas) RubricsUpdateARubricassociation(progress *task.Progress) (*Rubr
 func (c *Canvas) RubricsDeleteARubricassociation(progress *task.Progress) (*RubricAssociation, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &RubricAssociation{}
 	}
@@ -10955,7 +11194,6 @@ func (c *Canvas) RubricsDeleteARubricassociation(progress *task.Progress) (*Rubr
 func (c *Canvas) RubricsListRubrics(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10971,10 +11209,11 @@ func (c *Canvas) RubricsListRubrics(progress *task.Progress) (*map[string]interf
 }
 
 // RubricsGetASingleRubric API call: Returns the rubric with the given id.
-func (c *Canvas) RubricsGetASingleRubric(progress *task.Progress) (*Rubric, error) {
+func (c *Canvas) RubricsGetASingleRubric(progress *task.Progress, include string, style string) (*Rubric, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
+    params["style"] = style
 	responseCtor := func() interface{} {
 		return &Rubric{}
 	}
@@ -10990,10 +11229,10 @@ func (c *Canvas) RubricsGetASingleRubric(progress *task.Progress) (*Rubric, erro
 }
 
 // APITokenScopesListScopes API call: A list of scopes that can be applied to developer keys and access tokens.
-func (c *Canvas) APITokenScopesListScopes(progress *task.Progress) ([]Scope, error) {
+func (c *Canvas) APITokenScopesListScopes(progress *task.Progress, groupBy string) ([]Scope, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["group_by"] = groupBy
 	responseCtor := func() interface{} {
 		return &[]Scope{}
 	}
@@ -11010,10 +11249,10 @@ func (c *Canvas) APITokenScopesListScopes(progress *task.Progress) ([]Scope, err
 }
 
 // SectionsListCourseSections API call: A paginated list of the list of sections for this course.
-func (c *Canvas) SectionsListCourseSections(progress *task.Progress) ([]Section, error) {
+func (c *Canvas) SectionsListCourseSections(progress *task.Progress, include string) ([]Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]Section{}
 	}
@@ -11030,10 +11269,11 @@ func (c *Canvas) SectionsListCourseSections(progress *task.Progress) ([]Section,
 }
 
 // SectionsCreateCourseSection API call: Creates a new section for this course.
-func (c *Canvas) SectionsCreateCourseSection(progress *task.Progress) (*Section, error) {
+func (c *Canvas) SectionsCreateCourseSection(progress *task.Progress, courseSection string, enableSisReactivation bool) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course_section"] = courseSection
+    params["enable_sis_reactivation"] = enableSisReactivation
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11053,7 +11293,6 @@ func (c *Canvas) SectionsCreateCourseSection(progress *task.Progress) (*Section,
 func (c *Canvas) SectionsCrossListASection(progress *task.Progress) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11072,7 +11311,6 @@ func (c *Canvas) SectionsCrossListASection(progress *task.Progress) (*Section, e
 func (c *Canvas) SectionsDeCrossListASection(progress *task.Progress) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11088,10 +11326,10 @@ func (c *Canvas) SectionsDeCrossListASection(progress *task.Progress) (*Section,
 }
 
 // SectionsEditASection API call: Modify an existing section.
-func (c *Canvas) SectionsEditASection(progress *task.Progress) (*Section, error) {
+func (c *Canvas) SectionsEditASection(progress *task.Progress, courseSection string) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["course_section"] = courseSection
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11107,10 +11345,10 @@ func (c *Canvas) SectionsEditASection(progress *task.Progress) (*Section, error)
 }
 
 // SectionsGetSectionInformation API call: Gets details about a specific section
-func (c *Canvas) SectionsGetSectionInformation(progress *task.Progress) (*Section, error) {
+func (c *Canvas) SectionsGetSectionInformation(progress *task.Progress, include string) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11129,7 +11367,6 @@ func (c *Canvas) SectionsGetSectionInformation(progress *task.Progress) (*Sectio
 func (c *Canvas) SectionsDeleteASection(progress *task.Progress) (*Section, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Section{}
 	}
@@ -11146,10 +11383,10 @@ func (c *Canvas) SectionsDeleteASection(progress *task.Progress) (*Section, erro
 
 // SharedBrandConfigsShareABrandconfigTheme API call: Create a SharedBrandConfig, which will give the given brand_config
 // a name and make it available to other users of this account.
-func (c *Canvas) SharedBrandConfigsShareABrandconfigTheme(progress *task.Progress) (*SharedBrandConfig, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SharedBrandConfigsShareABrandconfigTheme(progress *task.Progress, sharedBrandConfig string, accountID string) (*SharedBrandConfig, error) {
+	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs'", accountID)
 	params := map[string]interface{}{}
-
+    params["shared_brand_config"] = sharedBrandConfig
 	responseCtor := func() interface{} {
 		return &SharedBrandConfig{}
 	}
@@ -11166,10 +11403,9 @@ func (c *Canvas) SharedBrandConfigsShareABrandconfigTheme(progress *task.Progres
 
 // SharedBrandConfigsUpdateASharedTheme API call: Update the specified shared_brand_config with a new name or to point
 // to a new brand_config. Uses same parameters as create.
-func (c *Canvas) SharedBrandConfigsUpdateASharedTheme(progress *task.Progress) (*SharedBrandConfig, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SharedBrandConfigsUpdateASharedTheme(progress *task.Progress, accountID string, sharedBrandConfigID string) (*SharedBrandConfig, error) {
+	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs/%s'", accountID, sharedBrandConfigID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SharedBrandConfig{}
 	}
@@ -11186,10 +11422,9 @@ func (c *Canvas) SharedBrandConfigsUpdateASharedTheme(progress *task.Progress) (
 
 // SharedBrandConfigsUnShareABrandconfigTheme API call: Delete a SharedBrandConfig, which will unshare it so you nor
 // anyone else in your account will see it as an option to pick from.
-func (c *Canvas) SharedBrandConfigsUnShareABrandconfigTheme(progress *task.Progress) (*SharedBrandConfig, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SharedBrandConfigsUnShareABrandconfigTheme(progress *task.Progress, id string) (*SharedBrandConfig, error) {
+	endpoint := fmt.Sprintf("shared_brand_configs/%s", id)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SharedBrandConfig{}
 	}
@@ -11214,10 +11449,14 @@ func (c *Canvas) SharedBrandConfigsUnShareABrandconfigTheme(progress *task.Progr
 // feature is turned on and the assignment has an override for that section. When there is an override for the
 // assignment the override object's keys/values can be merged with the top level assignment object to create a view of
 // the assignment object specific to that section. See Assignments api for more information on assignment overrides.
-func (c *Canvas) SisIntegrationRetrieveAssignmentsEnabledForGradeExportToSis(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SisIntegrationRetrieveAssignmentsEnabledForGradeExportToSis(progress *task.Progress, accountID interface{}, courseID interface{}, startsBefore interface{}, endsAfter interface{}, include interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["account_id"] = accountID
+    params["course_id"] = courseID
+    params["starts_before"] = startsBefore
+    params["ends_after"] = endsAfter
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11234,10 +11473,10 @@ func (c *Canvas) SisIntegrationRetrieveAssignmentsEnabledForGradeExportToSis(pro
 
 // SisImportErrorsGetSisImportErrorList API call: Returns the list of SIS import errors for an account or a SIS import.
 // Import errors are only stored for 30 days.
-func (c *Canvas) SisImportErrorsGetSisImportErrorList(progress *task.Progress) ([]SisImportError, error) {
+func (c *Canvas) SisImportErrorsGetSisImportErrorList(progress *task.Progress, failure bool) ([]SisImportError, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["failure"] = failure
 	responseCtor := func() interface{} {
 		return &[]SisImportError{}
 	}
@@ -11254,10 +11493,11 @@ func (c *Canvas) SisImportErrorsGetSisImportErrorList(progress *task.Progress) (
 }
 
 // SisImportsGetSisImportList API call: Returns the list of SIS imports for an account
-func (c *Canvas) SisImportsGetSisImportList(progress *task.Progress) ([]SisImport, error) {
+func (c *Canvas) SisImportsGetSisImportList(progress *task.Progress, createdSince time.Time, workflowState string) ([]SisImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["created_since"] = createdSince
+    params["workflow_state"] = workflowState
 	responseCtor := func() interface{} {
 		return &[]SisImport{}
 	}
@@ -11279,7 +11519,6 @@ func (c *Canvas) SisImportsGetSisImportList(progress *task.Progress) ([]SisImpor
 func (c *Canvas) SisImportsGetTheCurrentImportingSisImport(progress *task.Progress) (*SisImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SisImport{}
 	}
@@ -11296,10 +11535,24 @@ func (c *Canvas) SisImportsGetTheCurrentImportingSisImport(progress *task.Progre
 
 // SisImportsImportSisData API call: Import SIS data into Canvas. Must be on a root account with SIS imports enabled.
 // For more information on the format that's expected here, please see the "SIS CSV" section in the API docs.
-func (c *Canvas) SisImportsImportSisData(progress *task.Progress) (*SisImport, error) {
+func (c *Canvas) SisImportsImportSisData(progress *task.Progress, importType string, attachment interface{}, extension string, batchMode bool, batchModeTermID string, multiTermBatchMode bool, skipDeletes bool, overrideSisStickiness bool, addSisStickiness bool, clearSisStickiness bool, diffingDataSetIdentifier string, diffingRemasterDataSet bool, diffingDropStatus string, changeThreshold int, diffRowCountThreshold int) (*SisImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["import_type"] = importType
+    params["attachment"] = attachment
+    params["extension"] = extension
+    params["batch_mode"] = batchMode
+    params["batch_mode_term_id"] = batchModeTermID
+    params["multi_term_batch_mode"] = multiTermBatchMode
+    params["skip_deletes"] = skipDeletes
+    params["override_sis_stickiness"] = overrideSisStickiness
+    params["add_sis_stickiness"] = addSisStickiness
+    params["clear_sis_stickiness"] = clearSisStickiness
+    params["diffing_data_set_identifier"] = diffingDataSetIdentifier
+    params["diffing_remaster_data_set"] = diffingRemasterDataSet
+    params["diffing_drop_status"] = diffingDropStatus
+    params["change_threshold"] = changeThreshold
+    params["diff_row_count_threshold"] = diffRowCountThreshold
 	responseCtor := func() interface{} {
 		return &SisImport{}
 	}
@@ -11319,7 +11572,6 @@ func (c *Canvas) SisImportsImportSisData(progress *task.Progress) (*SisImport, e
 func (c *Canvas) SisImportsGetSisImportStatus(progress *task.Progress) (*SisImport, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SisImport{}
 	}
@@ -11340,10 +11592,12 @@ func (c *Canvas) SisImportsGetSisImportStatus(progress *task.Progress) (*SisImpo
 // users.csv admins.csv This also restores states for other items that changed during the import. An example would be if
 // an enrollment was deleted from a sis import and the group_membership was also deleted as a result of the enrollment
 // deletion, both items would be restored when the sis batch is restored.
-func (c *Canvas) SisImportsRestoreWorkflowStatesOfSisImportedItems(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SisImportsRestoreWorkflowStatesOfSisImportedItems(progress *task.Progress, batchMode bool, undeleteOnly bool, unconcludeOnly bool, accountID string, sisImportID string) (*Progress, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sis_imports/%s/restore_states", accountID, sisImportID)
 	params := map[string]interface{}{}
-
+    params["batch_mode"] = batchMode
+    params["undelete_only"] = undeleteOnly
+    params["unconclude_only"] = unconcludeOnly
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -11361,10 +11615,9 @@ func (c *Canvas) SisImportsRestoreWorkflowStatesOfSisImportedItems(progress *tas
 // SisImportsAbortSisImport API call: Abort a SIS import that has not completed. Aborting a sis batch that is running
 // can take some time for every process to see the abort event. Subsequent sis batches begin to process 10 minutes after
 // the abort to allow each process to clean up properly.
-func (c *Canvas) SisImportsAbortSisImport(progress *task.Progress) (*SisImport, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SisImportsAbortSisImport(progress *task.Progress, accountID string, sisImportID string) (*SisImport, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sis_imports/%s/abort", accountID, sisImportID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &SisImport{}
 	}
@@ -11380,10 +11633,9 @@ func (c *Canvas) SisImportsAbortSisImport(progress *task.Progress) (*SisImport, 
 }
 
 // SisImportsAbortAllPendingSisImports API call: Abort already created but not processed or processing SIS imports.
-func (c *Canvas) SisImportsAbortAllPendingSisImports(progress *task.Progress) (*bool, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SisImportsAbortAllPendingSisImports(progress *task.Progress, accountID string) (*bool, error) {
+	endpoint := fmt.Sprintf("accounts/%s/sis_imports/abort_all_pending", accountID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		var tmp bool
 		return &tmp
@@ -11400,10 +11652,10 @@ func (c *Canvas) SisImportsAbortAllPendingSisImports(progress *task.Progress) (*
 }
 
 // AccountsCreateANewSubAccount API call: Add a new sub-account to a given account.
-func (c *Canvas) AccountsCreateANewSubAccount(progress *task.Progress) (*Account, error) {
+func (c *Canvas) AccountsCreateANewSubAccount(progress *task.Progress, account string) (*Account, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["account"] = account
 	responseCtor := func() interface{} {
 		return &Account{}
 	}
@@ -11423,7 +11675,6 @@ func (c *Canvas) AccountsCreateANewSubAccount(progress *task.Progress) (*Account
 func (c *Canvas) AccountsDeleteASubAccount(progress *task.Progress) (*Account, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Account{}
 	}
@@ -11445,7 +11696,6 @@ func (c *Canvas) AccountsDeleteASubAccount(progress *task.Progress) (*Account, e
 func (c *Canvas) SubmissionCommentsUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11461,10 +11711,11 @@ func (c *Canvas) SubmissionCommentsUploadAFile(progress *task.Progress) (*map[st
 }
 
 // SubmissionsListAssignmentSubmissions API call: A paginated list of all existing submissions for an assignment.
-func (c *Canvas) SubmissionsListAssignmentSubmissions(progress *task.Progress) ([]Submission, error) {
+func (c *Canvas) SubmissionsListAssignmentSubmissions(progress *task.Progress, include string, grouped bool) ([]Submission, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["grouped"] = grouped
 	responseCtor := func() interface{} {
 		return &[]Submission{}
 	}
@@ -11482,10 +11733,22 @@ func (c *Canvas) SubmissionsListAssignmentSubmissions(progress *task.Progress) (
 
 // SubmissionsListSubmissionsForMultipleAssignments API call: A paginated list of all existing submissions for a given
 // set of students and assignments.
-func (c *Canvas) SubmissionsListSubmissionsForMultipleAssignments(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SubmissionsListSubmissionsForMultipleAssignments(progress *task.Progress, studentIds string, assignmentIds string, grouped bool, postToSis bool, submittedSince time.Time, gradedSince time.Time, gradingPeriodID int, workflowState string, enrollmentState string, stateBasedOnDate bool, order string, orderDirection string, include string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["student_ids"] = studentIds
+    params["assignment_ids"] = assignmentIds
+    params["grouped"] = grouped
+    params["post_to_sis"] = postToSis
+    params["submitted_since"] = submittedSince
+    params["graded_since"] = gradedSince
+    params["grading_period_id"] = gradingPeriodID
+    params["workflow_state"] = workflowState
+    params["enrollment_state"] = enrollmentState
+    params["state_based_on_date"] = stateBasedOnDate
+    params["order"] = order
+    params["order_direction"] = orderDirection
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11501,10 +11764,10 @@ func (c *Canvas) SubmissionsListSubmissionsForMultipleAssignments(progress *task
 }
 
 // SubmissionsGetASingleSubmission API call: Get a single submission, based on user id.
-func (c *Canvas) SubmissionsGetASingleSubmission(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SubmissionsGetASingleSubmission(progress *task.Progress, include string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11526,7 +11789,6 @@ func (c *Canvas) SubmissionsGetASingleSubmission(progress *task.Progress) (*map[
 func (c *Canvas) SubmissionsUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11549,7 +11811,6 @@ func (c *Canvas) SubmissionsUploadAFile(progress *task.Progress) (*map[string]in
 func (c *Canvas) SubmissionsListGradeableStudents(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11565,10 +11826,10 @@ func (c *Canvas) SubmissionsListGradeableStudents(progress *task.Progress) (*map
 }
 
 // SubmissionsListMultipleAssignmentsGradeableStudents API call
-func (c *Canvas) SubmissionsListMultipleAssignmentsGradeableStudents(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SubmissionsListMultipleAssignmentsGradeableStudents(progress *task.Progress, assignmentIds string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["assignment_ids"] = assignmentIds
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11586,10 +11847,10 @@ func (c *Canvas) SubmissionsListMultipleAssignmentsGradeableStudents(progress *t
 // SubmissionsGradeOrCommentOnMultipleSubmissions API call: Update the grading and comments on multiple student's
 // assignment submissions in an asynchronous job. The user must have permission to manage grades in the appropriate
 // context (course or section).
-func (c *Canvas) SubmissionsGradeOrCommentOnMultipleSubmissions(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SubmissionsGradeOrCommentOnMultipleSubmissions(progress *task.Progress, gradeData string) (*Progress, error) {
+	endpoint := fmt.Sprintf("courses/1/assignments/2/submissions/update_grades'")
 	params := map[string]interface{}{}
-
+    params["grade_data"] = gradeData
 	responseCtor := func() interface{} {
 		return &Progress{}
 	}
@@ -11606,10 +11867,9 @@ func (c *Canvas) SubmissionsGradeOrCommentOnMultipleSubmissions(progress *task.P
 
 // SubmissionsMarkSubmissionAsRead API call: No request fields are necessary. On success, the response will be 204 No
 // Content with an empty body.
-func (c *Canvas) SubmissionsMarkSubmissionAsRead(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SubmissionsMarkSubmissionAsRead(progress *task.Progress, courseID string, assignmentID string, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json'", courseID, assignmentID, userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11626,10 +11886,9 @@ func (c *Canvas) SubmissionsMarkSubmissionAsRead(progress *task.Progress) (*map[
 
 // SubmissionsMarkSubmissionAsUnread API call: No request fields are necessary. On success, the response will be 204 No
 // Content with an empty body.
-func (c *Canvas) SubmissionsMarkSubmissionAsUnread(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SubmissionsMarkSubmissionAsUnread(progress *task.Progress, courseID string, assignmentID string, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json'", courseID, assignmentID, userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11646,10 +11905,10 @@ func (c *Canvas) SubmissionsMarkSubmissionAsUnread(progress *task.Progress) (*ma
 
 // SubmissionsSubmissionSummary API call: Returns the number of submissions for the given assignment based on gradeable
 // students that fall into three categories: graded, ungraded, not submitted.
-func (c *Canvas) SubmissionsSubmissionSummary(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SubmissionsSubmissionSummary(progress *task.Progress, grouped bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["grouped"] = grouped
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11670,10 +11929,11 @@ func (c *Canvas) SubmissionsSubmissionSummary(progress *task.Progress) (*map[str
 // {api:SubmissionsApiController#create_file file upload API}. However, there is no API yet for listing the user and
 // group files. * Media comments can be submitted, however, there is no API yet for creating a media comment to submit.
 // * Integration with Google Docs is not yet supported.
-func (c *Canvas) SubmissionsSubmitAnAssignment(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) SubmissionsSubmitAnAssignment(progress *task.Progress, comment string, submission string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["comment"] = comment
+    params["submission"] = submission
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11690,10 +11950,9 @@ func (c *Canvas) SubmissionsSubmitAnAssignment(progress *task.Progress) (*map[st
 
 // TabsListAvailableTabsForACourseOrGroup API call: Returns a paginated list of navigation tabs available in the current
 // context.
-func (c *Canvas) TabsListAvailableTabsForACourseOrGroup(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) TabsListAvailableTabsForACourseOrGroup(progress *task.Progress, groupID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("groups/%s/tabs", groupID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11710,10 +11969,11 @@ func (c *Canvas) TabsListAvailableTabsForACourseOrGroup(progress *task.Progress)
 
 // TabsUpdateATabForACourse API call: Home and Settings tabs are not manageable, and can't be hidden or moved Returns a
 // tab object
-func (c *Canvas) TabsUpdateATabForACourse(progress *task.Progress) (*Tab, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) TabsUpdateATabForACourse(progress *task.Progress, position interface{}, hidden bool, courseID string) (*Tab, error) {
+	endpoint := fmt.Sprintf("courses/%s/tabs/tab_id", courseID)
 	params := map[string]interface{}{}
-
+    params["position"] = position
+    params["hidden"] = hidden
 	responseCtor := func() interface{} {
 		return &Tab{}
 	}
@@ -11729,10 +11989,11 @@ func (c *Canvas) TabsUpdateATabForACourse(progress *task.Progress) (*Tab, error)
 }
 
 // EnrollmentTermsListEnrollmentTerms API call: An object with a paginated list of all of the terms in the account.
-func (c *Canvas) EnrollmentTermsListEnrollmentTerms(progress *task.Progress) (*EnrollmentTermsList, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) EnrollmentTermsListEnrollmentTerms(progress *task.Progress, workflowState string, include string) (*EnrollmentTermsList, error) {
+	endpoint := fmt.Sprintf("accounts/1/terms")
 	params := map[string]interface{}{}
-
+    params["workflow_state"] = workflowState
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &EnrollmentTermsList{}
 	}
@@ -11750,9 +12011,8 @@ func (c *Canvas) EnrollmentTermsListEnrollmentTerms(progress *task.Progress) (*E
 // EnrollmentTermsRetrieveEnrollmentTerm API call: Retrieves the details for an enrollment term in the account. Includes
 // overrides by default.
 func (c *Canvas) EnrollmentTermsRetrieveEnrollmentTerm(progress *task.Progress) (*EnrollmentTerm, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("accounts/1/terms/2")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &EnrollmentTerm{}
 	}
@@ -11768,10 +12028,13 @@ func (c *Canvas) EnrollmentTermsRetrieveEnrollmentTerm(progress *task.Progress) 
 }
 
 // FilesSetUsageRights API call: Sets copyright and license information for one or more files
-func (c *Canvas) FilesSetUsageRights(progress *task.Progress) (*UsageRights, error) {
+func (c *Canvas) FilesSetUsageRights(progress *task.Progress, fileIds interface{}, folderIds interface{}, publish bool, usageRights string) (*UsageRights, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["file_ids"] = fileIds
+    params["folder_ids"] = folderIds
+    params["publish"] = publish
+    params["usage_rights"] = usageRights
 	responseCtor := func() interface{} {
 		return &UsageRights{}
 	}
@@ -11787,10 +12050,11 @@ func (c *Canvas) FilesSetUsageRights(progress *task.Progress) (*UsageRights, err
 }
 
 // FilesRemoveUsageRights API call: Removes copyright and license information associated with one or more files
-func (c *Canvas) FilesRemoveUsageRights(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) FilesRemoveUsageRights(progress *task.Progress, fileIds interface{}, folderIds interface{}) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["file_ids"] = fileIds
+    params["folder_ids"] = folderIds
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11809,7 +12073,6 @@ func (c *Canvas) FilesRemoveUsageRights(progress *task.Progress) (*map[string]in
 func (c *Canvas) FilesListLicenses(progress *task.Progress) ([]License, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]License{}
 	}
@@ -11829,10 +12092,10 @@ func (c *Canvas) FilesListLicenses(progress *task.Progress) ([]License, error) {
 // users are allowed to list their own observees. Administrators can list other users' observees. The returned observees
 // will include an attribute "observation_link_root_account_ids", a list of ids for the root accounts the observer and
 // observee are linked on. The observer will only be able to observe in courses associated with these root accounts.
-func (c *Canvas) UserObserveesListObservees(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UserObserveesListObservees(progress *task.Progress, include string, userID string) ([]User, error) {
+	endpoint := fmt.Sprintf("users/%s/observees", userID)
 	params := map[string]interface{}{}
-	
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -11852,10 +12115,13 @@ func (c *Canvas) UserObserveesListObservees(progress *task.Progress) ([]User, er
 // observee's credentials. *Note:* all users are allowed to add their own observees, given the observee's credentials or
 // access token are provided. Administrators can add observees given credentials, access token or the
 // {api:UserObserveesController#update observee's id}.
-func (c *Canvas) UserObserveesAddAnObserveeWithCredentials(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UserObserveesAddAnObserveeWithCredentials(progress *task.Progress, observee string, accessToken string, pairingCode string, rootAccountID int, userID string) (*User, error) {
+	endpoint := fmt.Sprintf("users/%s/observees", userID)
 	params := map[string]interface{}{}
-
+    params["observee"] = observee
+    params["access_token"] = accessToken
+    params["pairing_code"] = pairingCode
+    params["root_account_id"] = rootAccountID
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -11872,10 +12138,9 @@ func (c *Canvas) UserObserveesAddAnObserveeWithCredentials(progress *task.Progre
 
 // UserObserveesShowAnObservee API call: Gets information about an observed user. *Note:* all users are allowed to view
 // their own observees.
-func (c *Canvas) UserObserveesShowAnObservee(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UserObserveesShowAnObservee(progress *task.Progress, userID string, observeeID string) (*User, error) {
+	endpoint := fmt.Sprintf("users/%s/observees/%s", userID, observeeID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -11891,10 +12156,10 @@ func (c *Canvas) UserObserveesShowAnObservee(progress *task.Progress) (*User, er
 }
 
 // UserObserveesAddAnObservee API call: Registers a user as being observed by the given user.
-func (c *Canvas) UserObserveesAddAnObservee(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UserObserveesAddAnObservee(progress *task.Progress, rootAccountID int, userID string, observeeID string) (*User, error) {
+	endpoint := fmt.Sprintf("users/%s/observees/%s", userID, observeeID)
 	params := map[string]interface{}{}
-
+    params["root_account_id"] = rootAccountID
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -11910,10 +12175,10 @@ func (c *Canvas) UserObserveesAddAnObservee(progress *task.Progress) (*User, err
 }
 
 // UserObserveesRemoveAnObservee API call: Unregisters a user as being observed by the given user.
-func (c *Canvas) UserObserveesRemoveAnObservee(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UserObserveesRemoveAnObservee(progress *task.Progress, rootAccountID int, userID string, observeeID string) (*User, error) {
+	endpoint := fmt.Sprintf("users/%s/observees/%s", userID, observeeID)
 	params := map[string]interface{}{}
-
+    params["root_account_id"] = rootAccountID
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -11929,10 +12194,13 @@ func (c *Canvas) UserObserveesRemoveAnObservee(progress *task.Progress) (*User, 
 }
 
 // UsersListUsersInAccount API call: A paginated list of of users associated with this account.
-func (c *Canvas) UsersListUsersInAccount(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersListUsersInAccount(progress *task.Progress, searchTerm string, enrollmentType string, sort string, order string) ([]User, error) {
+	endpoint := fmt.Sprintf("accounts/self/users")
 	params := map[string]interface{}{}
-	
+    params["search_term"] = searchTerm
+    params["enrollment_type"] = enrollmentType
+    params["sort"] = sort
+    params["order"] = order
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -11949,10 +12217,10 @@ func (c *Canvas) UsersListUsersInAccount(progress *task.Progress) ([]User, error
 }
 
 // UsersListTheActivityStream API call: Returns the current user's global activity stream, paginated.
-func (c *Canvas) UsersListTheActivityStream(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) UsersListTheActivityStream(progress *task.Progress, onlyActiveCourses bool) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["only_active_courses"] = onlyActiveCourses
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11971,7 +12239,6 @@ func (c *Canvas) UsersListTheActivityStream(progress *task.Progress) (*map[strin
 func (c *Canvas) UsersActivityStreamSummary(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -11987,10 +12254,10 @@ func (c *Canvas) UsersActivityStreamSummary(progress *task.Progress) (*map[strin
 }
 
 // UsersListTheTodoItems API call: A paginated list of the current user's list of todo items.
-func (c *Canvas) UsersListTheTodoItems(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) UsersListTheTodoItems(progress *task.Progress, include string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12007,10 +12274,10 @@ func (c *Canvas) UsersListTheTodoItems(progress *task.Progress) (*map[string]int
 
 // UsersListCountsForTodoItems API call: Counts of different todo items such as the number of assignments needing
 // grading as well as the number of assignments needing submitting.
-func (c *Canvas) UsersListCountsForTodoItems(progress *task.Progress) (*map[string]interface{}, error) {
+func (c *Canvas) UsersListCountsForTodoItems(progress *task.Progress, include string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12029,7 +12296,6 @@ func (c *Canvas) UsersListCountsForTodoItems(progress *task.Progress) (*map[stri
 func (c *Canvas) UsersListUpcomingAssignmentsCalendarEvents(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12047,10 +12313,12 @@ func (c *Canvas) UsersListUpcomingAssignmentsCalendarEvents(progress *task.Progr
 // UsersListMissingSubmissions API call: A paginated list of past-due assignments for which the student does not have a
 // submission. The user sending the request must either be the student, an admin or a parent observer using the parent
 // app
-func (c *Canvas) UsersListMissingSubmissions(progress *task.Progress) ([]Assignment, error) {
+func (c *Canvas) UsersListMissingSubmissions(progress *task.Progress, userID interface{}, include string, filter string) ([]Assignment, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-	
+    params["user_id"] = userID
+    params["include"] = include
+    params["filter"] = filter
 	responseCtor := func() interface{} {
 		return &[]Assignment{}
 	}
@@ -12067,10 +12335,9 @@ func (c *Canvas) UsersListMissingSubmissions(progress *task.Progress) ([]Assignm
 }
 
 // UsersHideAStreamItem API call: Hide the given stream item.
-func (c *Canvas) UsersHideAStreamItem(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersHideAStreamItem(progress *task.Progress, streamItemID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/self/activity_stream/%s", streamItemID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12087,9 +12354,8 @@ func (c *Canvas) UsersHideAStreamItem(progress *task.Progress) (*map[string]inte
 
 // UsersHideAllStreamItems API call: Hide all stream items for the user
 func (c *Canvas) UsersHideAllStreamItems(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("users/self/activity_stream")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12111,7 +12377,6 @@ func (c *Canvas) UsersHideAllStreamItems(progress *task.Progress) (*map[string]i
 func (c *Canvas) UsersUploadAFile(progress *task.Progress) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12130,10 +12395,10 @@ func (c *Canvas) UsersUploadAFile(progress *task.Progress) (*map[string]interfac
 // list of permissions for the user. Example: !!!javascript "permissions": { "can_update_name": true, // Whether the
 // user can update their name. "can_update_avatar": false, // Whether the user can update their avatar.
 // "limit_parent_app_web_access": false // Whether the user can interact with Canvas web from the Canvas Parent app.
-func (c *Canvas) UsersShowUserDetails(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersShowUserDetails(progress *task.Progress, include string) (*User, error) {
+	endpoint := fmt.Sprintf("users/self")
 	params := map[string]interface{}{}
-
+    params["include"] = include
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -12151,10 +12416,15 @@ func (c *Canvas) UsersShowUserDetails(progress *task.Progress) (*User, error) {
 // UsersCreateAUser API call: Create and return a new user and pseudonym for an account. If you don't have the "Modify
 // login details for users" permission, but self-registration is enabled on the account, you can still use this endpoint
 // to register new users. Certain fields will be required, and others will be ignored (see below).
-func (c *Canvas) UsersCreateAUser(progress *task.Progress) (*User, error) {
+func (c *Canvas) UsersCreateAUser(progress *task.Progress, user string, pseudonym string, communicationChannel string, forceValidations bool, enableSisReactivation bool, destination string) (*User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user"] = user
+    params["pseudonym"] = pseudonym
+    params["communication_channel"] = communicationChannel
+    params["force_validations"] = forceValidations
+    params["enable_sis_reactivation"] = enableSisReactivation
+    params["destination"] = destination
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -12171,10 +12441,12 @@ func (c *Canvas) UsersCreateAUser(progress *task.Progress) (*User, error) {
 
 // UsersSelfRegisterAUser API call: Self register and return a new user and pseudonym for an account. If
 // self-registration is enabled on the account, you can use this endpoint to self register new users.
-func (c *Canvas) UsersSelfRegisterAUser(progress *task.Progress) (*User, error) {
+func (c *Canvas) UsersSelfRegisterAUser(progress *task.Progress, user string, pseudonym string, communicationChannel string) (*User, error) {
 	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
-
+    params["user"] = user
+    params["pseudonym"] = pseudonym
+    params["communication_channel"] = communicationChannel
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -12190,10 +12462,12 @@ func (c *Canvas) UsersSelfRegisterAUser(progress *task.Progress) (*User, error) 
 }
 
 // UsersUpdateUserSettings API call: Update an existing user's settings.
-func (c *Canvas) UsersUpdateUserSettings(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersUpdateUserSettings(progress *task.Progress, manualMarkAsRead bool, collapseGlobalNav bool, hideDashcardColorOverlays bool, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/settings", userID)
 	params := map[string]interface{}{}
-
+    params["manual_mark_as_read"] = manualMarkAsRead
+    params["collapse_global_nav"] = collapseGlobalNav
+    params["hide_dashcard_color_overlays"] = hideDashcardColorOverlays
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12209,10 +12483,9 @@ func (c *Canvas) UsersUpdateUserSettings(progress *task.Progress) (*map[string]i
 }
 
 // UsersGetCustomColors API call: Returns all custom colors that have been saved for a user.
-func (c *Canvas) UsersGetCustomColors(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetCustomColors(progress *task.Progress, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/colors/", userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12229,10 +12502,9 @@ func (c *Canvas) UsersGetCustomColors(progress *task.Progress) (*map[string]inte
 
 // UsersGetCustomColor API call: Returns the custom colors that have been saved for a user for a given context. The
 // asset_string parameter should be in the format 'context_id', for example 'course_42'.
-func (c *Canvas) UsersGetCustomColor(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetCustomColor(progress *task.Progress, userID string, assetString string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/colors/%s", userID, assetString)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12250,10 +12522,10 @@ func (c *Canvas) UsersGetCustomColor(progress *task.Progress) (*map[string]inter
 // UsersUpdateCustomColor API call: Updates a custom color for a user for a given context.  This allows colors for the
 // calendar and elsewhere to be customized on a user basis. The asset string parameter should be in the format
 // 'context_id', for example 'course_42'
-func (c *Canvas) UsersUpdateCustomColor(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersUpdateCustomColor(progress *task.Progress, hexcode string, userID string, assetString string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/colors/%s", userID, assetString)
 	params := map[string]interface{}{}
-
+    params["hexcode"] = hexcode
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12269,10 +12541,9 @@ func (c *Canvas) UsersUpdateCustomColor(progress *task.Progress) (*map[string]in
 }
 
 // UsersGetDashboardPositions API call: Returns all dashboard positions that have been saved for a user.
-func (c *Canvas) UsersGetDashboardPositions(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetDashboardPositions(progress *task.Progress, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/dashboard_positions/", userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12290,10 +12561,9 @@ func (c *Canvas) UsersGetDashboardPositions(progress *task.Progress) (*map[strin
 // UsersUpdateDashboardPositions API call: Updates the dashboard positions for a user for a given context.  This allows
 // positions for the dashboard cards and elsewhere to be customized on a per user basis. The asset string parameter
 // should be in the format 'context_id', for example 'course_42'
-func (c *Canvas) UsersUpdateDashboardPositions(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersUpdateDashboardPositions(progress *task.Progress, userID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/%s/dashboard_positions/", userID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12309,10 +12579,10 @@ func (c *Canvas) UsersUpdateDashboardPositions(progress *task.Progress) (*map[st
 }
 
 // UsersEditAUser API call: Modify an existing user. To modify a user's login, see the documentation for logins.
-func (c *Canvas) UsersEditAUser(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersEditAUser(progress *task.Progress, user string) (*User, error) {
+	endpoint := fmt.Sprintf("users/133.json'")
 	params := map[string]interface{}{}
-
+    params["user"] = user
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -12352,10 +12622,9 @@ func (c *Canvas) UsersEditAUser(progress *task.Progress) (*User, error) {
 // getting the uuid from an api that is in a context that was recorded from a merge event, an additional attribute is
 // added as past_uuid. When finding users by SIS ids in different accounts the destination_account_id is required. The
 // account can also be identified by passing the domain in destination_account_id.
-func (c *Canvas) UsersMergeUserIntoAnotherUser(progress *task.Progress) (*User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersMergeUserIntoAnotherUser(progress *task.Progress, userID string, destinationAccountID string, destinationUserID string) (*User, error) {
+	endpoint := fmt.Sprintf("users/%s/merge_into/accounts/%s/users/%s", userID, destinationAccountID, destinationUserID)
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &User{}
 	}
@@ -12398,10 +12667,9 @@ func (c *Canvas) UsersMergeUserIntoAnotherUser(progress *task.Progress) (*User, 
 // submission that were created in a course that was moved in enrollments are moved over to the from_user. Other notes:
 // Access Tokens are moved back on split. Conversations are moved back on split. Favorites that existing at the time of
 // merge are moved back on split. LTI ids are restored to how they were prior to merge.
-func (c *Canvas) UsersSplitMergedUsersIntoSeparateUsers(progress *task.Progress) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersSplitMergedUsersIntoSeparateUsers(progress *task.Progress, userID string) ([]User, error) {
+	endpoint := fmt.Sprintf("users/%s/split", userID)
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]User{}
 	}
@@ -12419,10 +12687,10 @@ func (c *Canvas) UsersSplitMergedUsersIntoSeparateUsers(progress *task.Progress)
 
 // UsersGetAPandataEventsJwtTokenAndItsExpirationDate API call: Returns a jwt auth and props token that can be used to
 // send events to Pandata. NOTE: This is currently only available to the mobile developer keys.
-func (c *Canvas) UsersGetAPandataEventsJwtTokenAndItsExpirationDate(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetAPandataEventsJwtTokenAndItsExpirationDate(progress *task.Progress, appKey string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("users/self/pandata_events_token")
 	params := map[string]interface{}{}
-
+    params["app_key"] = appKey
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -12438,10 +12706,12 @@ func (c *Canvas) UsersGetAPandataEventsJwtTokenAndItsExpirationDate(progress *ta
 }
 
 // UsersGetAUsersMostRecentlyGradedSubmissions API call
-func (c *Canvas) UsersGetAUsersMostRecentlyGradedSubmissions(progress *task.Progress) ([]Submission, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) UsersGetAUsersMostRecentlyGradedSubmissions(progress *task.Progress, include string, onlyCurrentEnrollments bool, onlyPublishedAssignments bool, userID string) ([]Submission, error) {
+	endpoint := fmt.Sprintf("users/%s/graded_submissions", userID)
 	params := map[string]interface{}{}
-	
+    params["include"] = include
+    params["only_current_enrollments"] = onlyCurrentEnrollments
+    params["only_published_assignments"] = onlyPublishedAssignments
 	responseCtor := func() interface{} {
 		return &[]Submission{}
 	}
@@ -12459,9 +12729,8 @@ func (c *Canvas) UsersGetAUsersMostRecentlyGradedSubmissions(progress *task.Prog
 
 // PagesShowFrontPage API call: Retrieve the content of the front page
 func (c *Canvas) PagesShowFrontPage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/123/front_page")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12478,9 +12747,8 @@ func (c *Canvas) PagesShowFrontPage(progress *task.Progress) (*Page, error) {
 
 // PagesDuplicatePage API call: Duplicate a wiki page
 func (c *Canvas) PagesDuplicatePage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/123/pages/14/duplicate")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12496,10 +12764,10 @@ func (c *Canvas) PagesDuplicatePage(progress *task.Progress) (*Page, error) {
 }
 
 // PagesUpdateCreateFrontPage API call: Update the title or contents of the front page
-func (c *Canvas) PagesUpdateCreateFrontPage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesUpdateCreateFrontPage(progress *task.Progress, wikiPage string) (*Page, error) {
+	endpoint := fmt.Sprintf("courses/123/front_page")
 	params := map[string]interface{}{}
-
+    params["wiki_page"] = wikiPage
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12515,10 +12783,13 @@ func (c *Canvas) PagesUpdateCreateFrontPage(progress *task.Progress) (*Page, err
 }
 
 // PagesListPages API call: A paginated list of the wiki pages associated with a course or group
-func (c *Canvas) PagesListPages(progress *task.Progress) ([]Page, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesListPages(progress *task.Progress, sort string, order string, searchTerm string, published bool) ([]Page, error) {
+	endpoint := fmt.Sprintf("courses/123/pages")
 	params := map[string]interface{}{}
-	
+    params["sort"] = sort
+    params["order"] = order
+    params["search_term"] = searchTerm
+    params["published"] = published
 	responseCtor := func() interface{} {
 		return &[]Page{}
 	}
@@ -12535,10 +12806,10 @@ func (c *Canvas) PagesListPages(progress *task.Progress) ([]Page, error) {
 }
 
 // PagesCreatePage API call: Create a new wiki page
-func (c *Canvas) PagesCreatePage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesCreatePage(progress *task.Progress, wikiPage string) (*Page, error) {
+	endpoint := fmt.Sprintf("courses/123/pages")
 	params := map[string]interface{}{}
-
+    params["wiki_page"] = wikiPage
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12555,9 +12826,8 @@ func (c *Canvas) PagesCreatePage(progress *task.Progress) (*Page, error) {
 
 // PagesShowPage API call: Retrieve the content of a wiki page
 func (c *Canvas) PagesShowPage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/123/pages/my-page-url")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12573,10 +12843,10 @@ func (c *Canvas) PagesShowPage(progress *task.Progress) (*Page, error) {
 }
 
 // PagesUpdateCreatePage API call: Update the title or contents of a wiki page
-func (c *Canvas) PagesUpdateCreatePage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesUpdateCreatePage(progress *task.Progress, wikiPage string) (*Page, error) {
+	endpoint := fmt.Sprintf("courses/123/pages/the-page-url")
 	params := map[string]interface{}{}
-
+    params["wiki_page"] = wikiPage
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12593,9 +12863,8 @@ func (c *Canvas) PagesUpdateCreatePage(progress *task.Progress) (*Page, error) {
 
 // PagesDeletePage API call: Delete a wiki page
 func (c *Canvas) PagesDeletePage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/123/pages/the-page-url")
 	params := map[string]interface{}{}
-
 	responseCtor := func() interface{} {
 		return &Page{}
 	}
@@ -12613,9 +12882,8 @@ func (c *Canvas) PagesDeletePage(progress *task.Progress) (*Page, error) {
 // PagesListRevisions API call: A paginated list of the revisions of a page. Callers must have update rights on the page
 // in order to see page history.
 func (c *Canvas) PagesListRevisions(progress *task.Progress) ([]PageRevision, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses/123/pages/the-page-url/revisions")
 	params := map[string]interface{}{}
-	
 	responseCtor := func() interface{} {
 		return &[]PageRevision{}
 	}
@@ -12633,10 +12901,10 @@ func (c *Canvas) PagesListRevisions(progress *task.Progress) ([]PageRevision, er
 
 // PagesShowRevision API call: Retrieve the metadata and optionally content of a revision of the page. Note that
 // retrieving historic versions of pages requires edit rights.
-func (c *Canvas) PagesShowRevision(progress *task.Progress) (*PageRevision, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesShowRevision(progress *task.Progress, summary bool) (*PageRevision, error) {
+	endpoint := fmt.Sprintf("courses/123/pages/the-page-url/revisions/4")
 	params := map[string]interface{}{}
-
+    params["summary"] = summary
 	responseCtor := func() interface{} {
 		return &PageRevision{}
 	}
@@ -12652,10 +12920,10 @@ func (c *Canvas) PagesShowRevision(progress *task.Progress) (*PageRevision, erro
 }
 
 // PagesRevertToRevision API call: Revert a page to a prior revision.
-func (c *Canvas) PagesRevertToRevision(progress *task.Progress) (*PageRevision, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) PagesRevertToRevision(progress *task.Progress, revisionID int) (*PageRevision, error) {
+	endpoint := fmt.Sprintf("courses/123/pages/the-page-url/revisions/6")
 	params := map[string]interface{}{}
-
+    params["revision_id"] = revisionID
 	responseCtor := func() interface{} {
 		return &PageRevision{}
 	}
