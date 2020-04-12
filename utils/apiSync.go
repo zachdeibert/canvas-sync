@@ -106,7 +106,7 @@ func main() {
 	apisync.DedupMethods(&methods)
 	apisync.FixMissingTypes(models, methods)
 	imports := []string{}
-	parts := []string{}
+	parts := apisync.DefineEnums(models, methods)
 	for _, m := range models {
 		part, err := m.Write(&imports)
 		if err != nil {

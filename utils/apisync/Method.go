@@ -125,7 +125,7 @@ func ParseMethod(str string) (*Method, error) {
 						a.EnumValues = make([]string, len(vals))
 						for i, val := range vals {
 							if strings.HasPrefix(val, "\"") && strings.HasSuffix(val, "\"") {
-								a.EnumValues[i] = val[1 : len(val)-1]
+								a.EnumValues[i] = strings.ReplaceAll(val, "\"", "")
 							} else {
 								a.EnumValues[i] = val
 							}

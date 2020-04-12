@@ -8,6 +8,26 @@ type MethodAPIPair struct {
 	APIName string
 }
 
+func dedupEnumConstants(vals *[]string) {
+	if len(*vals) > 1 {
+		n := 0
+		for i, v := range *vals {
+			found := false
+			for j, w := range *vals {
+				if i != j && v == w {
+					found = true
+					break
+				}
+			}
+			if !found {
+				(*vals)[n] = v
+				n++
+			}
+		}
+		*vals = (*vals)[:n]
+	}
+}
+
 // DedupModels deduplicates models
 func DedupModels(models *[]*Model) {
 	cache := map[string]*Model{}
@@ -15,6 +35,9 @@ func DedupModels(models *[]*Model) {
 	for _, model := range *models {
 		other, ok := cache[model.Name]
 		if !ok {
+			for i := range model.Properties {
+				dedupEnumConstants(&model.Properties[i].EnumValues)
+			}
 			cache[model.Name] = model
 			(*models)[n] = model
 			n++
@@ -28,6 +51,7 @@ func DedupModels(models *[]*Model) {
 					}
 				}
 				if !found {
+					dedupEnumConstants(&p.EnumValues)
 					other.Properties = append(other.Properties, p)
 				}
 			}
@@ -45,6 +69,9 @@ func DedupMethods(methods *[]MethodAPIPair) {
 		qualName := fmt.Sprintf("%s_%s", method.APIName, method.Method.Name)
 		other, ok := cache[qualName]
 		if !ok {
+			for i := range method.Method.Arguments {
+				dedupEnumConstants(&method.Method.Arguments[i].EnumValues)
+			}
 			cache[qualName] = method
 			nextID[qualName] = 2
 			(*methods)[n] = method
@@ -66,6 +93,7 @@ func DedupMethods(methods *[]MethodAPIPair) {
 					}
 				}
 				if !found {
+					dedupEnumConstants(&a.EnumValues)
 					other.Method.Arguments = append(other.Method.Arguments, a)
 				}
 			}

@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-var nonGoIdentifier = regexp.MustCompile("[^a-zA-Z0-9]+")
+var goIdentifierParts = regexp.MustCompile("[a-zA-Z][a-z0-9]*")
 
 func splitText(str string, width int) []string {
 	words := strings.Split(str, " ")
@@ -75,9 +75,9 @@ func importString(pkgs []string) string {
 }
 
 func toGoIdentifier(jsonIdentifier string, exported bool) string {
-	words := strings.Split(strings.ToLower(nonGoIdentifier.ReplaceAllLiteralString(jsonIdentifier, "_")), "_")
+	words := goIdentifierParts.FindAllString(jsonIdentifier, -1)
 	for i, word := range words {
-		switch word {
+		switch w := strings.ToLower(word); w {
 		case "api":
 			word = "API"
 			break
@@ -111,7 +111,7 @@ func toGoIdentifier(jsonIdentifier string, exported bool) string {
 		case "":
 			break
 		default:
-			word = fmt.Sprintf("%c%s", word[0]+'A'-'a', word[1:])
+			word = fmt.Sprintf("%c%s", w[0]+'A'-'a', w[1:])
 			break
 		}
 		words[i] = word
