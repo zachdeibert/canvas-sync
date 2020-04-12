@@ -105,6 +105,9 @@ func toGoIdentifier(jsonIdentifier string, exported bool) string {
 		case "uuid":
 			word = "UUID"
 			break
+		case "xml":
+			word = "XML"
+			break
 		case "":
 			break
 		default:

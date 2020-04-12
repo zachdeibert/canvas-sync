@@ -1,10 +1,10 @@
 package canvas
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 
-    "github.com/zachdeibert/canvas-sync/task"
+	"github.com/zachdeibert/canvas-sync/task"
 )
 
 // AccountNotification model object
@@ -22,7 +22,7 @@ type AccountNotification struct {
     // StartAt field: When to send out the notification.
     StartAt time.Time `json:"start_at"`
     // Subject field: The subject of the notifications
-    Subject string `json:"subject"`
+	Subject string `json:"subject"`
 }
 
 // Report model object
@@ -7946,7 +7946,7 @@ func (c *Canvas) ExternalToolsGetASingleExternalTool(progress *task.Progress) (*
 // ExternalToolsCreateAnExternalTool API call: Create an external tool in the specified course/account. The created tool
 // will be returned, see the "show" endpoint for an example. If a client ID is supplied canvas will attempt to create a
 // context external tool using the LTI 1.3 standard.
-func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clientID string, name string, privacyLevel string, consumerKey string, sharedSecret string, description string, url string, domain string, iconURL string, text string, customFields string, accountNavigation string, userNavigation string, courseHomeSubNavigation string, courseNavigation bool, editorButton string, homeworkSubmission string, linkSelection string, migrationSelection string, toolConfiguration string, resourceSelection string, configType string, configXml string, configURL string, notSelectable bool, oauthCompliant bool, accountID string) (*map[string]interface{}, error) {
+func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clientID string, name string, privacyLevel string, consumerKey string, sharedSecret string, description string, url string, domain string, iconURL string, text string, customFields string, accountNavigation string, userNavigation string, courseHomeSubNavigation string, courseNavigation bool, editorButton string, homeworkSubmission string, linkSelection string, migrationSelection string, toolConfiguration string, resourceSelection string, configType string, configXML string, configURL string, notSelectable bool, oauthCompliant bool, accountID string) (*map[string]interface{}, error) {
 	endpoint := fmt.Sprintf("accounts/%s/external_tools'", accountID)
 	params := map[string]interface{}{}
     params["client_id"] = clientID
@@ -7971,7 +7971,7 @@ func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clie
     params["tool_configuration"] = toolConfiguration
     params["resource_selection"] = resourceSelection
     params["config_type"] = configType
-    params["config_xml"] = configXml
+    params["config_xml"] = configXML
     params["config_url"] = configURL
     params["not_selectable"] = notSelectable
     params["oauth_compliant"] = oauthCompliant
