@@ -22,3 +22,6 @@ db/
 
 # VS Code files
 .vscode/launch.json
+
+# Backup files
+*.bk
