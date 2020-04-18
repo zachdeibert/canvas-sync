@@ -13,7 +13,7 @@ import (
 func writeDatabaseTask(dbPath string) func(*task.Task, func()) {
 	return func(t *task.Task, finish func()) {
 		p := t.CreateProgress(1)
-		p.SetWork(4)
+		p.SetWork(2)
 		// Open database
 		db, err := git.PlainOpen(dbPath)
 		if err != nil {
@@ -24,25 +24,22 @@ func writeDatabaseTask(dbPath string) func(*task.Task, func()) {
 			panic(err)
 		}
 		p.Finish(1)
-		// Check for changes in the working tree
+		// Check for changes in the working tree and add them
 		status, err := tree.Status()
 		if err != nil {
 			panic(err)
 		}
+		p.AddWork(len(status))
 		hasChanges := false
 		for change, s := range status {
 			if !strings.HasPrefix(change, ".git") && (s.Worktree != git.Unmodified || s.Staging != git.Unmodified) {
 				hasChanges = true
+				if _, err = tree.Add(change); err != nil {
+					panic(err)
+				}
 			}
+			p.Finish(1)
 		}
-		p.Finish(1)
-		// Add new files
-		if hasChanges {
-			if err = tree.AddGlob("*"); err != nil {
-				panic(err)
-			}
-		}
-		p.Finish(1)
 		// Commit
 		if hasChanges {
 			if _, err = tree.Commit(fmt.Sprintf("Canvas Sync at %s", time.Now().Format("Mon Jan 2 2006 15:04:05 MST")), &git.CommitOptions{
