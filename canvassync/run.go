@@ -25,9 +25,15 @@ func Run(c *canvas.Canvas) {
 	})
 	panicCh := make(chan taskPanic)
 	root.AddPanicListener(func(src *task.Task, err interface{}) {
-		panicCh <- taskPanic{
+		select {
+		case panicCh <- taskPanic{
 			t:   src,
 			err: err,
+		}:
+			break
+		default:
+			fmt.Fprintln(os.Stderr, "Unable to send panic to pipe")
+			panic(err)
 		}
 	})
 	name := make(chan string)
