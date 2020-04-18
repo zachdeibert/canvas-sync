@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strings"
 
 	"github.com/go-git/go-git/v5"
 
@@ -49,8 +50,10 @@ func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string)
 		if err != nil {
 			panic(err)
 		}
-		if !status.IsClean() {
-			panic(fmt.Sprintf("Database is not clean; Previous run of program did not exit cleanly.\n%s", status.String()))
+		for change, s := range status {
+			if !strings.HasPrefix(change, ".git") && (s.Worktree != git.Unmodified || s.Staging != git.Unmodified) {
+				panic(fmt.Sprintf("Database is not clean; Previous run of program did not exit cleanly.\n%s", status.String()))
+			}
 		}
 		p.Finish(1)
 		// Done!

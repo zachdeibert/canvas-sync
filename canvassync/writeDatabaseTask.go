@@ -2,6 +2,7 @@ package canvassync
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/go-git/go-git/v5"
@@ -28,7 +29,12 @@ func writeDatabaseTask(dbPath string) func(*task.Task, func()) {
 		if err != nil {
 			panic(err)
 		}
-		hasChanges := len(status) > 0
+		hasChanges := false
+		for change, s := range status {
+			if !strings.HasPrefix(change, ".git") && (s.Worktree != git.Unmodified || s.Staging != git.Unmodified) {
+				hasChanges = true
+			}
+		}
 		p.Finish(1)
 		// Add new files
 		if hasChanges {
