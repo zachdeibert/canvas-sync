@@ -16,7 +16,7 @@ type APIFile struct {
 }
 
 var (
-	apiFileTopRegex     = regexp.MustCompile("(?ms:^# @API ([^\n]+)\n((?:#[^\n]*\n)+)(.*))")
+	apiFileTopRegex     = regexp.MustCompile("(?ms:^# @API ([^\n]+)\n((?:#[^\n]*\n)*)(.*))")
 	apiFileMethodRegex  = regexp.MustCompile("(?m:^(\\s+# @API (?:[^\n]+)\n(?:\\s+#[^\n]*\n)+)\n)")
 	apiFileCommentStart = regexp.MustCompile("(?m:^\\s*#)")
 	apiFileModelStart   = regexp.MustCompile("(?m:^\\s*@model\\s+[^\\s]+\\s*?$)")

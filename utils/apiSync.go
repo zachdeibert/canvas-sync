@@ -76,12 +76,12 @@ func main() {
 	for _, file := range files {
 		if !file.IsDir() && strings.HasSuffix(file.Name(), ".rb") {
 			inputFile := path.Join(dir, file.Name())
-			fmt.Printf("Parsing file %s...\n", inputFile)
 			api, err := apisync.ParseFile(inputFile)
 			if err != nil {
 				panic(err)
 			}
 			if api != nil {
+				fmt.Printf("Parsing file %s...\n", inputFile)
 				for _, s := range api.ModelComments {
 					m, err := apisync.ParseModel(s)
 					if err != nil {

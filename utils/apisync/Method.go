@@ -27,9 +27,10 @@ type Method struct {
 }
 
 var (
-	methodTopRegex      = regexp.MustCompile("(?m:\\s@([^\\s]+) *([^\n]*)((?:\n\\s*[^@\\s][^\n]+)*))")
-	methodArgumentRegex = regexp.MustCompile("^([^ ]+)(?: \\[([^\\]]+)\\]$)?")
-	methodEndPointRegex = regexp.MustCompile("https://<canvas>/api/v1/([^\\s?\"]+)")
+	methodTopRegex             = regexp.MustCompile("(?m:\\s@([^\\s]+) *([^\n]*)((?:\n\\s*[^@\\s][^\n]+)*))")
+	methodArgumentRegex        = regexp.MustCompile("^([^ ]+)(?: \\[([^\\]]+)\\]$)?")
+	methodEndPointRegex        = regexp.MustCompile("https://<canvas>/api/v1/([^\\s?\"]+)")
+	methodEndPointInvalidChars = regexp.MustCompile("['\"]")
 )
 
 // ParseMethod parses a method from a string
@@ -101,13 +102,13 @@ func ParseMethod(str string) (*Method, error) {
 				case "integer":
 					a.Type = "int"
 					break
-				case "number":
+				case "number", "float":
 					a.Type = "float64"
 					break
 				case "array":
 					array = true
 					break
-				case "json":
+				case "json", "object":
 					a.Type = "map[string]interface{}"
 					break
 				case "", "deprecated":
@@ -144,7 +145,7 @@ func ParseMethod(str string) (*Method, error) {
 		case "example_request":
 			endpoint := methodEndPointRegex.FindStringSubmatch(match[3])
 			if endpoint != nil {
-				m.EndPoint = endpoint[1]
+				m.EndPoint = methodEndPointInvalidChars.ReplaceAllLiteralString(endpoint[1], "")
 			}
 			break
 		case "example_response", "response_field", "subtopic":

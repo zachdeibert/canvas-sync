@@ -11,3272 +11,3356 @@ import (
 type AccountNotificationIcon string
 
 const (
-    // AccountNotificationIconWarning enum value ("warning")
-    AccountNotificationIconWarning AccountNotificationIcon = "warning"
-    // AccountNotificationIconInformation enum value ("information")
-    AccountNotificationIconInformation AccountNotificationIcon = "information"
-    // AccountNotificationIconQuestion enum value ("question")
-    AccountNotificationIconQuestion AccountNotificationIcon = "question"
-    // AccountNotificationIconError enum value ("error")
-    AccountNotificationIconError AccountNotificationIcon = "error"
-    // AccountNotificationIconCalendar enum value ("calendar")
-    AccountNotificationIconCalendar AccountNotificationIcon = "calendar"
+	// AccountNotificationIconWarning enum value ("warning")
+	AccountNotificationIconWarning AccountNotificationIcon = "warning"
+	// AccountNotificationIconInformation enum value ("information")
+	AccountNotificationIconInformation AccountNotificationIcon = "information"
+	// AccountNotificationIconQuestion enum value ("question")
+	AccountNotificationIconQuestion AccountNotificationIcon = "question"
+	// AccountNotificationIconError enum value ("error")
+	AccountNotificationIconError AccountNotificationIcon = "error"
+	// AccountNotificationIconCalendar enum value ("calendar")
+	AccountNotificationIconCalendar AccountNotificationIcon = "calendar"
 )
 
 // ReportParametersOrder enumeration
 type ReportParametersOrder string
 
 const (
-    // ReportParametersOrderUsers enum value ("users")
-    ReportParametersOrderUsers ReportParametersOrder = "users"
-    // ReportParametersOrderCourses enum value ("courses")
-    ReportParametersOrderCourses ReportParametersOrder = "courses"
-    // ReportParametersOrderOutcomes enum value ("outcomes")
-    ReportParametersOrderOutcomes ReportParametersOrder = "outcomes"
+	// ReportParametersOrderUsers enum value ("users")
+	ReportParametersOrderUsers ReportParametersOrder = "users"
+	// ReportParametersOrderCourses enum value ("courses")
+	ReportParametersOrderCourses ReportParametersOrder = "courses"
+	// ReportParametersOrderOutcomes enum value ("outcomes")
+	ReportParametersOrderOutcomes ReportParametersOrder = "outcomes"
 )
 
 // AppointmentGroupParticipantType enumeration
 type AppointmentGroupParticipantType string
 
 const (
-    // AppointmentGroupParticipantTypeUser enum value ("User")
-    AppointmentGroupParticipantTypeUser AppointmentGroupParticipantType = "User"
-    // AppointmentGroupParticipantTypeGroup enum value ("Group")
-    AppointmentGroupParticipantTypeGroup AppointmentGroupParticipantType = "Group"
+	// AppointmentGroupParticipantTypeUser enum value ("User")
+	AppointmentGroupParticipantTypeUser AppointmentGroupParticipantType = "User"
+	// AppointmentGroupParticipantTypeGroup enum value ("Group")
+	AppointmentGroupParticipantTypeGroup AppointmentGroupParticipantType = "Group"
 )
 
 // AppointmentGroupParticipantVisibility enumeration
 type AppointmentGroupParticipantVisibility string
 
 const (
-    // AppointmentGroupParticipantVisibilityPrivate enum value ("private")
-    AppointmentGroupParticipantVisibilityPrivate AppointmentGroupParticipantVisibility = "private"
-    // AppointmentGroupParticipantVisibilityProtected enum value ("protected")
-    AppointmentGroupParticipantVisibilityProtected AppointmentGroupParticipantVisibility = "protected"
+	// AppointmentGroupParticipantVisibilityPrivate enum value ("private")
+	AppointmentGroupParticipantVisibilityPrivate AppointmentGroupParticipantVisibility = "private"
+	// AppointmentGroupParticipantVisibilityProtected enum value ("protected")
+	AppointmentGroupParticipantVisibilityProtected AppointmentGroupParticipantVisibility = "protected"
 )
 
 // AppointmentGroupWorkflowState enumeration
 type AppointmentGroupWorkflowState string
 
 const (
-    // AppointmentGroupWorkflowStatePending enum value ("pending")
-    AppointmentGroupWorkflowStatePending AppointmentGroupWorkflowState = "pending"
-    // AppointmentGroupWorkflowStateActive enum value ("active")
-    AppointmentGroupWorkflowStateActive AppointmentGroupWorkflowState = "active"
-    // AppointmentGroupWorkflowStateDeleted enum value ("deleted")
-    AppointmentGroupWorkflowStateDeleted AppointmentGroupWorkflowState = "deleted"
+	// AppointmentGroupWorkflowStatePending enum value ("pending")
+	AppointmentGroupWorkflowStatePending AppointmentGroupWorkflowState = "pending"
+	// AppointmentGroupWorkflowStateActive enum value ("active")
+	AppointmentGroupWorkflowStateActive AppointmentGroupWorkflowState = "active"
+	// AppointmentGroupWorkflowStateDeleted enum value ("deleted")
+	AppointmentGroupWorkflowStateDeleted AppointmentGroupWorkflowState = "deleted"
 )
 
 // AssignmentGradingType enumeration
 type AssignmentGradingType string
 
 const (
-    // AssignmentGradingTypePassFail enum value ("pass_fail")
-    AssignmentGradingTypePassFail AssignmentGradingType = "pass_fail"
-    // AssignmentGradingTypePercent enum value ("percent")
-    AssignmentGradingTypePercent AssignmentGradingType = "percent"
-    // AssignmentGradingTypeLetterGrade enum value ("letter_grade")
-    AssignmentGradingTypeLetterGrade AssignmentGradingType = "letter_grade"
-    // AssignmentGradingTypeGpaScale enum value ("gpa_scale")
-    AssignmentGradingTypeGpaScale AssignmentGradingType = "gpa_scale"
-    // AssignmentGradingTypePoints enum value ("points")
-    AssignmentGradingTypePoints AssignmentGradingType = "points"
+	// AssignmentGradingTypePassFail enum value ("pass_fail")
+	AssignmentGradingTypePassFail AssignmentGradingType = "pass_fail"
+	// AssignmentGradingTypePercent enum value ("percent")
+	AssignmentGradingTypePercent AssignmentGradingType = "percent"
+	// AssignmentGradingTypeLetterGrade enum value ("letter_grade")
+	AssignmentGradingTypeLetterGrade AssignmentGradingType = "letter_grade"
+	// AssignmentGradingTypeGpaScale enum value ("gpa_scale")
+	AssignmentGradingTypeGpaScale AssignmentGradingType = "gpa_scale"
+	// AssignmentGradingTypePoints enum value ("points")
+	AssignmentGradingTypePoints AssignmentGradingType = "points"
 )
 
 // AssignmentSubmissionTypes enumeration
 type AssignmentSubmissionTypes string
 
 const (
-    // AssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
-    AssignmentSubmissionTypesDiscussionTopic AssignmentSubmissionTypes = "discussion_topic"
-    // AssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
-    AssignmentSubmissionTypesOnlineQuiz AssignmentSubmissionTypes = "online_quiz"
-    // AssignmentSubmissionTypesOnPaper enum value ("on_paper")
-    AssignmentSubmissionTypesOnPaper AssignmentSubmissionTypes = "on_paper"
-    // AssignmentSubmissionTypesNotGraded enum value ("not_graded")
-    AssignmentSubmissionTypesNotGraded AssignmentSubmissionTypes = "not_graded"
-    // AssignmentSubmissionTypesNone enum value ("none")
-    AssignmentSubmissionTypesNone AssignmentSubmissionTypes = "none"
-    // AssignmentSubmissionTypesExternalTool enum value ("external_tool")
-    AssignmentSubmissionTypesExternalTool AssignmentSubmissionTypes = "external_tool"
-    // AssignmentSubmissionTypesOnlineTextEntry enum value ("online_text_entry")
-    AssignmentSubmissionTypesOnlineTextEntry AssignmentSubmissionTypes = "online_text_entry"
-    // AssignmentSubmissionTypesOnlineURL enum value ("online_url")
-    AssignmentSubmissionTypesOnlineURL AssignmentSubmissionTypes = "online_url"
-    // AssignmentSubmissionTypesOnlineUpload enum value ("online_upload")
-    AssignmentSubmissionTypesOnlineUpload AssignmentSubmissionTypes = "online_upload"
-    // AssignmentSubmissionTypesMediaRecording enum value ("media_recording")
-    AssignmentSubmissionTypesMediaRecording AssignmentSubmissionTypes = "media_recording"
+	// AssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
+	AssignmentSubmissionTypesDiscussionTopic AssignmentSubmissionTypes = "discussion_topic"
+	// AssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
+	AssignmentSubmissionTypesOnlineQuiz AssignmentSubmissionTypes = "online_quiz"
+	// AssignmentSubmissionTypesOnPaper enum value ("on_paper")
+	AssignmentSubmissionTypesOnPaper AssignmentSubmissionTypes = "on_paper"
+	// AssignmentSubmissionTypesNotGraded enum value ("not_graded")
+	AssignmentSubmissionTypesNotGraded AssignmentSubmissionTypes = "not_graded"
+	// AssignmentSubmissionTypesNone enum value ("none")
+	AssignmentSubmissionTypesNone AssignmentSubmissionTypes = "none"
+	// AssignmentSubmissionTypesExternalTool enum value ("external_tool")
+	AssignmentSubmissionTypesExternalTool AssignmentSubmissionTypes = "external_tool"
+	// AssignmentSubmissionTypesOnlineTextEntry enum value ("online_text_entry")
+	AssignmentSubmissionTypesOnlineTextEntry AssignmentSubmissionTypes = "online_text_entry"
+	// AssignmentSubmissionTypesOnlineURL enum value ("online_url")
+	AssignmentSubmissionTypesOnlineURL AssignmentSubmissionTypes = "online_url"
+	// AssignmentSubmissionTypesOnlineUpload enum value ("online_upload")
+	AssignmentSubmissionTypesOnlineUpload AssignmentSubmissionTypes = "online_upload"
+	// AssignmentSubmissionTypesMediaRecording enum value ("media_recording")
+	AssignmentSubmissionTypesMediaRecording AssignmentSubmissionTypes = "media_recording"
 )
 
 // AuthenticationEventEventType enumeration
 type AuthenticationEventEventType string
 
 const (
-    // AuthenticationEventEventTypeLogin enum value ("login")
-    AuthenticationEventEventTypeLogin AuthenticationEventEventType = "login"
-    // AuthenticationEventEventTypeLogout enum value ("logout")
-    AuthenticationEventEventTypeLogout AuthenticationEventEventType = "logout"
+	// AuthenticationEventEventTypeLogin enum value ("login")
+	AuthenticationEventEventTypeLogin AuthenticationEventEventType = "login"
+	// AuthenticationEventEventTypeLogout enum value ("logout")
+	AuthenticationEventEventTypeLogout AuthenticationEventEventType = "logout"
 )
 
 // AssignmentEventWorkflowState enumeration
 type AssignmentEventWorkflowState string
 
 const (
-    // AssignmentEventWorkflowStatePublished enum value ("published")
-    AssignmentEventWorkflowStatePublished AssignmentEventWorkflowState = "published"
-    // AssignmentEventWorkflowStateDeleted enum value ("deleted")
-    AssignmentEventWorkflowStateDeleted AssignmentEventWorkflowState = "deleted"
+	// AssignmentEventWorkflowStatePublished enum value ("published")
+	AssignmentEventWorkflowStatePublished AssignmentEventWorkflowState = "published"
+	// AssignmentEventWorkflowStateDeleted enum value ("deleted")
+	AssignmentEventWorkflowStateDeleted AssignmentEventWorkflowState = "deleted"
 )
 
 // CollaboratorType enumeration
 type CollaboratorType string
 
 const (
-    // CollaboratorTypeUser enum value ("user")
-    CollaboratorTypeUser CollaboratorType = "user"
-    // CollaboratorTypeGroup enum value ("group")
-    CollaboratorTypeGroup CollaboratorType = "group"
+	// CollaboratorTypeUser enum value ("user")
+	CollaboratorTypeUser CollaboratorType = "user"
+	// CollaboratorTypeGroup enum value ("group")
+	CollaboratorTypeGroup CollaboratorType = "group"
 )
 
 // CommMessageWorkflowState enumeration
 type CommMessageWorkflowState string
 
 const (
-    // CommMessageWorkflowStateCreated enum value ("created")
-    CommMessageWorkflowStateCreated CommMessageWorkflowState = "created"
-    // CommMessageWorkflowStateStaged enum value ("staged")
-    CommMessageWorkflowStateStaged CommMessageWorkflowState = "staged"
-    // CommMessageWorkflowStateSending enum value ("sending")
-    CommMessageWorkflowStateSending CommMessageWorkflowState = "sending"
-    // CommMessageWorkflowStateSent enum value ("sent")
-    CommMessageWorkflowStateSent CommMessageWorkflowState = "sent"
-    // CommMessageWorkflowStateBounced enum value ("bounced")
-    CommMessageWorkflowStateBounced CommMessageWorkflowState = "bounced"
-    // CommMessageWorkflowStateDashboard enum value ("dashboard")
-    CommMessageWorkflowStateDashboard CommMessageWorkflowState = "dashboard"
-    // CommMessageWorkflowStateCancelled enum value ("cancelled")
-    CommMessageWorkflowStateCancelled CommMessageWorkflowState = "cancelled"
-    // CommMessageWorkflowStateClosed enum value ("closed")
-    CommMessageWorkflowStateClosed CommMessageWorkflowState = "closed"
+	// CommMessageWorkflowStateCreated enum value ("created")
+	CommMessageWorkflowStateCreated CommMessageWorkflowState = "created"
+	// CommMessageWorkflowStateStaged enum value ("staged")
+	CommMessageWorkflowStateStaged CommMessageWorkflowState = "staged"
+	// CommMessageWorkflowStateSending enum value ("sending")
+	CommMessageWorkflowStateSending CommMessageWorkflowState = "sending"
+	// CommMessageWorkflowStateSent enum value ("sent")
+	CommMessageWorkflowStateSent CommMessageWorkflowState = "sent"
+	// CommMessageWorkflowStateBounced enum value ("bounced")
+	CommMessageWorkflowStateBounced CommMessageWorkflowState = "bounced"
+	// CommMessageWorkflowStateDashboard enum value ("dashboard")
+	CommMessageWorkflowStateDashboard CommMessageWorkflowState = "dashboard"
+	// CommMessageWorkflowStateCancelled enum value ("cancelled")
+	CommMessageWorkflowStateCancelled CommMessageWorkflowState = "cancelled"
+	// CommMessageWorkflowStateClosed enum value ("closed")
+	CommMessageWorkflowStateClosed CommMessageWorkflowState = "closed"
 )
 
 // CommunicationChannelType enumeration
 type CommunicationChannelType string
 
 const (
-    // CommunicationChannelTypeEmail enum value ("email")
-    CommunicationChannelTypeEmail CommunicationChannelType = "email"
-    // CommunicationChannelTypePush enum value ("push")
-    CommunicationChannelTypePush CommunicationChannelType = "push"
-    // CommunicationChannelTypeSms enum value ("sms")
-    CommunicationChannelTypeSms CommunicationChannelType = "sms"
-    // CommunicationChannelTypeTwitter enum value ("twitter")
-    CommunicationChannelTypeTwitter CommunicationChannelType = "twitter"
+	// CommunicationChannelTypeEmail enum value ("email")
+	CommunicationChannelTypeEmail CommunicationChannelType = "email"
+	// CommunicationChannelTypePush enum value ("push")
+	CommunicationChannelTypePush CommunicationChannelType = "push"
+	// CommunicationChannelTypeSms enum value ("sms")
+	CommunicationChannelTypeSms CommunicationChannelType = "sms"
+	// CommunicationChannelTypeTwitter enum value ("twitter")
+	CommunicationChannelTypeTwitter CommunicationChannelType = "twitter"
 )
 
 // CommunicationChannelWorkflowState enumeration
 type CommunicationChannelWorkflowState string
 
 const (
-    // CommunicationChannelWorkflowStateUnconfirmed enum value ("unconfirmed")
-    CommunicationChannelWorkflowStateUnconfirmed CommunicationChannelWorkflowState = "unconfirmed"
-    // CommunicationChannelWorkflowStateActive enum value ("active")
-    CommunicationChannelWorkflowStateActive CommunicationChannelWorkflowState = "active"
+	// CommunicationChannelWorkflowStateUnconfirmed enum value ("unconfirmed")
+	CommunicationChannelWorkflowStateUnconfirmed CommunicationChannelWorkflowState = "unconfirmed"
+	// CommunicationChannelWorkflowStateActive enum value ("active")
+	CommunicationChannelWorkflowStateActive CommunicationChannelWorkflowState = "active"
 )
 
 // ContentExportExportType enumeration
 type ContentExportExportType string
 
 const (
-    // ContentExportExportTypeCommonCartridge enum value ("common_cartridge")
-    ContentExportExportTypeCommonCartridge ContentExportExportType = "common_cartridge"
-    // ContentExportExportTypeQti enum value ("qti")
-    ContentExportExportTypeQti ContentExportExportType = "qti"
+	// ContentExportExportTypeCommonCartridge enum value ("common_cartridge")
+	ContentExportExportTypeCommonCartridge ContentExportExportType = "common_cartridge"
+	// ContentExportExportTypeQti enum value ("qti")
+	ContentExportExportTypeQti ContentExportExportType = "qti"
 )
 
 // ContentExportWorkflowState enumeration
 type ContentExportWorkflowState string
 
 const (
-    // ContentExportWorkflowStateCreated enum value ("created")
-    ContentExportWorkflowStateCreated ContentExportWorkflowState = "created"
-    // ContentExportWorkflowStateExporting enum value ("exporting")
-    ContentExportWorkflowStateExporting ContentExportWorkflowState = "exporting"
-    // ContentExportWorkflowStateExported enum value ("exported")
-    ContentExportWorkflowStateExported ContentExportWorkflowState = "exported"
-    // ContentExportWorkflowStateFailed enum value ("failed")
-    ContentExportWorkflowStateFailed ContentExportWorkflowState = "failed"
+	// ContentExportWorkflowStateCreated enum value ("created")
+	ContentExportWorkflowStateCreated ContentExportWorkflowState = "created"
+	// ContentExportWorkflowStateExporting enum value ("exporting")
+	ContentExportWorkflowStateExporting ContentExportWorkflowState = "exporting"
+	// ContentExportWorkflowStateExported enum value ("exported")
+	ContentExportWorkflowStateExported ContentExportWorkflowState = "exported"
+	// ContentExportWorkflowStateFailed enum value ("failed")
+	ContentExportWorkflowStateFailed ContentExportWorkflowState = "failed"
 )
 
 // ContentMigrationWorkflowState enumeration
 type ContentMigrationWorkflowState string
 
 const (
-    // ContentMigrationWorkflowStatePreProcessing enum value ("pre_processing")
-    ContentMigrationWorkflowStatePreProcessing ContentMigrationWorkflowState = "pre_processing"
-    // ContentMigrationWorkflowStatePreProcessed enum value ("pre_processed")
-    ContentMigrationWorkflowStatePreProcessed ContentMigrationWorkflowState = "pre_processed"
-    // ContentMigrationWorkflowStateRunning enum value ("running")
-    ContentMigrationWorkflowStateRunning ContentMigrationWorkflowState = "running"
-    // ContentMigrationWorkflowStateWaitingForSelect enum value ("waiting_for_select")
-    ContentMigrationWorkflowStateWaitingForSelect ContentMigrationWorkflowState = "waiting_for_select"
-    // ContentMigrationWorkflowStateCompleted enum value ("completed")
-    ContentMigrationWorkflowStateCompleted ContentMigrationWorkflowState = "completed"
-    // ContentMigrationWorkflowStateFailed enum value ("failed")
-    ContentMigrationWorkflowStateFailed ContentMigrationWorkflowState = "failed"
+	// ContentMigrationWorkflowStatePreProcessing enum value ("pre_processing")
+	ContentMigrationWorkflowStatePreProcessing ContentMigrationWorkflowState = "pre_processing"
+	// ContentMigrationWorkflowStatePreProcessed enum value ("pre_processed")
+	ContentMigrationWorkflowStatePreProcessed ContentMigrationWorkflowState = "pre_processed"
+	// ContentMigrationWorkflowStateRunning enum value ("running")
+	ContentMigrationWorkflowStateRunning ContentMigrationWorkflowState = "running"
+	// ContentMigrationWorkflowStateWaitingForSelect enum value ("waiting_for_select")
+	ContentMigrationWorkflowStateWaitingForSelect ContentMigrationWorkflowState = "waiting_for_select"
+	// ContentMigrationWorkflowStateCompleted enum value ("completed")
+	ContentMigrationWorkflowStateCompleted ContentMigrationWorkflowState = "completed"
+	// ContentMigrationWorkflowStateFailed enum value ("failed")
+	ContentMigrationWorkflowStateFailed ContentMigrationWorkflowState = "failed"
 )
 
 // CompletionRequirementType enumeration
 type CompletionRequirementType string
 
 const (
-    // CompletionRequirementTypeMustView enum value ("must_view")
-    CompletionRequirementTypeMustView CompletionRequirementType = "must_view"
-    // CompletionRequirementTypeMustSubmit enum value ("must_submit")
-    CompletionRequirementTypeMustSubmit CompletionRequirementType = "must_submit"
-    // CompletionRequirementTypeMustContribute enum value ("must_contribute")
-    CompletionRequirementTypeMustContribute CompletionRequirementType = "must_contribute"
-    // CompletionRequirementTypeMinScore enum value ("min_score")
-    CompletionRequirementTypeMinScore CompletionRequirementType = "min_score"
+	// CompletionRequirementTypeMustView enum value ("must_view")
+	CompletionRequirementTypeMustView CompletionRequirementType = "must_view"
+	// CompletionRequirementTypeMustSubmit enum value ("must_submit")
+	CompletionRequirementTypeMustSubmit CompletionRequirementType = "must_submit"
+	// CompletionRequirementTypeMustContribute enum value ("must_contribute")
+	CompletionRequirementTypeMustContribute CompletionRequirementType = "must_contribute"
+	// CompletionRequirementTypeMinScore enum value ("min_score")
+	CompletionRequirementTypeMinScore CompletionRequirementType = "min_score"
 )
 
 // ModuleItemType enumeration
 type ModuleItemType string
 
 const (
-    // ModuleItemTypeFile enum value ("File")
-    ModuleItemTypeFile ModuleItemType = "File"
-    // ModuleItemTypePage enum value ("Page")
-    ModuleItemTypePage ModuleItemType = "Page"
-    // ModuleItemTypeDiscussion enum value ("Discussion")
-    ModuleItemTypeDiscussion ModuleItemType = "Discussion"
-    // ModuleItemTypeAssignment enum value ("Assignment")
-    ModuleItemTypeAssignment ModuleItemType = "Assignment"
-    // ModuleItemTypeQuiz enum value ("Quiz")
-    ModuleItemTypeQuiz ModuleItemType = "Quiz"
-    // ModuleItemTypeSubHeader enum value ("SubHeader")
-    ModuleItemTypeSubHeader ModuleItemType = "SubHeader"
-    // ModuleItemTypeExternalURL enum value ("ExternalUrl")
-    ModuleItemTypeExternalURL ModuleItemType = "ExternalUrl"
-    // ModuleItemTypeExternalTool enum value ("ExternalTool")
-    ModuleItemTypeExternalTool ModuleItemType = "ExternalTool"
+	// ModuleItemTypeFile enum value ("File")
+	ModuleItemTypeFile ModuleItemType = "File"
+	// ModuleItemTypePage enum value ("Page")
+	ModuleItemTypePage ModuleItemType = "Page"
+	// ModuleItemTypeDiscussion enum value ("Discussion")
+	ModuleItemTypeDiscussion ModuleItemType = "Discussion"
+	// ModuleItemTypeAssignment enum value ("Assignment")
+	ModuleItemTypeAssignment ModuleItemType = "Assignment"
+	// ModuleItemTypeQuiz enum value ("Quiz")
+	ModuleItemTypeQuiz ModuleItemType = "Quiz"
+	// ModuleItemTypeSubHeader enum value ("SubHeader")
+	ModuleItemTypeSubHeader ModuleItemType = "SubHeader"
+	// ModuleItemTypeExternalURL enum value ("ExternalUrl")
+	ModuleItemTypeExternalURL ModuleItemType = "ExternalUrl"
+	// ModuleItemTypeExternalTool enum value ("ExternalTool")
+	ModuleItemTypeExternalTool ModuleItemType = "ExternalTool"
 )
 
 // ModuleState enumeration
 type ModuleState string
 
 const (
-    // ModuleStateLocked enum value ("locked")
-    ModuleStateLocked ModuleState = "locked"
-    // ModuleStateUnlocked enum value ("unlocked")
-    ModuleStateUnlocked ModuleState = "unlocked"
-    // ModuleStateStarted enum value ("started")
-    ModuleStateStarted ModuleState = "started"
-    // ModuleStateCompleted enum value ("completed")
-    ModuleStateCompleted ModuleState = "completed"
+	// ModuleStateLocked enum value ("locked")
+	ModuleStateLocked ModuleState = "locked"
+	// ModuleStateUnlocked enum value ("unlocked")
+	ModuleStateUnlocked ModuleState = "unlocked"
+	// ModuleStateStarted enum value ("started")
+	ModuleStateStarted ModuleState = "started"
+	// ModuleStateCompleted enum value ("completed")
+	ModuleStateCompleted ModuleState = "completed"
 )
 
 // ModuleWorkflowState enumeration
 type ModuleWorkflowState string
 
 const (
-    // ModuleWorkflowStateActive enum value ("active")
-    ModuleWorkflowStateActive ModuleWorkflowState = "active"
-    // ModuleWorkflowStateDeleted enum value ("deleted")
-    ModuleWorkflowStateDeleted ModuleWorkflowState = "deleted"
+	// ModuleWorkflowStateActive enum value ("active")
+	ModuleWorkflowStateActive ModuleWorkflowState = "active"
+	// ModuleWorkflowStateDeleted enum value ("deleted")
+	ModuleWorkflowStateDeleted ModuleWorkflowState = "deleted"
 )
 
 // CourseDefaultView enumeration
 type CourseDefaultView string
 
 const (
-    // CourseDefaultViewFeed enum value ("feed")
-    CourseDefaultViewFeed CourseDefaultView = "feed"
-    // CourseDefaultViewWiki enum value ("wiki")
-    CourseDefaultViewWiki CourseDefaultView = "wiki"
-    // CourseDefaultViewModules enum value ("modules")
-    CourseDefaultViewModules CourseDefaultView = "modules"
-    // CourseDefaultViewSyllabus enum value ("syllabus")
-    CourseDefaultViewSyllabus CourseDefaultView = "syllabus"
-    // CourseDefaultViewAssignments enum value ("assignments")
-    CourseDefaultViewAssignments CourseDefaultView = "assignments"
+	// CourseDefaultViewFeed enum value ("feed")
+	CourseDefaultViewFeed CourseDefaultView = "feed"
+	// CourseDefaultViewWiki enum value ("wiki")
+	CourseDefaultViewWiki CourseDefaultView = "wiki"
+	// CourseDefaultViewModules enum value ("modules")
+	CourseDefaultViewModules CourseDefaultView = "modules"
+	// CourseDefaultViewSyllabus enum value ("syllabus")
+	CourseDefaultViewSyllabus CourseDefaultView = "syllabus"
+	// CourseDefaultViewAssignments enum value ("assignments")
+	CourseDefaultViewAssignments CourseDefaultView = "assignments"
 )
 
 // CourseWorkflowState enumeration
 type CourseWorkflowState string
 
 const (
-    // CourseWorkflowStateUnpublished enum value ("unpublished")
-    CourseWorkflowStateUnpublished CourseWorkflowState = "unpublished"
-    // CourseWorkflowStateAvailable enum value ("available")
-    CourseWorkflowStateAvailable CourseWorkflowState = "available"
-    // CourseWorkflowStateCompleted enum value ("completed")
-    CourseWorkflowStateCompleted CourseWorkflowState = "completed"
-    // CourseWorkflowStateDeleted enum value ("deleted")
-    CourseWorkflowStateDeleted CourseWorkflowState = "deleted"
+	// CourseWorkflowStateUnpublished enum value ("unpublished")
+	CourseWorkflowStateUnpublished CourseWorkflowState = "unpublished"
+	// CourseWorkflowStateAvailable enum value ("available")
+	CourseWorkflowStateAvailable CourseWorkflowState = "available"
+	// CourseWorkflowStateCompleted enum value ("completed")
+	CourseWorkflowStateCompleted CourseWorkflowState = "completed"
+	// CourseWorkflowStateDeleted enum value ("deleted")
+	CourseWorkflowStateDeleted CourseWorkflowState = "deleted"
 )
 
 // DiscussionTopicDiscussionType enumeration
 type DiscussionTopicDiscussionType string
 
 const (
-    // DiscussionTopicDiscussionTypeSideComment enum value ("side_comment")
-    DiscussionTopicDiscussionTypeSideComment DiscussionTopicDiscussionType = "side_comment"
-    // DiscussionTopicDiscussionTypeThreaded enum value ("threaded")
-    DiscussionTopicDiscussionTypeThreaded DiscussionTopicDiscussionType = "threaded"
+	// DiscussionTopicDiscussionTypeSideComment enum value ("side_comment")
+	DiscussionTopicDiscussionTypeSideComment DiscussionTopicDiscussionType = "side_comment"
+	// DiscussionTopicDiscussionTypeThreaded enum value ("threaded")
+	DiscussionTopicDiscussionTypeThreaded DiscussionTopicDiscussionType = "threaded"
 )
 
 // DiscussionTopicReadState enumeration
 type DiscussionTopicReadState string
 
 const (
-    // DiscussionTopicReadStateRead enum value ("read")
-    DiscussionTopicReadStateRead DiscussionTopicReadState = "read"
-    // DiscussionTopicReadStateUnread enum value ("unread")
-    DiscussionTopicReadStateUnread DiscussionTopicReadState = "unread"
+	// DiscussionTopicReadStateRead enum value ("read")
+	DiscussionTopicReadStateRead DiscussionTopicReadState = "read"
+	// DiscussionTopicReadStateUnread enum value ("unread")
+	DiscussionTopicReadStateUnread DiscussionTopicReadState = "unread"
 )
 
 // DiscussionTopicSubscriptionHold enumeration
 type DiscussionTopicSubscriptionHold string
 
 const (
-    // DiscussionTopicSubscriptionHoldInitialPostRequired enum value ("initial_post_required")
-    DiscussionTopicSubscriptionHoldInitialPostRequired DiscussionTopicSubscriptionHold = "initial_post_required"
-    // DiscussionTopicSubscriptionHoldNotInGroupSet enum value ("not_in_group_set")
-    DiscussionTopicSubscriptionHoldNotInGroupSet DiscussionTopicSubscriptionHold = "not_in_group_set"
-    // DiscussionTopicSubscriptionHoldNotInGroup enum value ("not_in_group")
-    DiscussionTopicSubscriptionHoldNotInGroup DiscussionTopicSubscriptionHold = "not_in_group"
-    // DiscussionTopicSubscriptionHoldTopicIsAnnouncement enum value ("topic_is_announcement")
-    DiscussionTopicSubscriptionHoldTopicIsAnnouncement DiscussionTopicSubscriptionHold = "topic_is_announcement"
+	// DiscussionTopicSubscriptionHoldInitialPostRequired enum value ("initial_post_required")
+	DiscussionTopicSubscriptionHoldInitialPostRequired DiscussionTopicSubscriptionHold = "initial_post_required"
+	// DiscussionTopicSubscriptionHoldNotInGroupSet enum value ("not_in_group_set")
+	DiscussionTopicSubscriptionHoldNotInGroupSet DiscussionTopicSubscriptionHold = "not_in_group_set"
+	// DiscussionTopicSubscriptionHoldNotInGroup enum value ("not_in_group")
+	DiscussionTopicSubscriptionHoldNotInGroup DiscussionTopicSubscriptionHold = "not_in_group"
+	// DiscussionTopicSubscriptionHoldTopicIsAnnouncement enum value ("topic_is_announcement")
+	DiscussionTopicSubscriptionHoldTopicIsAnnouncement DiscussionTopicSubscriptionHold = "topic_is_announcement"
 )
 
 // EpubExportWorkflowState enumeration
 type EpubExportWorkflowState string
 
 const (
-    // EpubExportWorkflowStateCreated enum value ("created")
-    EpubExportWorkflowStateCreated EpubExportWorkflowState = "created"
-    // EpubExportWorkflowStateExporting enum value ("exporting")
-    EpubExportWorkflowStateExporting EpubExportWorkflowState = "exporting"
-    // EpubExportWorkflowStateExported enum value ("exported")
-    EpubExportWorkflowStateExported EpubExportWorkflowState = "exported"
-    // EpubExportWorkflowStateGenerating enum value ("generating")
-    EpubExportWorkflowStateGenerating EpubExportWorkflowState = "generating"
-    // EpubExportWorkflowStateGenerated enum value ("generated")
-    EpubExportWorkflowStateGenerated EpubExportWorkflowState = "generated"
-    // EpubExportWorkflowStateFailed enum value ("failed")
-    EpubExportWorkflowStateFailed EpubExportWorkflowState = "failed"
+	// EpubExportWorkflowStateCreated enum value ("created")
+	EpubExportWorkflowStateCreated EpubExportWorkflowState = "created"
+	// EpubExportWorkflowStateExporting enum value ("exporting")
+	EpubExportWorkflowStateExporting EpubExportWorkflowState = "exporting"
+	// EpubExportWorkflowStateExported enum value ("exported")
+	EpubExportWorkflowStateExported EpubExportWorkflowState = "exported"
+	// EpubExportWorkflowStateGenerating enum value ("generating")
+	EpubExportWorkflowStateGenerating EpubExportWorkflowState = "generating"
+	// EpubExportWorkflowStateGenerated enum value ("generated")
+	EpubExportWorkflowStateGenerated EpubExportWorkflowState = "generated"
+	// EpubExportWorkflowStateFailed enum value ("failed")
+	EpubExportWorkflowStateFailed EpubExportWorkflowState = "failed"
 )
 
 // ExternalFeedVerbosity enumeration
 type ExternalFeedVerbosity string
 
 const (
-    // ExternalFeedVerbosityLinkOnly enum value ("link_only")
-    ExternalFeedVerbosityLinkOnly ExternalFeedVerbosity = "link_only"
-    // ExternalFeedVerbosityTruncate enum value ("truncate")
-    ExternalFeedVerbosityTruncate ExternalFeedVerbosity = "truncate"
-    // ExternalFeedVerbosityFull enum value ("full")
-    ExternalFeedVerbosityFull ExternalFeedVerbosity = "full"
+	// ExternalFeedVerbosityLinkOnly enum value ("link_only")
+	ExternalFeedVerbosityLinkOnly ExternalFeedVerbosity = "link_only"
+	// ExternalFeedVerbosityTruncate enum value ("truncate")
+	ExternalFeedVerbosityTruncate ExternalFeedVerbosity = "truncate"
+	// ExternalFeedVerbosityFull enum value ("full")
+	ExternalFeedVerbosityFull ExternalFeedVerbosity = "full"
 )
 
 // FavoriteContextType enumeration
 type FavoriteContextType string
 
 const (
-    // FavoriteContextTypeCourse enum value ("Course")
-    FavoriteContextTypeCourse FavoriteContextType = "Course"
+	// FavoriteContextTypeCourse enum value ("Course")
+	FavoriteContextTypeCourse FavoriteContextType = "Course"
 )
 
 // FeatureAppliesTo enumeration
 type FeatureAppliesTo string
 
 const (
-    // FeatureAppliesToCourse enum value ("Course")
-    FeatureAppliesToCourse FeatureAppliesTo = "Course"
-    // FeatureAppliesToRootAccount enum value ("RootAccount")
-    FeatureAppliesToRootAccount FeatureAppliesTo = "RootAccount"
-    // FeatureAppliesToAccount enum value ("Account")
-    FeatureAppliesToAccount FeatureAppliesTo = "Account"
-    // FeatureAppliesToUser enum value ("User")
-    FeatureAppliesToUser FeatureAppliesTo = "User"
+	// FeatureAppliesToCourse enum value ("Course")
+	FeatureAppliesToCourse FeatureAppliesTo = "Course"
+	// FeatureAppliesToRootAccount enum value ("RootAccount")
+	FeatureAppliesToRootAccount FeatureAppliesTo = "RootAccount"
+	// FeatureAppliesToAccount enum value ("Account")
+	FeatureAppliesToAccount FeatureAppliesTo = "Account"
+	// FeatureAppliesToUser enum value ("User")
+	FeatureAppliesToUser FeatureAppliesTo = "User"
 )
 
 // FeatureFlagContextType enumeration
 type FeatureFlagContextType string
 
 const (
-    // FeatureFlagContextTypeCourse enum value ("Course")
-    FeatureFlagContextTypeCourse FeatureFlagContextType = "Course"
-    // FeatureFlagContextTypeAccount enum value ("Account")
-    FeatureFlagContextTypeAccount FeatureFlagContextType = "Account"
-    // FeatureFlagContextTypeUser enum value ("User")
-    FeatureFlagContextTypeUser FeatureFlagContextType = "User"
+	// FeatureFlagContextTypeCourse enum value ("Course")
+	FeatureFlagContextTypeCourse FeatureFlagContextType = "Course"
+	// FeatureFlagContextTypeAccount enum value ("Account")
+	FeatureFlagContextTypeAccount FeatureFlagContextType = "Account"
+	// FeatureFlagContextTypeUser enum value ("User")
+	FeatureFlagContextTypeUser FeatureFlagContextType = "User"
 )
 
 // FeatureFlagState enumeration
 type FeatureFlagState string
 
 const (
-    // FeatureFlagStateOff enum value ("off")
-    FeatureFlagStateOff FeatureFlagState = "off"
-    // FeatureFlagStateAllowed enum value ("allowed")
-    FeatureFlagStateAllowed FeatureFlagState = "allowed"
-    // FeatureFlagStateOn enum value ("on")
-    FeatureFlagStateOn FeatureFlagState = "on"
+	// FeatureFlagStateOff enum value ("off")
+	FeatureFlagStateOff FeatureFlagState = "off"
+	// FeatureFlagStateAllowed enum value ("allowed")
+	FeatureFlagStateAllowed FeatureFlagState = "allowed"
+	// FeatureFlagStateOn enum value ("on")
+	FeatureFlagStateOn FeatureFlagState = "on"
 )
 
 // GroupCategoryAutoLeader enumeration
 type GroupCategoryAutoLeader string
 
 const (
-    // GroupCategoryAutoLeaderFirst enum value ("first")
-    GroupCategoryAutoLeaderFirst GroupCategoryAutoLeader = "first"
-    // GroupCategoryAutoLeaderRandom enum value ("random")
-    GroupCategoryAutoLeaderRandom GroupCategoryAutoLeader = "random"
+	// GroupCategoryAutoLeaderFirst enum value ("first")
+	GroupCategoryAutoLeaderFirst GroupCategoryAutoLeader = "first"
+	// GroupCategoryAutoLeaderRandom enum value ("random")
+	GroupCategoryAutoLeaderRandom GroupCategoryAutoLeader = "random"
 )
 
 // GroupCategorySelfSignup enumeration
 type GroupCategorySelfSignup string
 
 const (
-    // GroupCategorySelfSignupRestricted enum value ("restricted")
-    GroupCategorySelfSignupRestricted GroupCategorySelfSignup = "restricted"
-    // GroupCategorySelfSignupEnabled enum value ("enabled")
-    GroupCategorySelfSignupEnabled GroupCategorySelfSignup = "enabled"
+	// GroupCategorySelfSignupRestricted enum value ("restricted")
+	GroupCategorySelfSignupRestricted GroupCategorySelfSignup = "restricted"
+	// GroupCategorySelfSignupEnabled enum value ("enabled")
+	GroupCategorySelfSignupEnabled GroupCategorySelfSignup = "enabled"
 )
 
 // GroupMembershipWorkflowState enumeration
 type GroupMembershipWorkflowState string
 
 const (
-    // GroupMembershipWorkflowStateAccepted enum value ("accepted")
-    GroupMembershipWorkflowStateAccepted GroupMembershipWorkflowState = "accepted"
-    // GroupMembershipWorkflowStateInvited enum value ("invited")
-    GroupMembershipWorkflowStateInvited GroupMembershipWorkflowState = "invited"
-    // GroupMembershipWorkflowStateRequested enum value ("requested")
-    GroupMembershipWorkflowStateRequested GroupMembershipWorkflowState = "requested"
+	// GroupMembershipWorkflowStateAccepted enum value ("accepted")
+	GroupMembershipWorkflowStateAccepted GroupMembershipWorkflowState = "accepted"
+	// GroupMembershipWorkflowStateInvited enum value ("invited")
+	GroupMembershipWorkflowStateInvited GroupMembershipWorkflowState = "invited"
+	// GroupMembershipWorkflowStateRequested enum value ("requested")
+	GroupMembershipWorkflowStateRequested GroupMembershipWorkflowState = "requested"
 )
 
 // GroupJoinLevel enumeration
 type GroupJoinLevel string
 
 const (
-    // GroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
-    GroupJoinLevelParentContextAutoJoin GroupJoinLevel = "parent_context_auto_join"
-    // GroupJoinLevelParentContextRequest enum value ("parent_context_request")
-    GroupJoinLevelParentContextRequest GroupJoinLevel = "parent_context_request"
-    // GroupJoinLevelInvitationOnly enum value ("invitation_only")
-    GroupJoinLevelInvitationOnly GroupJoinLevel = "invitation_only"
+	// GroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
+	GroupJoinLevelParentContextAutoJoin GroupJoinLevel = "parent_context_auto_join"
+	// GroupJoinLevelParentContextRequest enum value ("parent_context_request")
+	GroupJoinLevelParentContextRequest GroupJoinLevel = "parent_context_request"
+	// GroupJoinLevelInvitationOnly enum value ("invitation_only")
+	GroupJoinLevelInvitationOnly GroupJoinLevel = "invitation_only"
 )
 
 // GroupRole enumeration
 type GroupRole string
 
 const (
-    // GroupRoleCommunities enum value ("communities")
-    GroupRoleCommunities GroupRole = "communities"
-    // GroupRoleStudentOrganized enum value ("student_organized")
-    GroupRoleStudentOrganized GroupRole = "student_organized"
-    // GroupRoleImported enum value ("imported")
-    GroupRoleImported GroupRole = "imported"
+	// GroupRoleCommunities enum value ("communities")
+	GroupRoleCommunities GroupRole = "communities"
+	// GroupRoleStudentOrganized enum value ("student_organized")
+	GroupRoleStudentOrganized GroupRole = "student_organized"
+	// GroupRoleImported enum value ("imported")
+	GroupRoleImported GroupRole = "imported"
 )
 
 // MigrationIssueIssueType enumeration
 type MigrationIssueIssueType string
 
 const (
-    // MigrationIssueIssueTypeTodo enum value ("todo")
-    MigrationIssueIssueTypeTodo MigrationIssueIssueType = "todo"
-    // MigrationIssueIssueTypeWarning enum value ("warning")
-    MigrationIssueIssueTypeWarning MigrationIssueIssueType = "warning"
-    // MigrationIssueIssueTypeError enum value ("error")
-    MigrationIssueIssueTypeError MigrationIssueIssueType = "error"
+	// MigrationIssueIssueTypeTodo enum value ("todo")
+	MigrationIssueIssueTypeTodo MigrationIssueIssueType = "todo"
+	// MigrationIssueIssueTypeWarning enum value ("warning")
+	MigrationIssueIssueTypeWarning MigrationIssueIssueType = "warning"
+	// MigrationIssueIssueTypeError enum value ("error")
+	MigrationIssueIssueTypeError MigrationIssueIssueType = "error"
 )
 
 // MigrationIssueWorkflowState enumeration
 type MigrationIssueWorkflowState string
 
 const (
-    // MigrationIssueWorkflowStateActive enum value ("active")
-    MigrationIssueWorkflowStateActive MigrationIssueWorkflowState = "active"
-    // MigrationIssueWorkflowStateResolved enum value ("resolved")
-    MigrationIssueWorkflowStateResolved MigrationIssueWorkflowState = "resolved"
+	// MigrationIssueWorkflowStateActive enum value ("active")
+	MigrationIssueWorkflowStateActive MigrationIssueWorkflowState = "active"
+	// MigrationIssueWorkflowStateResolved enum value ("resolved")
+	MigrationIssueWorkflowStateResolved MigrationIssueWorkflowState = "resolved"
 )
 
 // NotificationPreferenceFrequency enumeration
 type NotificationPreferenceFrequency string
 
 const (
-    // NotificationPreferenceFrequencyImmediately enum value ("immediately")
-    NotificationPreferenceFrequencyImmediately NotificationPreferenceFrequency = "immediately"
-    // NotificationPreferenceFrequencyDaily enum value ("daily")
-    NotificationPreferenceFrequencyDaily NotificationPreferenceFrequency = "daily"
-    // NotificationPreferenceFrequencyWeekly enum value ("weekly")
-    NotificationPreferenceFrequencyWeekly NotificationPreferenceFrequency = "weekly"
-    // NotificationPreferenceFrequencyNever enum value ("never")
-    NotificationPreferenceFrequencyNever NotificationPreferenceFrequency = "never"
+	// NotificationPreferenceFrequencyImmediately enum value ("immediately")
+	NotificationPreferenceFrequencyImmediately NotificationPreferenceFrequency = "immediately"
+	// NotificationPreferenceFrequencyDaily enum value ("daily")
+	NotificationPreferenceFrequencyDaily NotificationPreferenceFrequency = "daily"
+	// NotificationPreferenceFrequencyWeekly enum value ("weekly")
+	NotificationPreferenceFrequencyWeekly NotificationPreferenceFrequency = "weekly"
+	// NotificationPreferenceFrequencyNever enum value ("never")
+	NotificationPreferenceFrequencyNever NotificationPreferenceFrequency = "never"
 )
 
 // OutcomeImportWorkflowState enumeration
 type OutcomeImportWorkflowState string
 
 const (
-    // OutcomeImportWorkflowStateCreated enum value ("created")
-    OutcomeImportWorkflowStateCreated OutcomeImportWorkflowState = "created"
-    // OutcomeImportWorkflowStateImporting enum value ("importing")
-    OutcomeImportWorkflowStateImporting OutcomeImportWorkflowState = "importing"
-    // OutcomeImportWorkflowStateSucceeded enum value ("succeeded")
-    OutcomeImportWorkflowStateSucceeded OutcomeImportWorkflowState = "succeeded"
-    // OutcomeImportWorkflowStateFailed enum value ("failed")
-    OutcomeImportWorkflowStateFailed OutcomeImportWorkflowState = "failed"
+	// OutcomeImportWorkflowStateCreated enum value ("created")
+	OutcomeImportWorkflowStateCreated OutcomeImportWorkflowState = "created"
+	// OutcomeImportWorkflowStateImporting enum value ("importing")
+	OutcomeImportWorkflowStateImporting OutcomeImportWorkflowState = "importing"
+	// OutcomeImportWorkflowStateSucceeded enum value ("succeeded")
+	OutcomeImportWorkflowStateSucceeded OutcomeImportWorkflowState = "succeeded"
+	// OutcomeImportWorkflowStateFailed enum value ("failed")
+	OutcomeImportWorkflowStateFailed OutcomeImportWorkflowState = "failed"
 )
 
 // OutcomeCalculationMethod enumeration
 type OutcomeCalculationMethod string
 
 const (
-    // OutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
-    OutcomeCalculationMethodDecayingAverage OutcomeCalculationMethod = "decaying_average"
-    // OutcomeCalculationMethodNMastery enum value ("n_mastery")
-    OutcomeCalculationMethodNMastery OutcomeCalculationMethod = "n_mastery"
-    // OutcomeCalculationMethodLatest enum value ("latest")
-    OutcomeCalculationMethodLatest OutcomeCalculationMethod = "latest"
-    // OutcomeCalculationMethodHighest enum value ("highest")
-    OutcomeCalculationMethodHighest OutcomeCalculationMethod = "highest"
+	// OutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
+	OutcomeCalculationMethodDecayingAverage OutcomeCalculationMethod = "decaying_average"
+	// OutcomeCalculationMethodNMastery enum value ("n_mastery")
+	OutcomeCalculationMethodNMastery OutcomeCalculationMethod = "n_mastery"
+	// OutcomeCalculationMethodLatest enum value ("latest")
+	OutcomeCalculationMethodLatest OutcomeCalculationMethod = "latest"
+	// OutcomeCalculationMethodHighest enum value ("highest")
+	OutcomeCalculationMethodHighest OutcomeCalculationMethod = "highest"
 )
 
 // ProgressWorkflowState enumeration
 type ProgressWorkflowState string
 
 const (
-    // ProgressWorkflowStateQueued enum value ("queued")
-    ProgressWorkflowStateQueued ProgressWorkflowState = "queued"
-    // ProgressWorkflowStateRunning enum value ("running")
-    ProgressWorkflowStateRunning ProgressWorkflowState = "running"
-    // ProgressWorkflowStateCompleted enum value ("completed")
-    ProgressWorkflowStateCompleted ProgressWorkflowState = "completed"
-    // ProgressWorkflowStateFailed enum value ("failed")
-    ProgressWorkflowStateFailed ProgressWorkflowState = "failed"
+	// ProgressWorkflowStateQueued enum value ("queued")
+	ProgressWorkflowStateQueued ProgressWorkflowState = "queued"
+	// ProgressWorkflowStateRunning enum value ("running")
+	ProgressWorkflowStateRunning ProgressWorkflowState = "running"
+	// ProgressWorkflowStateCompleted enum value ("completed")
+	ProgressWorkflowStateCompleted ProgressWorkflowState = "completed"
+	// ProgressWorkflowStateFailed enum value ("failed")
+	ProgressWorkflowStateFailed ProgressWorkflowState = "failed"
 )
 
 // SisAssignmentSubmissionTypes enumeration
 type SisAssignmentSubmissionTypes string
 
 const (
-    // SisAssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
-    SisAssignmentSubmissionTypesDiscussionTopic SisAssignmentSubmissionTypes = "discussion_topic"
-    // SisAssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
-    SisAssignmentSubmissionTypesOnlineQuiz SisAssignmentSubmissionTypes = "online_quiz"
-    // SisAssignmentSubmissionTypesOnPaper enum value ("on_paper")
-    SisAssignmentSubmissionTypesOnPaper SisAssignmentSubmissionTypes = "on_paper"
-    // SisAssignmentSubmissionTypesNotGraded enum value ("not_graded")
-    SisAssignmentSubmissionTypesNotGraded SisAssignmentSubmissionTypes = "not_graded"
-    // SisAssignmentSubmissionTypesNone enum value ("none")
-    SisAssignmentSubmissionTypesNone SisAssignmentSubmissionTypes = "none"
-    // SisAssignmentSubmissionTypesExternalTool enum value ("external_tool")
-    SisAssignmentSubmissionTypesExternalTool SisAssignmentSubmissionTypes = "external_tool"
-    // SisAssignmentSubmissionTypesOnlineTextEntry enum value ("online_text_entry")
-    SisAssignmentSubmissionTypesOnlineTextEntry SisAssignmentSubmissionTypes = "online_text_entry"
-    // SisAssignmentSubmissionTypesOnlineURL enum value ("online_url")
-    SisAssignmentSubmissionTypesOnlineURL SisAssignmentSubmissionTypes = "online_url"
-    // SisAssignmentSubmissionTypesOnlineUpload enum value ("online_upload")
-    SisAssignmentSubmissionTypesOnlineUpload SisAssignmentSubmissionTypes = "online_upload"
-    // SisAssignmentSubmissionTypesMediaRecording enum value ("media_recording")
-    SisAssignmentSubmissionTypesMediaRecording SisAssignmentSubmissionTypes = "media_recording"
+	// SisAssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
+	SisAssignmentSubmissionTypesDiscussionTopic SisAssignmentSubmissionTypes = "discussion_topic"
+	// SisAssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
+	SisAssignmentSubmissionTypesOnlineQuiz SisAssignmentSubmissionTypes = "online_quiz"
+	// SisAssignmentSubmissionTypesOnPaper enum value ("on_paper")
+	SisAssignmentSubmissionTypesOnPaper SisAssignmentSubmissionTypes = "on_paper"
+	// SisAssignmentSubmissionTypesNotGraded enum value ("not_graded")
+	SisAssignmentSubmissionTypesNotGraded SisAssignmentSubmissionTypes = "not_graded"
+	// SisAssignmentSubmissionTypesNone enum value ("none")
+	SisAssignmentSubmissionTypesNone SisAssignmentSubmissionTypes = "none"
+	// SisAssignmentSubmissionTypesExternalTool enum value ("external_tool")
+	SisAssignmentSubmissionTypesExternalTool SisAssignmentSubmissionTypes = "external_tool"
+	// SisAssignmentSubmissionTypesOnlineTextEntry enum value ("online_text_entry")
+	SisAssignmentSubmissionTypesOnlineTextEntry SisAssignmentSubmissionTypes = "online_text_entry"
+	// SisAssignmentSubmissionTypesOnlineURL enum value ("online_url")
+	SisAssignmentSubmissionTypesOnlineURL SisAssignmentSubmissionTypes = "online_url"
+	// SisAssignmentSubmissionTypesOnlineUpload enum value ("online_upload")
+	SisAssignmentSubmissionTypesOnlineUpload SisAssignmentSubmissionTypes = "online_upload"
+	// SisAssignmentSubmissionTypesMediaRecording enum value ("media_recording")
+	SisAssignmentSubmissionTypesMediaRecording SisAssignmentSubmissionTypes = "media_recording"
 )
 
 // SisImportWorkflowState enumeration
 type SisImportWorkflowState string
 
 const (
-    // SisImportWorkflowStateInitializing enum value ("initializing")
-    SisImportWorkflowStateInitializing SisImportWorkflowState = "initializing"
-    // SisImportWorkflowStateCreated enum value ("created")
-    SisImportWorkflowStateCreated SisImportWorkflowState = "created"
-    // SisImportWorkflowStateImporting enum value ("importing")
-    SisImportWorkflowStateImporting SisImportWorkflowState = "importing"
-    // SisImportWorkflowStateCleanupBatch enum value ("cleanup_batch")
-    SisImportWorkflowStateCleanupBatch SisImportWorkflowState = "cleanup_batch"
-    // SisImportWorkflowStateImported enum value ("imported")
-    SisImportWorkflowStateImported SisImportWorkflowState = "imported"
-    // SisImportWorkflowStateImportedWithMessages enum value ("imported_with_messages")
-    SisImportWorkflowStateImportedWithMessages SisImportWorkflowState = "imported_with_messages"
-    // SisImportWorkflowStateAborted enum value ("aborted")
-    SisImportWorkflowStateAborted SisImportWorkflowState = "aborted"
-    // SisImportWorkflowStateFailed enum value ("failed")
-    SisImportWorkflowStateFailed SisImportWorkflowState = "failed"
-    // SisImportWorkflowStateFailedWithMessages enum value ("failed_with_messages")
-    SisImportWorkflowStateFailedWithMessages SisImportWorkflowState = "failed_with_messages"
-    // SisImportWorkflowStateRestoring enum value ("restoring")
-    SisImportWorkflowStateRestoring SisImportWorkflowState = "restoring"
-    // SisImportWorkflowStatePartiallyRestored enum value ("partially_restored")
-    SisImportWorkflowStatePartiallyRestored SisImportWorkflowState = "partially_restored"
-    // SisImportWorkflowStateRestored enum value ("restored")
-    SisImportWorkflowStateRestored SisImportWorkflowState = "restored"
+	// SisImportWorkflowStateInitializing enum value ("initializing")
+	SisImportWorkflowStateInitializing SisImportWorkflowState = "initializing"
+	// SisImportWorkflowStateCreated enum value ("created")
+	SisImportWorkflowStateCreated SisImportWorkflowState = "created"
+	// SisImportWorkflowStateImporting enum value ("importing")
+	SisImportWorkflowStateImporting SisImportWorkflowState = "importing"
+	// SisImportWorkflowStateCleanupBatch enum value ("cleanup_batch")
+	SisImportWorkflowStateCleanupBatch SisImportWorkflowState = "cleanup_batch"
+	// SisImportWorkflowStateImported enum value ("imported")
+	SisImportWorkflowStateImported SisImportWorkflowState = "imported"
+	// SisImportWorkflowStateImportedWithMessages enum value ("imported_with_messages")
+	SisImportWorkflowStateImportedWithMessages SisImportWorkflowState = "imported_with_messages"
+	// SisImportWorkflowStateAborted enum value ("aborted")
+	SisImportWorkflowStateAborted SisImportWorkflowState = "aborted"
+	// SisImportWorkflowStateFailed enum value ("failed")
+	SisImportWorkflowStateFailed SisImportWorkflowState = "failed"
+	// SisImportWorkflowStateFailedWithMessages enum value ("failed_with_messages")
+	SisImportWorkflowStateFailedWithMessages SisImportWorkflowState = "failed_with_messages"
+	// SisImportWorkflowStateRestoring enum value ("restoring")
+	SisImportWorkflowStateRestoring SisImportWorkflowState = "restoring"
+	// SisImportWorkflowStatePartiallyRestored enum value ("partially_restored")
+	SisImportWorkflowStatePartiallyRestored SisImportWorkflowState = "partially_restored"
+	// SisImportWorkflowStateRestored enum value ("restored")
+	SisImportWorkflowStateRestored SisImportWorkflowState = "restored"
 )
 
 // SubmissionSubmissionType enumeration
 type SubmissionSubmissionType string
 
 const (
-    // SubmissionSubmissionTypeOnlineTextEntry enum value ("online_text_entry")
-    SubmissionSubmissionTypeOnlineTextEntry SubmissionSubmissionType = "online_text_entry"
-    // SubmissionSubmissionTypeOnlineURL enum value ("online_url")
-    SubmissionSubmissionTypeOnlineURL SubmissionSubmissionType = "online_url"
-    // SubmissionSubmissionTypeOnlineUpload enum value ("online_upload")
-    SubmissionSubmissionTypeOnlineUpload SubmissionSubmissionType = "online_upload"
-    // SubmissionSubmissionTypeMediaRecording enum value ("media_recording")
-    SubmissionSubmissionTypeMediaRecording SubmissionSubmissionType = "media_recording"
+	// SubmissionSubmissionTypeOnlineTextEntry enum value ("online_text_entry")
+	SubmissionSubmissionTypeOnlineTextEntry SubmissionSubmissionType = "online_text_entry"
+	// SubmissionSubmissionTypeOnlineURL enum value ("online_url")
+	SubmissionSubmissionTypeOnlineURL SubmissionSubmissionType = "online_url"
+	// SubmissionSubmissionTypeOnlineUpload enum value ("online_upload")
+	SubmissionSubmissionTypeOnlineUpload SubmissionSubmissionType = "online_upload"
+	// SubmissionSubmissionTypeMediaRecording enum value ("media_recording")
+	SubmissionSubmissionTypeMediaRecording SubmissionSubmissionType = "media_recording"
 )
 
 // SubmissionWorkflowState enumeration
 type SubmissionWorkflowState string
 
 const (
-    // SubmissionWorkflowStateGraded enum value ("graded")
-    SubmissionWorkflowStateGraded SubmissionWorkflowState = "graded"
-    // SubmissionWorkflowStateSubmitted enum value ("submitted")
-    SubmissionWorkflowStateSubmitted SubmissionWorkflowState = "submitted"
-    // SubmissionWorkflowStateUnsubmitted enum value ("unsubmitted")
-    SubmissionWorkflowStateUnsubmitted SubmissionWorkflowState = "unsubmitted"
-    // SubmissionWorkflowStatePendingReview enum value ("pending_review")
-    SubmissionWorkflowStatePendingReview SubmissionWorkflowState = "pending_review"
+	// SubmissionWorkflowStateGraded enum value ("graded")
+	SubmissionWorkflowStateGraded SubmissionWorkflowState = "graded"
+	// SubmissionWorkflowStateSubmitted enum value ("submitted")
+	SubmissionWorkflowStateSubmitted SubmissionWorkflowState = "submitted"
+	// SubmissionWorkflowStateUnsubmitted enum value ("unsubmitted")
+	SubmissionWorkflowStateUnsubmitted SubmissionWorkflowState = "unsubmitted"
+	// SubmissionWorkflowStatePendingReview enum value ("pending_review")
+	SubmissionWorkflowStatePendingReview SubmissionWorkflowState = "pending_review"
 )
 
 // AccountsListAccountsInclude enumeration
 type AccountsListAccountsInclude string
 
 const (
-    // AccountsListAccountsIncludeLtiGUID enum value ("lti_guid")
-    AccountsListAccountsIncludeLtiGUID AccountsListAccountsInclude = "lti_guid"
-    // AccountsListAccountsIncludeRegistrationSettings enum value ("registration_settings")
-    AccountsListAccountsIncludeRegistrationSettings AccountsListAccountsInclude = "registration_settings"
-    // AccountsListAccountsIncludeServices enum value ("services")
-    AccountsListAccountsIncludeServices AccountsListAccountsInclude = "services"
+	// AccountsListAccountsIncludeLtiGUID enum value ("lti_guid")
+	AccountsListAccountsIncludeLtiGUID AccountsListAccountsInclude = "lti_guid"
+	// AccountsListAccountsIncludeRegistrationSettings enum value ("registration_settings")
+	AccountsListAccountsIncludeRegistrationSettings AccountsListAccountsInclude = "registration_settings"
+	// AccountsListAccountsIncludeServices enum value ("services")
+	AccountsListAccountsIncludeServices AccountsListAccountsInclude = "services"
 )
 
 // AccountsListActiveCoursesInAnAccountEnrollmentType enumeration
 type AccountsListActiveCoursesInAnAccountEnrollmentType string
 
 const (
-    // AccountsListActiveCoursesInAnAccountEnrollmentTypeTeacher enum value ("teacher")
-    AccountsListActiveCoursesInAnAccountEnrollmentTypeTeacher AccountsListActiveCoursesInAnAccountEnrollmentType = "teacher"
-    // AccountsListActiveCoursesInAnAccountEnrollmentTypeStudent enum value ("student")
-    AccountsListActiveCoursesInAnAccountEnrollmentTypeStudent AccountsListActiveCoursesInAnAccountEnrollmentType = "student"
-    // AccountsListActiveCoursesInAnAccountEnrollmentTypeTa enum value ("ta")
-    AccountsListActiveCoursesInAnAccountEnrollmentTypeTa AccountsListActiveCoursesInAnAccountEnrollmentType = "ta"
-    // AccountsListActiveCoursesInAnAccountEnrollmentTypeObserver enum value ("observer")
-    AccountsListActiveCoursesInAnAccountEnrollmentTypeObserver AccountsListActiveCoursesInAnAccountEnrollmentType = "observer"
-    // AccountsListActiveCoursesInAnAccountEnrollmentTypeDesigner enum value ("designer")
-    AccountsListActiveCoursesInAnAccountEnrollmentTypeDesigner AccountsListActiveCoursesInAnAccountEnrollmentType = "designer"
+	// AccountsListActiveCoursesInAnAccountEnrollmentTypeTeacher enum value ("teacher")
+	AccountsListActiveCoursesInAnAccountEnrollmentTypeTeacher AccountsListActiveCoursesInAnAccountEnrollmentType = "teacher"
+	// AccountsListActiveCoursesInAnAccountEnrollmentTypeStudent enum value ("student")
+	AccountsListActiveCoursesInAnAccountEnrollmentTypeStudent AccountsListActiveCoursesInAnAccountEnrollmentType = "student"
+	// AccountsListActiveCoursesInAnAccountEnrollmentTypeTa enum value ("ta")
+	AccountsListActiveCoursesInAnAccountEnrollmentTypeTa AccountsListActiveCoursesInAnAccountEnrollmentType = "ta"
+	// AccountsListActiveCoursesInAnAccountEnrollmentTypeObserver enum value ("observer")
+	AccountsListActiveCoursesInAnAccountEnrollmentTypeObserver AccountsListActiveCoursesInAnAccountEnrollmentType = "observer"
+	// AccountsListActiveCoursesInAnAccountEnrollmentTypeDesigner enum value ("designer")
+	AccountsListActiveCoursesInAnAccountEnrollmentTypeDesigner AccountsListActiveCoursesInAnAccountEnrollmentType = "designer"
 )
 
 // AccountsListActiveCoursesInAnAccountState enumeration
 type AccountsListActiveCoursesInAnAccountState string
 
 const (
-    // AccountsListActiveCoursesInAnAccountStateCreated enum value ("created")
-    AccountsListActiveCoursesInAnAccountStateCreated AccountsListActiveCoursesInAnAccountState = "created"
-    // AccountsListActiveCoursesInAnAccountStateClaimed enum value ("claimed")
-    AccountsListActiveCoursesInAnAccountStateClaimed AccountsListActiveCoursesInAnAccountState = "claimed"
-    // AccountsListActiveCoursesInAnAccountStateAvailable enum value ("available")
-    AccountsListActiveCoursesInAnAccountStateAvailable AccountsListActiveCoursesInAnAccountState = "available"
-    // AccountsListActiveCoursesInAnAccountStateCompleted enum value ("completed")
-    AccountsListActiveCoursesInAnAccountStateCompleted AccountsListActiveCoursesInAnAccountState = "completed"
-    // AccountsListActiveCoursesInAnAccountStateDeleted enum value ("deleted")
-    AccountsListActiveCoursesInAnAccountStateDeleted AccountsListActiveCoursesInAnAccountState = "deleted"
-    // AccountsListActiveCoursesInAnAccountStateAll enum value ("all")
-    AccountsListActiveCoursesInAnAccountStateAll AccountsListActiveCoursesInAnAccountState = "all"
+	// AccountsListActiveCoursesInAnAccountStateCreated enum value ("created")
+	AccountsListActiveCoursesInAnAccountStateCreated AccountsListActiveCoursesInAnAccountState = "created"
+	// AccountsListActiveCoursesInAnAccountStateClaimed enum value ("claimed")
+	AccountsListActiveCoursesInAnAccountStateClaimed AccountsListActiveCoursesInAnAccountState = "claimed"
+	// AccountsListActiveCoursesInAnAccountStateAvailable enum value ("available")
+	AccountsListActiveCoursesInAnAccountStateAvailable AccountsListActiveCoursesInAnAccountState = "available"
+	// AccountsListActiveCoursesInAnAccountStateCompleted enum value ("completed")
+	AccountsListActiveCoursesInAnAccountStateCompleted AccountsListActiveCoursesInAnAccountState = "completed"
+	// AccountsListActiveCoursesInAnAccountStateDeleted enum value ("deleted")
+	AccountsListActiveCoursesInAnAccountStateDeleted AccountsListActiveCoursesInAnAccountState = "deleted"
+	// AccountsListActiveCoursesInAnAccountStateAll enum value ("all")
+	AccountsListActiveCoursesInAnAccountStateAll AccountsListActiveCoursesInAnAccountState = "all"
 )
 
 // AccountsListActiveCoursesInAnAccountInclude enumeration
 type AccountsListActiveCoursesInAnAccountInclude string
 
 const (
-    // AccountsListActiveCoursesInAnAccountIncludeSyllabusBody enum value ("syllabus_body")
-    AccountsListActiveCoursesInAnAccountIncludeSyllabusBody AccountsListActiveCoursesInAnAccountInclude = "syllabus_body"
-    // AccountsListActiveCoursesInAnAccountIncludeTerm enum value ("term")
-    AccountsListActiveCoursesInAnAccountIncludeTerm AccountsListActiveCoursesInAnAccountInclude = "term"
-    // AccountsListActiveCoursesInAnAccountIncludeCourseProgress enum value ("course_progress")
-    AccountsListActiveCoursesInAnAccountIncludeCourseProgress AccountsListActiveCoursesInAnAccountInclude = "course_progress"
-    // AccountsListActiveCoursesInAnAccountIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
-    AccountsListActiveCoursesInAnAccountIncludeStorageQuotaUsedMb AccountsListActiveCoursesInAnAccountInclude = "storage_quota_used_mb"
-    // AccountsListActiveCoursesInAnAccountIncludeTotalStudents enum value ("total_students")
-    AccountsListActiveCoursesInAnAccountIncludeTotalStudents AccountsListActiveCoursesInAnAccountInclude = "total_students"
-    // AccountsListActiveCoursesInAnAccountIncludeTeachers enum value ("teachers")
-    AccountsListActiveCoursesInAnAccountIncludeTeachers AccountsListActiveCoursesInAnAccountInclude = "teachers"
-    // AccountsListActiveCoursesInAnAccountIncludeAccountName enum value ("account_name")
-    AccountsListActiveCoursesInAnAccountIncludeAccountName AccountsListActiveCoursesInAnAccountInclude = "account_name"
-    // AccountsListActiveCoursesInAnAccountIncludeConcluded enum value ("concluded")
-    AccountsListActiveCoursesInAnAccountIncludeConcluded AccountsListActiveCoursesInAnAccountInclude = "concluded"
+	// AccountsListActiveCoursesInAnAccountIncludeSyllabusBody enum value ("syllabus_body")
+	AccountsListActiveCoursesInAnAccountIncludeSyllabusBody AccountsListActiveCoursesInAnAccountInclude = "syllabus_body"
+	// AccountsListActiveCoursesInAnAccountIncludeTerm enum value ("term")
+	AccountsListActiveCoursesInAnAccountIncludeTerm AccountsListActiveCoursesInAnAccountInclude = "term"
+	// AccountsListActiveCoursesInAnAccountIncludeCourseProgress enum value ("course_progress")
+	AccountsListActiveCoursesInAnAccountIncludeCourseProgress AccountsListActiveCoursesInAnAccountInclude = "course_progress"
+	// AccountsListActiveCoursesInAnAccountIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
+	AccountsListActiveCoursesInAnAccountIncludeStorageQuotaUsedMb AccountsListActiveCoursesInAnAccountInclude = "storage_quota_used_mb"
+	// AccountsListActiveCoursesInAnAccountIncludeTotalStudents enum value ("total_students")
+	AccountsListActiveCoursesInAnAccountIncludeTotalStudents AccountsListActiveCoursesInAnAccountInclude = "total_students"
+	// AccountsListActiveCoursesInAnAccountIncludeTeachers enum value ("teachers")
+	AccountsListActiveCoursesInAnAccountIncludeTeachers AccountsListActiveCoursesInAnAccountInclude = "teachers"
+	// AccountsListActiveCoursesInAnAccountIncludeAccountName enum value ("account_name")
+	AccountsListActiveCoursesInAnAccountIncludeAccountName AccountsListActiveCoursesInAnAccountInclude = "account_name"
+	// AccountsListActiveCoursesInAnAccountIncludeConcluded enum value ("concluded")
+	AccountsListActiveCoursesInAnAccountIncludeConcluded AccountsListActiveCoursesInAnAccountInclude = "concluded"
 )
 
 // AccountsListActiveCoursesInAnAccountSort enumeration
 type AccountsListActiveCoursesInAnAccountSort string
 
 const (
-    // AccountsListActiveCoursesInAnAccountSortCourseName enum value ("course_name")
-    AccountsListActiveCoursesInAnAccountSortCourseName AccountsListActiveCoursesInAnAccountSort = "course_name"
-    // AccountsListActiveCoursesInAnAccountSortSisCourseID enum value ("sis_course_id")
-    AccountsListActiveCoursesInAnAccountSortSisCourseID AccountsListActiveCoursesInAnAccountSort = "sis_course_id"
-    // AccountsListActiveCoursesInAnAccountSortTeacher enum value ("teacher")
-    AccountsListActiveCoursesInAnAccountSortTeacher AccountsListActiveCoursesInAnAccountSort = "teacher"
-    // AccountsListActiveCoursesInAnAccountSortAccountName enum value ("account_name")
-    AccountsListActiveCoursesInAnAccountSortAccountName AccountsListActiveCoursesInAnAccountSort = "account_name"
+	// AccountsListActiveCoursesInAnAccountSortCourseName enum value ("course_name")
+	AccountsListActiveCoursesInAnAccountSortCourseName AccountsListActiveCoursesInAnAccountSort = "course_name"
+	// AccountsListActiveCoursesInAnAccountSortSisCourseID enum value ("sis_course_id")
+	AccountsListActiveCoursesInAnAccountSortSisCourseID AccountsListActiveCoursesInAnAccountSort = "sis_course_id"
+	// AccountsListActiveCoursesInAnAccountSortTeacher enum value ("teacher")
+	AccountsListActiveCoursesInAnAccountSortTeacher AccountsListActiveCoursesInAnAccountSort = "teacher"
+	// AccountsListActiveCoursesInAnAccountSortAccountName enum value ("account_name")
+	AccountsListActiveCoursesInAnAccountSortAccountName AccountsListActiveCoursesInAnAccountSort = "account_name"
 )
 
 // AccountsListActiveCoursesInAnAccountOrder enumeration
 type AccountsListActiveCoursesInAnAccountOrder string
 
 const (
-    // AccountsListActiveCoursesInAnAccountOrderAsc enum value ("asc")
-    AccountsListActiveCoursesInAnAccountOrderAsc AccountsListActiveCoursesInAnAccountOrder = "asc"
-    // AccountsListActiveCoursesInAnAccountOrderDesc enum value ("desc")
-    AccountsListActiveCoursesInAnAccountOrderDesc AccountsListActiveCoursesInAnAccountOrder = "desc"
+	// AccountsListActiveCoursesInAnAccountOrderAsc enum value ("asc")
+	AccountsListActiveCoursesInAnAccountOrderAsc AccountsListActiveCoursesInAnAccountOrder = "asc"
+	// AccountsListActiveCoursesInAnAccountOrderDesc enum value ("desc")
+	AccountsListActiveCoursesInAnAccountOrderDesc AccountsListActiveCoursesInAnAccountOrder = "desc"
 )
 
 // AccountsListActiveCoursesInAnAccountSearchBy enumeration
 type AccountsListActiveCoursesInAnAccountSearchBy string
 
 const (
-    // AccountsListActiveCoursesInAnAccountSearchByCourse enum value ("course")
-    AccountsListActiveCoursesInAnAccountSearchByCourse AccountsListActiveCoursesInAnAccountSearchBy = "course"
-    // AccountsListActiveCoursesInAnAccountSearchByTeacher enum value ("teacher")
-    AccountsListActiveCoursesInAnAccountSearchByTeacher AccountsListActiveCoursesInAnAccountSearchBy = "teacher"
+	// AccountsListActiveCoursesInAnAccountSearchByCourse enum value ("course")
+	AccountsListActiveCoursesInAnAccountSearchByCourse AccountsListActiveCoursesInAnAccountSearchBy = "course"
+	// AccountsListActiveCoursesInAnAccountSearchByTeacher enum value ("teacher")
+	AccountsListActiveCoursesInAnAccountSearchByTeacher AccountsListActiveCoursesInAnAccountSearchBy = "teacher"
 )
 
 // AppointmentGroupsListAppointmentGroupsScope enumeration
 type AppointmentGroupsListAppointmentGroupsScope string
 
 const (
-    // AppointmentGroupsListAppointmentGroupsScopeReservable enum value ("reservable")
-    AppointmentGroupsListAppointmentGroupsScopeReservable AppointmentGroupsListAppointmentGroupsScope = "reservable"
-    // AppointmentGroupsListAppointmentGroupsScopeManageable enum value ("manageable")
-    AppointmentGroupsListAppointmentGroupsScopeManageable AppointmentGroupsListAppointmentGroupsScope = "manageable"
+	// AppointmentGroupsListAppointmentGroupsScopeReservable enum value ("reservable")
+	AppointmentGroupsListAppointmentGroupsScopeReservable AppointmentGroupsListAppointmentGroupsScope = "reservable"
+	// AppointmentGroupsListAppointmentGroupsScopeManageable enum value ("manageable")
+	AppointmentGroupsListAppointmentGroupsScopeManageable AppointmentGroupsListAppointmentGroupsScope = "manageable"
 )
 
 // AppointmentGroupsListAppointmentGroupsInclude enumeration
 type AppointmentGroupsListAppointmentGroupsInclude string
 
 const (
-    // AppointmentGroupsListAppointmentGroupsIncludeAppointments enum value ("appointments")
-    AppointmentGroupsListAppointmentGroupsIncludeAppointments AppointmentGroupsListAppointmentGroupsInclude = "appointments"
-    // AppointmentGroupsListAppointmentGroupsIncludeChildEvents enum value ("child_events")
-    AppointmentGroupsListAppointmentGroupsIncludeChildEvents AppointmentGroupsListAppointmentGroupsInclude = "child_events"
-    // AppointmentGroupsListAppointmentGroupsIncludeParticipantCount enum value ("participant_count")
-    AppointmentGroupsListAppointmentGroupsIncludeParticipantCount AppointmentGroupsListAppointmentGroupsInclude = "participant_count"
-    // AppointmentGroupsListAppointmentGroupsIncludeReservedTimes enum value ("reserved_times")
-    AppointmentGroupsListAppointmentGroupsIncludeReservedTimes AppointmentGroupsListAppointmentGroupsInclude = "reserved_times"
-    // AppointmentGroupsListAppointmentGroupsIncludeAllContextCodes enum value ("all_context_codes")
-    AppointmentGroupsListAppointmentGroupsIncludeAllContextCodes AppointmentGroupsListAppointmentGroupsInclude = "all_context_codes"
+	// AppointmentGroupsListAppointmentGroupsIncludeAppointments enum value ("appointments")
+	AppointmentGroupsListAppointmentGroupsIncludeAppointments AppointmentGroupsListAppointmentGroupsInclude = "appointments"
+	// AppointmentGroupsListAppointmentGroupsIncludeChildEvents enum value ("child_events")
+	AppointmentGroupsListAppointmentGroupsIncludeChildEvents AppointmentGroupsListAppointmentGroupsInclude = "child_events"
+	// AppointmentGroupsListAppointmentGroupsIncludeParticipantCount enum value ("participant_count")
+	AppointmentGroupsListAppointmentGroupsIncludeParticipantCount AppointmentGroupsListAppointmentGroupsInclude = "participant_count"
+	// AppointmentGroupsListAppointmentGroupsIncludeReservedTimes enum value ("reserved_times")
+	AppointmentGroupsListAppointmentGroupsIncludeReservedTimes AppointmentGroupsListAppointmentGroupsInclude = "reserved_times"
+	// AppointmentGroupsListAppointmentGroupsIncludeAllContextCodes enum value ("all_context_codes")
+	AppointmentGroupsListAppointmentGroupsIncludeAllContextCodes AppointmentGroupsListAppointmentGroupsInclude = "all_context_codes"
 )
 
 // AppointmentGroupsGetASingleAppointmentGroupInclude enumeration
 type AppointmentGroupsGetASingleAppointmentGroupInclude string
 
 const (
-    // AppointmentGroupsGetASingleAppointmentGroupIncludeChildEvents enum value ("child_events")
-    AppointmentGroupsGetASingleAppointmentGroupIncludeChildEvents AppointmentGroupsGetASingleAppointmentGroupInclude = "child_events"
-    // AppointmentGroupsGetASingleAppointmentGroupIncludeAppointments enum value ("appointments")
-    AppointmentGroupsGetASingleAppointmentGroupIncludeAppointments AppointmentGroupsGetASingleAppointmentGroupInclude = "appointments"
-    // AppointmentGroupsGetASingleAppointmentGroupIncludeAllContextCodes enum value ("all_context_codes")
-    AppointmentGroupsGetASingleAppointmentGroupIncludeAllContextCodes AppointmentGroupsGetASingleAppointmentGroupInclude = "all_context_codes"
+	// AppointmentGroupsGetASingleAppointmentGroupIncludeChildEvents enum value ("child_events")
+	AppointmentGroupsGetASingleAppointmentGroupIncludeChildEvents AppointmentGroupsGetASingleAppointmentGroupInclude = "child_events"
+	// AppointmentGroupsGetASingleAppointmentGroupIncludeAppointments enum value ("appointments")
+	AppointmentGroupsGetASingleAppointmentGroupIncludeAppointments AppointmentGroupsGetASingleAppointmentGroupInclude = "appointments"
+	// AppointmentGroupsGetASingleAppointmentGroupIncludeAllContextCodes enum value ("all_context_codes")
+	AppointmentGroupsGetASingleAppointmentGroupIncludeAllContextCodes AppointmentGroupsGetASingleAppointmentGroupInclude = "all_context_codes"
 )
 
 // AppointmentGroupsListUserParticipantsRegistrationStatus enumeration
 type AppointmentGroupsListUserParticipantsRegistrationStatus string
 
 const (
-    // AppointmentGroupsListUserParticipantsRegistrationStatusAll enum value ("all")
-    AppointmentGroupsListUserParticipantsRegistrationStatusAll AppointmentGroupsListUserParticipantsRegistrationStatus = "all"
+	// AppointmentGroupsListUserParticipantsRegistrationStatusAll enum value ("all")
+	AppointmentGroupsListUserParticipantsRegistrationStatusAll AppointmentGroupsListUserParticipantsRegistrationStatus = "all"
 )
 
 // AppointmentGroupsListStudentGroupParticipantsRegistrationStatus enumeration
 type AppointmentGroupsListStudentGroupParticipantsRegistrationStatus string
 
 const (
-    // AppointmentGroupsListStudentGroupParticipantsRegistrationStatusAll enum value ("all")
-    AppointmentGroupsListStudentGroupParticipantsRegistrationStatusAll AppointmentGroupsListStudentGroupParticipantsRegistrationStatus = "all"
+	// AppointmentGroupsListStudentGroupParticipantsRegistrationStatusAll enum value ("all")
+	AppointmentGroupsListStudentGroupParticipantsRegistrationStatusAll AppointmentGroupsListStudentGroupParticipantsRegistrationStatus = "all"
+)
+
+// AssignmentGroupsGetAnAssignmentGroupInclude enumeration
+type AssignmentGroupsGetAnAssignmentGroupInclude string
+
+const (
+	// AssignmentGroupsGetAnAssignmentGroupIncludeAssignments enum value ("assignments")
+	AssignmentGroupsGetAnAssignmentGroupIncludeAssignments AssignmentGroupsGetAnAssignmentGroupInclude = "assignments"
+	// AssignmentGroupsGetAnAssignmentGroupIncludeDiscussionTopic enum value ("discussion_topic")
+	AssignmentGroupsGetAnAssignmentGroupIncludeDiscussionTopic AssignmentGroupsGetAnAssignmentGroupInclude = "discussion_topic"
+	// AssignmentGroupsGetAnAssignmentGroupIncludeAssignmentVisibility enum value ("assignment_visibility")
+	AssignmentGroupsGetAnAssignmentGroupIncludeAssignmentVisibility AssignmentGroupsGetAnAssignmentGroupInclude = "assignment_visibility"
+	// AssignmentGroupsGetAnAssignmentGroupIncludeSubmission enum value ("submission")
+	AssignmentGroupsGetAnAssignmentGroupIncludeSubmission AssignmentGroupsGetAnAssignmentGroupInclude = "submission"
 )
 
 // AssignmentGroupsListAssignmentGroupsInclude enumeration
 type AssignmentGroupsListAssignmentGroupsInclude string
 
 const (
-    // AssignmentGroupsListAssignmentGroupsIncludeAssignments enum value ("assignments")
-    AssignmentGroupsListAssignmentGroupsIncludeAssignments AssignmentGroupsListAssignmentGroupsInclude = "assignments"
-    // AssignmentGroupsListAssignmentGroupsIncludeDiscussionTopic enum value ("discussion_topic")
-    AssignmentGroupsListAssignmentGroupsIncludeDiscussionTopic AssignmentGroupsListAssignmentGroupsInclude = "discussion_topic"
-    // AssignmentGroupsListAssignmentGroupsIncludeAllDates enum value ("all_dates")
-    AssignmentGroupsListAssignmentGroupsIncludeAllDates AssignmentGroupsListAssignmentGroupsInclude = "all_dates"
-    // AssignmentGroupsListAssignmentGroupsIncludeAssignmentVisibility enum value ("assignment_visibility")
-    AssignmentGroupsListAssignmentGroupsIncludeAssignmentVisibility AssignmentGroupsListAssignmentGroupsInclude = "assignment_visibility"
-    // AssignmentGroupsListAssignmentGroupsIncludeOverrides enum value ("overrides")
-    AssignmentGroupsListAssignmentGroupsIncludeOverrides AssignmentGroupsListAssignmentGroupsInclude = "overrides"
-    // AssignmentGroupsListAssignmentGroupsIncludeSubmission enum value ("submission")
-    AssignmentGroupsListAssignmentGroupsIncludeSubmission AssignmentGroupsListAssignmentGroupsInclude = "submission"
-    // AssignmentGroupsListAssignmentGroupsIncludeObservedUsers enum value ("observed_users")
-    AssignmentGroupsListAssignmentGroupsIncludeObservedUsers AssignmentGroupsListAssignmentGroupsInclude = "observed_users"
-    // AssignmentGroupsListAssignmentGroupsIncludeCanEdit enum value ("can_edit")
-    AssignmentGroupsListAssignmentGroupsIncludeCanEdit AssignmentGroupsListAssignmentGroupsInclude = "can_edit"
+	// AssignmentGroupsListAssignmentGroupsIncludeAssignments enum value ("assignments")
+	AssignmentGroupsListAssignmentGroupsIncludeAssignments AssignmentGroupsListAssignmentGroupsInclude = "assignments"
+	// AssignmentGroupsListAssignmentGroupsIncludeDiscussionTopic enum value ("discussion_topic")
+	AssignmentGroupsListAssignmentGroupsIncludeDiscussionTopic AssignmentGroupsListAssignmentGroupsInclude = "discussion_topic"
+	// AssignmentGroupsListAssignmentGroupsIncludeAllDates enum value ("all_dates")
+	AssignmentGroupsListAssignmentGroupsIncludeAllDates AssignmentGroupsListAssignmentGroupsInclude = "all_dates"
+	// AssignmentGroupsListAssignmentGroupsIncludeAssignmentVisibility enum value ("assignment_visibility")
+	AssignmentGroupsListAssignmentGroupsIncludeAssignmentVisibility AssignmentGroupsListAssignmentGroupsInclude = "assignment_visibility"
+	// AssignmentGroupsListAssignmentGroupsIncludeOverrides enum value ("overrides")
+	AssignmentGroupsListAssignmentGroupsIncludeOverrides AssignmentGroupsListAssignmentGroupsInclude = "overrides"
+	// AssignmentGroupsListAssignmentGroupsIncludeSubmission enum value ("submission")
+	AssignmentGroupsListAssignmentGroupsIncludeSubmission AssignmentGroupsListAssignmentGroupsInclude = "submission"
+	// AssignmentGroupsListAssignmentGroupsIncludeObservedUsers enum value ("observed_users")
+	AssignmentGroupsListAssignmentGroupsIncludeObservedUsers AssignmentGroupsListAssignmentGroupsInclude = "observed_users"
+	// AssignmentGroupsListAssignmentGroupsIncludeCanEdit enum value ("can_edit")
+	AssignmentGroupsListAssignmentGroupsIncludeCanEdit AssignmentGroupsListAssignmentGroupsInclude = "can_edit"
 )
 
 // AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes enumeration
 type AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes string
 
 const (
-    // AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
-    AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesOnlineQuiz AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "online_quiz"
-    // AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
-    AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesDiscussionTopic AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "discussion_topic"
-    // AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesWikiPage enum value ("wiki_page")
-    AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesWikiPage AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "wiki_page"
-    // AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesExternalTool enum value ("external_tool")
-    AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesExternalTool AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "external_tool"
+	// AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesOnlineQuiz enum value ("online_quiz")
+	AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesOnlineQuiz AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "online_quiz"
+	// AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesDiscussionTopic enum value ("discussion_topic")
+	AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesDiscussionTopic AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "discussion_topic"
+	// AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesWikiPage enum value ("wiki_page")
+	AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesWikiPage AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "wiki_page"
+	// AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesExternalTool enum value ("external_tool")
+	AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypesExternalTool AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes = "external_tool"
 )
 
 // AssignmentsListAssignmentsInclude enumeration
 type AssignmentsListAssignmentsInclude string
 
 const (
-    // AssignmentsListAssignmentsIncludeSubmission enum value ("submission")
-    AssignmentsListAssignmentsIncludeSubmission AssignmentsListAssignmentsInclude = "submission"
-    // AssignmentsListAssignmentsIncludeAssignmentVisibility enum value ("assignment_visibility")
-    AssignmentsListAssignmentsIncludeAssignmentVisibility AssignmentsListAssignmentsInclude = "assignment_visibility"
-    // AssignmentsListAssignmentsIncludeAllDates enum value ("all_dates")
-    AssignmentsListAssignmentsIncludeAllDates AssignmentsListAssignmentsInclude = "all_dates"
-    // AssignmentsListAssignmentsIncludeOverrides enum value ("overrides")
-    AssignmentsListAssignmentsIncludeOverrides AssignmentsListAssignmentsInclude = "overrides"
-    // AssignmentsListAssignmentsIncludeObservedUsers enum value ("observed_users")
-    AssignmentsListAssignmentsIncludeObservedUsers AssignmentsListAssignmentsInclude = "observed_users"
-    // AssignmentsListAssignmentsIncludeCanEdit enum value ("can_edit")
-    AssignmentsListAssignmentsIncludeCanEdit AssignmentsListAssignmentsInclude = "can_edit"
+	// AssignmentsListAssignmentsIncludeSubmission enum value ("submission")
+	AssignmentsListAssignmentsIncludeSubmission AssignmentsListAssignmentsInclude = "submission"
+	// AssignmentsListAssignmentsIncludeAssignmentVisibility enum value ("assignment_visibility")
+	AssignmentsListAssignmentsIncludeAssignmentVisibility AssignmentsListAssignmentsInclude = "assignment_visibility"
+	// AssignmentsListAssignmentsIncludeAllDates enum value ("all_dates")
+	AssignmentsListAssignmentsIncludeAllDates AssignmentsListAssignmentsInclude = "all_dates"
+	// AssignmentsListAssignmentsIncludeOverrides enum value ("overrides")
+	AssignmentsListAssignmentsIncludeOverrides AssignmentsListAssignmentsInclude = "overrides"
+	// AssignmentsListAssignmentsIncludeObservedUsers enum value ("observed_users")
+	AssignmentsListAssignmentsIncludeObservedUsers AssignmentsListAssignmentsInclude = "observed_users"
+	// AssignmentsListAssignmentsIncludeCanEdit enum value ("can_edit")
+	AssignmentsListAssignmentsIncludeCanEdit AssignmentsListAssignmentsInclude = "can_edit"
 )
 
 // AssignmentsListAssignmentsBucket enumeration
 type AssignmentsListAssignmentsBucket string
 
 const (
-    // AssignmentsListAssignmentsBucketPast enum value ("past")
-    AssignmentsListAssignmentsBucketPast AssignmentsListAssignmentsBucket = "past"
-    // AssignmentsListAssignmentsBucketOverdue enum value ("overdue")
-    AssignmentsListAssignmentsBucketOverdue AssignmentsListAssignmentsBucket = "overdue"
-    // AssignmentsListAssignmentsBucketUndated enum value ("undated")
-    AssignmentsListAssignmentsBucketUndated AssignmentsListAssignmentsBucket = "undated"
-    // AssignmentsListAssignmentsBucketUngraded enum value ("ungraded")
-    AssignmentsListAssignmentsBucketUngraded AssignmentsListAssignmentsBucket = "ungraded"
-    // AssignmentsListAssignmentsBucketUnsubmitted enum value ("unsubmitted")
-    AssignmentsListAssignmentsBucketUnsubmitted AssignmentsListAssignmentsBucket = "unsubmitted"
-    // AssignmentsListAssignmentsBucketUpcoming enum value ("upcoming")
-    AssignmentsListAssignmentsBucketUpcoming AssignmentsListAssignmentsBucket = "upcoming"
-    // AssignmentsListAssignmentsBucketFuture enum value ("future")
-    AssignmentsListAssignmentsBucketFuture AssignmentsListAssignmentsBucket = "future"
+	// AssignmentsListAssignmentsBucketPast enum value ("past")
+	AssignmentsListAssignmentsBucketPast AssignmentsListAssignmentsBucket = "past"
+	// AssignmentsListAssignmentsBucketOverdue enum value ("overdue")
+	AssignmentsListAssignmentsBucketOverdue AssignmentsListAssignmentsBucket = "overdue"
+	// AssignmentsListAssignmentsBucketUndated enum value ("undated")
+	AssignmentsListAssignmentsBucketUndated AssignmentsListAssignmentsBucket = "undated"
+	// AssignmentsListAssignmentsBucketUngraded enum value ("ungraded")
+	AssignmentsListAssignmentsBucketUngraded AssignmentsListAssignmentsBucket = "ungraded"
+	// AssignmentsListAssignmentsBucketUnsubmitted enum value ("unsubmitted")
+	AssignmentsListAssignmentsBucketUnsubmitted AssignmentsListAssignmentsBucket = "unsubmitted"
+	// AssignmentsListAssignmentsBucketUpcoming enum value ("upcoming")
+	AssignmentsListAssignmentsBucketUpcoming AssignmentsListAssignmentsBucket = "upcoming"
+	// AssignmentsListAssignmentsBucketFuture enum value ("future")
+	AssignmentsListAssignmentsBucketFuture AssignmentsListAssignmentsBucket = "future"
 )
 
 // AssignmentsListAssignmentsOrderBy enumeration
 type AssignmentsListAssignmentsOrderBy string
 
 const (
-    // AssignmentsListAssignmentsOrderByPosition enum value ("position")
-    AssignmentsListAssignmentsOrderByPosition AssignmentsListAssignmentsOrderBy = "position"
-    // AssignmentsListAssignmentsOrderByName enum value ("name")
-    AssignmentsListAssignmentsOrderByName AssignmentsListAssignmentsOrderBy = "name"
-    // AssignmentsListAssignmentsOrderByDueAt enum value ("due_at")
-    AssignmentsListAssignmentsOrderByDueAt AssignmentsListAssignmentsOrderBy = "due_at"
+	// AssignmentsListAssignmentsOrderByPosition enum value ("position")
+	AssignmentsListAssignmentsOrderByPosition AssignmentsListAssignmentsOrderBy = "position"
+	// AssignmentsListAssignmentsOrderByName enum value ("name")
+	AssignmentsListAssignmentsOrderByName AssignmentsListAssignmentsOrderBy = "name"
+	// AssignmentsListAssignmentsOrderByDueAt enum value ("due_at")
+	AssignmentsListAssignmentsOrderByDueAt AssignmentsListAssignmentsOrderBy = "due_at"
 )
 
 // AssignmentsGetASingleAssignmentInclude enumeration
 type AssignmentsGetASingleAssignmentInclude string
 
 const (
-    // AssignmentsGetASingleAssignmentIncludeSubmission enum value ("submission")
-    AssignmentsGetASingleAssignmentIncludeSubmission AssignmentsGetASingleAssignmentInclude = "submission"
-    // AssignmentsGetASingleAssignmentIncludeAssignmentVisibility enum value ("assignment_visibility")
-    AssignmentsGetASingleAssignmentIncludeAssignmentVisibility AssignmentsGetASingleAssignmentInclude = "assignment_visibility"
-    // AssignmentsGetASingleAssignmentIncludeOverrides enum value ("overrides")
-    AssignmentsGetASingleAssignmentIncludeOverrides AssignmentsGetASingleAssignmentInclude = "overrides"
-    // AssignmentsGetASingleAssignmentIncludeObservedUsers enum value ("observed_users")
-    AssignmentsGetASingleAssignmentIncludeObservedUsers AssignmentsGetASingleAssignmentInclude = "observed_users"
-    // AssignmentsGetASingleAssignmentIncludeCanEdit enum value ("can_edit")
-    AssignmentsGetASingleAssignmentIncludeCanEdit AssignmentsGetASingleAssignmentInclude = "can_edit"
+	// AssignmentsGetASingleAssignmentIncludeSubmission enum value ("submission")
+	AssignmentsGetASingleAssignmentIncludeSubmission AssignmentsGetASingleAssignmentInclude = "submission"
+	// AssignmentsGetASingleAssignmentIncludeAssignmentVisibility enum value ("assignment_visibility")
+	AssignmentsGetASingleAssignmentIncludeAssignmentVisibility AssignmentsGetASingleAssignmentInclude = "assignment_visibility"
+	// AssignmentsGetASingleAssignmentIncludeOverrides enum value ("overrides")
+	AssignmentsGetASingleAssignmentIncludeOverrides AssignmentsGetASingleAssignmentInclude = "overrides"
+	// AssignmentsGetASingleAssignmentIncludeObservedUsers enum value ("observed_users")
+	AssignmentsGetASingleAssignmentIncludeObservedUsers AssignmentsGetASingleAssignmentInclude = "observed_users"
+	// AssignmentsGetASingleAssignmentIncludeCanEdit enum value ("can_edit")
+	AssignmentsGetASingleAssignmentIncludeCanEdit AssignmentsGetASingleAssignmentInclude = "can_edit"
 )
 
 // CollaborationsListMembersOfACollaborationInclude enumeration
 type CollaborationsListMembersOfACollaborationInclude string
 
 const (
-    // CollaborationsListMembersOfACollaborationIncludeCollaboratorLtiID enum value ("collaborator_lti_id")
-    CollaborationsListMembersOfACollaborationIncludeCollaboratorLtiID CollaborationsListMembersOfACollaborationInclude = "collaborator_lti_id"
-    // CollaborationsListMembersOfACollaborationIncludeAvatarImageURL enum value ("avatar_image_url")
-    CollaborationsListMembersOfACollaborationIncludeAvatarImageURL CollaborationsListMembersOfACollaborationInclude = "avatar_image_url"
+	// CollaborationsListMembersOfACollaborationIncludeCollaboratorLtiID enum value ("collaborator_lti_id")
+	CollaborationsListMembersOfACollaborationIncludeCollaboratorLtiID CollaborationsListMembersOfACollaborationInclude = "collaborator_lti_id"
+	// CollaborationsListMembersOfACollaborationIncludeAvatarImageURL enum value ("avatar_image_url")
+	CollaborationsListMembersOfACollaborationIncludeAvatarImageURL CollaborationsListMembersOfACollaborationInclude = "avatar_image_url"
 )
 
 // ContentExportsExportContentExportType enumeration
 type ContentExportsExportContentExportType string
 
 const (
-    // ContentExportsExportContentExportTypeCommonCartridge enum value ("common_cartridge")
-    ContentExportsExportContentExportTypeCommonCartridge ContentExportsExportContentExportType = "common_cartridge"
-    // ContentExportsExportContentExportTypeQti enum value ("qti")
-    ContentExportsExportContentExportTypeQti ContentExportsExportContentExportType = "qti"
-    // ContentExportsExportContentExportTypeZip enum value ("zip")
-    ContentExportsExportContentExportTypeZip ContentExportsExportContentExportType = "zip"
+	// ContentExportsExportContentExportTypeCommonCartridge enum value ("common_cartridge")
+	ContentExportsExportContentExportTypeCommonCartridge ContentExportsExportContentExportType = "common_cartridge"
+	// ContentExportsExportContentExportTypeQti enum value ("qti")
+	ContentExportsExportContentExportTypeQti ContentExportsExportContentExportType = "qti"
+	// ContentExportsExportContentExportTypeZip enum value ("zip")
+	ContentExportsExportContentExportTypeZip ContentExportsExportContentExportType = "zip"
 )
 
 // ContentExportsExportContentSelect enumeration
 type ContentExportsExportContentSelect string
 
 const (
-    // ContentExportsExportContentSelectFolders enum value ("folders")
-    ContentExportsExportContentSelectFolders ContentExportsExportContentSelect = "folders"
-    // ContentExportsExportContentSelectFiles enum value ("files")
-    ContentExportsExportContentSelectFiles ContentExportsExportContentSelect = "files"
-    // ContentExportsExportContentSelectAttachments enum value ("attachments")
-    ContentExportsExportContentSelectAttachments ContentExportsExportContentSelect = "attachments"
-    // ContentExportsExportContentSelectQuizzes enum value ("quizzes")
-    ContentExportsExportContentSelectQuizzes ContentExportsExportContentSelect = "quizzes"
-    // ContentExportsExportContentSelectAssignments enum value ("assignments")
-    ContentExportsExportContentSelectAssignments ContentExportsExportContentSelect = "assignments"
-    // ContentExportsExportContentSelectAnnouncements enum value ("announcements")
-    ContentExportsExportContentSelectAnnouncements ContentExportsExportContentSelect = "announcements"
-    // ContentExportsExportContentSelectCalendarEvents enum value ("calendar_events")
-    ContentExportsExportContentSelectCalendarEvents ContentExportsExportContentSelect = "calendar_events"
-    // ContentExportsExportContentSelectDiscussionTopics enum value ("discussion_topics")
-    ContentExportsExportContentSelectDiscussionTopics ContentExportsExportContentSelect = "discussion_topics"
-    // ContentExportsExportContentSelectModules enum value ("modules")
-    ContentExportsExportContentSelectModules ContentExportsExportContentSelect = "modules"
-    // ContentExportsExportContentSelectModuleItems enum value ("module_items")
-    ContentExportsExportContentSelectModuleItems ContentExportsExportContentSelect = "module_items"
-    // ContentExportsExportContentSelectPages enum value ("pages")
-    ContentExportsExportContentSelectPages ContentExportsExportContentSelect = "pages"
-    // ContentExportsExportContentSelectRubrics enum value ("rubrics")
-    ContentExportsExportContentSelectRubrics ContentExportsExportContentSelect = "rubrics"
+	// ContentExportsExportContentSelectFolders enum value ("folders")
+	ContentExportsExportContentSelectFolders ContentExportsExportContentSelect = "folders"
+	// ContentExportsExportContentSelectFiles enum value ("files")
+	ContentExportsExportContentSelectFiles ContentExportsExportContentSelect = "files"
+	// ContentExportsExportContentSelectAttachments enum value ("attachments")
+	ContentExportsExportContentSelectAttachments ContentExportsExportContentSelect = "attachments"
+	// ContentExportsExportContentSelectQuizzes enum value ("quizzes")
+	ContentExportsExportContentSelectQuizzes ContentExportsExportContentSelect = "quizzes"
+	// ContentExportsExportContentSelectAssignments enum value ("assignments")
+	ContentExportsExportContentSelectAssignments ContentExportsExportContentSelect = "assignments"
+	// ContentExportsExportContentSelectAnnouncements enum value ("announcements")
+	ContentExportsExportContentSelectAnnouncements ContentExportsExportContentSelect = "announcements"
+	// ContentExportsExportContentSelectCalendarEvents enum value ("calendar_events")
+	ContentExportsExportContentSelectCalendarEvents ContentExportsExportContentSelect = "calendar_events"
+	// ContentExportsExportContentSelectDiscussionTopics enum value ("discussion_topics")
+	ContentExportsExportContentSelectDiscussionTopics ContentExportsExportContentSelect = "discussion_topics"
+	// ContentExportsExportContentSelectModules enum value ("modules")
+	ContentExportsExportContentSelectModules ContentExportsExportContentSelect = "modules"
+	// ContentExportsExportContentSelectModuleItems enum value ("module_items")
+	ContentExportsExportContentSelectModuleItems ContentExportsExportContentSelect = "module_items"
+	// ContentExportsExportContentSelectPages enum value ("pages")
+	ContentExportsExportContentSelectPages ContentExportsExportContentSelect = "pages"
+	// ContentExportsExportContentSelectRubrics enum value ("rubrics")
+	ContentExportsExportContentSelectRubrics ContentExportsExportContentSelect = "rubrics"
+)
+
+// CoursesCopyCourseContentExcept enumeration
+type CoursesCopyCourseContentExcept string
+
+const (
+	// CoursesCopyCourseContentExceptCourseSettings enum value ("course_settings")
+	CoursesCopyCourseContentExceptCourseSettings CoursesCopyCourseContentExcept = "course_settings"
+	// CoursesCopyCourseContentExceptAssignments enum value ("assignments")
+	CoursesCopyCourseContentExceptAssignments CoursesCopyCourseContentExcept = "assignments"
+	// CoursesCopyCourseContentExceptExternalTools enum value ("external_tools")
+	CoursesCopyCourseContentExceptExternalTools CoursesCopyCourseContentExcept = "external_tools"
+	// CoursesCopyCourseContentExceptFiles enum value ("files")
+	CoursesCopyCourseContentExceptFiles CoursesCopyCourseContentExcept = "files"
+	// CoursesCopyCourseContentExceptTopics enum value ("topics")
+	CoursesCopyCourseContentExceptTopics CoursesCopyCourseContentExcept = "topics"
+	// CoursesCopyCourseContentExceptCalendarEvents enum value ("calendar_events")
+	CoursesCopyCourseContentExceptCalendarEvents CoursesCopyCourseContentExcept = "calendar_events"
+	// CoursesCopyCourseContentExceptQuizzes enum value ("quizzes")
+	CoursesCopyCourseContentExceptQuizzes CoursesCopyCourseContentExcept = "quizzes"
+	// CoursesCopyCourseContentExceptWikiPages enum value ("wiki_pages")
+	CoursesCopyCourseContentExceptWikiPages CoursesCopyCourseContentExcept = "wiki_pages"
+	// CoursesCopyCourseContentExceptModules enum value ("modules")
+	CoursesCopyCourseContentExceptModules CoursesCopyCourseContentExcept = "modules"
+	// CoursesCopyCourseContentExceptOutcomes enum value ("outcomes")
+	CoursesCopyCourseContentExceptOutcomes CoursesCopyCourseContentExcept = "outcomes"
+)
+
+// CoursesCopyCourseContentOnly enumeration
+type CoursesCopyCourseContentOnly string
+
+const (
+	// CoursesCopyCourseContentOnlyCourseSettings enum value ("course_settings")
+	CoursesCopyCourseContentOnlyCourseSettings CoursesCopyCourseContentOnly = "course_settings"
+	// CoursesCopyCourseContentOnlyAssignments enum value ("assignments")
+	CoursesCopyCourseContentOnlyAssignments CoursesCopyCourseContentOnly = "assignments"
+	// CoursesCopyCourseContentOnlyExternalTools enum value ("external_tools")
+	CoursesCopyCourseContentOnlyExternalTools CoursesCopyCourseContentOnly = "external_tools"
+	// CoursesCopyCourseContentOnlyFiles enum value ("files")
+	CoursesCopyCourseContentOnlyFiles CoursesCopyCourseContentOnly = "files"
+	// CoursesCopyCourseContentOnlyTopics enum value ("topics")
+	CoursesCopyCourseContentOnlyTopics CoursesCopyCourseContentOnly = "topics"
+	// CoursesCopyCourseContentOnlyCalendarEvents enum value ("calendar_events")
+	CoursesCopyCourseContentOnlyCalendarEvents CoursesCopyCourseContentOnly = "calendar_events"
+	// CoursesCopyCourseContentOnlyQuizzes enum value ("quizzes")
+	CoursesCopyCourseContentOnlyQuizzes CoursesCopyCourseContentOnly = "quizzes"
+	// CoursesCopyCourseContentOnlyWikiPages enum value ("wiki_pages")
+	CoursesCopyCourseContentOnlyWikiPages CoursesCopyCourseContentOnly = "wiki_pages"
+	// CoursesCopyCourseContentOnlyModules enum value ("modules")
+	CoursesCopyCourseContentOnlyModules CoursesCopyCourseContentOnly = "modules"
+	// CoursesCopyCourseContentOnlyOutcomes enum value ("outcomes")
+	CoursesCopyCourseContentOnlyOutcomes CoursesCopyCourseContentOnly = "outcomes"
 )
 
 // ContentMigrationsCreateAContentMigrationSelect enumeration
 type ContentMigrationsCreateAContentMigrationSelect string
 
 const (
-    // ContentMigrationsCreateAContentMigrationSelectFolders enum value ("folders")
-    ContentMigrationsCreateAContentMigrationSelectFolders ContentMigrationsCreateAContentMigrationSelect = "folders"
-    // ContentMigrationsCreateAContentMigrationSelectFiles enum value ("files")
-    ContentMigrationsCreateAContentMigrationSelectFiles ContentMigrationsCreateAContentMigrationSelect = "files"
-    // ContentMigrationsCreateAContentMigrationSelectAttachments enum value ("attachments")
-    ContentMigrationsCreateAContentMigrationSelectAttachments ContentMigrationsCreateAContentMigrationSelect = "attachments"
-    // ContentMigrationsCreateAContentMigrationSelectQuizzes enum value ("quizzes")
-    ContentMigrationsCreateAContentMigrationSelectQuizzes ContentMigrationsCreateAContentMigrationSelect = "quizzes"
-    // ContentMigrationsCreateAContentMigrationSelectAssignments enum value ("assignments")
-    ContentMigrationsCreateAContentMigrationSelectAssignments ContentMigrationsCreateAContentMigrationSelect = "assignments"
-    // ContentMigrationsCreateAContentMigrationSelectAnnouncements enum value ("announcements")
-    ContentMigrationsCreateAContentMigrationSelectAnnouncements ContentMigrationsCreateAContentMigrationSelect = "announcements"
-    // ContentMigrationsCreateAContentMigrationSelectCalendarEvents enum value ("calendar_events")
-    ContentMigrationsCreateAContentMigrationSelectCalendarEvents ContentMigrationsCreateAContentMigrationSelect = "calendar_events"
-    // ContentMigrationsCreateAContentMigrationSelectDiscussionTopics enum value ("discussion_topics")
-    ContentMigrationsCreateAContentMigrationSelectDiscussionTopics ContentMigrationsCreateAContentMigrationSelect = "discussion_topics"
-    // ContentMigrationsCreateAContentMigrationSelectModules enum value ("modules")
-    ContentMigrationsCreateAContentMigrationSelectModules ContentMigrationsCreateAContentMigrationSelect = "modules"
-    // ContentMigrationsCreateAContentMigrationSelectModuleItems enum value ("module_items")
-    ContentMigrationsCreateAContentMigrationSelectModuleItems ContentMigrationsCreateAContentMigrationSelect = "module_items"
-    // ContentMigrationsCreateAContentMigrationSelectPages enum value ("pages")
-    ContentMigrationsCreateAContentMigrationSelectPages ContentMigrationsCreateAContentMigrationSelect = "pages"
-    // ContentMigrationsCreateAContentMigrationSelectRubrics enum value ("rubrics")
-    ContentMigrationsCreateAContentMigrationSelectRubrics ContentMigrationsCreateAContentMigrationSelect = "rubrics"
+	// ContentMigrationsCreateAContentMigrationSelectFolders enum value ("folders")
+	ContentMigrationsCreateAContentMigrationSelectFolders ContentMigrationsCreateAContentMigrationSelect = "folders"
+	// ContentMigrationsCreateAContentMigrationSelectFiles enum value ("files")
+	ContentMigrationsCreateAContentMigrationSelectFiles ContentMigrationsCreateAContentMigrationSelect = "files"
+	// ContentMigrationsCreateAContentMigrationSelectAttachments enum value ("attachments")
+	ContentMigrationsCreateAContentMigrationSelectAttachments ContentMigrationsCreateAContentMigrationSelect = "attachments"
+	// ContentMigrationsCreateAContentMigrationSelectQuizzes enum value ("quizzes")
+	ContentMigrationsCreateAContentMigrationSelectQuizzes ContentMigrationsCreateAContentMigrationSelect = "quizzes"
+	// ContentMigrationsCreateAContentMigrationSelectAssignments enum value ("assignments")
+	ContentMigrationsCreateAContentMigrationSelectAssignments ContentMigrationsCreateAContentMigrationSelect = "assignments"
+	// ContentMigrationsCreateAContentMigrationSelectAnnouncements enum value ("announcements")
+	ContentMigrationsCreateAContentMigrationSelectAnnouncements ContentMigrationsCreateAContentMigrationSelect = "announcements"
+	// ContentMigrationsCreateAContentMigrationSelectCalendarEvents enum value ("calendar_events")
+	ContentMigrationsCreateAContentMigrationSelectCalendarEvents ContentMigrationsCreateAContentMigrationSelect = "calendar_events"
+	// ContentMigrationsCreateAContentMigrationSelectDiscussionTopics enum value ("discussion_topics")
+	ContentMigrationsCreateAContentMigrationSelectDiscussionTopics ContentMigrationsCreateAContentMigrationSelect = "discussion_topics"
+	// ContentMigrationsCreateAContentMigrationSelectModules enum value ("modules")
+	ContentMigrationsCreateAContentMigrationSelectModules ContentMigrationsCreateAContentMigrationSelect = "modules"
+	// ContentMigrationsCreateAContentMigrationSelectModuleItems enum value ("module_items")
+	ContentMigrationsCreateAContentMigrationSelectModuleItems ContentMigrationsCreateAContentMigrationSelect = "module_items"
+	// ContentMigrationsCreateAContentMigrationSelectPages enum value ("pages")
+	ContentMigrationsCreateAContentMigrationSelectPages ContentMigrationsCreateAContentMigrationSelect = "pages"
+	// ContentMigrationsCreateAContentMigrationSelectRubrics enum value ("rubrics")
+	ContentMigrationsCreateAContentMigrationSelectRubrics ContentMigrationsCreateAContentMigrationSelect = "rubrics"
 )
 
 // ContentMigrationsListItemsForSelectiveImportType enumeration
 type ContentMigrationsListItemsForSelectiveImportType string
 
 const (
-    // ContentMigrationsListItemsForSelectiveImportTypeContextModules enum value ("context_modules")
-    ContentMigrationsListItemsForSelectiveImportTypeContextModules ContentMigrationsListItemsForSelectiveImportType = "context_modules"
-    // ContentMigrationsListItemsForSelectiveImportTypeAssignments enum value ("assignments")
-    ContentMigrationsListItemsForSelectiveImportTypeAssignments ContentMigrationsListItemsForSelectiveImportType = "assignments"
-    // ContentMigrationsListItemsForSelectiveImportTypeQuizzes enum value ("quizzes")
-    ContentMigrationsListItemsForSelectiveImportTypeQuizzes ContentMigrationsListItemsForSelectiveImportType = "quizzes"
-    // ContentMigrationsListItemsForSelectiveImportTypeAssessmentQuestionBanks enum value ("assessment_question_banks")
-    ContentMigrationsListItemsForSelectiveImportTypeAssessmentQuestionBanks ContentMigrationsListItemsForSelectiveImportType = "assessment_question_banks"
-    // ContentMigrationsListItemsForSelectiveImportTypeDiscussionTopics enum value ("discussion_topics")
-    ContentMigrationsListItemsForSelectiveImportTypeDiscussionTopics ContentMigrationsListItemsForSelectiveImportType = "discussion_topics"
-    // ContentMigrationsListItemsForSelectiveImportTypeWikiPages enum value ("wiki_pages")
-    ContentMigrationsListItemsForSelectiveImportTypeWikiPages ContentMigrationsListItemsForSelectiveImportType = "wiki_pages"
-    // ContentMigrationsListItemsForSelectiveImportTypeContextExternalTools enum value ("context_external_tools")
-    ContentMigrationsListItemsForSelectiveImportTypeContextExternalTools ContentMigrationsListItemsForSelectiveImportType = "context_external_tools"
-    // ContentMigrationsListItemsForSelectiveImportTypeToolProfiles enum value ("tool_profiles")
-    ContentMigrationsListItemsForSelectiveImportTypeToolProfiles ContentMigrationsListItemsForSelectiveImportType = "tool_profiles"
-    // ContentMigrationsListItemsForSelectiveImportTypeAnnouncements enum value ("announcements")
-    ContentMigrationsListItemsForSelectiveImportTypeAnnouncements ContentMigrationsListItemsForSelectiveImportType = "announcements"
-    // ContentMigrationsListItemsForSelectiveImportTypeCalendarEvents enum value ("calendar_events")
-    ContentMigrationsListItemsForSelectiveImportTypeCalendarEvents ContentMigrationsListItemsForSelectiveImportType = "calendar_events"
-    // ContentMigrationsListItemsForSelectiveImportTypeRubrics enum value ("rubrics")
-    ContentMigrationsListItemsForSelectiveImportTypeRubrics ContentMigrationsListItemsForSelectiveImportType = "rubrics"
-    // ContentMigrationsListItemsForSelectiveImportTypeGroups enum value ("groups")
-    ContentMigrationsListItemsForSelectiveImportTypeGroups ContentMigrationsListItemsForSelectiveImportType = "groups"
-    // ContentMigrationsListItemsForSelectiveImportTypeLearningOutcomes enum value ("learning_outcomes")
-    ContentMigrationsListItemsForSelectiveImportTypeLearningOutcomes ContentMigrationsListItemsForSelectiveImportType = "learning_outcomes"
-    // ContentMigrationsListItemsForSelectiveImportTypeAttachments enum value ("attachments")
-    ContentMigrationsListItemsForSelectiveImportTypeAttachments ContentMigrationsListItemsForSelectiveImportType = "attachments"
+	// ContentMigrationsListItemsForSelectiveImportTypeContextModules enum value ("context_modules")
+	ContentMigrationsListItemsForSelectiveImportTypeContextModules ContentMigrationsListItemsForSelectiveImportType = "context_modules"
+	// ContentMigrationsListItemsForSelectiveImportTypeAssignments enum value ("assignments")
+	ContentMigrationsListItemsForSelectiveImportTypeAssignments ContentMigrationsListItemsForSelectiveImportType = "assignments"
+	// ContentMigrationsListItemsForSelectiveImportTypeQuizzes enum value ("quizzes")
+	ContentMigrationsListItemsForSelectiveImportTypeQuizzes ContentMigrationsListItemsForSelectiveImportType = "quizzes"
+	// ContentMigrationsListItemsForSelectiveImportTypeAssessmentQuestionBanks enum value ("assessment_question_banks")
+	ContentMigrationsListItemsForSelectiveImportTypeAssessmentQuestionBanks ContentMigrationsListItemsForSelectiveImportType = "assessment_question_banks"
+	// ContentMigrationsListItemsForSelectiveImportTypeDiscussionTopics enum value ("discussion_topics")
+	ContentMigrationsListItemsForSelectiveImportTypeDiscussionTopics ContentMigrationsListItemsForSelectiveImportType = "discussion_topics"
+	// ContentMigrationsListItemsForSelectiveImportTypeWikiPages enum value ("wiki_pages")
+	ContentMigrationsListItemsForSelectiveImportTypeWikiPages ContentMigrationsListItemsForSelectiveImportType = "wiki_pages"
+	// ContentMigrationsListItemsForSelectiveImportTypeContextExternalTools enum value ("context_external_tools")
+	ContentMigrationsListItemsForSelectiveImportTypeContextExternalTools ContentMigrationsListItemsForSelectiveImportType = "context_external_tools"
+	// ContentMigrationsListItemsForSelectiveImportTypeToolProfiles enum value ("tool_profiles")
+	ContentMigrationsListItemsForSelectiveImportTypeToolProfiles ContentMigrationsListItemsForSelectiveImportType = "tool_profiles"
+	// ContentMigrationsListItemsForSelectiveImportTypeAnnouncements enum value ("announcements")
+	ContentMigrationsListItemsForSelectiveImportTypeAnnouncements ContentMigrationsListItemsForSelectiveImportType = "announcements"
+	// ContentMigrationsListItemsForSelectiveImportTypeCalendarEvents enum value ("calendar_events")
+	ContentMigrationsListItemsForSelectiveImportTypeCalendarEvents ContentMigrationsListItemsForSelectiveImportType = "calendar_events"
+	// ContentMigrationsListItemsForSelectiveImportTypeRubrics enum value ("rubrics")
+	ContentMigrationsListItemsForSelectiveImportTypeRubrics ContentMigrationsListItemsForSelectiveImportType = "rubrics"
+	// ContentMigrationsListItemsForSelectiveImportTypeGroups enum value ("groups")
+	ContentMigrationsListItemsForSelectiveImportTypeGroups ContentMigrationsListItemsForSelectiveImportType = "groups"
+	// ContentMigrationsListItemsForSelectiveImportTypeLearningOutcomes enum value ("learning_outcomes")
+	ContentMigrationsListItemsForSelectiveImportTypeLearningOutcomes ContentMigrationsListItemsForSelectiveImportType = "learning_outcomes"
+	// ContentMigrationsListItemsForSelectiveImportTypeAttachments enum value ("attachments")
+	ContentMigrationsListItemsForSelectiveImportTypeAttachments ContentMigrationsListItemsForSelectiveImportType = "attachments"
 )
 
 // ContentSharesCreateAContentShareContentType enumeration
 type ContentSharesCreateAContentShareContentType string
 
 const (
-    // ContentSharesCreateAContentShareContentTypeAssignment enum value ("assignment")
-    ContentSharesCreateAContentShareContentTypeAssignment ContentSharesCreateAContentShareContentType = "assignment"
-    // ContentSharesCreateAContentShareContentTypeDiscussionTopic enum value ("discussion_topic")
-    ContentSharesCreateAContentShareContentTypeDiscussionTopic ContentSharesCreateAContentShareContentType = "discussion_topic"
-    // ContentSharesCreateAContentShareContentTypePage enum value ("page")
-    ContentSharesCreateAContentShareContentTypePage ContentSharesCreateAContentShareContentType = "page"
-    // ContentSharesCreateAContentShareContentTypeQuiz enum value ("quiz")
-    ContentSharesCreateAContentShareContentTypeQuiz ContentSharesCreateAContentShareContentType = "quiz"
-    // ContentSharesCreateAContentShareContentTypeModule enum value ("module")
-    ContentSharesCreateAContentShareContentTypeModule ContentSharesCreateAContentShareContentType = "module"
-    // ContentSharesCreateAContentShareContentTypeModuleItem enum value ("module_item")
-    ContentSharesCreateAContentShareContentTypeModuleItem ContentSharesCreateAContentShareContentType = "module_item"
+	// ContentSharesCreateAContentShareContentTypeAssignment enum value ("assignment")
+	ContentSharesCreateAContentShareContentTypeAssignment ContentSharesCreateAContentShareContentType = "assignment"
+	// ContentSharesCreateAContentShareContentTypeDiscussionTopic enum value ("discussion_topic")
+	ContentSharesCreateAContentShareContentTypeDiscussionTopic ContentSharesCreateAContentShareContentType = "discussion_topic"
+	// ContentSharesCreateAContentShareContentTypePage enum value ("page")
+	ContentSharesCreateAContentShareContentTypePage ContentSharesCreateAContentShareContentType = "page"
+	// ContentSharesCreateAContentShareContentTypeQuiz enum value ("quiz")
+	ContentSharesCreateAContentShareContentTypeQuiz ContentSharesCreateAContentShareContentType = "quiz"
+	// ContentSharesCreateAContentShareContentTypeModule enum value ("module")
+	ContentSharesCreateAContentShareContentTypeModule ContentSharesCreateAContentShareContentType = "module"
+	// ContentSharesCreateAContentShareContentTypeModuleItem enum value ("module_item")
+	ContentSharesCreateAContentShareContentTypeModuleItem ContentSharesCreateAContentShareContentType = "module_item"
 )
 
 // ContentSharesUpdateAContentShareReadState enumeration
 type ContentSharesUpdateAContentShareReadState string
 
 const (
-    // ContentSharesUpdateAContentShareReadStateRead enum value ("read")
-    ContentSharesUpdateAContentShareReadStateRead ContentSharesUpdateAContentShareReadState = "read"
-    // ContentSharesUpdateAContentShareReadStateUnread enum value ("unread")
-    ContentSharesUpdateAContentShareReadStateUnread ContentSharesUpdateAContentShareReadState = "unread"
+	// ContentSharesUpdateAContentShareReadStateRead enum value ("read")
+	ContentSharesUpdateAContentShareReadStateRead ContentSharesUpdateAContentShareReadState = "read"
+	// ContentSharesUpdateAContentShareReadStateUnread enum value ("unread")
+	ContentSharesUpdateAContentShareReadStateUnread ContentSharesUpdateAContentShareReadState = "unread"
 )
 
 // ModulesListModuleItemsInclude enumeration
 type ModulesListModuleItemsInclude string
 
 const (
-    // ModulesListModuleItemsIncludeContentDetails enum value ("content_details")
-    ModulesListModuleItemsIncludeContentDetails ModulesListModuleItemsInclude = "content_details"
+	// ModulesListModuleItemsIncludeContentDetails enum value ("content_details")
+	ModulesListModuleItemsIncludeContentDetails ModulesListModuleItemsInclude = "content_details"
 )
 
 // ModulesShowModuleItemInclude enumeration
 type ModulesShowModuleItemInclude string
 
 const (
-    // ModulesShowModuleItemIncludeContentDetails enum value ("content_details")
-    ModulesShowModuleItemIncludeContentDetails ModulesShowModuleItemInclude = "content_details"
+	// ModulesShowModuleItemIncludeContentDetails enum value ("content_details")
+	ModulesShowModuleItemIncludeContentDetails ModulesShowModuleItemInclude = "content_details"
 )
 
 // ModulesGetModuleItemSequenceAssetType enumeration
 type ModulesGetModuleItemSequenceAssetType string
 
 const (
-    // ModulesGetModuleItemSequenceAssetTypeModuleItem enum value ("ModuleItem")
-    ModulesGetModuleItemSequenceAssetTypeModuleItem ModulesGetModuleItemSequenceAssetType = "ModuleItem"
-    // ModulesGetModuleItemSequenceAssetTypeFile enum value ("File")
-    ModulesGetModuleItemSequenceAssetTypeFile ModulesGetModuleItemSequenceAssetType = "File"
-    // ModulesGetModuleItemSequenceAssetTypePage enum value ("Page")
-    ModulesGetModuleItemSequenceAssetTypePage ModulesGetModuleItemSequenceAssetType = "Page"
-    // ModulesGetModuleItemSequenceAssetTypeDiscussion enum value ("Discussion")
-    ModulesGetModuleItemSequenceAssetTypeDiscussion ModulesGetModuleItemSequenceAssetType = "Discussion"
-    // ModulesGetModuleItemSequenceAssetTypeAssignment enum value ("Assignment")
-    ModulesGetModuleItemSequenceAssetTypeAssignment ModulesGetModuleItemSequenceAssetType = "Assignment"
-    // ModulesGetModuleItemSequenceAssetTypeQuiz enum value ("Quiz")
-    ModulesGetModuleItemSequenceAssetTypeQuiz ModulesGetModuleItemSequenceAssetType = "Quiz"
-    // ModulesGetModuleItemSequenceAssetTypeExternalTool enum value ("ExternalTool")
-    ModulesGetModuleItemSequenceAssetTypeExternalTool ModulesGetModuleItemSequenceAssetType = "ExternalTool"
+	// ModulesGetModuleItemSequenceAssetTypeModuleItem enum value ("ModuleItem")
+	ModulesGetModuleItemSequenceAssetTypeModuleItem ModulesGetModuleItemSequenceAssetType = "ModuleItem"
+	// ModulesGetModuleItemSequenceAssetTypeFile enum value ("File")
+	ModulesGetModuleItemSequenceAssetTypeFile ModulesGetModuleItemSequenceAssetType = "File"
+	// ModulesGetModuleItemSequenceAssetTypePage enum value ("Page")
+	ModulesGetModuleItemSequenceAssetTypePage ModulesGetModuleItemSequenceAssetType = "Page"
+	// ModulesGetModuleItemSequenceAssetTypeDiscussion enum value ("Discussion")
+	ModulesGetModuleItemSequenceAssetTypeDiscussion ModulesGetModuleItemSequenceAssetType = "Discussion"
+	// ModulesGetModuleItemSequenceAssetTypeAssignment enum value ("Assignment")
+	ModulesGetModuleItemSequenceAssetTypeAssignment ModulesGetModuleItemSequenceAssetType = "Assignment"
+	// ModulesGetModuleItemSequenceAssetTypeQuiz enum value ("Quiz")
+	ModulesGetModuleItemSequenceAssetTypeQuiz ModulesGetModuleItemSequenceAssetType = "Quiz"
+	// ModulesGetModuleItemSequenceAssetTypeExternalTool enum value ("ExternalTool")
+	ModulesGetModuleItemSequenceAssetTypeExternalTool ModulesGetModuleItemSequenceAssetType = "ExternalTool"
 )
 
 // ModulesListModulesInclude enumeration
 type ModulesListModulesInclude string
 
 const (
-    // ModulesListModulesIncludeItems enum value ("items")
-    ModulesListModulesIncludeItems ModulesListModulesInclude = "items"
-    // ModulesListModulesIncludeContentDetails enum value ("content_details")
-    ModulesListModulesIncludeContentDetails ModulesListModulesInclude = "content_details"
+	// ModulesListModulesIncludeItems enum value ("items")
+	ModulesListModulesIncludeItems ModulesListModulesInclude = "items"
+	// ModulesListModulesIncludeContentDetails enum value ("content_details")
+	ModulesListModulesIncludeContentDetails ModulesListModulesInclude = "content_details"
 )
 
 // ModulesShowModuleInclude enumeration
 type ModulesShowModuleInclude string
 
 const (
-    // ModulesShowModuleIncludeItems enum value ("items")
-    ModulesShowModuleIncludeItems ModulesShowModuleInclude = "items"
-    // ModulesShowModuleIncludeContentDetails enum value ("content_details")
-    ModulesShowModuleIncludeContentDetails ModulesShowModuleInclude = "content_details"
+	// ModulesShowModuleIncludeItems enum value ("items")
+	ModulesShowModuleIncludeItems ModulesShowModuleInclude = "items"
+	// ModulesShowModuleIncludeContentDetails enum value ("content_details")
+	ModulesShowModuleIncludeContentDetails ModulesShowModuleInclude = "content_details"
 )
 
 // ConversationsListConversationsScope enumeration
 type ConversationsListConversationsScope string
 
 const (
-    // ConversationsListConversationsScopeUnread enum value ("unread")
-    ConversationsListConversationsScopeUnread ConversationsListConversationsScope = "unread"
-    // ConversationsListConversationsScopeStarred enum value ("starred")
-    ConversationsListConversationsScopeStarred ConversationsListConversationsScope = "starred"
-    // ConversationsListConversationsScopeArchived enum value ("archived")
-    ConversationsListConversationsScopeArchived ConversationsListConversationsScope = "archived"
+	// ConversationsListConversationsScopeUnread enum value ("unread")
+	ConversationsListConversationsScopeUnread ConversationsListConversationsScope = "unread"
+	// ConversationsListConversationsScopeStarred enum value ("starred")
+	ConversationsListConversationsScopeStarred ConversationsListConversationsScope = "starred"
+	// ConversationsListConversationsScopeArchived enum value ("archived")
+	ConversationsListConversationsScopeArchived ConversationsListConversationsScope = "archived"
 )
 
 // ConversationsListConversationsFilter enumeration
 type ConversationsListConversationsFilter string
 
 const (
-    // ConversationsListConversationsFilterCourseID enum value ("course_id")
-    ConversationsListConversationsFilterCourseID ConversationsListConversationsFilter = "course_id"
-    // ConversationsListConversationsFilterGroupID enum value ("group_id")
-    ConversationsListConversationsFilterGroupID ConversationsListConversationsFilter = "group_id"
-    // ConversationsListConversationsFilterUserID enum value ("user_id")
-    ConversationsListConversationsFilterUserID ConversationsListConversationsFilter = "user_id"
+	// ConversationsListConversationsFilterCourseID enum value ("course_id")
+	ConversationsListConversationsFilterCourseID ConversationsListConversationsFilter = "course_id"
+	// ConversationsListConversationsFilterGroupID enum value ("group_id")
+	ConversationsListConversationsFilterGroupID ConversationsListConversationsFilter = "group_id"
+	// ConversationsListConversationsFilterUserID enum value ("user_id")
+	ConversationsListConversationsFilterUserID ConversationsListConversationsFilter = "user_id"
 )
 
 // ConversationsListConversationsFilterMode enumeration
 type ConversationsListConversationsFilterMode string
 
 const (
-    // ConversationsListConversationsFilterModeAnd enum value ("and")
-    ConversationsListConversationsFilterModeAnd ConversationsListConversationsFilterMode = "and"
-    // ConversationsListConversationsFilterModeOr enum value ("or")
-    ConversationsListConversationsFilterModeOr ConversationsListConversationsFilterMode = "or"
+	// ConversationsListConversationsFilterModeAnd enum value ("and")
+	ConversationsListConversationsFilterModeAnd ConversationsListConversationsFilterMode = "and"
+	// ConversationsListConversationsFilterModeOr enum value ("or")
+	ConversationsListConversationsFilterModeOr ConversationsListConversationsFilterMode = "or"
 )
 
 // ConversationsListConversationsInclude enumeration
 type ConversationsListConversationsInclude string
 
 const (
-    // ConversationsListConversationsIncludeParticipantAvatars enum value ("participant_avatars")
-    ConversationsListConversationsIncludeParticipantAvatars ConversationsListConversationsInclude = "participant_avatars"
+	// ConversationsListConversationsIncludeParticipantAvatars enum value ("participant_avatars")
+	ConversationsListConversationsIncludeParticipantAvatars ConversationsListConversationsInclude = "participant_avatars"
 )
 
 // ConversationsCreateAConversationMediaCommentType enumeration
 type ConversationsCreateAConversationMediaCommentType string
 
 const (
-    // ConversationsCreateAConversationMediaCommentTypeAudio enum value ("audio")
-    ConversationsCreateAConversationMediaCommentTypeAudio ConversationsCreateAConversationMediaCommentType = "audio"
-    // ConversationsCreateAConversationMediaCommentTypeVideo enum value ("video")
-    ConversationsCreateAConversationMediaCommentTypeVideo ConversationsCreateAConversationMediaCommentType = "video"
+	// ConversationsCreateAConversationMediaCommentTypeAudio enum value ("audio")
+	ConversationsCreateAConversationMediaCommentTypeAudio ConversationsCreateAConversationMediaCommentType = "audio"
+	// ConversationsCreateAConversationMediaCommentTypeVideo enum value ("video")
+	ConversationsCreateAConversationMediaCommentTypeVideo ConversationsCreateAConversationMediaCommentType = "video"
 )
 
 // ConversationsCreateAConversationMode enumeration
 type ConversationsCreateAConversationMode string
 
 const (
-    // ConversationsCreateAConversationModeSync enum value ("sync")
-    ConversationsCreateAConversationModeSync ConversationsCreateAConversationMode = "sync"
-    // ConversationsCreateAConversationModeAsync enum value ("async")
-    ConversationsCreateAConversationModeAsync ConversationsCreateAConversationMode = "async"
+	// ConversationsCreateAConversationModeSync enum value ("sync")
+	ConversationsCreateAConversationModeSync ConversationsCreateAConversationMode = "sync"
+	// ConversationsCreateAConversationModeAsync enum value ("async")
+	ConversationsCreateAConversationModeAsync ConversationsCreateAConversationMode = "async"
 )
 
 // ConversationsCreateAConversationScope enumeration
 type ConversationsCreateAConversationScope string
 
 const (
-    // ConversationsCreateAConversationScopeUnread enum value ("unread")
-    ConversationsCreateAConversationScopeUnread ConversationsCreateAConversationScope = "unread"
-    // ConversationsCreateAConversationScopeStarred enum value ("starred")
-    ConversationsCreateAConversationScopeStarred ConversationsCreateAConversationScope = "starred"
-    // ConversationsCreateAConversationScopeArchived enum value ("archived")
-    ConversationsCreateAConversationScopeArchived ConversationsCreateAConversationScope = "archived"
+	// ConversationsCreateAConversationScopeUnread enum value ("unread")
+	ConversationsCreateAConversationScopeUnread ConversationsCreateAConversationScope = "unread"
+	// ConversationsCreateAConversationScopeStarred enum value ("starred")
+	ConversationsCreateAConversationScopeStarred ConversationsCreateAConversationScope = "starred"
+	// ConversationsCreateAConversationScopeArchived enum value ("archived")
+	ConversationsCreateAConversationScopeArchived ConversationsCreateAConversationScope = "archived"
 )
 
 // ConversationsCreateAConversationFilter enumeration
 type ConversationsCreateAConversationFilter string
 
 const (
-    // ConversationsCreateAConversationFilterCourseID enum value ("course_id")
-    ConversationsCreateAConversationFilterCourseID ConversationsCreateAConversationFilter = "course_id"
-    // ConversationsCreateAConversationFilterGroupID enum value ("group_id")
-    ConversationsCreateAConversationFilterGroupID ConversationsCreateAConversationFilter = "group_id"
-    // ConversationsCreateAConversationFilterUserID enum value ("user_id")
-    ConversationsCreateAConversationFilterUserID ConversationsCreateAConversationFilter = "user_id"
+	// ConversationsCreateAConversationFilterCourseID enum value ("course_id")
+	ConversationsCreateAConversationFilterCourseID ConversationsCreateAConversationFilter = "course_id"
+	// ConversationsCreateAConversationFilterGroupID enum value ("group_id")
+	ConversationsCreateAConversationFilterGroupID ConversationsCreateAConversationFilter = "group_id"
+	// ConversationsCreateAConversationFilterUserID enum value ("user_id")
+	ConversationsCreateAConversationFilterUserID ConversationsCreateAConversationFilter = "user_id"
 )
 
 // ConversationsCreateAConversationFilterMode enumeration
 type ConversationsCreateAConversationFilterMode string
 
 const (
-    // ConversationsCreateAConversationFilterModeAnd enum value ("and")
-    ConversationsCreateAConversationFilterModeAnd ConversationsCreateAConversationFilterMode = "and"
-    // ConversationsCreateAConversationFilterModeOr enum value ("or")
-    ConversationsCreateAConversationFilterModeOr ConversationsCreateAConversationFilterMode = "or"
+	// ConversationsCreateAConversationFilterModeAnd enum value ("and")
+	ConversationsCreateAConversationFilterModeAnd ConversationsCreateAConversationFilterMode = "and"
+	// ConversationsCreateAConversationFilterModeOr enum value ("or")
+	ConversationsCreateAConversationFilterModeOr ConversationsCreateAConversationFilterMode = "or"
 )
 
 // ConversationsGetASingleConversationScope enumeration
 type ConversationsGetASingleConversationScope string
 
 const (
-    // ConversationsGetASingleConversationScopeUnread enum value ("unread")
-    ConversationsGetASingleConversationScopeUnread ConversationsGetASingleConversationScope = "unread"
-    // ConversationsGetASingleConversationScopeStarred enum value ("starred")
-    ConversationsGetASingleConversationScopeStarred ConversationsGetASingleConversationScope = "starred"
-    // ConversationsGetASingleConversationScopeArchived enum value ("archived")
-    ConversationsGetASingleConversationScopeArchived ConversationsGetASingleConversationScope = "archived"
+	// ConversationsGetASingleConversationScopeUnread enum value ("unread")
+	ConversationsGetASingleConversationScopeUnread ConversationsGetASingleConversationScope = "unread"
+	// ConversationsGetASingleConversationScopeStarred enum value ("starred")
+	ConversationsGetASingleConversationScopeStarred ConversationsGetASingleConversationScope = "starred"
+	// ConversationsGetASingleConversationScopeArchived enum value ("archived")
+	ConversationsGetASingleConversationScopeArchived ConversationsGetASingleConversationScope = "archived"
 )
 
 // ConversationsGetASingleConversationFilter enumeration
 type ConversationsGetASingleConversationFilter string
 
 const (
-    // ConversationsGetASingleConversationFilterCourseID enum value ("course_id")
-    ConversationsGetASingleConversationFilterCourseID ConversationsGetASingleConversationFilter = "course_id"
-    // ConversationsGetASingleConversationFilterGroupID enum value ("group_id")
-    ConversationsGetASingleConversationFilterGroupID ConversationsGetASingleConversationFilter = "group_id"
-    // ConversationsGetASingleConversationFilterUserID enum value ("user_id")
-    ConversationsGetASingleConversationFilterUserID ConversationsGetASingleConversationFilter = "user_id"
+	// ConversationsGetASingleConversationFilterCourseID enum value ("course_id")
+	ConversationsGetASingleConversationFilterCourseID ConversationsGetASingleConversationFilter = "course_id"
+	// ConversationsGetASingleConversationFilterGroupID enum value ("group_id")
+	ConversationsGetASingleConversationFilterGroupID ConversationsGetASingleConversationFilter = "group_id"
+	// ConversationsGetASingleConversationFilterUserID enum value ("user_id")
+	ConversationsGetASingleConversationFilterUserID ConversationsGetASingleConversationFilter = "user_id"
 )
 
 // ConversationsGetASingleConversationFilterMode enumeration
 type ConversationsGetASingleConversationFilterMode string
 
 const (
-    // ConversationsGetASingleConversationFilterModeAnd enum value ("and")
-    ConversationsGetASingleConversationFilterModeAnd ConversationsGetASingleConversationFilterMode = "and"
-    // ConversationsGetASingleConversationFilterModeOr enum value ("or")
-    ConversationsGetASingleConversationFilterModeOr ConversationsGetASingleConversationFilterMode = "or"
+	// ConversationsGetASingleConversationFilterModeAnd enum value ("and")
+	ConversationsGetASingleConversationFilterModeAnd ConversationsGetASingleConversationFilterMode = "and"
+	// ConversationsGetASingleConversationFilterModeOr enum value ("or")
+	ConversationsGetASingleConversationFilterModeOr ConversationsGetASingleConversationFilterMode = "or"
 )
 
 // ConversationsEditAConversationConversation enumeration
 type ConversationsEditAConversationConversation string
 
 const (
-    // ConversationsEditAConversationConversationRead enum value ("read")
-    ConversationsEditAConversationConversationRead ConversationsEditAConversationConversation = "read"
-    // ConversationsEditAConversationConversationUnread enum value ("unread")
-    ConversationsEditAConversationConversationUnread ConversationsEditAConversationConversation = "unread"
-    // ConversationsEditAConversationConversationArchived enum value ("archived")
-    ConversationsEditAConversationConversationArchived ConversationsEditAConversationConversation = "archived"
+	// ConversationsEditAConversationConversationRead enum value ("read")
+	ConversationsEditAConversationConversationRead ConversationsEditAConversationConversation = "read"
+	// ConversationsEditAConversationConversationUnread enum value ("unread")
+	ConversationsEditAConversationConversationUnread ConversationsEditAConversationConversation = "unread"
+	// ConversationsEditAConversationConversationArchived enum value ("archived")
+	ConversationsEditAConversationConversationArchived ConversationsEditAConversationConversation = "archived"
 )
 
 // ConversationsEditAConversationScope enumeration
 type ConversationsEditAConversationScope string
 
 const (
-    // ConversationsEditAConversationScopeUnread enum value ("unread")
-    ConversationsEditAConversationScopeUnread ConversationsEditAConversationScope = "unread"
-    // ConversationsEditAConversationScopeStarred enum value ("starred")
-    ConversationsEditAConversationScopeStarred ConversationsEditAConversationScope = "starred"
-    // ConversationsEditAConversationScopeArchived enum value ("archived")
-    ConversationsEditAConversationScopeArchived ConversationsEditAConversationScope = "archived"
+	// ConversationsEditAConversationScopeUnread enum value ("unread")
+	ConversationsEditAConversationScopeUnread ConversationsEditAConversationScope = "unread"
+	// ConversationsEditAConversationScopeStarred enum value ("starred")
+	ConversationsEditAConversationScopeStarred ConversationsEditAConversationScope = "starred"
+	// ConversationsEditAConversationScopeArchived enum value ("archived")
+	ConversationsEditAConversationScopeArchived ConversationsEditAConversationScope = "archived"
 )
 
 // ConversationsEditAConversationFilter enumeration
 type ConversationsEditAConversationFilter string
 
 const (
-    // ConversationsEditAConversationFilterCourseID enum value ("course_id")
-    ConversationsEditAConversationFilterCourseID ConversationsEditAConversationFilter = "course_id"
-    // ConversationsEditAConversationFilterGroupID enum value ("group_id")
-    ConversationsEditAConversationFilterGroupID ConversationsEditAConversationFilter = "group_id"
-    // ConversationsEditAConversationFilterUserID enum value ("user_id")
-    ConversationsEditAConversationFilterUserID ConversationsEditAConversationFilter = "user_id"
+	// ConversationsEditAConversationFilterCourseID enum value ("course_id")
+	ConversationsEditAConversationFilterCourseID ConversationsEditAConversationFilter = "course_id"
+	// ConversationsEditAConversationFilterGroupID enum value ("group_id")
+	ConversationsEditAConversationFilterGroupID ConversationsEditAConversationFilter = "group_id"
+	// ConversationsEditAConversationFilterUserID enum value ("user_id")
+	ConversationsEditAConversationFilterUserID ConversationsEditAConversationFilter = "user_id"
 )
 
 // ConversationsEditAConversationFilterMode enumeration
 type ConversationsEditAConversationFilterMode string
 
 const (
-    // ConversationsEditAConversationFilterModeAnd enum value ("and")
-    ConversationsEditAConversationFilterModeAnd ConversationsEditAConversationFilterMode = "and"
-    // ConversationsEditAConversationFilterModeOr enum value ("or")
-    ConversationsEditAConversationFilterModeOr ConversationsEditAConversationFilterMode = "or"
+	// ConversationsEditAConversationFilterModeAnd enum value ("and")
+	ConversationsEditAConversationFilterModeAnd ConversationsEditAConversationFilterMode = "and"
+	// ConversationsEditAConversationFilterModeOr enum value ("or")
+	ConversationsEditAConversationFilterModeOr ConversationsEditAConversationFilterMode = "or"
 )
 
 // ConversationsAddAMessageMediaCommentType enumeration
 type ConversationsAddAMessageMediaCommentType string
 
 const (
-    // ConversationsAddAMessageMediaCommentTypeAudio enum value ("audio")
-    ConversationsAddAMessageMediaCommentTypeAudio ConversationsAddAMessageMediaCommentType = "audio"
-    // ConversationsAddAMessageMediaCommentTypeVideo enum value ("video")
-    ConversationsAddAMessageMediaCommentTypeVideo ConversationsAddAMessageMediaCommentType = "video"
+	// ConversationsAddAMessageMediaCommentTypeAudio enum value ("audio")
+	ConversationsAddAMessageMediaCommentTypeAudio ConversationsAddAMessageMediaCommentType = "audio"
+	// ConversationsAddAMessageMediaCommentTypeVideo enum value ("video")
+	ConversationsAddAMessageMediaCommentTypeVideo ConversationsAddAMessageMediaCommentType = "video"
 )
 
 // ConversationsBatchUpdateConversationsEvent enumeration
 type ConversationsBatchUpdateConversationsEvent string
 
 const (
-    // ConversationsBatchUpdateConversationsEventMarkAsRead enum value ("mark_as_read")
-    ConversationsBatchUpdateConversationsEventMarkAsRead ConversationsBatchUpdateConversationsEvent = "mark_as_read"
-    // ConversationsBatchUpdateConversationsEventMarkAsUnread enum value ("mark_as_unread")
-    ConversationsBatchUpdateConversationsEventMarkAsUnread ConversationsBatchUpdateConversationsEvent = "mark_as_unread"
-    // ConversationsBatchUpdateConversationsEventStar enum value ("star")
-    ConversationsBatchUpdateConversationsEventStar ConversationsBatchUpdateConversationsEvent = "star"
-    // ConversationsBatchUpdateConversationsEventUnstar enum value ("unstar")
-    ConversationsBatchUpdateConversationsEventUnstar ConversationsBatchUpdateConversationsEvent = "unstar"
-    // ConversationsBatchUpdateConversationsEventArchive enum value ("archive")
-    ConversationsBatchUpdateConversationsEventArchive ConversationsBatchUpdateConversationsEvent = "archive"
-    // ConversationsBatchUpdateConversationsEventDestroy enum value ("destroy")
-    ConversationsBatchUpdateConversationsEventDestroy ConversationsBatchUpdateConversationsEvent = "destroy"
+	// ConversationsBatchUpdateConversationsEventMarkAsRead enum value ("mark_as_read")
+	ConversationsBatchUpdateConversationsEventMarkAsRead ConversationsBatchUpdateConversationsEvent = "mark_as_read"
+	// ConversationsBatchUpdateConversationsEventMarkAsUnread enum value ("mark_as_unread")
+	ConversationsBatchUpdateConversationsEventMarkAsUnread ConversationsBatchUpdateConversationsEvent = "mark_as_unread"
+	// ConversationsBatchUpdateConversationsEventStar enum value ("star")
+	ConversationsBatchUpdateConversationsEventStar ConversationsBatchUpdateConversationsEvent = "star"
+	// ConversationsBatchUpdateConversationsEventUnstar enum value ("unstar")
+	ConversationsBatchUpdateConversationsEventUnstar ConversationsBatchUpdateConversationsEvent = "unstar"
+	// ConversationsBatchUpdateConversationsEventArchive enum value ("archive")
+	ConversationsBatchUpdateConversationsEventArchive ConversationsBatchUpdateConversationsEvent = "archive"
+	// ConversationsBatchUpdateConversationsEventDestroy enum value ("destroy")
+	ConversationsBatchUpdateConversationsEventDestroy ConversationsBatchUpdateConversationsEvent = "destroy"
 )
 
 // CoursesListYourCoursesEnrollmentType enumeration
 type CoursesListYourCoursesEnrollmentType string
 
 const (
-    // CoursesListYourCoursesEnrollmentTypeTeacher enum value ("teacher")
-    CoursesListYourCoursesEnrollmentTypeTeacher CoursesListYourCoursesEnrollmentType = "teacher"
-    // CoursesListYourCoursesEnrollmentTypeStudent enum value ("student")
-    CoursesListYourCoursesEnrollmentTypeStudent CoursesListYourCoursesEnrollmentType = "student"
-    // CoursesListYourCoursesEnrollmentTypeTa enum value ("ta")
-    CoursesListYourCoursesEnrollmentTypeTa CoursesListYourCoursesEnrollmentType = "ta"
-    // CoursesListYourCoursesEnrollmentTypeObserver enum value ("observer")
-    CoursesListYourCoursesEnrollmentTypeObserver CoursesListYourCoursesEnrollmentType = "observer"
-    // CoursesListYourCoursesEnrollmentTypeDesigner enum value ("designer")
-    CoursesListYourCoursesEnrollmentTypeDesigner CoursesListYourCoursesEnrollmentType = "designer"
+	// CoursesListYourCoursesEnrollmentTypeTeacher enum value ("teacher")
+	CoursesListYourCoursesEnrollmentTypeTeacher CoursesListYourCoursesEnrollmentType = "teacher"
+	// CoursesListYourCoursesEnrollmentTypeStudent enum value ("student")
+	CoursesListYourCoursesEnrollmentTypeStudent CoursesListYourCoursesEnrollmentType = "student"
+	// CoursesListYourCoursesEnrollmentTypeTa enum value ("ta")
+	CoursesListYourCoursesEnrollmentTypeTa CoursesListYourCoursesEnrollmentType = "ta"
+	// CoursesListYourCoursesEnrollmentTypeObserver enum value ("observer")
+	CoursesListYourCoursesEnrollmentTypeObserver CoursesListYourCoursesEnrollmentType = "observer"
+	// CoursesListYourCoursesEnrollmentTypeDesigner enum value ("designer")
+	CoursesListYourCoursesEnrollmentTypeDesigner CoursesListYourCoursesEnrollmentType = "designer"
 )
 
 // CoursesListYourCoursesEnrollmentState enumeration
 type CoursesListYourCoursesEnrollmentState string
 
 const (
-    // CoursesListYourCoursesEnrollmentStateActive enum value ("active")
-    CoursesListYourCoursesEnrollmentStateActive CoursesListYourCoursesEnrollmentState = "active"
-    // CoursesListYourCoursesEnrollmentStateInvitedOrPending enum value ("invited_or_pending")
-    CoursesListYourCoursesEnrollmentStateInvitedOrPending CoursesListYourCoursesEnrollmentState = "invited_or_pending"
-    // CoursesListYourCoursesEnrollmentStateCompleted enum value ("completed")
-    CoursesListYourCoursesEnrollmentStateCompleted CoursesListYourCoursesEnrollmentState = "completed"
+	// CoursesListYourCoursesEnrollmentStateActive enum value ("active")
+	CoursesListYourCoursesEnrollmentStateActive CoursesListYourCoursesEnrollmentState = "active"
+	// CoursesListYourCoursesEnrollmentStateInvitedOrPending enum value ("invited_or_pending")
+	CoursesListYourCoursesEnrollmentStateInvitedOrPending CoursesListYourCoursesEnrollmentState = "invited_or_pending"
+	// CoursesListYourCoursesEnrollmentStateCompleted enum value ("completed")
+	CoursesListYourCoursesEnrollmentStateCompleted CoursesListYourCoursesEnrollmentState = "completed"
 )
 
 // CoursesListYourCoursesInclude enumeration
 type CoursesListYourCoursesInclude string
 
 const (
-    // CoursesListYourCoursesIncludeNeedsGradingCount enum value ("needs_grading_count")
-    CoursesListYourCoursesIncludeNeedsGradingCount CoursesListYourCoursesInclude = "needs_grading_count"
-    // CoursesListYourCoursesIncludeSyllabusBody enum value ("syllabus_body")
-    CoursesListYourCoursesIncludeSyllabusBody CoursesListYourCoursesInclude = "syllabus_body"
-    // CoursesListYourCoursesIncludePublicDescription enum value ("public_description")
-    CoursesListYourCoursesIncludePublicDescription CoursesListYourCoursesInclude = "public_description"
-    // CoursesListYourCoursesIncludeTotalScores enum value ("total_scores")
-    CoursesListYourCoursesIncludeTotalScores CoursesListYourCoursesInclude = "total_scores"
-    // CoursesListYourCoursesIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
-    CoursesListYourCoursesIncludeCurrentGradingPeriodScores CoursesListYourCoursesInclude = "current_grading_period_scores"
-    // CoursesListYourCoursesIncludeTerm enum value ("term")
-    CoursesListYourCoursesIncludeTerm CoursesListYourCoursesInclude = "term"
-    // CoursesListYourCoursesIncludeAccount enum value ("account")
-    CoursesListYourCoursesIncludeAccount CoursesListYourCoursesInclude = "account"
-    // CoursesListYourCoursesIncludeCourseProgress enum value ("course_progress")
-    CoursesListYourCoursesIncludeCourseProgress CoursesListYourCoursesInclude = "course_progress"
-    // CoursesListYourCoursesIncludeSections enum value ("sections")
-    CoursesListYourCoursesIncludeSections CoursesListYourCoursesInclude = "sections"
-    // CoursesListYourCoursesIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
-    CoursesListYourCoursesIncludeStorageQuotaUsedMb CoursesListYourCoursesInclude = "storage_quota_used_mb"
-    // CoursesListYourCoursesIncludeTotalStudents enum value ("total_students")
-    CoursesListYourCoursesIncludeTotalStudents CoursesListYourCoursesInclude = "total_students"
-    // CoursesListYourCoursesIncludePassbackStatus enum value ("passback_status")
-    CoursesListYourCoursesIncludePassbackStatus CoursesListYourCoursesInclude = "passback_status"
-    // CoursesListYourCoursesIncludeFavorites enum value ("favorites")
-    CoursesListYourCoursesIncludeFavorites CoursesListYourCoursesInclude = "favorites"
-    // CoursesListYourCoursesIncludeTeachers enum value ("teachers")
-    CoursesListYourCoursesIncludeTeachers CoursesListYourCoursesInclude = "teachers"
-    // CoursesListYourCoursesIncludeObservedUsers enum value ("observed_users")
-    CoursesListYourCoursesIncludeObservedUsers CoursesListYourCoursesInclude = "observed_users"
-    // CoursesListYourCoursesIncludeCourseImage enum value ("course_image")
-    CoursesListYourCoursesIncludeCourseImage CoursesListYourCoursesInclude = "course_image"
-    // CoursesListYourCoursesIncludeConcluded enum value ("concluded")
-    CoursesListYourCoursesIncludeConcluded CoursesListYourCoursesInclude = "concluded"
+	// CoursesListYourCoursesIncludeNeedsGradingCount enum value ("needs_grading_count")
+	CoursesListYourCoursesIncludeNeedsGradingCount CoursesListYourCoursesInclude = "needs_grading_count"
+	// CoursesListYourCoursesIncludeSyllabusBody enum value ("syllabus_body")
+	CoursesListYourCoursesIncludeSyllabusBody CoursesListYourCoursesInclude = "syllabus_body"
+	// CoursesListYourCoursesIncludePublicDescription enum value ("public_description")
+	CoursesListYourCoursesIncludePublicDescription CoursesListYourCoursesInclude = "public_description"
+	// CoursesListYourCoursesIncludeTotalScores enum value ("total_scores")
+	CoursesListYourCoursesIncludeTotalScores CoursesListYourCoursesInclude = "total_scores"
+	// CoursesListYourCoursesIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
+	CoursesListYourCoursesIncludeCurrentGradingPeriodScores CoursesListYourCoursesInclude = "current_grading_period_scores"
+	// CoursesListYourCoursesIncludeTerm enum value ("term")
+	CoursesListYourCoursesIncludeTerm CoursesListYourCoursesInclude = "term"
+	// CoursesListYourCoursesIncludeAccount enum value ("account")
+	CoursesListYourCoursesIncludeAccount CoursesListYourCoursesInclude = "account"
+	// CoursesListYourCoursesIncludeCourseProgress enum value ("course_progress")
+	CoursesListYourCoursesIncludeCourseProgress CoursesListYourCoursesInclude = "course_progress"
+	// CoursesListYourCoursesIncludeSections enum value ("sections")
+	CoursesListYourCoursesIncludeSections CoursesListYourCoursesInclude = "sections"
+	// CoursesListYourCoursesIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
+	CoursesListYourCoursesIncludeStorageQuotaUsedMb CoursesListYourCoursesInclude = "storage_quota_used_mb"
+	// CoursesListYourCoursesIncludeTotalStudents enum value ("total_students")
+	CoursesListYourCoursesIncludeTotalStudents CoursesListYourCoursesInclude = "total_students"
+	// CoursesListYourCoursesIncludePassbackStatus enum value ("passback_status")
+	CoursesListYourCoursesIncludePassbackStatus CoursesListYourCoursesInclude = "passback_status"
+	// CoursesListYourCoursesIncludeFavorites enum value ("favorites")
+	CoursesListYourCoursesIncludeFavorites CoursesListYourCoursesInclude = "favorites"
+	// CoursesListYourCoursesIncludeTeachers enum value ("teachers")
+	CoursesListYourCoursesIncludeTeachers CoursesListYourCoursesInclude = "teachers"
+	// CoursesListYourCoursesIncludeObservedUsers enum value ("observed_users")
+	CoursesListYourCoursesIncludeObservedUsers CoursesListYourCoursesInclude = "observed_users"
+	// CoursesListYourCoursesIncludeCourseImage enum value ("course_image")
+	CoursesListYourCoursesIncludeCourseImage CoursesListYourCoursesInclude = "course_image"
+	// CoursesListYourCoursesIncludeConcluded enum value ("concluded")
+	CoursesListYourCoursesIncludeConcluded CoursesListYourCoursesInclude = "concluded"
 )
 
 // CoursesListYourCoursesState enumeration
 type CoursesListYourCoursesState string
 
 const (
-    // CoursesListYourCoursesStateUnpublished enum value ("unpublished")
-    CoursesListYourCoursesStateUnpublished CoursesListYourCoursesState = "unpublished"
-    // CoursesListYourCoursesStateAvailable enum value ("available")
-    CoursesListYourCoursesStateAvailable CoursesListYourCoursesState = "available"
-    // CoursesListYourCoursesStateCompleted enum value ("completed")
-    CoursesListYourCoursesStateCompleted CoursesListYourCoursesState = "completed"
-    // CoursesListYourCoursesStateDeleted enum value ("deleted")
-    CoursesListYourCoursesStateDeleted CoursesListYourCoursesState = "deleted"
+	// CoursesListYourCoursesStateUnpublished enum value ("unpublished")
+	CoursesListYourCoursesStateUnpublished CoursesListYourCoursesState = "unpublished"
+	// CoursesListYourCoursesStateAvailable enum value ("available")
+	CoursesListYourCoursesStateAvailable CoursesListYourCoursesState = "available"
+	// CoursesListYourCoursesStateCompleted enum value ("completed")
+	CoursesListYourCoursesStateCompleted CoursesListYourCoursesState = "completed"
+	// CoursesListYourCoursesStateDeleted enum value ("deleted")
+	CoursesListYourCoursesStateDeleted CoursesListYourCoursesState = "deleted"
 )
 
 // CoursesListCoursesForAUserInclude enumeration
 type CoursesListCoursesForAUserInclude string
 
 const (
-    // CoursesListCoursesForAUserIncludeNeedsGradingCount enum value ("needs_grading_count")
-    CoursesListCoursesForAUserIncludeNeedsGradingCount CoursesListCoursesForAUserInclude = "needs_grading_count"
-    // CoursesListCoursesForAUserIncludeSyllabusBody enum value ("syllabus_body")
-    CoursesListCoursesForAUserIncludeSyllabusBody CoursesListCoursesForAUserInclude = "syllabus_body"
-    // CoursesListCoursesForAUserIncludePublicDescription enum value ("public_description")
-    CoursesListCoursesForAUserIncludePublicDescription CoursesListCoursesForAUserInclude = "public_description"
-    // CoursesListCoursesForAUserIncludeTotalScores enum value ("total_scores")
-    CoursesListCoursesForAUserIncludeTotalScores CoursesListCoursesForAUserInclude = "total_scores"
-    // CoursesListCoursesForAUserIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
-    CoursesListCoursesForAUserIncludeCurrentGradingPeriodScores CoursesListCoursesForAUserInclude = "current_grading_period_scores"
-    // CoursesListCoursesForAUserIncludeTerm enum value ("term")
-    CoursesListCoursesForAUserIncludeTerm CoursesListCoursesForAUserInclude = "term"
-    // CoursesListCoursesForAUserIncludeAccount enum value ("account")
-    CoursesListCoursesForAUserIncludeAccount CoursesListCoursesForAUserInclude = "account"
-    // CoursesListCoursesForAUserIncludeCourseProgress enum value ("course_progress")
-    CoursesListCoursesForAUserIncludeCourseProgress CoursesListCoursesForAUserInclude = "course_progress"
-    // CoursesListCoursesForAUserIncludeSections enum value ("sections")
-    CoursesListCoursesForAUserIncludeSections CoursesListCoursesForAUserInclude = "sections"
-    // CoursesListCoursesForAUserIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
-    CoursesListCoursesForAUserIncludeStorageQuotaUsedMb CoursesListCoursesForAUserInclude = "storage_quota_used_mb"
-    // CoursesListCoursesForAUserIncludeTotalStudents enum value ("total_students")
-    CoursesListCoursesForAUserIncludeTotalStudents CoursesListCoursesForAUserInclude = "total_students"
-    // CoursesListCoursesForAUserIncludePassbackStatus enum value ("passback_status")
-    CoursesListCoursesForAUserIncludePassbackStatus CoursesListCoursesForAUserInclude = "passback_status"
-    // CoursesListCoursesForAUserIncludeFavorites enum value ("favorites")
-    CoursesListCoursesForAUserIncludeFavorites CoursesListCoursesForAUserInclude = "favorites"
-    // CoursesListCoursesForAUserIncludeTeachers enum value ("teachers")
-    CoursesListCoursesForAUserIncludeTeachers CoursesListCoursesForAUserInclude = "teachers"
-    // CoursesListCoursesForAUserIncludeObservedUsers enum value ("observed_users")
-    CoursesListCoursesForAUserIncludeObservedUsers CoursesListCoursesForAUserInclude = "observed_users"
-    // CoursesListCoursesForAUserIncludeCourseImage enum value ("course_image")
-    CoursesListCoursesForAUserIncludeCourseImage CoursesListCoursesForAUserInclude = "course_image"
-    // CoursesListCoursesForAUserIncludeConcluded enum value ("concluded")
-    CoursesListCoursesForAUserIncludeConcluded CoursesListCoursesForAUserInclude = "concluded"
+	// CoursesListCoursesForAUserIncludeNeedsGradingCount enum value ("needs_grading_count")
+	CoursesListCoursesForAUserIncludeNeedsGradingCount CoursesListCoursesForAUserInclude = "needs_grading_count"
+	// CoursesListCoursesForAUserIncludeSyllabusBody enum value ("syllabus_body")
+	CoursesListCoursesForAUserIncludeSyllabusBody CoursesListCoursesForAUserInclude = "syllabus_body"
+	// CoursesListCoursesForAUserIncludePublicDescription enum value ("public_description")
+	CoursesListCoursesForAUserIncludePublicDescription CoursesListCoursesForAUserInclude = "public_description"
+	// CoursesListCoursesForAUserIncludeTotalScores enum value ("total_scores")
+	CoursesListCoursesForAUserIncludeTotalScores CoursesListCoursesForAUserInclude = "total_scores"
+	// CoursesListCoursesForAUserIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
+	CoursesListCoursesForAUserIncludeCurrentGradingPeriodScores CoursesListCoursesForAUserInclude = "current_grading_period_scores"
+	// CoursesListCoursesForAUserIncludeTerm enum value ("term")
+	CoursesListCoursesForAUserIncludeTerm CoursesListCoursesForAUserInclude = "term"
+	// CoursesListCoursesForAUserIncludeAccount enum value ("account")
+	CoursesListCoursesForAUserIncludeAccount CoursesListCoursesForAUserInclude = "account"
+	// CoursesListCoursesForAUserIncludeCourseProgress enum value ("course_progress")
+	CoursesListCoursesForAUserIncludeCourseProgress CoursesListCoursesForAUserInclude = "course_progress"
+	// CoursesListCoursesForAUserIncludeSections enum value ("sections")
+	CoursesListCoursesForAUserIncludeSections CoursesListCoursesForAUserInclude = "sections"
+	// CoursesListCoursesForAUserIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
+	CoursesListCoursesForAUserIncludeStorageQuotaUsedMb CoursesListCoursesForAUserInclude = "storage_quota_used_mb"
+	// CoursesListCoursesForAUserIncludeTotalStudents enum value ("total_students")
+	CoursesListCoursesForAUserIncludeTotalStudents CoursesListCoursesForAUserInclude = "total_students"
+	// CoursesListCoursesForAUserIncludePassbackStatus enum value ("passback_status")
+	CoursesListCoursesForAUserIncludePassbackStatus CoursesListCoursesForAUserInclude = "passback_status"
+	// CoursesListCoursesForAUserIncludeFavorites enum value ("favorites")
+	CoursesListCoursesForAUserIncludeFavorites CoursesListCoursesForAUserInclude = "favorites"
+	// CoursesListCoursesForAUserIncludeTeachers enum value ("teachers")
+	CoursesListCoursesForAUserIncludeTeachers CoursesListCoursesForAUserInclude = "teachers"
+	// CoursesListCoursesForAUserIncludeObservedUsers enum value ("observed_users")
+	CoursesListCoursesForAUserIncludeObservedUsers CoursesListCoursesForAUserInclude = "observed_users"
+	// CoursesListCoursesForAUserIncludeCourseImage enum value ("course_image")
+	CoursesListCoursesForAUserIncludeCourseImage CoursesListCoursesForAUserInclude = "course_image"
+	// CoursesListCoursesForAUserIncludeConcluded enum value ("concluded")
+	CoursesListCoursesForAUserIncludeConcluded CoursesListCoursesForAUserInclude = "concluded"
 )
 
 // CoursesListCoursesForAUserState enumeration
 type CoursesListCoursesForAUserState string
 
 const (
-    // CoursesListCoursesForAUserStateUnpublished enum value ("unpublished")
-    CoursesListCoursesForAUserStateUnpublished CoursesListCoursesForAUserState = "unpublished"
-    // CoursesListCoursesForAUserStateAvailable enum value ("available")
-    CoursesListCoursesForAUserStateAvailable CoursesListCoursesForAUserState = "available"
-    // CoursesListCoursesForAUserStateCompleted enum value ("completed")
-    CoursesListCoursesForAUserStateCompleted CoursesListCoursesForAUserState = "completed"
-    // CoursesListCoursesForAUserStateDeleted enum value ("deleted")
-    CoursesListCoursesForAUserStateDeleted CoursesListCoursesForAUserState = "deleted"
+	// CoursesListCoursesForAUserStateUnpublished enum value ("unpublished")
+	CoursesListCoursesForAUserStateUnpublished CoursesListCoursesForAUserState = "unpublished"
+	// CoursesListCoursesForAUserStateAvailable enum value ("available")
+	CoursesListCoursesForAUserStateAvailable CoursesListCoursesForAUserState = "available"
+	// CoursesListCoursesForAUserStateCompleted enum value ("completed")
+	CoursesListCoursesForAUserStateCompleted CoursesListCoursesForAUserState = "completed"
+	// CoursesListCoursesForAUserStateDeleted enum value ("deleted")
+	CoursesListCoursesForAUserStateDeleted CoursesListCoursesForAUserState = "deleted"
 )
 
 // CoursesListCoursesForAUserEnrollmentState enumeration
 type CoursesListCoursesForAUserEnrollmentState string
 
 const (
-    // CoursesListCoursesForAUserEnrollmentStateActive enum value ("active")
-    CoursesListCoursesForAUserEnrollmentStateActive CoursesListCoursesForAUserEnrollmentState = "active"
-    // CoursesListCoursesForAUserEnrollmentStateInvitedOrPending enum value ("invited_or_pending")
-    CoursesListCoursesForAUserEnrollmentStateInvitedOrPending CoursesListCoursesForAUserEnrollmentState = "invited_or_pending"
-    // CoursesListCoursesForAUserEnrollmentStateCompleted enum value ("completed")
-    CoursesListCoursesForAUserEnrollmentStateCompleted CoursesListCoursesForAUserEnrollmentState = "completed"
+	// CoursesListCoursesForAUserEnrollmentStateActive enum value ("active")
+	CoursesListCoursesForAUserEnrollmentStateActive CoursesListCoursesForAUserEnrollmentState = "active"
+	// CoursesListCoursesForAUserEnrollmentStateInvitedOrPending enum value ("invited_or_pending")
+	CoursesListCoursesForAUserEnrollmentStateInvitedOrPending CoursesListCoursesForAUserEnrollmentState = "invited_or_pending"
+	// CoursesListCoursesForAUserEnrollmentStateCompleted enum value ("completed")
+	CoursesListCoursesForAUserEnrollmentStateCompleted CoursesListCoursesForAUserEnrollmentState = "completed"
 )
 
 // CoursesListUsersInCourseSort enumeration
 type CoursesListUsersInCourseSort string
 
 const (
-    // CoursesListUsersInCourseSortUsername enum value ("username")
-    CoursesListUsersInCourseSortUsername CoursesListUsersInCourseSort = "username"
-    // CoursesListUsersInCourseSortLastLogin enum value ("last_login")
-    CoursesListUsersInCourseSortLastLogin CoursesListUsersInCourseSort = "last_login"
-    // CoursesListUsersInCourseSortEmail enum value ("email")
-    CoursesListUsersInCourseSortEmail CoursesListUsersInCourseSort = "email"
-    // CoursesListUsersInCourseSortSisID enum value ("sis_id")
-    CoursesListUsersInCourseSortSisID CoursesListUsersInCourseSort = "sis_id"
+	// CoursesListUsersInCourseSortUsername enum value ("username")
+	CoursesListUsersInCourseSortUsername CoursesListUsersInCourseSort = "username"
+	// CoursesListUsersInCourseSortLastLogin enum value ("last_login")
+	CoursesListUsersInCourseSortLastLogin CoursesListUsersInCourseSort = "last_login"
+	// CoursesListUsersInCourseSortEmail enum value ("email")
+	CoursesListUsersInCourseSortEmail CoursesListUsersInCourseSort = "email"
+	// CoursesListUsersInCourseSortSisID enum value ("sis_id")
+	CoursesListUsersInCourseSortSisID CoursesListUsersInCourseSort = "sis_id"
 )
 
 // CoursesListUsersInCourseEnrollmentType enumeration
 type CoursesListUsersInCourseEnrollmentType string
 
 const (
-    // CoursesListUsersInCourseEnrollmentTypeTeacher enum value ("teacher")
-    CoursesListUsersInCourseEnrollmentTypeTeacher CoursesListUsersInCourseEnrollmentType = "teacher"
-    // CoursesListUsersInCourseEnrollmentTypeStudent enum value ("student")
-    CoursesListUsersInCourseEnrollmentTypeStudent CoursesListUsersInCourseEnrollmentType = "student"
-    // CoursesListUsersInCourseEnrollmentTypeStudentView enum value ("student_view")
-    CoursesListUsersInCourseEnrollmentTypeStudentView CoursesListUsersInCourseEnrollmentType = "student_view"
-    // CoursesListUsersInCourseEnrollmentTypeTa enum value ("ta")
-    CoursesListUsersInCourseEnrollmentTypeTa CoursesListUsersInCourseEnrollmentType = "ta"
-    // CoursesListUsersInCourseEnrollmentTypeObserver enum value ("observer")
-    CoursesListUsersInCourseEnrollmentTypeObserver CoursesListUsersInCourseEnrollmentType = "observer"
-    // CoursesListUsersInCourseEnrollmentTypeDesigner enum value ("designer")
-    CoursesListUsersInCourseEnrollmentTypeDesigner CoursesListUsersInCourseEnrollmentType = "designer"
+	// CoursesListUsersInCourseEnrollmentTypeTeacher enum value ("teacher")
+	CoursesListUsersInCourseEnrollmentTypeTeacher CoursesListUsersInCourseEnrollmentType = "teacher"
+	// CoursesListUsersInCourseEnrollmentTypeStudent enum value ("student")
+	CoursesListUsersInCourseEnrollmentTypeStudent CoursesListUsersInCourseEnrollmentType = "student"
+	// CoursesListUsersInCourseEnrollmentTypeStudentView enum value ("student_view")
+	CoursesListUsersInCourseEnrollmentTypeStudentView CoursesListUsersInCourseEnrollmentType = "student_view"
+	// CoursesListUsersInCourseEnrollmentTypeTa enum value ("ta")
+	CoursesListUsersInCourseEnrollmentTypeTa CoursesListUsersInCourseEnrollmentType = "ta"
+	// CoursesListUsersInCourseEnrollmentTypeObserver enum value ("observer")
+	CoursesListUsersInCourseEnrollmentTypeObserver CoursesListUsersInCourseEnrollmentType = "observer"
+	// CoursesListUsersInCourseEnrollmentTypeDesigner enum value ("designer")
+	CoursesListUsersInCourseEnrollmentTypeDesigner CoursesListUsersInCourseEnrollmentType = "designer"
 )
 
 // CoursesListUsersInCourseInclude enumeration
 type CoursesListUsersInCourseInclude string
 
 const (
-    // CoursesListUsersInCourseIncludeEnrollments enum value ("enrollments")
-    CoursesListUsersInCourseIncludeEnrollments CoursesListUsersInCourseInclude = "enrollments"
-    // CoursesListUsersInCourseIncludeLocked enum value ("locked")
-    CoursesListUsersInCourseIncludeLocked CoursesListUsersInCourseInclude = "locked"
-    // CoursesListUsersInCourseIncludeAvatarURL enum value ("avatar_url")
-    CoursesListUsersInCourseIncludeAvatarURL CoursesListUsersInCourseInclude = "avatar_url"
-    // CoursesListUsersInCourseIncludeTestStudent enum value ("test_student")
-    CoursesListUsersInCourseIncludeTestStudent CoursesListUsersInCourseInclude = "test_student"
-    // CoursesListUsersInCourseIncludeBio enum value ("bio")
-    CoursesListUsersInCourseIncludeBio CoursesListUsersInCourseInclude = "bio"
-    // CoursesListUsersInCourseIncludeCustomLinks enum value ("custom_links")
-    CoursesListUsersInCourseIncludeCustomLinks CoursesListUsersInCourseInclude = "custom_links"
-    // CoursesListUsersInCourseIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
-    CoursesListUsersInCourseIncludeCurrentGradingPeriodScores CoursesListUsersInCourseInclude = "current_grading_period_scores"
-    // CoursesListUsersInCourseIncludeUUID enum value ("uuid")
-    CoursesListUsersInCourseIncludeUUID CoursesListUsersInCourseInclude = "uuid"
+	// CoursesListUsersInCourseIncludeEnrollments enum value ("enrollments")
+	CoursesListUsersInCourseIncludeEnrollments CoursesListUsersInCourseInclude = "enrollments"
+	// CoursesListUsersInCourseIncludeLocked enum value ("locked")
+	CoursesListUsersInCourseIncludeLocked CoursesListUsersInCourseInclude = "locked"
+	// CoursesListUsersInCourseIncludeAvatarURL enum value ("avatar_url")
+	CoursesListUsersInCourseIncludeAvatarURL CoursesListUsersInCourseInclude = "avatar_url"
+	// CoursesListUsersInCourseIncludeTestStudent enum value ("test_student")
+	CoursesListUsersInCourseIncludeTestStudent CoursesListUsersInCourseInclude = "test_student"
+	// CoursesListUsersInCourseIncludeBio enum value ("bio")
+	CoursesListUsersInCourseIncludeBio CoursesListUsersInCourseInclude = "bio"
+	// CoursesListUsersInCourseIncludeCustomLinks enum value ("custom_links")
+	CoursesListUsersInCourseIncludeCustomLinks CoursesListUsersInCourseInclude = "custom_links"
+	// CoursesListUsersInCourseIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
+	CoursesListUsersInCourseIncludeCurrentGradingPeriodScores CoursesListUsersInCourseInclude = "current_grading_period_scores"
+	// CoursesListUsersInCourseIncludeUUID enum value ("uuid")
+	CoursesListUsersInCourseIncludeUUID CoursesListUsersInCourseInclude = "uuid"
 )
 
 // CoursesListUsersInCourseEnrollmentState enumeration
 type CoursesListUsersInCourseEnrollmentState string
 
 const (
-    // CoursesListUsersInCourseEnrollmentStateActive enum value ("active")
-    CoursesListUsersInCourseEnrollmentStateActive CoursesListUsersInCourseEnrollmentState = "active"
-    // CoursesListUsersInCourseEnrollmentStateInvited enum value ("invited")
-    CoursesListUsersInCourseEnrollmentStateInvited CoursesListUsersInCourseEnrollmentState = "invited"
-    // CoursesListUsersInCourseEnrollmentStateRejected enum value ("rejected")
-    CoursesListUsersInCourseEnrollmentStateRejected CoursesListUsersInCourseEnrollmentState = "rejected"
-    // CoursesListUsersInCourseEnrollmentStateCompleted enum value ("completed")
-    CoursesListUsersInCourseEnrollmentStateCompleted CoursesListUsersInCourseEnrollmentState = "completed"
-    // CoursesListUsersInCourseEnrollmentStateInactive enum value ("inactive")
-    CoursesListUsersInCourseEnrollmentStateInactive CoursesListUsersInCourseEnrollmentState = "inactive"
+	// CoursesListUsersInCourseEnrollmentStateActive enum value ("active")
+	CoursesListUsersInCourseEnrollmentStateActive CoursesListUsersInCourseEnrollmentState = "active"
+	// CoursesListUsersInCourseEnrollmentStateInvited enum value ("invited")
+	CoursesListUsersInCourseEnrollmentStateInvited CoursesListUsersInCourseEnrollmentState = "invited"
+	// CoursesListUsersInCourseEnrollmentStateRejected enum value ("rejected")
+	CoursesListUsersInCourseEnrollmentStateRejected CoursesListUsersInCourseEnrollmentState = "rejected"
+	// CoursesListUsersInCourseEnrollmentStateCompleted enum value ("completed")
+	CoursesListUsersInCourseEnrollmentStateCompleted CoursesListUsersInCourseEnrollmentState = "completed"
+	// CoursesListUsersInCourseEnrollmentStateInactive enum value ("inactive")
+	CoursesListUsersInCourseEnrollmentStateInactive CoursesListUsersInCourseEnrollmentState = "inactive"
 )
 
 // CoursesDeleteConcludeACourseEvent enumeration
 type CoursesDeleteConcludeACourseEvent string
 
 const (
-    // CoursesDeleteConcludeACourseEventDelete enum value ("delete")
-    CoursesDeleteConcludeACourseEventDelete CoursesDeleteConcludeACourseEvent = "delete"
-    // CoursesDeleteConcludeACourseEventConclude enum value ("conclude")
-    CoursesDeleteConcludeACourseEventConclude CoursesDeleteConcludeACourseEvent = "conclude"
+	// CoursesDeleteConcludeACourseEventDelete enum value ("delete")
+	CoursesDeleteConcludeACourseEventDelete CoursesDeleteConcludeACourseEvent = "delete"
+	// CoursesDeleteConcludeACourseEventConclude enum value ("conclude")
+	CoursesDeleteConcludeACourseEventConclude CoursesDeleteConcludeACourseEvent = "conclude"
 )
 
 // CoursesGetASingleCourseInclude enumeration
 type CoursesGetASingleCourseInclude string
 
 const (
-    // CoursesGetASingleCourseIncludeNeedsGradingCount enum value ("needs_grading_count")
-    CoursesGetASingleCourseIncludeNeedsGradingCount CoursesGetASingleCourseInclude = "needs_grading_count"
-    // CoursesGetASingleCourseIncludeSyllabusBody enum value ("syllabus_body")
-    CoursesGetASingleCourseIncludeSyllabusBody CoursesGetASingleCourseInclude = "syllabus_body"
-    // CoursesGetASingleCourseIncludePublicDescription enum value ("public_description")
-    CoursesGetASingleCourseIncludePublicDescription CoursesGetASingleCourseInclude = "public_description"
-    // CoursesGetASingleCourseIncludeTotalScores enum value ("total_scores")
-    CoursesGetASingleCourseIncludeTotalScores CoursesGetASingleCourseInclude = "total_scores"
-    // CoursesGetASingleCourseIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
-    CoursesGetASingleCourseIncludeCurrentGradingPeriodScores CoursesGetASingleCourseInclude = "current_grading_period_scores"
-    // CoursesGetASingleCourseIncludeTerm enum value ("term")
-    CoursesGetASingleCourseIncludeTerm CoursesGetASingleCourseInclude = "term"
-    // CoursesGetASingleCourseIncludeAccount enum value ("account")
-    CoursesGetASingleCourseIncludeAccount CoursesGetASingleCourseInclude = "account"
-    // CoursesGetASingleCourseIncludeCourseProgress enum value ("course_progress")
-    CoursesGetASingleCourseIncludeCourseProgress CoursesGetASingleCourseInclude = "course_progress"
-    // CoursesGetASingleCourseIncludeSections enum value ("sections")
-    CoursesGetASingleCourseIncludeSections CoursesGetASingleCourseInclude = "sections"
-    // CoursesGetASingleCourseIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
-    CoursesGetASingleCourseIncludeStorageQuotaUsedMb CoursesGetASingleCourseInclude = "storage_quota_used_mb"
-    // CoursesGetASingleCourseIncludeTotalStudents enum value ("total_students")
-    CoursesGetASingleCourseIncludeTotalStudents CoursesGetASingleCourseInclude = "total_students"
-    // CoursesGetASingleCourseIncludePassbackStatus enum value ("passback_status")
-    CoursesGetASingleCourseIncludePassbackStatus CoursesGetASingleCourseInclude = "passback_status"
-    // CoursesGetASingleCourseIncludeFavorites enum value ("favorites")
-    CoursesGetASingleCourseIncludeFavorites CoursesGetASingleCourseInclude = "favorites"
-    // CoursesGetASingleCourseIncludeTeachers enum value ("teachers")
-    CoursesGetASingleCourseIncludeTeachers CoursesGetASingleCourseInclude = "teachers"
-    // CoursesGetASingleCourseIncludeAllCourses enum value ("all_courses")
-    CoursesGetASingleCourseIncludeAllCourses CoursesGetASingleCourseInclude = "all_courses"
-    // CoursesGetASingleCourseIncludePermissions enum value ("permissions")
-    CoursesGetASingleCourseIncludePermissions CoursesGetASingleCourseInclude = "permissions"
-    // CoursesGetASingleCourseIncludeObservedUsers enum value ("observed_users")
-    CoursesGetASingleCourseIncludeObservedUsers CoursesGetASingleCourseInclude = "observed_users"
-    // CoursesGetASingleCourseIncludeCourseImage enum value ("course_image")
-    CoursesGetASingleCourseIncludeCourseImage CoursesGetASingleCourseInclude = "course_image"
-    // CoursesGetASingleCourseIncludeConcluded enum value ("concluded")
-    CoursesGetASingleCourseIncludeConcluded CoursesGetASingleCourseInclude = "concluded"
+	// CoursesGetASingleCourseIncludeNeedsGradingCount enum value ("needs_grading_count")
+	CoursesGetASingleCourseIncludeNeedsGradingCount CoursesGetASingleCourseInclude = "needs_grading_count"
+	// CoursesGetASingleCourseIncludeSyllabusBody enum value ("syllabus_body")
+	CoursesGetASingleCourseIncludeSyllabusBody CoursesGetASingleCourseInclude = "syllabus_body"
+	// CoursesGetASingleCourseIncludePublicDescription enum value ("public_description")
+	CoursesGetASingleCourseIncludePublicDescription CoursesGetASingleCourseInclude = "public_description"
+	// CoursesGetASingleCourseIncludeTotalScores enum value ("total_scores")
+	CoursesGetASingleCourseIncludeTotalScores CoursesGetASingleCourseInclude = "total_scores"
+	// CoursesGetASingleCourseIncludeCurrentGradingPeriodScores enum value ("current_grading_period_scores")
+	CoursesGetASingleCourseIncludeCurrentGradingPeriodScores CoursesGetASingleCourseInclude = "current_grading_period_scores"
+	// CoursesGetASingleCourseIncludeTerm enum value ("term")
+	CoursesGetASingleCourseIncludeTerm CoursesGetASingleCourseInclude = "term"
+	// CoursesGetASingleCourseIncludeAccount enum value ("account")
+	CoursesGetASingleCourseIncludeAccount CoursesGetASingleCourseInclude = "account"
+	// CoursesGetASingleCourseIncludeCourseProgress enum value ("course_progress")
+	CoursesGetASingleCourseIncludeCourseProgress CoursesGetASingleCourseInclude = "course_progress"
+	// CoursesGetASingleCourseIncludeSections enum value ("sections")
+	CoursesGetASingleCourseIncludeSections CoursesGetASingleCourseInclude = "sections"
+	// CoursesGetASingleCourseIncludeStorageQuotaUsedMb enum value ("storage_quota_used_mb")
+	CoursesGetASingleCourseIncludeStorageQuotaUsedMb CoursesGetASingleCourseInclude = "storage_quota_used_mb"
+	// CoursesGetASingleCourseIncludeTotalStudents enum value ("total_students")
+	CoursesGetASingleCourseIncludeTotalStudents CoursesGetASingleCourseInclude = "total_students"
+	// CoursesGetASingleCourseIncludePassbackStatus enum value ("passback_status")
+	CoursesGetASingleCourseIncludePassbackStatus CoursesGetASingleCourseInclude = "passback_status"
+	// CoursesGetASingleCourseIncludeFavorites enum value ("favorites")
+	CoursesGetASingleCourseIncludeFavorites CoursesGetASingleCourseInclude = "favorites"
+	// CoursesGetASingleCourseIncludeTeachers enum value ("teachers")
+	CoursesGetASingleCourseIncludeTeachers CoursesGetASingleCourseInclude = "teachers"
+	// CoursesGetASingleCourseIncludeAllCourses enum value ("all_courses")
+	CoursesGetASingleCourseIncludeAllCourses CoursesGetASingleCourseInclude = "all_courses"
+	// CoursesGetASingleCourseIncludePermissions enum value ("permissions")
+	CoursesGetASingleCourseIncludePermissions CoursesGetASingleCourseInclude = "permissions"
+	// CoursesGetASingleCourseIncludeObservedUsers enum value ("observed_users")
+	CoursesGetASingleCourseIncludeObservedUsers CoursesGetASingleCourseInclude = "observed_users"
+	// CoursesGetASingleCourseIncludeCourseImage enum value ("course_image")
+	CoursesGetASingleCourseIncludeCourseImage CoursesGetASingleCourseInclude = "course_image"
+	// CoursesGetASingleCourseIncludeConcluded enum value ("concluded")
+	CoursesGetASingleCourseIncludeConcluded CoursesGetASingleCourseInclude = "concluded"
 )
 
 // CoursesUpdateCoursesEvent enumeration
 type CoursesUpdateCoursesEvent string
 
 const (
-    // CoursesUpdateCoursesEventOffer enum value ("offer")
-    CoursesUpdateCoursesEventOffer CoursesUpdateCoursesEvent = "offer"
-    // CoursesUpdateCoursesEventConclude enum value ("conclude")
-    CoursesUpdateCoursesEventConclude CoursesUpdateCoursesEvent = "conclude"
-    // CoursesUpdateCoursesEventDelete enum value ("delete")
-    CoursesUpdateCoursesEventDelete CoursesUpdateCoursesEvent = "delete"
-    // CoursesUpdateCoursesEventUndelete enum value ("undelete")
-    CoursesUpdateCoursesEventUndelete CoursesUpdateCoursesEvent = "undelete"
+	// CoursesUpdateCoursesEventOffer enum value ("offer")
+	CoursesUpdateCoursesEventOffer CoursesUpdateCoursesEvent = "offer"
+	// CoursesUpdateCoursesEventConclude enum value ("conclude")
+	CoursesUpdateCoursesEventConclude CoursesUpdateCoursesEvent = "conclude"
+	// CoursesUpdateCoursesEventDelete enum value ("delete")
+	CoursesUpdateCoursesEventDelete CoursesUpdateCoursesEvent = "delete"
+	// CoursesUpdateCoursesEventUndelete enum value ("undelete")
+	CoursesUpdateCoursesEventUndelete CoursesUpdateCoursesEvent = "undelete"
 )
 
 // ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus enumeration
 type ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus string
 
 const (
-    // ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusEnabled enum value ("enabled")
-    ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusEnabled ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "enabled"
-    // ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusDisabled enum value ("disabled")
-    ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusDisabled ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "disabled"
-    // ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusInherited enum value ("inherited")
-    ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusInherited ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "inherited"
+	// ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusEnabled enum value ("enabled")
+	ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusEnabled ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "enabled"
+	// ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusDisabled enum value ("disabled")
+	ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusDisabled ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "disabled"
+	// ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusInherited enum value ("inherited")
+	ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatusInherited ContentSecurityPolicySettingsEnableDisableOrClearExplicitCSPSettingStatus = "inherited"
+)
+
+// DiscussionTopicsGetASingleTopicInclude enumeration
+type DiscussionTopicsGetASingleTopicInclude string
+
+const (
+	// DiscussionTopicsGetASingleTopicIncludeOverrides enum value ("overrides")
+	DiscussionTopicsGetASingleTopicIncludeOverrides DiscussionTopicsGetASingleTopicInclude = "overrides"
 )
 
 // DiscussionTopicsListDiscussionTopicsInclude enumeration
 type DiscussionTopicsListDiscussionTopicsInclude string
 
 const (
-    // DiscussionTopicsListDiscussionTopicsIncludeOverrides enum value ("overrides")
-    DiscussionTopicsListDiscussionTopicsIncludeOverrides DiscussionTopicsListDiscussionTopicsInclude = "overrides"
+	// DiscussionTopicsListDiscussionTopicsIncludeOverrides enum value ("overrides")
+	DiscussionTopicsListDiscussionTopicsIncludeOverrides DiscussionTopicsListDiscussionTopicsInclude = "overrides"
 )
 
 // DiscussionTopicsListDiscussionTopicsOrderBy enumeration
 type DiscussionTopicsListDiscussionTopicsOrderBy string
 
 const (
-    // DiscussionTopicsListDiscussionTopicsOrderByPosition enum value ("position")
-    DiscussionTopicsListDiscussionTopicsOrderByPosition DiscussionTopicsListDiscussionTopicsOrderBy = "position"
-    // DiscussionTopicsListDiscussionTopicsOrderByRecentActivity enum value ("recent_activity")
-    DiscussionTopicsListDiscussionTopicsOrderByRecentActivity DiscussionTopicsListDiscussionTopicsOrderBy = "recent_activity"
-    // DiscussionTopicsListDiscussionTopicsOrderByTitle enum value ("title")
-    DiscussionTopicsListDiscussionTopicsOrderByTitle DiscussionTopicsListDiscussionTopicsOrderBy = "title"
+	// DiscussionTopicsListDiscussionTopicsOrderByPosition enum value ("position")
+	DiscussionTopicsListDiscussionTopicsOrderByPosition DiscussionTopicsListDiscussionTopicsOrderBy = "position"
+	// DiscussionTopicsListDiscussionTopicsOrderByRecentActivity enum value ("recent_activity")
+	DiscussionTopicsListDiscussionTopicsOrderByRecentActivity DiscussionTopicsListDiscussionTopicsOrderBy = "recent_activity"
+	// DiscussionTopicsListDiscussionTopicsOrderByTitle enum value ("title")
+	DiscussionTopicsListDiscussionTopicsOrderByTitle DiscussionTopicsListDiscussionTopicsOrderBy = "title"
 )
 
 // DiscussionTopicsListDiscussionTopicsScope enumeration
 type DiscussionTopicsListDiscussionTopicsScope string
 
 const (
-    // DiscussionTopicsListDiscussionTopicsScopeLocked enum value ("locked")
-    DiscussionTopicsListDiscussionTopicsScopeLocked DiscussionTopicsListDiscussionTopicsScope = "locked"
-    // DiscussionTopicsListDiscussionTopicsScopeUnlocked enum value ("unlocked")
-    DiscussionTopicsListDiscussionTopicsScopeUnlocked DiscussionTopicsListDiscussionTopicsScope = "unlocked"
-    // DiscussionTopicsListDiscussionTopicsScopePinned enum value ("pinned")
-    DiscussionTopicsListDiscussionTopicsScopePinned DiscussionTopicsListDiscussionTopicsScope = "pinned"
-    // DiscussionTopicsListDiscussionTopicsScopeUnpinned enum value ("unpinned")
-    DiscussionTopicsListDiscussionTopicsScopeUnpinned DiscussionTopicsListDiscussionTopicsScope = "unpinned"
+	// DiscussionTopicsListDiscussionTopicsScopeLocked enum value ("locked")
+	DiscussionTopicsListDiscussionTopicsScopeLocked DiscussionTopicsListDiscussionTopicsScope = "locked"
+	// DiscussionTopicsListDiscussionTopicsScopeUnlocked enum value ("unlocked")
+	DiscussionTopicsListDiscussionTopicsScopeUnlocked DiscussionTopicsListDiscussionTopicsScope = "unlocked"
+	// DiscussionTopicsListDiscussionTopicsScopePinned enum value ("pinned")
+	DiscussionTopicsListDiscussionTopicsScopePinned DiscussionTopicsListDiscussionTopicsScope = "pinned"
+	// DiscussionTopicsListDiscussionTopicsScopeUnpinned enum value ("unpinned")
+	DiscussionTopicsListDiscussionTopicsScopeUnpinned DiscussionTopicsListDiscussionTopicsScope = "unpinned"
 )
 
 // DiscussionTopicsListDiscussionTopicsFilterBy enumeration
 type DiscussionTopicsListDiscussionTopicsFilterBy string
 
 const (
-    // DiscussionTopicsListDiscussionTopicsFilterByUnread enum value ("unread")
-    DiscussionTopicsListDiscussionTopicsFilterByUnread DiscussionTopicsListDiscussionTopicsFilterBy = "unread"
+	// DiscussionTopicsListDiscussionTopicsFilterByUnread enum value ("unread")
+	DiscussionTopicsListDiscussionTopicsFilterByUnread DiscussionTopicsListDiscussionTopicsFilterBy = "unread"
 )
 
 // DiscussionTopicsCreateANewDiscussionTopicDiscussionType enumeration
 type DiscussionTopicsCreateANewDiscussionTopicDiscussionType string
 
 const (
-    // DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeSideComment enum value ("side_comment")
-    DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeSideComment DiscussionTopicsCreateANewDiscussionTopicDiscussionType = "side_comment"
-    // DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeThreaded enum value ("threaded")
-    DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeThreaded DiscussionTopicsCreateANewDiscussionTopicDiscussionType = "threaded"
+	// DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeSideComment enum value ("side_comment")
+	DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeSideComment DiscussionTopicsCreateANewDiscussionTopicDiscussionType = "side_comment"
+	// DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeThreaded enum value ("threaded")
+	DiscussionTopicsCreateANewDiscussionTopicDiscussionTypeThreaded DiscussionTopicsCreateANewDiscussionTopicDiscussionType = "threaded"
 )
 
 // DiscussionTopicsUpdateATopicDiscussionType enumeration
 type DiscussionTopicsUpdateATopicDiscussionType string
 
 const (
-    // DiscussionTopicsUpdateATopicDiscussionTypeSideComment enum value ("side_comment")
-    DiscussionTopicsUpdateATopicDiscussionTypeSideComment DiscussionTopicsUpdateATopicDiscussionType = "side_comment"
-    // DiscussionTopicsUpdateATopicDiscussionTypeThreaded enum value ("threaded")
-    DiscussionTopicsUpdateATopicDiscussionTypeThreaded DiscussionTopicsUpdateATopicDiscussionType = "threaded"
+	// DiscussionTopicsUpdateATopicDiscussionTypeSideComment enum value ("side_comment")
+	DiscussionTopicsUpdateATopicDiscussionTypeSideComment DiscussionTopicsUpdateATopicDiscussionType = "side_comment"
+	// DiscussionTopicsUpdateATopicDiscussionTypeThreaded enum value ("threaded")
+	DiscussionTopicsUpdateATopicDiscussionTypeThreaded DiscussionTopicsUpdateATopicDiscussionType = "threaded"
 )
 
 // EnrollmentsListEnrollmentsState enumeration
 type EnrollmentsListEnrollmentsState string
 
 const (
-    // EnrollmentsListEnrollmentsStateActive enum value ("active")
-    EnrollmentsListEnrollmentsStateActive EnrollmentsListEnrollmentsState = "active"
-    // EnrollmentsListEnrollmentsStateInvited enum value ("invited")
-    EnrollmentsListEnrollmentsStateInvited EnrollmentsListEnrollmentsState = "invited"
-    // EnrollmentsListEnrollmentsStateCreationPending enum value ("creation_pending")
-    EnrollmentsListEnrollmentsStateCreationPending EnrollmentsListEnrollmentsState = "creation_pending"
-    // EnrollmentsListEnrollmentsStateDeleted enum value ("deleted")
-    EnrollmentsListEnrollmentsStateDeleted EnrollmentsListEnrollmentsState = "deleted"
-    // EnrollmentsListEnrollmentsStateRejected enum value ("rejected")
-    EnrollmentsListEnrollmentsStateRejected EnrollmentsListEnrollmentsState = "rejected"
-    // EnrollmentsListEnrollmentsStateCompleted enum value ("completed")
-    EnrollmentsListEnrollmentsStateCompleted EnrollmentsListEnrollmentsState = "completed"
-    // EnrollmentsListEnrollmentsStateInactive enum value ("inactive")
-    EnrollmentsListEnrollmentsStateInactive EnrollmentsListEnrollmentsState = "inactive"
-    // EnrollmentsListEnrollmentsStateCurrentAndInvited enum value ("current_and_invited")
-    EnrollmentsListEnrollmentsStateCurrentAndInvited EnrollmentsListEnrollmentsState = "current_and_invited"
-    // EnrollmentsListEnrollmentsStateCurrentAndFuture enum value ("current_and_future")
-    EnrollmentsListEnrollmentsStateCurrentAndFuture EnrollmentsListEnrollmentsState = "current_and_future"
-    // EnrollmentsListEnrollmentsStateCurrentAndConcluded enum value ("current_and_concluded")
-    EnrollmentsListEnrollmentsStateCurrentAndConcluded EnrollmentsListEnrollmentsState = "current_and_concluded"
+	// EnrollmentsListEnrollmentsStateActive enum value ("active")
+	EnrollmentsListEnrollmentsStateActive EnrollmentsListEnrollmentsState = "active"
+	// EnrollmentsListEnrollmentsStateInvited enum value ("invited")
+	EnrollmentsListEnrollmentsStateInvited EnrollmentsListEnrollmentsState = "invited"
+	// EnrollmentsListEnrollmentsStateCreationPending enum value ("creation_pending")
+	EnrollmentsListEnrollmentsStateCreationPending EnrollmentsListEnrollmentsState = "creation_pending"
+	// EnrollmentsListEnrollmentsStateDeleted enum value ("deleted")
+	EnrollmentsListEnrollmentsStateDeleted EnrollmentsListEnrollmentsState = "deleted"
+	// EnrollmentsListEnrollmentsStateRejected enum value ("rejected")
+	EnrollmentsListEnrollmentsStateRejected EnrollmentsListEnrollmentsState = "rejected"
+	// EnrollmentsListEnrollmentsStateCompleted enum value ("completed")
+	EnrollmentsListEnrollmentsStateCompleted EnrollmentsListEnrollmentsState = "completed"
+	// EnrollmentsListEnrollmentsStateInactive enum value ("inactive")
+	EnrollmentsListEnrollmentsStateInactive EnrollmentsListEnrollmentsState = "inactive"
+	// EnrollmentsListEnrollmentsStateCurrentAndInvited enum value ("current_and_invited")
+	EnrollmentsListEnrollmentsStateCurrentAndInvited EnrollmentsListEnrollmentsState = "current_and_invited"
+	// EnrollmentsListEnrollmentsStateCurrentAndFuture enum value ("current_and_future")
+	EnrollmentsListEnrollmentsStateCurrentAndFuture EnrollmentsListEnrollmentsState = "current_and_future"
+	// EnrollmentsListEnrollmentsStateCurrentAndConcluded enum value ("current_and_concluded")
+	EnrollmentsListEnrollmentsStateCurrentAndConcluded EnrollmentsListEnrollmentsState = "current_and_concluded"
 )
 
 // EnrollmentsListEnrollmentsInclude enumeration
 type EnrollmentsListEnrollmentsInclude string
 
 const (
-    // EnrollmentsListEnrollmentsIncludeAvatarURL enum value ("avatar_url")
-    EnrollmentsListEnrollmentsIncludeAvatarURL EnrollmentsListEnrollmentsInclude = "avatar_url"
-    // EnrollmentsListEnrollmentsIncludeGroupIds enum value ("group_ids")
-    EnrollmentsListEnrollmentsIncludeGroupIds EnrollmentsListEnrollmentsInclude = "group_ids"
-    // EnrollmentsListEnrollmentsIncludeLocked enum value ("locked")
-    EnrollmentsListEnrollmentsIncludeLocked EnrollmentsListEnrollmentsInclude = "locked"
-    // EnrollmentsListEnrollmentsIncludeObservedUsers enum value ("observed_users")
-    EnrollmentsListEnrollmentsIncludeObservedUsers EnrollmentsListEnrollmentsInclude = "observed_users"
-    // EnrollmentsListEnrollmentsIncludeCanBeRemoved enum value ("can_be_removed")
-    EnrollmentsListEnrollmentsIncludeCanBeRemoved EnrollmentsListEnrollmentsInclude = "can_be_removed"
-    // EnrollmentsListEnrollmentsIncludeUUID enum value ("uuid")
-    EnrollmentsListEnrollmentsIncludeUUID EnrollmentsListEnrollmentsInclude = "uuid"
+	// EnrollmentsListEnrollmentsIncludeAvatarURL enum value ("avatar_url")
+	EnrollmentsListEnrollmentsIncludeAvatarURL EnrollmentsListEnrollmentsInclude = "avatar_url"
+	// EnrollmentsListEnrollmentsIncludeGroupIds enum value ("group_ids")
+	EnrollmentsListEnrollmentsIncludeGroupIds EnrollmentsListEnrollmentsInclude = "group_ids"
+	// EnrollmentsListEnrollmentsIncludeLocked enum value ("locked")
+	EnrollmentsListEnrollmentsIncludeLocked EnrollmentsListEnrollmentsInclude = "locked"
+	// EnrollmentsListEnrollmentsIncludeObservedUsers enum value ("observed_users")
+	EnrollmentsListEnrollmentsIncludeObservedUsers EnrollmentsListEnrollmentsInclude = "observed_users"
+	// EnrollmentsListEnrollmentsIncludeCanBeRemoved enum value ("can_be_removed")
+	EnrollmentsListEnrollmentsIncludeCanBeRemoved EnrollmentsListEnrollmentsInclude = "can_be_removed"
+	// EnrollmentsListEnrollmentsIncludeUUID enum value ("uuid")
+	EnrollmentsListEnrollmentsIncludeUUID EnrollmentsListEnrollmentsInclude = "uuid"
 )
 
 // EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask enumeration
 type EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask string
 
 const (
-    // EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskConclude enum value ("conclude")
-    EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskConclude EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "conclude"
-    // EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDelete enum value ("delete")
-    EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDelete EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "delete"
-    // EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskInactivate enum value ("inactivate")
-    EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskInactivate EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "inactivate"
-    // EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDeactivate enum value ("deactivate")
-    EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDeactivate EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "deactivate"
+	// EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskConclude enum value ("conclude")
+	EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskConclude EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "conclude"
+	// EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDelete enum value ("delete")
+	EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDelete EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "delete"
+	// EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskInactivate enum value ("inactivate")
+	EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskInactivate EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "inactivate"
+	// EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDeactivate enum value ("deactivate")
+	EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTaskDeactivate EnrollmentsConcludeDeactivateOrDeleteAnEnrollmentTask = "deactivate"
 )
 
 // AnnouncementExternalFeedsCreateAnExternalFeedVerbosity enumeration
 type AnnouncementExternalFeedsCreateAnExternalFeedVerbosity string
 
 const (
-    // AnnouncementExternalFeedsCreateAnExternalFeedVerbosityFull enum value ("full")
-    AnnouncementExternalFeedsCreateAnExternalFeedVerbosityFull AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "full"
-    // AnnouncementExternalFeedsCreateAnExternalFeedVerbosityTruncate enum value ("truncate")
-    AnnouncementExternalFeedsCreateAnExternalFeedVerbosityTruncate AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "truncate"
-    // AnnouncementExternalFeedsCreateAnExternalFeedVerbosityLinkOnly enum value ("link_only")
-    AnnouncementExternalFeedsCreateAnExternalFeedVerbosityLinkOnly AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "link_only"
+	// AnnouncementExternalFeedsCreateAnExternalFeedVerbosityFull enum value ("full")
+	AnnouncementExternalFeedsCreateAnExternalFeedVerbosityFull AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "full"
+	// AnnouncementExternalFeedsCreateAnExternalFeedVerbosityTruncate enum value ("truncate")
+	AnnouncementExternalFeedsCreateAnExternalFeedVerbosityTruncate AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "truncate"
+	// AnnouncementExternalFeedsCreateAnExternalFeedVerbosityLinkOnly enum value ("link_only")
+	AnnouncementExternalFeedsCreateAnExternalFeedVerbosityLinkOnly AnnouncementExternalFeedsCreateAnExternalFeedVerbosity = "link_only"
 )
 
 // ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType enumeration
 type ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType string
 
 const (
-    // ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeAssessment enum value ("assessment")
-    ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeAssessment ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType = "assessment"
-    // ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeModuleItem enum value ("module_item")
-    ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeModuleItem ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType = "module_item"
+	// ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeAssessment enum value ("assessment")
+	ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeAssessment ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType = "assessment"
+	// ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeModuleItem enum value ("module_item")
+	ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchTypeModuleItem ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType = "module_item"
 )
 
 // ExternalToolsCreateAnExternalToolPrivacyLevel enumeration
 type ExternalToolsCreateAnExternalToolPrivacyLevel string
 
 const (
-    // ExternalToolsCreateAnExternalToolPrivacyLevelAnonymous enum value ("anonymous")
-    ExternalToolsCreateAnExternalToolPrivacyLevelAnonymous ExternalToolsCreateAnExternalToolPrivacyLevel = "anonymous"
-    // ExternalToolsCreateAnExternalToolPrivacyLevelNameOnly enum value ("name_only")
-    ExternalToolsCreateAnExternalToolPrivacyLevelNameOnly ExternalToolsCreateAnExternalToolPrivacyLevel = "name_only"
-    // ExternalToolsCreateAnExternalToolPrivacyLevelPublic enum value ("public")
-    ExternalToolsCreateAnExternalToolPrivacyLevelPublic ExternalToolsCreateAnExternalToolPrivacyLevel = "public"
+	// ExternalToolsCreateAnExternalToolPrivacyLevelAnonymous enum value ("anonymous")
+	ExternalToolsCreateAnExternalToolPrivacyLevelAnonymous ExternalToolsCreateAnExternalToolPrivacyLevel = "anonymous"
+	// ExternalToolsCreateAnExternalToolPrivacyLevelNameOnly enum value ("name_only")
+	ExternalToolsCreateAnExternalToolPrivacyLevelNameOnly ExternalToolsCreateAnExternalToolPrivacyLevel = "name_only"
+	// ExternalToolsCreateAnExternalToolPrivacyLevelPublic enum value ("public")
+	ExternalToolsCreateAnExternalToolPrivacyLevelPublic ExternalToolsCreateAnExternalToolPrivacyLevel = "public"
 )
 
 // FeatureFlagsSetFeatureFlagState enumeration
 type FeatureFlagsSetFeatureFlagState string
 
 const (
-    // FeatureFlagsSetFeatureFlagStateOff enum value ("off")
-    FeatureFlagsSetFeatureFlagStateOff FeatureFlagsSetFeatureFlagState = "off"
-    // FeatureFlagsSetFeatureFlagStateAllowed enum value ("allowed")
-    FeatureFlagsSetFeatureFlagStateAllowed FeatureFlagsSetFeatureFlagState = "allowed"
-    // FeatureFlagsSetFeatureFlagStateOn enum value ("on")
-    FeatureFlagsSetFeatureFlagStateOn FeatureFlagsSetFeatureFlagState = "on"
+	// FeatureFlagsSetFeatureFlagStateOff enum value ("off")
+	FeatureFlagsSetFeatureFlagStateOff FeatureFlagsSetFeatureFlagState = "off"
+	// FeatureFlagsSetFeatureFlagStateAllowed enum value ("allowed")
+	FeatureFlagsSetFeatureFlagStateAllowed FeatureFlagsSetFeatureFlagState = "allowed"
+	// FeatureFlagsSetFeatureFlagStateOn enum value ("on")
+	FeatureFlagsSetFeatureFlagStateOn FeatureFlagsSetFeatureFlagState = "on"
 )
 
 // FilesListFilesInclude enumeration
 type FilesListFilesInclude string
 
 const (
-    // FilesListFilesIncludeUser enum value ("user")
-    FilesListFilesIncludeUser FilesListFilesInclude = "user"
+	// FilesListFilesIncludeUser enum value ("user")
+	FilesListFilesIncludeUser FilesListFilesInclude = "user"
 )
 
 // FilesListFilesSort enumeration
 type FilesListFilesSort string
 
 const (
-    // FilesListFilesSortName enum value ("name")
-    FilesListFilesSortName FilesListFilesSort = "name"
-    // FilesListFilesSortSize enum value ("size")
-    FilesListFilesSortSize FilesListFilesSort = "size"
-    // FilesListFilesSortCreatedAt enum value ("created_at")
-    FilesListFilesSortCreatedAt FilesListFilesSort = "created_at"
-    // FilesListFilesSortUpdatedAt enum value ("updated_at")
-    FilesListFilesSortUpdatedAt FilesListFilesSort = "updated_at"
-    // FilesListFilesSortContentType enum value ("content_type")
-    FilesListFilesSortContentType FilesListFilesSort = "content_type"
-    // FilesListFilesSortUser enum value ("user")
-    FilesListFilesSortUser FilesListFilesSort = "user"
+	// FilesListFilesSortName enum value ("name")
+	FilesListFilesSortName FilesListFilesSort = "name"
+	// FilesListFilesSortSize enum value ("size")
+	FilesListFilesSortSize FilesListFilesSort = "size"
+	// FilesListFilesSortCreatedAt enum value ("created_at")
+	FilesListFilesSortCreatedAt FilesListFilesSort = "created_at"
+	// FilesListFilesSortUpdatedAt enum value ("updated_at")
+	FilesListFilesSortUpdatedAt FilesListFilesSort = "updated_at"
+	// FilesListFilesSortContentType enum value ("content_type")
+	FilesListFilesSortContentType FilesListFilesSort = "content_type"
+	// FilesListFilesSortUser enum value ("user")
+	FilesListFilesSortUser FilesListFilesSort = "user"
 )
 
 // FilesListFilesOrder enumeration
 type FilesListFilesOrder string
 
 const (
-    // FilesListFilesOrderAsc enum value ("asc")
-    FilesListFilesOrderAsc FilesListFilesOrder = "asc"
-    // FilesListFilesOrderDesc enum value ("desc")
-    FilesListFilesOrderDesc FilesListFilesOrder = "desc"
+	// FilesListFilesOrderAsc enum value ("asc")
+	FilesListFilesOrderAsc FilesListFilesOrder = "asc"
+	// FilesListFilesOrderDesc enum value ("desc")
+	FilesListFilesOrderDesc FilesListFilesOrder = "desc"
 )
 
 // FilesGetFileInclude enumeration
 type FilesGetFileInclude string
 
 const (
-    // FilesGetFileIncludeUser enum value ("user")
-    FilesGetFileIncludeUser FilesGetFileInclude = "user"
+	// FilesGetFileIncludeUser enum value ("user")
+	FilesGetFileIncludeUser FilesGetFileInclude = "user"
 )
 
 // FilesUpdateFileOnDuplicate enumeration
 type FilesUpdateFileOnDuplicate string
 
 const (
-    // FilesUpdateFileOnDuplicateOverwrite enum value ("overwrite")
-    FilesUpdateFileOnDuplicateOverwrite FilesUpdateFileOnDuplicate = "overwrite"
-    // FilesUpdateFileOnDuplicateRename enum value ("rename")
-    FilesUpdateFileOnDuplicateRename FilesUpdateFileOnDuplicate = "rename"
+	// FilesUpdateFileOnDuplicateOverwrite enum value ("overwrite")
+	FilesUpdateFileOnDuplicateOverwrite FilesUpdateFileOnDuplicate = "overwrite"
+	// FilesUpdateFileOnDuplicateRename enum value ("rename")
+	FilesUpdateFileOnDuplicateRename FilesUpdateFileOnDuplicate = "rename"
 )
 
 // FilesCopyAFileOnDuplicate enumeration
 type FilesCopyAFileOnDuplicate string
 
 const (
-    // FilesCopyAFileOnDuplicateOverwrite enum value ("overwrite")
-    FilesCopyAFileOnDuplicateOverwrite FilesCopyAFileOnDuplicate = "overwrite"
-    // FilesCopyAFileOnDuplicateRename enum value ("rename")
-    FilesCopyAFileOnDuplicateRename FilesCopyAFileOnDuplicate = "rename"
+	// FilesCopyAFileOnDuplicateOverwrite enum value ("overwrite")
+	FilesCopyAFileOnDuplicateOverwrite FilesCopyAFileOnDuplicate = "overwrite"
+	// FilesCopyAFileOnDuplicateRename enum value ("rename")
+	FilesCopyAFileOnDuplicateRename FilesCopyAFileOnDuplicate = "rename"
 )
 
 // GroupCategoriesCreateAGroupCategorySelfSignup enumeration
 type GroupCategoriesCreateAGroupCategorySelfSignup string
 
 const (
-    // GroupCategoriesCreateAGroupCategorySelfSignupEnabled enum value ("enabled")
-    GroupCategoriesCreateAGroupCategorySelfSignupEnabled GroupCategoriesCreateAGroupCategorySelfSignup = "enabled"
-    // GroupCategoriesCreateAGroupCategorySelfSignupRestricted enum value ("restricted")
-    GroupCategoriesCreateAGroupCategorySelfSignupRestricted GroupCategoriesCreateAGroupCategorySelfSignup = "restricted"
+	// GroupCategoriesCreateAGroupCategorySelfSignupEnabled enum value ("enabled")
+	GroupCategoriesCreateAGroupCategorySelfSignupEnabled GroupCategoriesCreateAGroupCategorySelfSignup = "enabled"
+	// GroupCategoriesCreateAGroupCategorySelfSignupRestricted enum value ("restricted")
+	GroupCategoriesCreateAGroupCategorySelfSignupRestricted GroupCategoriesCreateAGroupCategorySelfSignup = "restricted"
 )
 
 // GroupCategoriesCreateAGroupCategoryAutoLeader enumeration
 type GroupCategoriesCreateAGroupCategoryAutoLeader string
 
 const (
-    // GroupCategoriesCreateAGroupCategoryAutoLeaderFirst enum value ("first")
-    GroupCategoriesCreateAGroupCategoryAutoLeaderFirst GroupCategoriesCreateAGroupCategoryAutoLeader = "first"
-    // GroupCategoriesCreateAGroupCategoryAutoLeaderRandom enum value ("random")
-    GroupCategoriesCreateAGroupCategoryAutoLeaderRandom GroupCategoriesCreateAGroupCategoryAutoLeader = "random"
+	// GroupCategoriesCreateAGroupCategoryAutoLeaderFirst enum value ("first")
+	GroupCategoriesCreateAGroupCategoryAutoLeaderFirst GroupCategoriesCreateAGroupCategoryAutoLeader = "first"
+	// GroupCategoriesCreateAGroupCategoryAutoLeaderRandom enum value ("random")
+	GroupCategoriesCreateAGroupCategoryAutoLeaderRandom GroupCategoriesCreateAGroupCategoryAutoLeader = "random"
 )
 
 // GroupCategoriesUpdateAGroupCategorySelfSignup enumeration
 type GroupCategoriesUpdateAGroupCategorySelfSignup string
 
 const (
-    // GroupCategoriesUpdateAGroupCategorySelfSignupEnabled enum value ("enabled")
-    GroupCategoriesUpdateAGroupCategorySelfSignupEnabled GroupCategoriesUpdateAGroupCategorySelfSignup = "enabled"
-    // GroupCategoriesUpdateAGroupCategorySelfSignupRestricted enum value ("restricted")
-    GroupCategoriesUpdateAGroupCategorySelfSignupRestricted GroupCategoriesUpdateAGroupCategorySelfSignup = "restricted"
+	// GroupCategoriesUpdateAGroupCategorySelfSignupEnabled enum value ("enabled")
+	GroupCategoriesUpdateAGroupCategorySelfSignupEnabled GroupCategoriesUpdateAGroupCategorySelfSignup = "enabled"
+	// GroupCategoriesUpdateAGroupCategorySelfSignupRestricted enum value ("restricted")
+	GroupCategoriesUpdateAGroupCategorySelfSignupRestricted GroupCategoriesUpdateAGroupCategorySelfSignup = "restricted"
 )
 
 // GroupCategoriesUpdateAGroupCategoryAutoLeader enumeration
 type GroupCategoriesUpdateAGroupCategoryAutoLeader string
 
 const (
-    // GroupCategoriesUpdateAGroupCategoryAutoLeaderFirst enum value ("first")
-    GroupCategoriesUpdateAGroupCategoryAutoLeaderFirst GroupCategoriesUpdateAGroupCategoryAutoLeader = "first"
-    // GroupCategoriesUpdateAGroupCategoryAutoLeaderRandom enum value ("random")
-    GroupCategoriesUpdateAGroupCategoryAutoLeaderRandom GroupCategoriesUpdateAGroupCategoryAutoLeader = "random"
+	// GroupCategoriesUpdateAGroupCategoryAutoLeaderFirst enum value ("first")
+	GroupCategoriesUpdateAGroupCategoryAutoLeaderFirst GroupCategoriesUpdateAGroupCategoryAutoLeader = "first"
+	// GroupCategoriesUpdateAGroupCategoryAutoLeaderRandom enum value ("random")
+	GroupCategoriesUpdateAGroupCategoryAutoLeaderRandom GroupCategoriesUpdateAGroupCategoryAutoLeader = "random"
 )
 
 // GroupsListGroupMembershipsFilterStates enumeration
 type GroupsListGroupMembershipsFilterStates string
 
 const (
-    // GroupsListGroupMembershipsFilterStatesAccepted enum value ("accepted")
-    GroupsListGroupMembershipsFilterStatesAccepted GroupsListGroupMembershipsFilterStates = "accepted"
-    // GroupsListGroupMembershipsFilterStatesInvited enum value ("invited")
-    GroupsListGroupMembershipsFilterStatesInvited GroupsListGroupMembershipsFilterStates = "invited"
-    // GroupsListGroupMembershipsFilterStatesRequested enum value ("requested")
-    GroupsListGroupMembershipsFilterStatesRequested GroupsListGroupMembershipsFilterStates = "requested"
+	// GroupsListGroupMembershipsFilterStatesAccepted enum value ("accepted")
+	GroupsListGroupMembershipsFilterStatesAccepted GroupsListGroupMembershipsFilterStates = "accepted"
+	// GroupsListGroupMembershipsFilterStatesInvited enum value ("invited")
+	GroupsListGroupMembershipsFilterStatesInvited GroupsListGroupMembershipsFilterStates = "invited"
+	// GroupsListGroupMembershipsFilterStatesRequested enum value ("requested")
+	GroupsListGroupMembershipsFilterStatesRequested GroupsListGroupMembershipsFilterStates = "requested"
 )
 
 // GroupsUpdateAMembershipWorkflowState enumeration
 type GroupsUpdateAMembershipWorkflowState string
 
 const (
-    // GroupsUpdateAMembershipWorkflowStateAccepted enum value ("accepted")
-    GroupsUpdateAMembershipWorkflowStateAccepted GroupsUpdateAMembershipWorkflowState = "accepted"
+	// GroupsUpdateAMembershipWorkflowStateAccepted enum value ("accepted")
+	GroupsUpdateAMembershipWorkflowStateAccepted GroupsUpdateAMembershipWorkflowState = "accepted"
 )
 
 // GroupsListYourGroupsContextType enumeration
 type GroupsListYourGroupsContextType string
 
 const (
-    // GroupsListYourGroupsContextTypeAccount enum value ("Account")
-    GroupsListYourGroupsContextTypeAccount GroupsListYourGroupsContextType = "Account"
-    // GroupsListYourGroupsContextTypeCourse enum value ("Course")
-    GroupsListYourGroupsContextTypeCourse GroupsListYourGroupsContextType = "Course"
+	// GroupsListYourGroupsContextTypeAccount enum value ("Account")
+	GroupsListYourGroupsContextTypeAccount GroupsListYourGroupsContextType = "Account"
+	// GroupsListYourGroupsContextTypeCourse enum value ("Course")
+	GroupsListYourGroupsContextTypeCourse GroupsListYourGroupsContextType = "Course"
 )
 
 // GroupsListYourGroupsInclude enumeration
 type GroupsListYourGroupsInclude string
 
 const (
-    // GroupsListYourGroupsIncludeTabs enum value ("tabs")
-    GroupsListYourGroupsIncludeTabs GroupsListYourGroupsInclude = "tabs"
+	// GroupsListYourGroupsIncludeTabs enum value ("tabs")
+	GroupsListYourGroupsIncludeTabs GroupsListYourGroupsInclude = "tabs"
 )
 
 // GroupsListTheGroupsAvailableInAContextInclude enumeration
 type GroupsListTheGroupsAvailableInAContextInclude string
 
 const (
-    // GroupsListTheGroupsAvailableInAContextIncludeTabs enum value ("tabs")
-    GroupsListTheGroupsAvailableInAContextIncludeTabs GroupsListTheGroupsAvailableInAContextInclude = "tabs"
+	// GroupsListTheGroupsAvailableInAContextIncludeTabs enum value ("tabs")
+	GroupsListTheGroupsAvailableInAContextIncludeTabs GroupsListTheGroupsAvailableInAContextInclude = "tabs"
 )
 
 // GroupsGetASingleGroupInclude enumeration
 type GroupsGetASingleGroupInclude string
 
 const (
-    // GroupsGetASingleGroupIncludeTabs enum value ("tabs")
-    GroupsGetASingleGroupIncludeTabs GroupsGetASingleGroupInclude = "tabs"
+	// GroupsGetASingleGroupIncludeTabs enum value ("tabs")
+	GroupsGetASingleGroupIncludeTabs GroupsGetASingleGroupInclude = "tabs"
 )
 
 // GroupsCreateAGroupJoinLevel enumeration
 type GroupsCreateAGroupJoinLevel string
 
 const (
-    // GroupsCreateAGroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
-    GroupsCreateAGroupJoinLevelParentContextAutoJoin GroupsCreateAGroupJoinLevel = "parent_context_auto_join"
-    // GroupsCreateAGroupJoinLevelParentContextRequest enum value ("parent_context_request")
-    GroupsCreateAGroupJoinLevelParentContextRequest GroupsCreateAGroupJoinLevel = "parent_context_request"
-    // GroupsCreateAGroupJoinLevelInvitationOnly enum value ("invitation_only")
-    GroupsCreateAGroupJoinLevelInvitationOnly GroupsCreateAGroupJoinLevel = "invitation_only"
+	// GroupsCreateAGroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
+	GroupsCreateAGroupJoinLevelParentContextAutoJoin GroupsCreateAGroupJoinLevel = "parent_context_auto_join"
+	// GroupsCreateAGroupJoinLevelParentContextRequest enum value ("parent_context_request")
+	GroupsCreateAGroupJoinLevelParentContextRequest GroupsCreateAGroupJoinLevel = "parent_context_request"
+	// GroupsCreateAGroupJoinLevelInvitationOnly enum value ("invitation_only")
+	GroupsCreateAGroupJoinLevelInvitationOnly GroupsCreateAGroupJoinLevel = "invitation_only"
 )
 
 // GroupsEditAGroupJoinLevel enumeration
 type GroupsEditAGroupJoinLevel string
 
 const (
-    // GroupsEditAGroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
-    GroupsEditAGroupJoinLevelParentContextAutoJoin GroupsEditAGroupJoinLevel = "parent_context_auto_join"
-    // GroupsEditAGroupJoinLevelParentContextRequest enum value ("parent_context_request")
-    GroupsEditAGroupJoinLevelParentContextRequest GroupsEditAGroupJoinLevel = "parent_context_request"
-    // GroupsEditAGroupJoinLevelInvitationOnly enum value ("invitation_only")
-    GroupsEditAGroupJoinLevelInvitationOnly GroupsEditAGroupJoinLevel = "invitation_only"
+	// GroupsEditAGroupJoinLevelParentContextAutoJoin enum value ("parent_context_auto_join")
+	GroupsEditAGroupJoinLevelParentContextAutoJoin GroupsEditAGroupJoinLevel = "parent_context_auto_join"
+	// GroupsEditAGroupJoinLevelParentContextRequest enum value ("parent_context_request")
+	GroupsEditAGroupJoinLevelParentContextRequest GroupsEditAGroupJoinLevel = "parent_context_request"
+	// GroupsEditAGroupJoinLevelInvitationOnly enum value ("invitation_only")
+	GroupsEditAGroupJoinLevelInvitationOnly GroupsEditAGroupJoinLevel = "invitation_only"
 )
 
 // GroupsListGroupSUsersInclude enumeration
 type GroupsListGroupSUsersInclude string
 
 const (
-    // GroupsListGroupSUsersIncludeAvatarURL enum value ("avatar_url")
-    GroupsListGroupSUsersIncludeAvatarURL GroupsListGroupSUsersInclude = "avatar_url"
+	// GroupsListGroupSUsersIncludeAvatarURL enum value ("avatar_url")
+	GroupsListGroupSUsersIncludeAvatarURL GroupsListGroupSUsersInclude = "avatar_url"
 )
 
 // MediaObjectsListMediaObjectsSort enumeration
 type MediaObjectsListMediaObjectsSort string
 
 const (
-    // MediaObjectsListMediaObjectsSortTitle enum value ("title")
-    MediaObjectsListMediaObjectsSortTitle MediaObjectsListMediaObjectsSort = "title"
-    // MediaObjectsListMediaObjectsSortCreatedAt enum value ("created_at")
-    MediaObjectsListMediaObjectsSortCreatedAt MediaObjectsListMediaObjectsSort = "created_at"
+	// MediaObjectsListMediaObjectsSortTitle enum value ("title")
+	MediaObjectsListMediaObjectsSortTitle MediaObjectsListMediaObjectsSort = "title"
+	// MediaObjectsListMediaObjectsSortCreatedAt enum value ("created_at")
+	MediaObjectsListMediaObjectsSortCreatedAt MediaObjectsListMediaObjectsSort = "created_at"
 )
 
 // MediaObjectsListMediaObjectsOrder enumeration
 type MediaObjectsListMediaObjectsOrder string
 
 const (
-    // MediaObjectsListMediaObjectsOrderAsc enum value ("asc")
-    MediaObjectsListMediaObjectsOrderAsc MediaObjectsListMediaObjectsOrder = "asc"
-    // MediaObjectsListMediaObjectsOrderDesc enum value ("desc")
-    MediaObjectsListMediaObjectsOrderDesc MediaObjectsListMediaObjectsOrder = "desc"
+	// MediaObjectsListMediaObjectsOrderAsc enum value ("asc")
+	MediaObjectsListMediaObjectsOrderAsc MediaObjectsListMediaObjectsOrder = "asc"
+	// MediaObjectsListMediaObjectsOrderDesc enum value ("desc")
+	MediaObjectsListMediaObjectsOrderDesc MediaObjectsListMediaObjectsOrder = "desc"
 )
 
 // MediaObjectsListMediaObjectsExclude enumeration
 type MediaObjectsListMediaObjectsExclude string
 
 const (
-    // MediaObjectsListMediaObjectsExcludeSources enum value ("sources")
-    MediaObjectsListMediaObjectsExcludeSources MediaObjectsListMediaObjectsExclude = "sources"
-    // MediaObjectsListMediaObjectsExcludeTracks enum value ("tracks")
-    MediaObjectsListMediaObjectsExcludeTracks MediaObjectsListMediaObjectsExclude = "tracks"
+	// MediaObjectsListMediaObjectsExcludeSources enum value ("sources")
+	MediaObjectsListMediaObjectsExcludeSources MediaObjectsListMediaObjectsExclude = "sources"
+	// MediaObjectsListMediaObjectsExcludeTracks enum value ("tracks")
+	MediaObjectsListMediaObjectsExcludeTracks MediaObjectsListMediaObjectsExclude = "tracks"
 )
 
 // MediaObjectsListMediaTracksForAMediaObjectInclude enumeration
 type MediaObjectsListMediaTracksForAMediaObjectInclude string
 
 const (
-    // MediaObjectsListMediaTracksForAMediaObjectIncludeContent enum value ("content")
-    MediaObjectsListMediaTracksForAMediaObjectIncludeContent MediaObjectsListMediaTracksForAMediaObjectInclude = "content"
-    // MediaObjectsListMediaTracksForAMediaObjectIncludeWebvttContent enum value ("webvtt_content")
-    MediaObjectsListMediaTracksForAMediaObjectIncludeWebvttContent MediaObjectsListMediaTracksForAMediaObjectInclude = "webvtt_content"
-    // MediaObjectsListMediaTracksForAMediaObjectIncludeUpdatedAt enum value ("updated_at")
-    MediaObjectsListMediaTracksForAMediaObjectIncludeUpdatedAt MediaObjectsListMediaTracksForAMediaObjectInclude = "updated_at"
-    // MediaObjectsListMediaTracksForAMediaObjectIncludeCreatedAt enum value ("created_at")
-    MediaObjectsListMediaTracksForAMediaObjectIncludeCreatedAt MediaObjectsListMediaTracksForAMediaObjectInclude = "created_at"
+	// MediaObjectsListMediaTracksForAMediaObjectIncludeContent enum value ("content")
+	MediaObjectsListMediaTracksForAMediaObjectIncludeContent MediaObjectsListMediaTracksForAMediaObjectInclude = "content"
+	// MediaObjectsListMediaTracksForAMediaObjectIncludeWebvttContent enum value ("webvtt_content")
+	MediaObjectsListMediaTracksForAMediaObjectIncludeWebvttContent MediaObjectsListMediaTracksForAMediaObjectInclude = "webvtt_content"
+	// MediaObjectsListMediaTracksForAMediaObjectIncludeUpdatedAt enum value ("updated_at")
+	MediaObjectsListMediaTracksForAMediaObjectIncludeUpdatedAt MediaObjectsListMediaTracksForAMediaObjectInclude = "updated_at"
+	// MediaObjectsListMediaTracksForAMediaObjectIncludeCreatedAt enum value ("created_at")
+	MediaObjectsListMediaTracksForAMediaObjectIncludeCreatedAt MediaObjectsListMediaTracksForAMediaObjectInclude = "created_at"
 )
 
 // ContentMigrationsUpdateAMigrationIssueWorkflowState enumeration
 type ContentMigrationsUpdateAMigrationIssueWorkflowState string
 
 const (
-    // ContentMigrationsUpdateAMigrationIssueWorkflowStateActive enum value ("active")
-    ContentMigrationsUpdateAMigrationIssueWorkflowStateActive ContentMigrationsUpdateAMigrationIssueWorkflowState = "active"
-    // ContentMigrationsUpdateAMigrationIssueWorkflowStateResolved enum value ("resolved")
-    ContentMigrationsUpdateAMigrationIssueWorkflowStateResolved ContentMigrationsUpdateAMigrationIssueWorkflowState = "resolved"
+	// ContentMigrationsUpdateAMigrationIssueWorkflowStateActive enum value ("active")
+	ContentMigrationsUpdateAMigrationIssueWorkflowStateActive ContentMigrationsUpdateAMigrationIssueWorkflowState = "active"
+	// ContentMigrationsUpdateAMigrationIssueWorkflowStateResolved enum value ("resolved")
+	ContentMigrationsUpdateAMigrationIssueWorkflowStateResolved ContentMigrationsUpdateAMigrationIssueWorkflowState = "resolved"
 )
 
 // OutcomeGroupsCreateLinkAnOutcomeCalculationMethod enumeration
 type OutcomeGroupsCreateLinkAnOutcomeCalculationMethod string
 
 const (
-    // OutcomeGroupsCreateLinkAnOutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
-    OutcomeGroupsCreateLinkAnOutcomeCalculationMethodDecayingAverage OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "decaying_average"
-    // OutcomeGroupsCreateLinkAnOutcomeCalculationMethodNMastery enum value ("n_mastery")
-    OutcomeGroupsCreateLinkAnOutcomeCalculationMethodNMastery OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "n_mastery"
-    // OutcomeGroupsCreateLinkAnOutcomeCalculationMethodLatest enum value ("latest")
-    OutcomeGroupsCreateLinkAnOutcomeCalculationMethodLatest OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "latest"
-    // OutcomeGroupsCreateLinkAnOutcomeCalculationMethodHighest enum value ("highest")
-    OutcomeGroupsCreateLinkAnOutcomeCalculationMethodHighest OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "highest"
+	// OutcomeGroupsCreateLinkAnOutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
+	OutcomeGroupsCreateLinkAnOutcomeCalculationMethodDecayingAverage OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "decaying_average"
+	// OutcomeGroupsCreateLinkAnOutcomeCalculationMethodNMastery enum value ("n_mastery")
+	OutcomeGroupsCreateLinkAnOutcomeCalculationMethodNMastery OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "n_mastery"
+	// OutcomeGroupsCreateLinkAnOutcomeCalculationMethodLatest enum value ("latest")
+	OutcomeGroupsCreateLinkAnOutcomeCalculationMethodLatest OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "latest"
+	// OutcomeGroupsCreateLinkAnOutcomeCalculationMethodHighest enum value ("highest")
+	OutcomeGroupsCreateLinkAnOutcomeCalculationMethodHighest OutcomeGroupsCreateLinkAnOutcomeCalculationMethod = "highest"
 )
 
 // OutcomeResultsGetOutcomeResultsInclude enumeration
 type OutcomeResultsGetOutcomeResultsInclude string
 
 const (
-    // OutcomeResultsGetOutcomeResultsIncludeAlignments enum value ("alignments")
-    OutcomeResultsGetOutcomeResultsIncludeAlignments OutcomeResultsGetOutcomeResultsInclude = "alignments"
-    // OutcomeResultsGetOutcomeResultsIncludeOutcomes enum value ("outcomes")
-    OutcomeResultsGetOutcomeResultsIncludeOutcomes OutcomeResultsGetOutcomeResultsInclude = "outcomes"
-    // OutcomeResultsGetOutcomeResultsIncludeOutcomesAlignments enum value ("outcomes.alignments")
-    OutcomeResultsGetOutcomeResultsIncludeOutcomesAlignments OutcomeResultsGetOutcomeResultsInclude = "outcomes.alignments"
-    // OutcomeResultsGetOutcomeResultsIncludeOutcomeGroups enum value ("outcome_groups")
-    OutcomeResultsGetOutcomeResultsIncludeOutcomeGroups OutcomeResultsGetOutcomeResultsInclude = "outcome_groups"
-    // OutcomeResultsGetOutcomeResultsIncludeOutcomeLinks enum value ("outcome_links")
-    OutcomeResultsGetOutcomeResultsIncludeOutcomeLinks OutcomeResultsGetOutcomeResultsInclude = "outcome_links"
-    // OutcomeResultsGetOutcomeResultsIncludeOutcomePaths enum value ("outcome_paths")
-    OutcomeResultsGetOutcomeResultsIncludeOutcomePaths OutcomeResultsGetOutcomeResultsInclude = "outcome_paths"
-    // OutcomeResultsGetOutcomeResultsIncludeUsers enum value ("users")
-    OutcomeResultsGetOutcomeResultsIncludeUsers OutcomeResultsGetOutcomeResultsInclude = "users"
+	// OutcomeResultsGetOutcomeResultsIncludeAlignments enum value ("alignments")
+	OutcomeResultsGetOutcomeResultsIncludeAlignments OutcomeResultsGetOutcomeResultsInclude = "alignments"
+	// OutcomeResultsGetOutcomeResultsIncludeOutcomes enum value ("outcomes")
+	OutcomeResultsGetOutcomeResultsIncludeOutcomes OutcomeResultsGetOutcomeResultsInclude = "outcomes"
+	// OutcomeResultsGetOutcomeResultsIncludeOutcomesAlignments enum value ("outcomes.alignments")
+	OutcomeResultsGetOutcomeResultsIncludeOutcomesAlignments OutcomeResultsGetOutcomeResultsInclude = "outcomes.alignments"
+	// OutcomeResultsGetOutcomeResultsIncludeOutcomeGroups enum value ("outcome_groups")
+	OutcomeResultsGetOutcomeResultsIncludeOutcomeGroups OutcomeResultsGetOutcomeResultsInclude = "outcome_groups"
+	// OutcomeResultsGetOutcomeResultsIncludeOutcomeLinks enum value ("outcome_links")
+	OutcomeResultsGetOutcomeResultsIncludeOutcomeLinks OutcomeResultsGetOutcomeResultsInclude = "outcome_links"
+	// OutcomeResultsGetOutcomeResultsIncludeOutcomePaths enum value ("outcome_paths")
+	OutcomeResultsGetOutcomeResultsIncludeOutcomePaths OutcomeResultsGetOutcomeResultsInclude = "outcome_paths"
+	// OutcomeResultsGetOutcomeResultsIncludeUsers enum value ("users")
+	OutcomeResultsGetOutcomeResultsIncludeUsers OutcomeResultsGetOutcomeResultsInclude = "users"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsAggregate enumeration
 type OutcomeResultsGetOutcomeResultRollupsAggregate string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsAggregateCourse enum value ("course")
-    OutcomeResultsGetOutcomeResultRollupsAggregateCourse OutcomeResultsGetOutcomeResultRollupsAggregate = "course"
+	// OutcomeResultsGetOutcomeResultRollupsAggregateCourse enum value ("course")
+	OutcomeResultsGetOutcomeResultRollupsAggregateCourse OutcomeResultsGetOutcomeResultRollupsAggregate = "course"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsAggregateStat enumeration
 type OutcomeResultsGetOutcomeResultRollupsAggregateStat string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsAggregateStatMean enum value ("mean")
-    OutcomeResultsGetOutcomeResultRollupsAggregateStatMean OutcomeResultsGetOutcomeResultRollupsAggregateStat = "mean"
-    // OutcomeResultsGetOutcomeResultRollupsAggregateStatMedian enum value ("median")
-    OutcomeResultsGetOutcomeResultRollupsAggregateStatMedian OutcomeResultsGetOutcomeResultRollupsAggregateStat = "median"
+	// OutcomeResultsGetOutcomeResultRollupsAggregateStatMean enum value ("mean")
+	OutcomeResultsGetOutcomeResultRollupsAggregateStatMean OutcomeResultsGetOutcomeResultRollupsAggregateStat = "mean"
+	// OutcomeResultsGetOutcomeResultRollupsAggregateStatMedian enum value ("median")
+	OutcomeResultsGetOutcomeResultRollupsAggregateStatMedian OutcomeResultsGetOutcomeResultRollupsAggregateStat = "median"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsInclude enumeration
 type OutcomeResultsGetOutcomeResultRollupsInclude string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsIncludeCourses enum value ("courses")
-    OutcomeResultsGetOutcomeResultRollupsIncludeCourses OutcomeResultsGetOutcomeResultRollupsInclude = "courses"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeOutcomes enum value ("outcomes")
-    OutcomeResultsGetOutcomeResultRollupsIncludeOutcomes OutcomeResultsGetOutcomeResultRollupsInclude = "outcomes"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeOutcomesAlignments enum value ("outcomes.alignments")
-    OutcomeResultsGetOutcomeResultRollupsIncludeOutcomesAlignments OutcomeResultsGetOutcomeResultRollupsInclude = "outcomes.alignments"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeGroups enum value ("outcome_groups")
-    OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeGroups OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_groups"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeLinks enum value ("outcome_links")
-    OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeLinks OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_links"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeOutcomePaths enum value ("outcome_paths")
-    OutcomeResultsGetOutcomeResultRollupsIncludeOutcomePaths OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_paths"
-    // OutcomeResultsGetOutcomeResultRollupsIncludeUsers enum value ("users")
-    OutcomeResultsGetOutcomeResultRollupsIncludeUsers OutcomeResultsGetOutcomeResultRollupsInclude = "users"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeCourses enum value ("courses")
+	OutcomeResultsGetOutcomeResultRollupsIncludeCourses OutcomeResultsGetOutcomeResultRollupsInclude = "courses"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeOutcomes enum value ("outcomes")
+	OutcomeResultsGetOutcomeResultRollupsIncludeOutcomes OutcomeResultsGetOutcomeResultRollupsInclude = "outcomes"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeOutcomesAlignments enum value ("outcomes.alignments")
+	OutcomeResultsGetOutcomeResultRollupsIncludeOutcomesAlignments OutcomeResultsGetOutcomeResultRollupsInclude = "outcomes.alignments"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeGroups enum value ("outcome_groups")
+	OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeGroups OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_groups"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeLinks enum value ("outcome_links")
+	OutcomeResultsGetOutcomeResultRollupsIncludeOutcomeLinks OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_links"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeOutcomePaths enum value ("outcome_paths")
+	OutcomeResultsGetOutcomeResultRollupsIncludeOutcomePaths OutcomeResultsGetOutcomeResultRollupsInclude = "outcome_paths"
+	// OutcomeResultsGetOutcomeResultRollupsIncludeUsers enum value ("users")
+	OutcomeResultsGetOutcomeResultRollupsIncludeUsers OutcomeResultsGetOutcomeResultRollupsInclude = "users"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsExclude enumeration
 type OutcomeResultsGetOutcomeResultRollupsExclude string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsExcludeMissingUserRollups enum value ("missing_user_rollups")
-    OutcomeResultsGetOutcomeResultRollupsExcludeMissingUserRollups OutcomeResultsGetOutcomeResultRollupsExclude = "missing_user_rollups"
+	// OutcomeResultsGetOutcomeResultRollupsExcludeMissingUserRollups enum value ("missing_user_rollups")
+	OutcomeResultsGetOutcomeResultRollupsExcludeMissingUserRollups OutcomeResultsGetOutcomeResultRollupsExclude = "missing_user_rollups"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsSortBy enumeration
 type OutcomeResultsGetOutcomeResultRollupsSortBy string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsSortByStudent enum value ("student")
-    OutcomeResultsGetOutcomeResultRollupsSortByStudent OutcomeResultsGetOutcomeResultRollupsSortBy = "student"
-    // OutcomeResultsGetOutcomeResultRollupsSortByOutcome enum value ("outcome")
-    OutcomeResultsGetOutcomeResultRollupsSortByOutcome OutcomeResultsGetOutcomeResultRollupsSortBy = "outcome"
+	// OutcomeResultsGetOutcomeResultRollupsSortByStudent enum value ("student")
+	OutcomeResultsGetOutcomeResultRollupsSortByStudent OutcomeResultsGetOutcomeResultRollupsSortBy = "student"
+	// OutcomeResultsGetOutcomeResultRollupsSortByOutcome enum value ("outcome")
+	OutcomeResultsGetOutcomeResultRollupsSortByOutcome OutcomeResultsGetOutcomeResultRollupsSortBy = "outcome"
 )
 
 // OutcomeResultsGetOutcomeResultRollupsSortOrder enumeration
 type OutcomeResultsGetOutcomeResultRollupsSortOrder string
 
 const (
-    // OutcomeResultsGetOutcomeResultRollupsSortOrderDesc enum value ("desc")
-    OutcomeResultsGetOutcomeResultRollupsSortOrderDesc OutcomeResultsGetOutcomeResultRollupsSortOrder = "desc"
+	// OutcomeResultsGetOutcomeResultRollupsSortOrderDesc enum value ("desc")
+	OutcomeResultsGetOutcomeResultRollupsSortOrderDesc OutcomeResultsGetOutcomeResultRollupsSortOrder = "desc"
 )
 
 // OutcomesUpdateAnOutcomeCalculationMethod enumeration
 type OutcomesUpdateAnOutcomeCalculationMethod string
 
 const (
-    // OutcomesUpdateAnOutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
-    OutcomesUpdateAnOutcomeCalculationMethodDecayingAverage OutcomesUpdateAnOutcomeCalculationMethod = "decaying_average"
-    // OutcomesUpdateAnOutcomeCalculationMethodNMastery enum value ("n_mastery")
-    OutcomesUpdateAnOutcomeCalculationMethodNMastery OutcomesUpdateAnOutcomeCalculationMethod = "n_mastery"
-    // OutcomesUpdateAnOutcomeCalculationMethodLatest enum value ("latest")
-    OutcomesUpdateAnOutcomeCalculationMethodLatest OutcomesUpdateAnOutcomeCalculationMethod = "latest"
-    // OutcomesUpdateAnOutcomeCalculationMethodHighest enum value ("highest")
-    OutcomesUpdateAnOutcomeCalculationMethodHighest OutcomesUpdateAnOutcomeCalculationMethod = "highest"
+	// OutcomesUpdateAnOutcomeCalculationMethodDecayingAverage enum value ("decaying_average")
+	OutcomesUpdateAnOutcomeCalculationMethodDecayingAverage OutcomesUpdateAnOutcomeCalculationMethod = "decaying_average"
+	// OutcomesUpdateAnOutcomeCalculationMethodNMastery enum value ("n_mastery")
+	OutcomesUpdateAnOutcomeCalculationMethodNMastery OutcomesUpdateAnOutcomeCalculationMethod = "n_mastery"
+	// OutcomesUpdateAnOutcomeCalculationMethodLatest enum value ("latest")
+	OutcomesUpdateAnOutcomeCalculationMethodLatest OutcomesUpdateAnOutcomeCalculationMethod = "latest"
+	// OutcomesUpdateAnOutcomeCalculationMethodHighest enum value ("highest")
+	OutcomesUpdateAnOutcomeCalculationMethodHighest OutcomesUpdateAnOutcomeCalculationMethod = "highest"
 )
 
 // PeerReviewsGetAllPeerReviewsInclude enumeration
 type PeerReviewsGetAllPeerReviewsInclude string
 
 const (
-    // PeerReviewsGetAllPeerReviewsIncludeSubmissionComments enum value ("submission_comments")
-    PeerReviewsGetAllPeerReviewsIncludeSubmissionComments PeerReviewsGetAllPeerReviewsInclude = "submission_comments"
-    // PeerReviewsGetAllPeerReviewsIncludeUser enum value ("user")
-    PeerReviewsGetAllPeerReviewsIncludeUser PeerReviewsGetAllPeerReviewsInclude = "user"
+	// PeerReviewsGetAllPeerReviewsIncludeSubmissionComments enum value ("submission_comments")
+	PeerReviewsGetAllPeerReviewsIncludeSubmissionComments PeerReviewsGetAllPeerReviewsInclude = "submission_comments"
+	// PeerReviewsGetAllPeerReviewsIncludeUser enum value ("user")
+	PeerReviewsGetAllPeerReviewsIncludeUser PeerReviewsGetAllPeerReviewsInclude = "user"
 )
 
 // PlannerListPlannerItemsFilter enumeration
 type PlannerListPlannerItemsFilter string
 
 const (
-    // PlannerListPlannerItemsFilterNewActivity enum value ("new_activity")
-    PlannerListPlannerItemsFilterNewActivity PlannerListPlannerItemsFilter = "new_activity"
+	// PlannerListPlannerItemsFilterNewActivity enum value ("new_activity")
+	PlannerListPlannerItemsFilterNewActivity PlannerListPlannerItemsFilter = "new_activity"
 )
 
 // PlannerCreateAPlannerOverridePlannableType enumeration
 type PlannerCreateAPlannerOverridePlannableType string
 
 const (
-    // PlannerCreateAPlannerOverridePlannableTypeAnnouncement enum value ("announcement")
-    PlannerCreateAPlannerOverridePlannableTypeAnnouncement PlannerCreateAPlannerOverridePlannableType = "announcement"
-    // PlannerCreateAPlannerOverridePlannableTypeAssignment enum value ("assignment")
-    PlannerCreateAPlannerOverridePlannableTypeAssignment PlannerCreateAPlannerOverridePlannableType = "assignment"
-    // PlannerCreateAPlannerOverridePlannableTypeDiscussionTopic enum value ("discussion_topic")
-    PlannerCreateAPlannerOverridePlannableTypeDiscussionTopic PlannerCreateAPlannerOverridePlannableType = "discussion_topic"
-    // PlannerCreateAPlannerOverridePlannableTypeQuiz enum value ("quiz")
-    PlannerCreateAPlannerOverridePlannableTypeQuiz PlannerCreateAPlannerOverridePlannableType = "quiz"
-    // PlannerCreateAPlannerOverridePlannableTypeWikiPage enum value ("wiki_page")
-    PlannerCreateAPlannerOverridePlannableTypeWikiPage PlannerCreateAPlannerOverridePlannableType = "wiki_page"
-    // PlannerCreateAPlannerOverridePlannableTypePlannerNote enum value ("planner_note")
-    PlannerCreateAPlannerOverridePlannableTypePlannerNote PlannerCreateAPlannerOverridePlannableType = "planner_note"
+	// PlannerCreateAPlannerOverridePlannableTypeAnnouncement enum value ("announcement")
+	PlannerCreateAPlannerOverridePlannableTypeAnnouncement PlannerCreateAPlannerOverridePlannableType = "announcement"
+	// PlannerCreateAPlannerOverridePlannableTypeAssignment enum value ("assignment")
+	PlannerCreateAPlannerOverridePlannableTypeAssignment PlannerCreateAPlannerOverridePlannableType = "assignment"
+	// PlannerCreateAPlannerOverridePlannableTypeDiscussionTopic enum value ("discussion_topic")
+	PlannerCreateAPlannerOverridePlannableTypeDiscussionTopic PlannerCreateAPlannerOverridePlannableType = "discussion_topic"
+	// PlannerCreateAPlannerOverridePlannableTypeQuiz enum value ("quiz")
+	PlannerCreateAPlannerOverridePlannableTypeQuiz PlannerCreateAPlannerOverridePlannableType = "quiz"
+	// PlannerCreateAPlannerOverridePlannableTypeWikiPage enum value ("wiki_page")
+	PlannerCreateAPlannerOverridePlannableTypeWikiPage PlannerCreateAPlannerOverridePlannableType = "wiki_page"
+	// PlannerCreateAPlannerOverridePlannableTypePlannerNote enum value ("planner_note")
+	PlannerCreateAPlannerOverridePlannableTypePlannerNote PlannerCreateAPlannerOverridePlannableType = "planner_note"
 )
 
 // RolesListRolesState enumeration
 type RolesListRolesState string
 
 const (
-    // RolesListRolesStateActive enum value ("active")
-    RolesListRolesStateActive RolesListRolesState = "active"
-    // RolesListRolesStateInactive enum value ("inactive")
-    RolesListRolesStateInactive RolesListRolesState = "inactive"
+	// RolesListRolesStateActive enum value ("active")
+	RolesListRolesStateActive RolesListRolesState = "active"
+	// RolesListRolesStateInactive enum value ("inactive")
+	RolesListRolesStateInactive RolesListRolesState = "inactive"
 )
 
 // RolesCreateANewRoleBaseRoleType enumeration
 type RolesCreateANewRoleBaseRoleType string
 
 const (
-    // RolesCreateANewRoleBaseRoleTypeAccountMembership enum value ("AccountMembership")
-    RolesCreateANewRoleBaseRoleTypeAccountMembership RolesCreateANewRoleBaseRoleType = "AccountMembership"
-    // RolesCreateANewRoleBaseRoleTypeStudentEnrollment enum value ("StudentEnrollment")
-    RolesCreateANewRoleBaseRoleTypeStudentEnrollment RolesCreateANewRoleBaseRoleType = "StudentEnrollment"
-    // RolesCreateANewRoleBaseRoleTypeTeacherEnrollment enum value ("TeacherEnrollment")
-    RolesCreateANewRoleBaseRoleTypeTeacherEnrollment RolesCreateANewRoleBaseRoleType = "TeacherEnrollment"
-    // RolesCreateANewRoleBaseRoleTypeTaEnrollment enum value ("TaEnrollment")
-    RolesCreateANewRoleBaseRoleTypeTaEnrollment RolesCreateANewRoleBaseRoleType = "TaEnrollment"
-    // RolesCreateANewRoleBaseRoleTypeObserverEnrollment enum value ("ObserverEnrollment")
-    RolesCreateANewRoleBaseRoleTypeObserverEnrollment RolesCreateANewRoleBaseRoleType = "ObserverEnrollment"
-    // RolesCreateANewRoleBaseRoleTypeDesignerEnrollment enum value ("DesignerEnrollment")
-    RolesCreateANewRoleBaseRoleTypeDesignerEnrollment RolesCreateANewRoleBaseRoleType = "DesignerEnrollment"
+	// RolesCreateANewRoleBaseRoleTypeAccountMembership enum value ("AccountMembership")
+	RolesCreateANewRoleBaseRoleTypeAccountMembership RolesCreateANewRoleBaseRoleType = "AccountMembership"
+	// RolesCreateANewRoleBaseRoleTypeStudentEnrollment enum value ("StudentEnrollment")
+	RolesCreateANewRoleBaseRoleTypeStudentEnrollment RolesCreateANewRoleBaseRoleType = "StudentEnrollment"
+	// RolesCreateANewRoleBaseRoleTypeTeacherEnrollment enum value ("TeacherEnrollment")
+	RolesCreateANewRoleBaseRoleTypeTeacherEnrollment RolesCreateANewRoleBaseRoleType = "TeacherEnrollment"
+	// RolesCreateANewRoleBaseRoleTypeTaEnrollment enum value ("TaEnrollment")
+	RolesCreateANewRoleBaseRoleTypeTaEnrollment RolesCreateANewRoleBaseRoleType = "TaEnrollment"
+	// RolesCreateANewRoleBaseRoleTypeObserverEnrollment enum value ("ObserverEnrollment")
+	RolesCreateANewRoleBaseRoleTypeObserverEnrollment RolesCreateANewRoleBaseRoleType = "ObserverEnrollment"
+	// RolesCreateANewRoleBaseRoleTypeDesignerEnrollment enum value ("DesignerEnrollment")
+	RolesCreateANewRoleBaseRoleTypeDesignerEnrollment RolesCreateANewRoleBaseRoleType = "DesignerEnrollment"
 )
 
 // RubricsGetASingleRubricInclude enumeration
 type RubricsGetASingleRubricInclude string
 
 const (
-    // RubricsGetASingleRubricIncludeAssessments enum value ("assessments")
-    RubricsGetASingleRubricIncludeAssessments RubricsGetASingleRubricInclude = "assessments"
-    // RubricsGetASingleRubricIncludeGradedAssessments enum value ("graded_assessments")
-    RubricsGetASingleRubricIncludeGradedAssessments RubricsGetASingleRubricInclude = "graded_assessments"
-    // RubricsGetASingleRubricIncludePeerAssessments enum value ("peer_assessments")
-    RubricsGetASingleRubricIncludePeerAssessments RubricsGetASingleRubricInclude = "peer_assessments"
-    // RubricsGetASingleRubricIncludeAssociations enum value ("associations")
-    RubricsGetASingleRubricIncludeAssociations RubricsGetASingleRubricInclude = "associations"
-    // RubricsGetASingleRubricIncludeAssignmentAssociations enum value ("assignment_associations")
-    RubricsGetASingleRubricIncludeAssignmentAssociations RubricsGetASingleRubricInclude = "assignment_associations"
-    // RubricsGetASingleRubricIncludeCourseAssociations enum value ("course_associations")
-    RubricsGetASingleRubricIncludeCourseAssociations RubricsGetASingleRubricInclude = "course_associations"
-    // RubricsGetASingleRubricIncludeAccountAssociations enum value ("account_associations")
-    RubricsGetASingleRubricIncludeAccountAssociations RubricsGetASingleRubricInclude = "account_associations"
+	// RubricsGetASingleRubricIncludeAssessments enum value ("assessments")
+	RubricsGetASingleRubricIncludeAssessments RubricsGetASingleRubricInclude = "assessments"
+	// RubricsGetASingleRubricIncludeGradedAssessments enum value ("graded_assessments")
+	RubricsGetASingleRubricIncludeGradedAssessments RubricsGetASingleRubricInclude = "graded_assessments"
+	// RubricsGetASingleRubricIncludePeerAssessments enum value ("peer_assessments")
+	RubricsGetASingleRubricIncludePeerAssessments RubricsGetASingleRubricInclude = "peer_assessments"
+	// RubricsGetASingleRubricIncludeAssociations enum value ("associations")
+	RubricsGetASingleRubricIncludeAssociations RubricsGetASingleRubricInclude = "associations"
+	// RubricsGetASingleRubricIncludeAssignmentAssociations enum value ("assignment_associations")
+	RubricsGetASingleRubricIncludeAssignmentAssociations RubricsGetASingleRubricInclude = "assignment_associations"
+	// RubricsGetASingleRubricIncludeCourseAssociations enum value ("course_associations")
+	RubricsGetASingleRubricIncludeCourseAssociations RubricsGetASingleRubricInclude = "course_associations"
+	// RubricsGetASingleRubricIncludeAccountAssociations enum value ("account_associations")
+	RubricsGetASingleRubricIncludeAccountAssociations RubricsGetASingleRubricInclude = "account_associations"
 )
 
 // RubricsGetASingleRubricStyle enumeration
 type RubricsGetASingleRubricStyle string
 
 const (
-    // RubricsGetASingleRubricStyleFull enum value ("full")
-    RubricsGetASingleRubricStyleFull RubricsGetASingleRubricStyle = "full"
-    // RubricsGetASingleRubricStyleCommentsOnly enum value ("comments_only")
-    RubricsGetASingleRubricStyleCommentsOnly RubricsGetASingleRubricStyle = "comments_only"
+	// RubricsGetASingleRubricStyleFull enum value ("full")
+	RubricsGetASingleRubricStyleFull RubricsGetASingleRubricStyle = "full"
+	// RubricsGetASingleRubricStyleCommentsOnly enum value ("comments_only")
+	RubricsGetASingleRubricStyleCommentsOnly RubricsGetASingleRubricStyle = "comments_only"
 )
 
 // APITokenScopesListScopesGroupBy enumeration
 type APITokenScopesListScopesGroupBy string
 
 const (
-    // APITokenScopesListScopesGroupByResourceName enum value ("resource_name")
-    APITokenScopesListScopesGroupByResourceName APITokenScopesListScopesGroupBy = "resource_name"
+	// APITokenScopesListScopesGroupByResourceName enum value ("resource_name")
+	APITokenScopesListScopesGroupByResourceName APITokenScopesListScopesGroupBy = "resource_name"
+)
+
+// SearchFindRecipientsType enumeration
+type SearchFindRecipientsType string
+
+const (
+	// SearchFindRecipientsTypeUser enum value ("user")
+	SearchFindRecipientsTypeUser SearchFindRecipientsType = "user"
+	// SearchFindRecipientsTypeContext enum value ("context")
+	SearchFindRecipientsTypeContext SearchFindRecipientsType = "context"
 )
 
 // SectionsListCourseSectionsInclude enumeration
 type SectionsListCourseSectionsInclude string
 
 const (
-    // SectionsListCourseSectionsIncludeStudents enum value ("students")
-    SectionsListCourseSectionsIncludeStudents SectionsListCourseSectionsInclude = "students"
-    // SectionsListCourseSectionsIncludeAvatarURL enum value ("avatar_url")
-    SectionsListCourseSectionsIncludeAvatarURL SectionsListCourseSectionsInclude = "avatar_url"
-    // SectionsListCourseSectionsIncludeEnrollments enum value ("enrollments")
-    SectionsListCourseSectionsIncludeEnrollments SectionsListCourseSectionsInclude = "enrollments"
-    // SectionsListCourseSectionsIncludeTotalStudents enum value ("total_students")
-    SectionsListCourseSectionsIncludeTotalStudents SectionsListCourseSectionsInclude = "total_students"
-    // SectionsListCourseSectionsIncludePassbackStatus enum value ("passback_status")
-    SectionsListCourseSectionsIncludePassbackStatus SectionsListCourseSectionsInclude = "passback_status"
+	// SectionsListCourseSectionsIncludeStudents enum value ("students")
+	SectionsListCourseSectionsIncludeStudents SectionsListCourseSectionsInclude = "students"
+	// SectionsListCourseSectionsIncludeAvatarURL enum value ("avatar_url")
+	SectionsListCourseSectionsIncludeAvatarURL SectionsListCourseSectionsInclude = "avatar_url"
+	// SectionsListCourseSectionsIncludeEnrollments enum value ("enrollments")
+	SectionsListCourseSectionsIncludeEnrollments SectionsListCourseSectionsInclude = "enrollments"
+	// SectionsListCourseSectionsIncludeTotalStudents enum value ("total_students")
+	SectionsListCourseSectionsIncludeTotalStudents SectionsListCourseSectionsInclude = "total_students"
+	// SectionsListCourseSectionsIncludePassbackStatus enum value ("passback_status")
+	SectionsListCourseSectionsIncludePassbackStatus SectionsListCourseSectionsInclude = "passback_status"
 )
 
 // SectionsGetSectionInformationInclude enumeration
 type SectionsGetSectionInformationInclude string
 
 const (
-    // SectionsGetSectionInformationIncludeStudents enum value ("students")
-    SectionsGetSectionInformationIncludeStudents SectionsGetSectionInformationInclude = "students"
-    // SectionsGetSectionInformationIncludeAvatarURL enum value ("avatar_url")
-    SectionsGetSectionInformationIncludeAvatarURL SectionsGetSectionInformationInclude = "avatar_url"
-    // SectionsGetSectionInformationIncludeEnrollments enum value ("enrollments")
-    SectionsGetSectionInformationIncludeEnrollments SectionsGetSectionInformationInclude = "enrollments"
-    // SectionsGetSectionInformationIncludeTotalStudents enum value ("total_students")
-    SectionsGetSectionInformationIncludeTotalStudents SectionsGetSectionInformationInclude = "total_students"
-    // SectionsGetSectionInformationIncludePassbackStatus enum value ("passback_status")
-    SectionsGetSectionInformationIncludePassbackStatus SectionsGetSectionInformationInclude = "passback_status"
+	// SectionsGetSectionInformationIncludeStudents enum value ("students")
+	SectionsGetSectionInformationIncludeStudents SectionsGetSectionInformationInclude = "students"
+	// SectionsGetSectionInformationIncludeAvatarURL enum value ("avatar_url")
+	SectionsGetSectionInformationIncludeAvatarURL SectionsGetSectionInformationInclude = "avatar_url"
+	// SectionsGetSectionInformationIncludeEnrollments enum value ("enrollments")
+	SectionsGetSectionInformationIncludeEnrollments SectionsGetSectionInformationInclude = "enrollments"
+	// SectionsGetSectionInformationIncludeTotalStudents enum value ("total_students")
+	SectionsGetSectionInformationIncludeTotalStudents SectionsGetSectionInformationInclude = "total_students"
+	// SectionsGetSectionInformationIncludePassbackStatus enum value ("passback_status")
+	SectionsGetSectionInformationIncludePassbackStatus SectionsGetSectionInformationInclude = "passback_status"
 )
 
 // SISImportsGetSISImportListWorkflowState enumeration
 type SISImportsGetSISImportListWorkflowState string
 
 const (
-    // SISImportsGetSISImportListWorkflowStateInitializing enum value ("initializing")
-    SISImportsGetSISImportListWorkflowStateInitializing SISImportsGetSISImportListWorkflowState = "initializing"
-    // SISImportsGetSISImportListWorkflowStateCreated enum value ("created")
-    SISImportsGetSISImportListWorkflowStateCreated SISImportsGetSISImportListWorkflowState = "created"
-    // SISImportsGetSISImportListWorkflowStateImporting enum value ("importing")
-    SISImportsGetSISImportListWorkflowStateImporting SISImportsGetSISImportListWorkflowState = "importing"
-    // SISImportsGetSISImportListWorkflowStateCleanupBatch enum value ("cleanup_batch")
-    SISImportsGetSISImportListWorkflowStateCleanupBatch SISImportsGetSISImportListWorkflowState = "cleanup_batch"
-    // SISImportsGetSISImportListWorkflowStateImported enum value ("imported")
-    SISImportsGetSISImportListWorkflowStateImported SISImportsGetSISImportListWorkflowState = "imported"
-    // SISImportsGetSISImportListWorkflowStateImportedWithMessages enum value ("imported_with_messages")
-    SISImportsGetSISImportListWorkflowStateImportedWithMessages SISImportsGetSISImportListWorkflowState = "imported_with_messages"
-    // SISImportsGetSISImportListWorkflowStateAborted enum value ("aborted")
-    SISImportsGetSISImportListWorkflowStateAborted SISImportsGetSISImportListWorkflowState = "aborted"
-    // SISImportsGetSISImportListWorkflowStateFailed enum value ("failed")
-    SISImportsGetSISImportListWorkflowStateFailed SISImportsGetSISImportListWorkflowState = "failed"
-    // SISImportsGetSISImportListWorkflowStateFailedWithMessages enum value ("failed_with_messages")
-    SISImportsGetSISImportListWorkflowStateFailedWithMessages SISImportsGetSISImportListWorkflowState = "failed_with_messages"
-    // SISImportsGetSISImportListWorkflowStateRestoring enum value ("restoring")
-    SISImportsGetSISImportListWorkflowStateRestoring SISImportsGetSISImportListWorkflowState = "restoring"
-    // SISImportsGetSISImportListWorkflowStatePartiallyRestored enum value ("partially_restored")
-    SISImportsGetSISImportListWorkflowStatePartiallyRestored SISImportsGetSISImportListWorkflowState = "partially_restored"
-    // SISImportsGetSISImportListWorkflowStateRestored enum value ("restored")
-    SISImportsGetSISImportListWorkflowStateRestored SISImportsGetSISImportListWorkflowState = "restored"
+	// SISImportsGetSISImportListWorkflowStateInitializing enum value ("initializing")
+	SISImportsGetSISImportListWorkflowStateInitializing SISImportsGetSISImportListWorkflowState = "initializing"
+	// SISImportsGetSISImportListWorkflowStateCreated enum value ("created")
+	SISImportsGetSISImportListWorkflowStateCreated SISImportsGetSISImportListWorkflowState = "created"
+	// SISImportsGetSISImportListWorkflowStateImporting enum value ("importing")
+	SISImportsGetSISImportListWorkflowStateImporting SISImportsGetSISImportListWorkflowState = "importing"
+	// SISImportsGetSISImportListWorkflowStateCleanupBatch enum value ("cleanup_batch")
+	SISImportsGetSISImportListWorkflowStateCleanupBatch SISImportsGetSISImportListWorkflowState = "cleanup_batch"
+	// SISImportsGetSISImportListWorkflowStateImported enum value ("imported")
+	SISImportsGetSISImportListWorkflowStateImported SISImportsGetSISImportListWorkflowState = "imported"
+	// SISImportsGetSISImportListWorkflowStateImportedWithMessages enum value ("imported_with_messages")
+	SISImportsGetSISImportListWorkflowStateImportedWithMessages SISImportsGetSISImportListWorkflowState = "imported_with_messages"
+	// SISImportsGetSISImportListWorkflowStateAborted enum value ("aborted")
+	SISImportsGetSISImportListWorkflowStateAborted SISImportsGetSISImportListWorkflowState = "aborted"
+	// SISImportsGetSISImportListWorkflowStateFailed enum value ("failed")
+	SISImportsGetSISImportListWorkflowStateFailed SISImportsGetSISImportListWorkflowState = "failed"
+	// SISImportsGetSISImportListWorkflowStateFailedWithMessages enum value ("failed_with_messages")
+	SISImportsGetSISImportListWorkflowStateFailedWithMessages SISImportsGetSISImportListWorkflowState = "failed_with_messages"
+	// SISImportsGetSISImportListWorkflowStateRestoring enum value ("restoring")
+	SISImportsGetSISImportListWorkflowStateRestoring SISImportsGetSISImportListWorkflowState = "restoring"
+	// SISImportsGetSISImportListWorkflowStatePartiallyRestored enum value ("partially_restored")
+	SISImportsGetSISImportListWorkflowStatePartiallyRestored SISImportsGetSISImportListWorkflowState = "partially_restored"
+	// SISImportsGetSISImportListWorkflowStateRestored enum value ("restored")
+	SISImportsGetSISImportListWorkflowStateRestored SISImportsGetSISImportListWorkflowState = "restored"
 )
 
 // SISImportsImportSISDataDiffingDropStatus enumeration
 type SISImportsImportSISDataDiffingDropStatus string
 
 const (
-    // SISImportsImportSISDataDiffingDropStatusDeleted enum value ("deleted")
-    SISImportsImportSISDataDiffingDropStatusDeleted SISImportsImportSISDataDiffingDropStatus = "deleted"
-    // SISImportsImportSISDataDiffingDropStatusCompleted enum value ("completed")
-    SISImportsImportSISDataDiffingDropStatusCompleted SISImportsImportSISDataDiffingDropStatus = "completed"
-    // SISImportsImportSISDataDiffingDropStatusInactive enum value ("inactive")
-    SISImportsImportSISDataDiffingDropStatusInactive SISImportsImportSISDataDiffingDropStatus = "inactive"
+	// SISImportsImportSISDataDiffingDropStatusDeleted enum value ("deleted")
+	SISImportsImportSISDataDiffingDropStatusDeleted SISImportsImportSISDataDiffingDropStatus = "deleted"
+	// SISImportsImportSISDataDiffingDropStatusCompleted enum value ("completed")
+	SISImportsImportSISDataDiffingDropStatusCompleted SISImportsImportSISDataDiffingDropStatus = "completed"
+	// SISImportsImportSISDataDiffingDropStatusInactive enum value ("inactive")
+	SISImportsImportSISDataDiffingDropStatusInactive SISImportsImportSISDataDiffingDropStatus = "inactive"
 )
 
 // SubmissionsListAssignmentSubmissionsInclude enumeration
 type SubmissionsListAssignmentSubmissionsInclude string
 
 const (
-    // SubmissionsListAssignmentSubmissionsIncludeSubmissionHistory enum value ("submission_history")
-    SubmissionsListAssignmentSubmissionsIncludeSubmissionHistory SubmissionsListAssignmentSubmissionsInclude = "submission_history"
-    // SubmissionsListAssignmentSubmissionsIncludeSubmissionComments enum value ("submission_comments")
-    SubmissionsListAssignmentSubmissionsIncludeSubmissionComments SubmissionsListAssignmentSubmissionsInclude = "submission_comments"
-    // SubmissionsListAssignmentSubmissionsIncludeRubricAssessment enum value ("rubric_assessment")
-    SubmissionsListAssignmentSubmissionsIncludeRubricAssessment SubmissionsListAssignmentSubmissionsInclude = "rubric_assessment"
-    // SubmissionsListAssignmentSubmissionsIncludeAssignment enum value ("assignment")
-    SubmissionsListAssignmentSubmissionsIncludeAssignment SubmissionsListAssignmentSubmissionsInclude = "assignment"
-    // SubmissionsListAssignmentSubmissionsIncludeVisibility enum value ("visibility")
-    SubmissionsListAssignmentSubmissionsIncludeVisibility SubmissionsListAssignmentSubmissionsInclude = "visibility"
-    // SubmissionsListAssignmentSubmissionsIncludeCourse enum value ("course")
-    SubmissionsListAssignmentSubmissionsIncludeCourse SubmissionsListAssignmentSubmissionsInclude = "course"
-    // SubmissionsListAssignmentSubmissionsIncludeUser enum value ("user")
-    SubmissionsListAssignmentSubmissionsIncludeUser SubmissionsListAssignmentSubmissionsInclude = "user"
-    // SubmissionsListAssignmentSubmissionsIncludeGroup enum value ("group")
-    SubmissionsListAssignmentSubmissionsIncludeGroup SubmissionsListAssignmentSubmissionsInclude = "group"
+	// SubmissionsListAssignmentSubmissionsIncludeSubmissionHistory enum value ("submission_history")
+	SubmissionsListAssignmentSubmissionsIncludeSubmissionHistory SubmissionsListAssignmentSubmissionsInclude = "submission_history"
+	// SubmissionsListAssignmentSubmissionsIncludeSubmissionComments enum value ("submission_comments")
+	SubmissionsListAssignmentSubmissionsIncludeSubmissionComments SubmissionsListAssignmentSubmissionsInclude = "submission_comments"
+	// SubmissionsListAssignmentSubmissionsIncludeRubricAssessment enum value ("rubric_assessment")
+	SubmissionsListAssignmentSubmissionsIncludeRubricAssessment SubmissionsListAssignmentSubmissionsInclude = "rubric_assessment"
+	// SubmissionsListAssignmentSubmissionsIncludeAssignment enum value ("assignment")
+	SubmissionsListAssignmentSubmissionsIncludeAssignment SubmissionsListAssignmentSubmissionsInclude = "assignment"
+	// SubmissionsListAssignmentSubmissionsIncludeVisibility enum value ("visibility")
+	SubmissionsListAssignmentSubmissionsIncludeVisibility SubmissionsListAssignmentSubmissionsInclude = "visibility"
+	// SubmissionsListAssignmentSubmissionsIncludeCourse enum value ("course")
+	SubmissionsListAssignmentSubmissionsIncludeCourse SubmissionsListAssignmentSubmissionsInclude = "course"
+	// SubmissionsListAssignmentSubmissionsIncludeUser enum value ("user")
+	SubmissionsListAssignmentSubmissionsIncludeUser SubmissionsListAssignmentSubmissionsInclude = "user"
+	// SubmissionsListAssignmentSubmissionsIncludeGroup enum value ("group")
+	SubmissionsListAssignmentSubmissionsIncludeGroup SubmissionsListAssignmentSubmissionsInclude = "group"
 )
 
 // SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState enumeration
 type SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState string
 
 const (
-    // SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateSubmitted enum value ("submitted")
-    SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateSubmitted SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "submitted"
-    // SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateUnsubmitted enum value ("unsubmitted")
-    SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateUnsubmitted SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "unsubmitted"
-    // SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateGraded enum value ("graded")
-    SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateGraded SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "graded"
-    // SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStatePendingReview enum value ("pending_review")
-    SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStatePendingReview SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "pending_review"
+	// SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateSubmitted enum value ("submitted")
+	SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateSubmitted SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "submitted"
+	// SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateUnsubmitted enum value ("unsubmitted")
+	SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateUnsubmitted SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "unsubmitted"
+	// SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateGraded enum value ("graded")
+	SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStateGraded SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "graded"
+	// SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStatePendingReview enum value ("pending_review")
+	SubmissionsListSubmissionsForMultipleAssignmentsWorkflowStatePendingReview SubmissionsListSubmissionsForMultipleAssignmentsWorkflowState = "pending_review"
 )
 
 // SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState enumeration
 type SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState string
 
 const (
-    // SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateActive enum value ("active")
-    SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateActive SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = "active"
-    // SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateConcluded enum value ("concluded")
-    SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateConcluded SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = "concluded"
-    // SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateNone enum value ("")
-    SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateNone SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = ""
+	// SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateActive enum value ("active")
+	SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateActive SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = "active"
+	// SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateConcluded enum value ("concluded")
+	SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateConcluded SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = "concluded"
+	// SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateNone enum value ("")
+	SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentStateNone SubmissionsListSubmissionsForMultipleAssignmentsEnrollmentState = ""
 )
 
 // SubmissionsListSubmissionsForMultipleAssignmentsOrder enumeration
 type SubmissionsListSubmissionsForMultipleAssignmentsOrder string
 
 const (
-    // SubmissionsListSubmissionsForMultipleAssignmentsOrderID enum value ("id")
-    SubmissionsListSubmissionsForMultipleAssignmentsOrderID SubmissionsListSubmissionsForMultipleAssignmentsOrder = "id"
-    // SubmissionsListSubmissionsForMultipleAssignmentsOrderGradedAt enum value ("graded_at")
-    SubmissionsListSubmissionsForMultipleAssignmentsOrderGradedAt SubmissionsListSubmissionsForMultipleAssignmentsOrder = "graded_at"
+	// SubmissionsListSubmissionsForMultipleAssignmentsOrderID enum value ("id")
+	SubmissionsListSubmissionsForMultipleAssignmentsOrderID SubmissionsListSubmissionsForMultipleAssignmentsOrder = "id"
+	// SubmissionsListSubmissionsForMultipleAssignmentsOrderGradedAt enum value ("graded_at")
+	SubmissionsListSubmissionsForMultipleAssignmentsOrderGradedAt SubmissionsListSubmissionsForMultipleAssignmentsOrder = "graded_at"
 )
 
 // SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection enumeration
 type SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection string
 
 const (
-    // SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionAscending enum value ("ascending")
-    SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionAscending SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection = "ascending"
-    // SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionDescending enum value ("descending")
-    SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionDescending SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection = "descending"
+	// SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionAscending enum value ("ascending")
+	SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionAscending SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection = "ascending"
+	// SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionDescending enum value ("descending")
+	SubmissionsListSubmissionsForMultipleAssignmentsOrderDirectionDescending SubmissionsListSubmissionsForMultipleAssignmentsOrderDirection = "descending"
 )
 
 // SubmissionsListSubmissionsForMultipleAssignmentsInclude enumeration
 type SubmissionsListSubmissionsForMultipleAssignmentsInclude string
 
 const (
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionHistory enum value ("submission_history")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionHistory SubmissionsListSubmissionsForMultipleAssignmentsInclude = "submission_history"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionComments enum value ("submission_comments")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionComments SubmissionsListSubmissionsForMultipleAssignmentsInclude = "submission_comments"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeRubricAssessment enum value ("rubric_assessment")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeRubricAssessment SubmissionsListSubmissionsForMultipleAssignmentsInclude = "rubric_assessment"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeAssignment enum value ("assignment")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeAssignment SubmissionsListSubmissionsForMultipleAssignmentsInclude = "assignment"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeTotalScores enum value ("total_scores")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeTotalScores SubmissionsListSubmissionsForMultipleAssignmentsInclude = "total_scores"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeVisibility enum value ("visibility")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeVisibility SubmissionsListSubmissionsForMultipleAssignmentsInclude = "visibility"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeCourse enum value ("course")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeCourse SubmissionsListSubmissionsForMultipleAssignmentsInclude = "course"
-    // SubmissionsListSubmissionsForMultipleAssignmentsIncludeUser enum value ("user")
-    SubmissionsListSubmissionsForMultipleAssignmentsIncludeUser SubmissionsListSubmissionsForMultipleAssignmentsInclude = "user"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionHistory enum value ("submission_history")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionHistory SubmissionsListSubmissionsForMultipleAssignmentsInclude = "submission_history"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionComments enum value ("submission_comments")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeSubmissionComments SubmissionsListSubmissionsForMultipleAssignmentsInclude = "submission_comments"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeRubricAssessment enum value ("rubric_assessment")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeRubricAssessment SubmissionsListSubmissionsForMultipleAssignmentsInclude = "rubric_assessment"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeAssignment enum value ("assignment")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeAssignment SubmissionsListSubmissionsForMultipleAssignmentsInclude = "assignment"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeTotalScores enum value ("total_scores")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeTotalScores SubmissionsListSubmissionsForMultipleAssignmentsInclude = "total_scores"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeVisibility enum value ("visibility")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeVisibility SubmissionsListSubmissionsForMultipleAssignmentsInclude = "visibility"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeCourse enum value ("course")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeCourse SubmissionsListSubmissionsForMultipleAssignmentsInclude = "course"
+	// SubmissionsListSubmissionsForMultipleAssignmentsIncludeUser enum value ("user")
+	SubmissionsListSubmissionsForMultipleAssignmentsIncludeUser SubmissionsListSubmissionsForMultipleAssignmentsInclude = "user"
 )
 
 // SubmissionsGetASingleSubmissionInclude enumeration
 type SubmissionsGetASingleSubmissionInclude string
 
 const (
-    // SubmissionsGetASingleSubmissionIncludeSubmissionHistory enum value ("submission_history")
-    SubmissionsGetASingleSubmissionIncludeSubmissionHistory SubmissionsGetASingleSubmissionInclude = "submission_history"
-    // SubmissionsGetASingleSubmissionIncludeSubmissionComments enum value ("submission_comments")
-    SubmissionsGetASingleSubmissionIncludeSubmissionComments SubmissionsGetASingleSubmissionInclude = "submission_comments"
-    // SubmissionsGetASingleSubmissionIncludeRubricAssessment enum value ("rubric_assessment")
-    SubmissionsGetASingleSubmissionIncludeRubricAssessment SubmissionsGetASingleSubmissionInclude = "rubric_assessment"
-    // SubmissionsGetASingleSubmissionIncludeFullRubricAssessment enum value ("full_rubric_assessment")
-    SubmissionsGetASingleSubmissionIncludeFullRubricAssessment SubmissionsGetASingleSubmissionInclude = "full_rubric_assessment"
-    // SubmissionsGetASingleSubmissionIncludeVisibility enum value ("visibility")
-    SubmissionsGetASingleSubmissionIncludeVisibility SubmissionsGetASingleSubmissionInclude = "visibility"
-    // SubmissionsGetASingleSubmissionIncludeCourse enum value ("course")
-    SubmissionsGetASingleSubmissionIncludeCourse SubmissionsGetASingleSubmissionInclude = "course"
-    // SubmissionsGetASingleSubmissionIncludeUser enum value ("user")
-    SubmissionsGetASingleSubmissionIncludeUser SubmissionsGetASingleSubmissionInclude = "user"
+	// SubmissionsGetASingleSubmissionIncludeSubmissionHistory enum value ("submission_history")
+	SubmissionsGetASingleSubmissionIncludeSubmissionHistory SubmissionsGetASingleSubmissionInclude = "submission_history"
+	// SubmissionsGetASingleSubmissionIncludeSubmissionComments enum value ("submission_comments")
+	SubmissionsGetASingleSubmissionIncludeSubmissionComments SubmissionsGetASingleSubmissionInclude = "submission_comments"
+	// SubmissionsGetASingleSubmissionIncludeRubricAssessment enum value ("rubric_assessment")
+	SubmissionsGetASingleSubmissionIncludeRubricAssessment SubmissionsGetASingleSubmissionInclude = "rubric_assessment"
+	// SubmissionsGetASingleSubmissionIncludeFullRubricAssessment enum value ("full_rubric_assessment")
+	SubmissionsGetASingleSubmissionIncludeFullRubricAssessment SubmissionsGetASingleSubmissionInclude = "full_rubric_assessment"
+	// SubmissionsGetASingleSubmissionIncludeVisibility enum value ("visibility")
+	SubmissionsGetASingleSubmissionIncludeVisibility SubmissionsGetASingleSubmissionInclude = "visibility"
+	// SubmissionsGetASingleSubmissionIncludeCourse enum value ("course")
+	SubmissionsGetASingleSubmissionIncludeCourse SubmissionsGetASingleSubmissionInclude = "course"
+	// SubmissionsGetASingleSubmissionIncludeUser enum value ("user")
+	SubmissionsGetASingleSubmissionIncludeUser SubmissionsGetASingleSubmissionInclude = "user"
 )
 
 // SubmissionsSubmitAnAssignmentSubmission enumeration
 type SubmissionsSubmitAnAssignmentSubmission string
 
 const (
-    // SubmissionsSubmitAnAssignmentSubmissionOnlineTextEntry enum value ("online_text_entry")
-    SubmissionsSubmitAnAssignmentSubmissionOnlineTextEntry SubmissionsSubmitAnAssignmentSubmission = "online_text_entry"
-    // SubmissionsSubmitAnAssignmentSubmissionOnlineURL enum value ("online_url")
-    SubmissionsSubmitAnAssignmentSubmissionOnlineURL SubmissionsSubmitAnAssignmentSubmission = "online_url"
-    // SubmissionsSubmitAnAssignmentSubmissionOnlineUpload enum value ("online_upload")
-    SubmissionsSubmitAnAssignmentSubmissionOnlineUpload SubmissionsSubmitAnAssignmentSubmission = "online_upload"
-    // SubmissionsSubmitAnAssignmentSubmissionMediaRecording enum value ("media_recording")
-    SubmissionsSubmitAnAssignmentSubmissionMediaRecording SubmissionsSubmitAnAssignmentSubmission = "media_recording"
-    // SubmissionsSubmitAnAssignmentSubmissionBasicLtiLaunch enum value ("basic_lti_launch")
-    SubmissionsSubmitAnAssignmentSubmissionBasicLtiLaunch SubmissionsSubmitAnAssignmentSubmission = "basic_lti_launch"
+	// SubmissionsSubmitAnAssignmentSubmissionOnlineTextEntry enum value ("online_text_entry")
+	SubmissionsSubmitAnAssignmentSubmissionOnlineTextEntry SubmissionsSubmitAnAssignmentSubmission = "online_text_entry"
+	// SubmissionsSubmitAnAssignmentSubmissionOnlineURL enum value ("online_url")
+	SubmissionsSubmitAnAssignmentSubmissionOnlineURL SubmissionsSubmitAnAssignmentSubmission = "online_url"
+	// SubmissionsSubmitAnAssignmentSubmissionOnlineUpload enum value ("online_upload")
+	SubmissionsSubmitAnAssignmentSubmissionOnlineUpload SubmissionsSubmitAnAssignmentSubmission = "online_upload"
+	// SubmissionsSubmitAnAssignmentSubmissionMediaRecording enum value ("media_recording")
+	SubmissionsSubmitAnAssignmentSubmissionMediaRecording SubmissionsSubmitAnAssignmentSubmission = "media_recording"
+	// SubmissionsSubmitAnAssignmentSubmissionBasicLtiLaunch enum value ("basic_lti_launch")
+	SubmissionsSubmitAnAssignmentSubmissionBasicLtiLaunch SubmissionsSubmitAnAssignmentSubmission = "basic_lti_launch"
 )
 
 // EnrollmentTermsListEnrollmentTermsWorkflowState enumeration
 type EnrollmentTermsListEnrollmentTermsWorkflowState string
 
 const (
-    // EnrollmentTermsListEnrollmentTermsWorkflowStateActive enum value ("active")
-    EnrollmentTermsListEnrollmentTermsWorkflowStateActive EnrollmentTermsListEnrollmentTermsWorkflowState = "active"
-    // EnrollmentTermsListEnrollmentTermsWorkflowStateDeleted enum value ("deleted")
-    EnrollmentTermsListEnrollmentTermsWorkflowStateDeleted EnrollmentTermsListEnrollmentTermsWorkflowState = "deleted"
-    // EnrollmentTermsListEnrollmentTermsWorkflowStateAll enum value ("all")
-    EnrollmentTermsListEnrollmentTermsWorkflowStateAll EnrollmentTermsListEnrollmentTermsWorkflowState = "all"
+	// EnrollmentTermsListEnrollmentTermsWorkflowStateActive enum value ("active")
+	EnrollmentTermsListEnrollmentTermsWorkflowStateActive EnrollmentTermsListEnrollmentTermsWorkflowState = "active"
+	// EnrollmentTermsListEnrollmentTermsWorkflowStateDeleted enum value ("deleted")
+	EnrollmentTermsListEnrollmentTermsWorkflowStateDeleted EnrollmentTermsListEnrollmentTermsWorkflowState = "deleted"
+	// EnrollmentTermsListEnrollmentTermsWorkflowStateAll enum value ("all")
+	EnrollmentTermsListEnrollmentTermsWorkflowStateAll EnrollmentTermsListEnrollmentTermsWorkflowState = "all"
 )
 
 // EnrollmentTermsListEnrollmentTermsInclude enumeration
 type EnrollmentTermsListEnrollmentTermsInclude string
 
 const (
-    // EnrollmentTermsListEnrollmentTermsIncludeOverrides enum value ("overrides")
-    EnrollmentTermsListEnrollmentTermsIncludeOverrides EnrollmentTermsListEnrollmentTermsInclude = "overrides"
+	// EnrollmentTermsListEnrollmentTermsIncludeOverrides enum value ("overrides")
+	EnrollmentTermsListEnrollmentTermsIncludeOverrides EnrollmentTermsListEnrollmentTermsInclude = "overrides"
 )
 
 // FilesSetUsageRightsUsageRights enumeration
 type FilesSetUsageRightsUsageRights string
 
 const (
-    // FilesSetUsageRightsUsageRightsOwnCopyright enum value ("own_copyright")
-    FilesSetUsageRightsUsageRightsOwnCopyright FilesSetUsageRightsUsageRights = "own_copyright"
-    // FilesSetUsageRightsUsageRightsUsedByPermission enum value ("used_by_permission")
-    FilesSetUsageRightsUsageRightsUsedByPermission FilesSetUsageRightsUsageRights = "used_by_permission"
-    // FilesSetUsageRightsUsageRightsFairUse enum value ("fair_use")
-    FilesSetUsageRightsUsageRightsFairUse FilesSetUsageRightsUsageRights = "fair_use"
-    // FilesSetUsageRightsUsageRightsPublicDomain enum value ("public_domain")
-    FilesSetUsageRightsUsageRightsPublicDomain FilesSetUsageRightsUsageRights = "public_domain"
-    // FilesSetUsageRightsUsageRightsCreativeCommons enum value ("creative_commons")
-    FilesSetUsageRightsUsageRightsCreativeCommons FilesSetUsageRightsUsageRights = "creative_commons"
+	// FilesSetUsageRightsUsageRightsOwnCopyright enum value ("own_copyright")
+	FilesSetUsageRightsUsageRightsOwnCopyright FilesSetUsageRightsUsageRights = "own_copyright"
+	// FilesSetUsageRightsUsageRightsUsedByPermission enum value ("used_by_permission")
+	FilesSetUsageRightsUsageRightsUsedByPermission FilesSetUsageRightsUsageRights = "used_by_permission"
+	// FilesSetUsageRightsUsageRightsFairUse enum value ("fair_use")
+	FilesSetUsageRightsUsageRightsFairUse FilesSetUsageRightsUsageRights = "fair_use"
+	// FilesSetUsageRightsUsageRightsPublicDomain enum value ("public_domain")
+	FilesSetUsageRightsUsageRightsPublicDomain FilesSetUsageRightsUsageRights = "public_domain"
+	// FilesSetUsageRightsUsageRightsCreativeCommons enum value ("creative_commons")
+	FilesSetUsageRightsUsageRightsCreativeCommons FilesSetUsageRightsUsageRights = "creative_commons"
 )
 
 // UserObserveesListObserveesInclude enumeration
 type UserObserveesListObserveesInclude string
 
 const (
-    // UserObserveesListObserveesIncludeAvatarURL enum value ("avatar_url")
-    UserObserveesListObserveesIncludeAvatarURL UserObserveesListObserveesInclude = "avatar_url"
+	// UserObserveesListObserveesIncludeAvatarURL enum value ("avatar_url")
+	UserObserveesListObserveesIncludeAvatarURL UserObserveesListObserveesInclude = "avatar_url"
 )
 
 // UsersListUsersInAccountSort enumeration
 type UsersListUsersInAccountSort string
 
 const (
-    // UsersListUsersInAccountSortUsername enum value ("username")
-    UsersListUsersInAccountSortUsername UsersListUsersInAccountSort = "username"
-    // UsersListUsersInAccountSortEmail enum value ("email")
-    UsersListUsersInAccountSortEmail UsersListUsersInAccountSort = "email"
-    // UsersListUsersInAccountSortSisID enum value ("sis_id")
-    UsersListUsersInAccountSortSisID UsersListUsersInAccountSort = "sis_id"
-    // UsersListUsersInAccountSortLastLogin enum value ("last_login")
-    UsersListUsersInAccountSortLastLogin UsersListUsersInAccountSort = "last_login"
+	// UsersListUsersInAccountSortUsername enum value ("username")
+	UsersListUsersInAccountSortUsername UsersListUsersInAccountSort = "username"
+	// UsersListUsersInAccountSortEmail enum value ("email")
+	UsersListUsersInAccountSortEmail UsersListUsersInAccountSort = "email"
+	// UsersListUsersInAccountSortSisID enum value ("sis_id")
+	UsersListUsersInAccountSortSisID UsersListUsersInAccountSort = "sis_id"
+	// UsersListUsersInAccountSortLastLogin enum value ("last_login")
+	UsersListUsersInAccountSortLastLogin UsersListUsersInAccountSort = "last_login"
 )
 
 // UsersListUsersInAccountOrder enumeration
 type UsersListUsersInAccountOrder string
 
 const (
-    // UsersListUsersInAccountOrderAsc enum value ("asc")
-    UsersListUsersInAccountOrderAsc UsersListUsersInAccountOrder = "asc"
-    // UsersListUsersInAccountOrderDesc enum value ("desc")
-    UsersListUsersInAccountOrderDesc UsersListUsersInAccountOrder = "desc"
+	// UsersListUsersInAccountOrderAsc enum value ("asc")
+	UsersListUsersInAccountOrderAsc UsersListUsersInAccountOrder = "asc"
+	// UsersListUsersInAccountOrderDesc enum value ("desc")
+	UsersListUsersInAccountOrderDesc UsersListUsersInAccountOrder = "desc"
 )
 
 // UsersListTheTODOItemsInclude enumeration
 type UsersListTheTODOItemsInclude string
 
 const (
-    // UsersListTheTODOItemsIncludeUngradedQuizzes enum value ("ungraded_quizzes")
-    UsersListTheTODOItemsIncludeUngradedQuizzes UsersListTheTODOItemsInclude = "ungraded_quizzes"
+	// UsersListTheTODOItemsIncludeUngradedQuizzes enum value ("ungraded_quizzes")
+	UsersListTheTODOItemsIncludeUngradedQuizzes UsersListTheTODOItemsInclude = "ungraded_quizzes"
 )
 
 // UsersListCountsForTodoItemsInclude enumeration
 type UsersListCountsForTodoItemsInclude string
 
 const (
-    // UsersListCountsForTodoItemsIncludeUngradedQuizzes enum value ("ungraded_quizzes")
-    UsersListCountsForTodoItemsIncludeUngradedQuizzes UsersListCountsForTodoItemsInclude = "ungraded_quizzes"
+	// UsersListCountsForTodoItemsIncludeUngradedQuizzes enum value ("ungraded_quizzes")
+	UsersListCountsForTodoItemsIncludeUngradedQuizzes UsersListCountsForTodoItemsInclude = "ungraded_quizzes"
 )
 
 // UsersListMissingSubmissionsInclude enumeration
 type UsersListMissingSubmissionsInclude string
 
 const (
-    // UsersListMissingSubmissionsIncludePlannerOverrides enum value ("planner_overrides")
-    UsersListMissingSubmissionsIncludePlannerOverrides UsersListMissingSubmissionsInclude = "planner_overrides"
-    // UsersListMissingSubmissionsIncludeCourse enum value ("course")
-    UsersListMissingSubmissionsIncludeCourse UsersListMissingSubmissionsInclude = "course"
+	// UsersListMissingSubmissionsIncludePlannerOverrides enum value ("planner_overrides")
+	UsersListMissingSubmissionsIncludePlannerOverrides UsersListMissingSubmissionsInclude = "planner_overrides"
+	// UsersListMissingSubmissionsIncludeCourse enum value ("course")
+	UsersListMissingSubmissionsIncludeCourse UsersListMissingSubmissionsInclude = "course"
 )
 
 // UsersListMissingSubmissionsFilter enumeration
 type UsersListMissingSubmissionsFilter string
 
 const (
-    // UsersListMissingSubmissionsFilterSubmittable enum value ("submittable")
-    UsersListMissingSubmissionsFilterSubmittable UsersListMissingSubmissionsFilter = "submittable"
+	// UsersListMissingSubmissionsFilterSubmittable enum value ("submittable")
+	UsersListMissingSubmissionsFilterSubmittable UsersListMissingSubmissionsFilter = "submittable"
 )
 
 // UsersShowUserDetailsInclude enumeration
 type UsersShowUserDetailsInclude string
 
 const (
-    // UsersShowUserDetailsIncludeUUID enum value ("uuid")
-    UsersShowUserDetailsIncludeUUID UsersShowUserDetailsInclude = "uuid"
+	// UsersShowUserDetailsIncludeUUID enum value ("uuid")
+	UsersShowUserDetailsIncludeUUID UsersShowUserDetailsInclude = "uuid"
 )
 
 // UsersGetAUsersMostRecentlyGradedSubmissionsInclude enumeration
 type UsersGetAUsersMostRecentlyGradedSubmissionsInclude string
 
 const (
-    // UsersGetAUsersMostRecentlyGradedSubmissionsIncludeAssignment enum value ("assignment")
-    UsersGetAUsersMostRecentlyGradedSubmissionsIncludeAssignment UsersGetAUsersMostRecentlyGradedSubmissionsInclude = "assignment"
+	// UsersGetAUsersMostRecentlyGradedSubmissionsIncludeAssignment enum value ("assignment")
+	UsersGetAUsersMostRecentlyGradedSubmissionsIncludeAssignment UsersGetAUsersMostRecentlyGradedSubmissionsInclude = "assignment"
 )
 
 // PagesListPagesSort enumeration
 type PagesListPagesSort string
 
 const (
-    // PagesListPagesSortTitle enum value ("title")
-    PagesListPagesSortTitle PagesListPagesSort = "title"
-    // PagesListPagesSortCreatedAt enum value ("created_at")
-    PagesListPagesSortCreatedAt PagesListPagesSort = "created_at"
-    // PagesListPagesSortUpdatedAt enum value ("updated_at")
-    PagesListPagesSortUpdatedAt PagesListPagesSort = "updated_at"
+	// PagesListPagesSortTitle enum value ("title")
+	PagesListPagesSortTitle PagesListPagesSort = "title"
+	// PagesListPagesSortCreatedAt enum value ("created_at")
+	PagesListPagesSortCreatedAt PagesListPagesSort = "created_at"
+	// PagesListPagesSortUpdatedAt enum value ("updated_at")
+	PagesListPagesSortUpdatedAt PagesListPagesSort = "updated_at"
 )
 
 // PagesListPagesOrder enumeration
 type PagesListPagesOrder string
 
 const (
-    // PagesListPagesOrderAsc enum value ("asc")
-    PagesListPagesOrderAsc PagesListPagesOrder = "asc"
-    // PagesListPagesOrderDesc enum value ("desc")
-    PagesListPagesOrderDesc PagesListPagesOrder = "desc"
+	// PagesListPagesOrderAsc enum value ("asc")
+	PagesListPagesOrderAsc PagesListPagesOrder = "asc"
+	// PagesListPagesOrderDesc enum value ("desc")
+	PagesListPagesOrderDesc PagesListPagesOrder = "desc"
 )
 
 // AccountNotification model object
 type AccountNotification struct {
-    // EndAt field: When to expire the notification.
-    EndAt time.Time `json:"end_at"`
-    // Icon field: The icon to display with the message.  Defaults to warning.
-    Icon *AccountNotificationIcon `json:"icon"`
-    // Message field: The message to be sent in the notification.
-    Message string `json:"message"`
-    // RoleIds field: The roles to send the notification to.  If roles is not passed it defaults to all roles
-    RoleIds []int `json:"role_ids"`
-    // Roles field: (Deprecated) The roles to send the notification to.  If roles is not passed it defaults to all roles
-    Roles []string `json:"roles"`
-    // StartAt field: When to send out the notification.
-    StartAt time.Time `json:"start_at"`
-    // Subject field: The subject of the notifications
-    Subject string `json:"subject"`
+	// EndAt field: When to expire the notification.
+	EndAt time.Time `json:"end_at"`
+	// Icon field: The icon to display with the message.  Defaults to warning.
+	Icon *AccountNotificationIcon `json:"icon"`
+	// Message field: The message to be sent in the notification.
+	Message string `json:"message"`
+	// RoleIds field: The roles to send the notification to.  If roles is not passed it defaults to all roles
+	RoleIds []int `json:"role_ids"`
+	// Roles field: (Deprecated) The roles to send the notification to.  If roles is not passed it defaults to all roles
+	Roles []string `json:"roles"`
+	// StartAt field: When to send out the notification.
+	StartAt time.Time `json:"start_at"`
+	// Subject field: The subject of the notifications
+	Subject string `json:"subject"`
 }
 
 // Report model object
 type Report struct {
-    // Attachment field: The attachment api object of the report. Only available after the report has completed.
-    Attachment *File `json:"attachment"`
-    // CreatedAt field: The date and time the report was created.
-    CreatedAt time.Time `json:"created_at"`
-    // CurrentLine field: This is the current line count being written to the report. It updates every 1000 records.
-    CurrentLine int `json:"current_line"`
-    // EndedAt field: The date and time the report finished processing.
-    EndedAt time.Time `json:"ended_at"`
-    // FileURL field: The url to the report download.
-    FileURL string `json:"file_url"`
-    // ID field: The unique identifier for the report.
-    ID int `json:"id"`
-    // Parameters field: The report parameters
-    Parameters *ReportParameters `json:"parameters"`
-    // Progress field: The progress of the report
-    Progress int `json:"progress"`
-    // Report field: The type of report.
-    Report string `json:"report"`
-    // StartedAt field: The date and time the report started processing.
-    StartedAt time.Time `json:"started_at"`
-    // Status field: The status of the report
-    Status string `json:"status"`
+	// Attachment field: The attachment api object of the report. Only available after the report has completed.
+	Attachment *File `json:"attachment"`
+	// CreatedAt field: The date and time the report was created.
+	CreatedAt time.Time `json:"created_at"`
+	// CurrentLine field: This is the current line count being written to the report. It updates every 1000 records.
+	CurrentLine int `json:"current_line"`
+	// EndedAt field: The date and time the report finished processing.
+	EndedAt time.Time `json:"ended_at"`
+	// FileURL field: The url to the report download.
+	FileURL string `json:"file_url"`
+	// ID field: The unique identifier for the report.
+	ID int `json:"id"`
+	// Parameters field: The report parameters
+	Parameters *ReportParameters `json:"parameters"`
+	// Progress field: The progress of the report
+	Progress int `json:"progress"`
+	// Report field: The type of report.
+	Report string `json:"report"`
+	// StartedAt field: The date and time the report started processing.
+	StartedAt time.Time `json:"started_at"`
+	// Status field: The status of the report
+	Status string `json:"status"`
 }
 
 // ReportParameters model object: The parameters returned will vary for each report.
 type ReportParameters struct {
-    // Accounts field: If true, account data will be included. If false, account data will be omitted.
-    Accounts bool `json:"accounts"`
-    // CourseID field: The id of the course to report on
-    CourseID int `json:"course_id"`
-    // Courses field: If true, course data will be included. If false, course data will be omitted.
-    Courses bool `json:"courses"`
-    // EndAt field: The end date for submissions. Max time range is 2 weeks.
-    EndAt time.Time `json:"end_at"`
-    // EnrollmentState field: Include enrollment state. Defaults to 'all' Options: ['active'| 'invited'|
-    // 'creation_pending'| 'deleted'| 'rejected'| 'completed'| 'inactive'| 'all']
-    EnrollmentState []string `json:"enrollment_state"`
-    // EnrollmentTermID field: The canvas id of the term to get grades from
-    EnrollmentTermID int `json:"enrollment_term_id"`
-    // Enrollments field: If true, enrollment data will be included. If false, enrollment data will be omitted.
-    Enrollments bool `json:"enrollments"`
-    // Groups field: If true, group data will be included. If false, group data will be omitted.
-    Groups bool `json:"groups"`
-    // IncludeDeleted field: If true, deleted objects will be included. If false, deleted objects will be omitted.
-    IncludeDeleted bool `json:"include_deleted"`
-    // IncludeEnrollmentState field: If true, enrollment state will be included. If false, enrollment state will be
-    // omitted. Defaults to false.
-    IncludeEnrollmentState bool `json:"include_enrollment_state"`
-    // Order field: The sort order for the csv, Options: 'users', 'courses', 'outcomes'.
-    Order *ReportParametersOrder `json:"order"`
-    // Sections field: If true, section data will be included. If false, section data will be omitted.
-    Sections bool `json:"sections"`
-    // SisAccountsCsv field
-    SisAccountsCsv int `json:"sis_accounts_csv"`
-    // SisTermsCsv field
-    SisTermsCsv int `json:"sis_terms_csv"`
-    // StartAt field: The beginning date for submissions. Max time range is 2 weeks.
-    StartAt time.Time `json:"start_at"`
-    // Terms field: If true, term data will be included. If false, term data will be omitted.
-    Terms bool `json:"terms"`
-    // Users field: If true, user data will be included. If false, user data will be omitted.
-    Users bool `json:"users"`
-    // Xlist field: If true, data for crosslisted courses will be included. If false, data for crosslisted courses will
-    // be omitted.
-    Xlist bool `json:"xlist"`
+	// Accounts field: If true, account data will be included. If false, account data will be omitted.
+	Accounts bool `json:"accounts"`
+	// CourseID field: The id of the course to report on
+	CourseID int `json:"course_id"`
+	// Courses field: If true, course data will be included. If false, course data will be omitted.
+	Courses bool `json:"courses"`
+	// EndAt field: The end date for submissions. Max time range is 2 weeks.
+	EndAt time.Time `json:"end_at"`
+	// EnrollmentState field: Include enrollment state. Defaults to 'all' Options: ['active'| 'invited'|
+	// 'creation_pending'| 'deleted'| 'rejected'| 'completed'| 'inactive'| 'all']
+	EnrollmentState []string `json:"enrollment_state"`
+	// EnrollmentTermID field: The canvas id of the term to get grades from
+	EnrollmentTermID int `json:"enrollment_term_id"`
+	// Enrollments field: If true, enrollment data will be included. If false, enrollment data will be omitted.
+	Enrollments bool `json:"enrollments"`
+	// Groups field: If true, group data will be included. If false, group data will be omitted.
+	Groups bool `json:"groups"`
+	// IncludeDeleted field: If true, deleted objects will be included. If false, deleted objects will be omitted.
+	IncludeDeleted bool `json:"include_deleted"`
+	// IncludeEnrollmentState field: If true, enrollment state will be included. If false, enrollment state will be
+	// omitted. Defaults to false.
+	IncludeEnrollmentState bool `json:"include_enrollment_state"`
+	// Order field: The sort order for the csv, Options: 'users', 'courses', 'outcomes'.
+	Order *ReportParametersOrder `json:"order"`
+	// Sections field: If true, section data will be included. If false, section data will be omitted.
+	Sections bool `json:"sections"`
+	// SisAccountsCsv field
+	SisAccountsCsv int `json:"sis_accounts_csv"`
+	// SisTermsCsv field
+	SisTermsCsv int `json:"sis_terms_csv"`
+	// StartAt field: The beginning date for submissions. Max time range is 2 weeks.
+	StartAt time.Time `json:"start_at"`
+	// Terms field: If true, term data will be included. If false, term data will be omitted.
+	Terms bool `json:"terms"`
+	// Users field: If true, user data will be included. If false, user data will be omitted.
+	Users bool `json:"users"`
+	// Xlist field: If true, data for crosslisted courses will be included. If false, data for crosslisted courses will
+	// be omitted.
+	Xlist bool `json:"xlist"`
 }
 
 // Account model object
 type Account struct {
-    // DefaultGroupStorageQuotaMb field: The storage quota for a group in the account in megabytes, if not otherwise
-    // specified
-    DefaultGroupStorageQuotaMb int `json:"default_group_storage_quota_mb"`
-    // DefaultStorageQuotaMb field: The storage quota for the account in megabytes, if not otherwise specified
-    DefaultStorageQuotaMb int `json:"default_storage_quota_mb"`
-    // DefaultTimeZone field: The default time zone of the account. Allowed time zones are
-    // {http://www.iana.org/time-zones IANA time zones} or friendlier
-    // {http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html Ruby on Rails time zones}.
-    DefaultTimeZone string `json:"default_time_zone"`
-    // DefaultUserStorageQuotaMb field: The storage quota for a user in the account in megabytes, if not otherwise
-    // specified
-    DefaultUserStorageQuotaMb int `json:"default_user_storage_quota_mb"`
-    // ID field: the ID of the Account object
-    ID int `json:"id"`
-    // IntegrationID field: The account's identifier in the Student Information System. Only included if the user has
-    // permission to view SIS information.
-    IntegrationID string `json:"integration_id"`
-    // LtiGUID field: The account's identifier that is sent as context_id in LTI launches.
-    LtiGUID string `json:"lti_guid"`
-    // Name field: The display name of the account
-    Name string `json:"name"`
-    // ParentAccountID field: The account's parent ID, or null if this is the root account
-    ParentAccountID int `json:"parent_account_id"`
-    // RootAccountID field: The ID of the root account, or null if this is the root account
-    RootAccountID int `json:"root_account_id"`
-    // SisAccountID field: The account's identifier in the Student Information System. Only included if the user has
-    // permission to view SIS information.
-    SisAccountID string `json:"sis_account_id"`
-    // SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
-    // manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // UUID field: The UUID of the account
-    UUID string `json:"uuid"`
-    // WorkflowState field: The state of the account. Can be 'active' or 'deleted'.
-    WorkflowState string `json:"workflow_state"`
+	// DefaultGroupStorageQuotaMb field: The storage quota for a group in the account in megabytes, if not otherwise
+	// specified
+	DefaultGroupStorageQuotaMb int `json:"default_group_storage_quota_mb"`
+	// DefaultStorageQuotaMb field: The storage quota for the account in megabytes, if not otherwise specified
+	DefaultStorageQuotaMb int `json:"default_storage_quota_mb"`
+	// DefaultTimeZone field: The default time zone of the account. Allowed time zones are
+	// {http://www.iana.org/time-zones IANA time zones} or friendlier
+	// {http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html Ruby on Rails time zones}.
+	DefaultTimeZone string `json:"default_time_zone"`
+	// DefaultUserStorageQuotaMb field: The storage quota for a user in the account in megabytes, if not otherwise
+	// specified
+	DefaultUserStorageQuotaMb int `json:"default_user_storage_quota_mb"`
+	// ID field: the ID of the Account object
+	ID int `json:"id"`
+	// IntegrationID field: The account's identifier in the Student Information System. Only included if the user has
+	// permission to view SIS information.
+	IntegrationID string `json:"integration_id"`
+	// LtiGUID field: The account's identifier that is sent as context_id in LTI launches.
+	LtiGUID string `json:"lti_guid"`
+	// Name field: The display name of the account
+	Name string `json:"name"`
+	// ParentAccountID field: The account's parent ID, or null if this is the root account
+	ParentAccountID int `json:"parent_account_id"`
+	// RootAccountID field: The ID of the root account, or null if this is the root account
+	RootAccountID int `json:"root_account_id"`
+	// SisAccountID field: The account's identifier in the Student Information System. Only included if the user has
+	// permission to view SIS information.
+	SisAccountID string `json:"sis_account_id"`
+	// SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
+	// manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// UUID field: The UUID of the account
+	UUID string `json:"uuid"`
+	// WorkflowState field: The state of the account. Can be 'active' or 'deleted'.
+	WorkflowState string `json:"workflow_state"`
 }
 
 // TermsOfService model object
 type TermsOfService struct {
-    // AccountID field: The id of the root account that owns the Terms of Service
-    AccountID int `json:"account_id"`
-    // Content field: Content of the Terms of Service
-    Content string `json:"content"`
-    // ID field: Terms Of Service id
-    ID int `json:"id"`
-    // Passive field: Boolean dictating if the user must accept Terms of Service
-    Passive bool `json:"passive"`
-    // TermsType field: The given type for the Terms of Service
-    TermsType string `json:"terms_type"`
+	// AccountID field: The id of the root account that owns the Terms of Service
+	AccountID int `json:"account_id"`
+	// Content field: Content of the Terms of Service
+	Content string `json:"content"`
+	// ID field: Terms Of Service id
+	ID int `json:"id"`
+	// Passive field: Boolean dictating if the user must accept Terms of Service
+	Passive bool `json:"passive"`
+	// TermsType field: The given type for the Terms of Service
+	TermsType string `json:"terms_type"`
 }
 
 // HelpLink model object
 type HelpLink struct {
-    // AvailableTo field: The roles that have access to this help link
-    AvailableTo []string `json:"available_to"`
-    // ID field: The ID of the help link
-    ID string `json:"id"`
-    // Subtext field: The description of the help link
-    Subtext string `json:"subtext"`
-    // Text field: The name of the help link
-    Text string `json:"text"`
-    // Type field: The type of the help link
-    Type string `json:"type"`
-    // URL field: The URL of the help link
-    URL string `json:"url"`
+	// AvailableTo field: The roles that have access to this help link
+	AvailableTo []string `json:"available_to"`
+	// ID field: The ID of the help link
+	ID string `json:"id"`
+	// Subtext field: The description of the help link
+	Subtext string `json:"subtext"`
+	// Text field: The name of the help link
+	Text string `json:"text"`
+	// Type field: The type of the help link
+	Type string `json:"type"`
+	// URL field: The URL of the help link
+	URL string `json:"url"`
 }
 
 // HelpLinks model object
 type HelpLinks struct {
-    // CustomHelpLinks field: Help links defined by the account. Could include default help links.
-    CustomHelpLinks []HelpLink `json:"custom_help_links"`
-    // DefaultHelpLinks field: Default help links provided when account has not set help links of their own.
-    DefaultHelpLinks []HelpLink `json:"default_help_links"`
-    // HelpLinkIcon field: Help link button icon
-    HelpLinkIcon string `json:"help_link_icon"`
-    // HelpLinkName field: Help link button title
-    HelpLinkName string `json:"help_link_name"`
+	// CustomHelpLinks field: Help links defined by the account. Could include default help links.
+	CustomHelpLinks []HelpLink `json:"custom_help_links"`
+	// DefaultHelpLinks field: Default help links provided when account has not set help links of their own.
+	DefaultHelpLinks []HelpLink `json:"default_help_links"`
+	// HelpLinkIcon field: Help link button icon
+	HelpLinkIcon string `json:"help_link_icon"`
+	// HelpLinkName field: Help link button title
+	HelpLinkName string `json:"help_link_name"`
 }
 
 // Admin model object
 type Admin struct {
-    // ID field: The unique identifier for the account role/user assignment.
-    ID int `json:"id"`
-    // Role field: The account role assigned. This can be 'AccountAdmin' or a user-defined role created by the Roles
-    // API.
-    Role string `json:"role"`
-    // User field: The user the role is assigned to. See the Users API for details.
-    User *User `json:"user"`
-    // WorkflowState field: The status of the account role/user assignment.
-    WorkflowState string `json:"workflow_state"`
+	// ID field: The unique identifier for the account role/user assignment.
+	ID int `json:"id"`
+	// Role field: The account role assigned. This can be 'AccountAdmin' or a user-defined role created by the Roles
+	// API.
+	Role string `json:"role"`
+	// User field: The user the role is assigned to. See the Users API for details.
+	User *User `json:"user"`
+	// WorkflowState field: The status of the account role/user assignment.
+	WorkflowState string `json:"workflow_state"`
 }
 
 // Appointment model object: Date and time for an appointment
 type Appointment struct {
-    // EndAt field: End time for the appointment
-    EndAt time.Time `json:"end_at"`
-    // ID field: The appointment identifier.
-    ID int `json:"id"`
-    // StartAt field: Start time for the appointment
-    StartAt time.Time `json:"start_at"`
+	// EndAt field: End time for the appointment
+	EndAt time.Time `json:"end_at"`
+	// ID field: The appointment identifier.
+	ID int `json:"id"`
+	// StartAt field: Start time for the appointment
+	StartAt time.Time `json:"start_at"`
 }
 
 // AppointmentGroup model object
 type AppointmentGroup struct {
-    // Appointments field: Calendar Events representing the time slots (see include[] argument) Refer to the Calendar
-    // Events API for more information
-    Appointments []CalendarEvent `json:"appointments"`
-    // AppointmentsCount field: Number of time slots in this appointment group
-    AppointmentsCount int `json:"appointments_count"`
-    // ContextCodes field: The context codes (i.e. courses) this appointment group belongs to. Only people in these
-    // courses will be eligible to sign up.
-    ContextCodes []string `json:"context_codes"`
-    // CreatedAt field: When the appointment group was created
-    CreatedAt time.Time `json:"created_at"`
-    // Description field: The text description of the appointment group
-    Description string `json:"description"`
-    // EndAt field: The end of the last time slot in the appointment group
-    EndAt time.Time `json:"end_at"`
-    // HTMLURL field: URL for a user to view this appointment group
-    HTMLURL string `json:"html_url"`
-    // ID field: The ID of the appointment group
-    ID int `json:"id"`
-    // LocationAddress field: The address of the appointment group's location
-    LocationAddress string `json:"location_address"`
-    // LocationName field: The location name of the appointment group
-    LocationName string `json:"location_name"`
-    // MaxAppointmentsPerParticipant field: Maximum number of time slots a user may register for, or null if no limit
-    MaxAppointmentsPerParticipant int `json:"max_appointments_per_participant"`
-    // MinAppointmentsPerParticipant field: Minimum number of time slots a user must register for. If not set, users do
-    // not need to sign up for any time slots
-    MinAppointmentsPerParticipant int `json:"min_appointments_per_participant"`
-    // NewAppointments field: Newly created time slots (same format as appointments above). Only returned in
-    // Create/Update responses where new time slots have been added
-    NewAppointments []CalendarEvent `json:"new_appointments"`
-    // ParticipantCount field: The number of participant who have reserved slots (see include[] argument)
-    ParticipantCount int `json:"participant_count"`
-    // ParticipantType field: Indicates how participants sign up for the appointment group, either as individuals
-    // ('User') or in student groups ('Group'). Related to sub_context_codes (i.e. 'Group' signups always have a single
-    // group category)
-    ParticipantType *AppointmentGroupParticipantType `json:"participant_type"`
-    // ParticipantVisibility field: 'private' means participants cannot see who has signed up for a particular time
-    // slot, 'protected' means that they can
-    ParticipantVisibility *AppointmentGroupParticipantVisibility `json:"participant_visibility"`
-    // ParticipantsPerAppointment field: Maximum number of participants that may register for each time slot, or null if
-    // no limit
-    ParticipantsPerAppointment int `json:"participants_per_appointment"`
-    // RequiringAction field: Boolean indicating whether the current user needs to sign up for this appointment group
-    // (i.e. it's reservable and the min_appointments_per_participant limit has not been met by this user).
-    RequiringAction bool `json:"requiring_action"`
-    // ReservedTimes field: The start and end times of slots reserved by the current user as well as the id of the
-    // calendar event for the reservation (see include[] argument)
-    ReservedTimes []Appointment `json:"reserved_times"`
-    // StartAt field: The start of the first time slot in the appointment group
-    StartAt time.Time `json:"start_at"`
-    // SubContextCodes field: The sub-context codes (i.e. course sections and group categories) this appointment group
-    // is restricted to
-    SubContextCodes []int `json:"sub_context_codes"`
-    // Title field: The title of the appointment group
-    Title string `json:"title"`
-    // UpdatedAt field: When the appointment group was last updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: URL for this appointment group (to update, delete, etc.)
-    URL string `json:"url"`
-    // WorkflowState field: Current state of the appointment group ('pending', 'active' or 'deleted'). 'pending'
-    // indicates that it has not been published yet and is invisible to participants.
-    WorkflowState *AppointmentGroupWorkflowState `json:"workflow_state"`
+	// Appointments field: Calendar Events representing the time slots (see include[] argument) Refer to the Calendar
+	// Events API for more information
+	Appointments []CalendarEvent `json:"appointments"`
+	// AppointmentsCount field: Number of time slots in this appointment group
+	AppointmentsCount int `json:"appointments_count"`
+	// ContextCodes field: The context codes (i.e. courses) this appointment group belongs to. Only people in these
+	// courses will be eligible to sign up.
+	ContextCodes []string `json:"context_codes"`
+	// CreatedAt field: When the appointment group was created
+	CreatedAt time.Time `json:"created_at"`
+	// Description field: The text description of the appointment group
+	Description string `json:"description"`
+	// EndAt field: The end of the last time slot in the appointment group
+	EndAt time.Time `json:"end_at"`
+	// HTMLURL field: URL for a user to view this appointment group
+	HTMLURL string `json:"html_url"`
+	// ID field: The ID of the appointment group
+	ID int `json:"id"`
+	// LocationAddress field: The address of the appointment group's location
+	LocationAddress string `json:"location_address"`
+	// LocationName field: The location name of the appointment group
+	LocationName string `json:"location_name"`
+	// MaxAppointmentsPerParticipant field: Maximum number of time slots a user may register for, or null if no limit
+	MaxAppointmentsPerParticipant int `json:"max_appointments_per_participant"`
+	// MinAppointmentsPerParticipant field: Minimum number of time slots a user must register for. If not set, users do
+	// not need to sign up for any time slots
+	MinAppointmentsPerParticipant int `json:"min_appointments_per_participant"`
+	// NewAppointments field: Newly created time slots (same format as appointments above). Only returned in
+	// Create/Update responses where new time slots have been added
+	NewAppointments []CalendarEvent `json:"new_appointments"`
+	// ParticipantCount field: The number of participant who have reserved slots (see include[] argument)
+	ParticipantCount int `json:"participant_count"`
+	// ParticipantType field: Indicates how participants sign up for the appointment group, either as individuals
+	// ('User') or in student groups ('Group'). Related to sub_context_codes (i.e. 'Group' signups always have a single
+	// group category)
+	ParticipantType *AppointmentGroupParticipantType `json:"participant_type"`
+	// ParticipantVisibility field: 'private' means participants cannot see who has signed up for a particular time
+	// slot, 'protected' means that they can
+	ParticipantVisibility *AppointmentGroupParticipantVisibility `json:"participant_visibility"`
+	// ParticipantsPerAppointment field: Maximum number of participants that may register for each time slot, or null if
+	// no limit
+	ParticipantsPerAppointment int `json:"participants_per_appointment"`
+	// RequiringAction field: Boolean indicating whether the current user needs to sign up for this appointment group
+	// (i.e. it's reservable and the min_appointments_per_participant limit has not been met by this user).
+	RequiringAction bool `json:"requiring_action"`
+	// ReservedTimes field: The start and end times of slots reserved by the current user as well as the id of the
+	// calendar event for the reservation (see include[] argument)
+	ReservedTimes []Appointment `json:"reserved_times"`
+	// StartAt field: The start of the first time slot in the appointment group
+	StartAt time.Time `json:"start_at"`
+	// SubContextCodes field: The sub-context codes (i.e. course sections and group categories) this appointment group
+	// is restricted to
+	SubContextCodes []int `json:"sub_context_codes"`
+	// Title field: The title of the appointment group
+	Title string `json:"title"`
+	// UpdatedAt field: When the appointment group was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: URL for this appointment group (to update, delete, etc.)
+	URL string `json:"url"`
+	// WorkflowState field: Current state of the appointment group ('pending', 'active' or 'deleted'). 'pending'
+	// indicates that it has not been published yet and is invisible to participants.
+	WorkflowState *AppointmentGroupWorkflowState `json:"workflow_state"`
 }
 
 // AssignmentExtension model object
 type AssignmentExtension struct {
-    // AssignmentID field: The ID of the Assignment the extension belongs to.
-    AssignmentID int `json:"assignment_id"`
-    // ExtraAttempts field: Number of times the student is allowed to re-submit the assignment
-    ExtraAttempts int `json:"extra_attempts"`
-    // UserID field: The ID of the Student that needs the assignment extension.
-    UserID int `json:"user_id"`
+	// AssignmentID field: The ID of the Assignment the extension belongs to.
+	AssignmentID int `json:"assignment_id"`
+	// ExtraAttempts field: Number of times the student is allowed to re-submit the assignment
+	ExtraAttempts int `json:"extra_attempts"`
+	// UserID field: The ID of the Student that needs the assignment extension.
+	UserID int `json:"user_id"`
 }
 
 // GradingRules model object
 type GradingRules struct {
-    // DropHighest field: Number of highest scores to be dropped for each user.
-    DropHighest int `json:"drop_highest"`
-    // DropLowest field: Number of lowest scores to be dropped for each user.
-    DropLowest int `json:"drop_lowest"`
-    // NeverDrop field: Assignment IDs that should never be dropped.
-    NeverDrop []int `json:"never_drop"`
+	// DropHighest field: Number of highest scores to be dropped for each user.
+	DropHighest int `json:"drop_highest"`
+	// DropLowest field: Number of lowest scores to be dropped for each user.
+	DropLowest int `json:"drop_lowest"`
+	// NeverDrop field: Assignment IDs that should never be dropped.
+	NeverDrop []int `json:"never_drop"`
 }
 
 // AssignmentGroup model object
 type AssignmentGroup struct {
-    // Assignments field: the assignments in this Assignment Group (see the Assignment API for a detailed list of
-    // fields)
-    Assignments []int `json:"assignments"`
-    // GroupWeight field: the weight of the Assignment Group
-    GroupWeight int `json:"group_weight"`
-    // ID field: the id of the Assignment Group
-    ID int `json:"id"`
-    // IntegrationData field: the integration data of the Assignment Group
-    IntegrationData map[interface{}]interface{} `json:"integration_data"`
-    // Name field: the name of the Assignment Group
-    Name string `json:"name"`
-    // Position field: the position of the Assignment Group
-    Position int `json:"position"`
-    // Rules field: the grading rules that this Assignment Group has
-    Rules *GradingRules `json:"rules"`
-    // SisSourceID field: the sis source id of the Assignment Group
-    SisSourceID string `json:"sis_source_id"`
+	// Assignments field: the assignments in this Assignment Group (see the Assignment API for a detailed list of
+	// fields)
+	Assignments []int `json:"assignments"`
+	// GroupWeight field: the weight of the Assignment Group
+	GroupWeight int `json:"group_weight"`
+	// ID field: the id of the Assignment Group
+	ID int `json:"id"`
+	// IntegrationData field: the integration data of the Assignment Group
+	IntegrationData map[interface{}]interface{} `json:"integration_data"`
+	// Name field: the name of the Assignment Group
+	Name string `json:"name"`
+	// Position field: the position of the Assignment Group
+	Position int `json:"position"`
+	// Rules field: the grading rules that this Assignment Group has
+	Rules *GradingRules `json:"rules"`
+	// SisSourceID field: the sis source id of the Assignment Group
+	SisSourceID string `json:"sis_source_id"`
 }
 
 // AssignmentOverride model object
 type AssignmentOverride struct {
-    // AllDay field: the overridden all day flag (present if due_at is overridden)
-    AllDay bool `json:"all_day"`
-    // AllDayDate field: the overridden all day date (present if due_at is overridden)
-    AllDayDate time.Time `json:"all_day_date"`
-    // AssignmentID field: the ID of the assignment the override applies to
-    AssignmentID int `json:"assignment_id"`
-    // CourseSectionID field: the ID of the overrides's target section (present if the override targets a section)
-    CourseSectionID int `json:"course_section_id"`
-    // DueAt field: the overridden due at (present if due_at is overridden)
-    DueAt time.Time `json:"due_at"`
-    // GroupID field: the ID of the override's target group (present if the override targets a group and the assignment
-    // is a group assignment)
-    GroupID int `json:"group_id"`
-    // ID field: the ID of the assignment override
-    ID int `json:"id"`
-    // LockAt field: the overridden lock at, if any (present if lock_at is overridden)
-    LockAt time.Time `json:"lock_at"`
-    // StudentIds field: the IDs of the override's target students (present if the override targets an ad-hoc set of
-    // students)
-    StudentIds []int `json:"student_ids"`
-    // Title field: the title of the override
-    Title string `json:"title"`
-    // UnlockAt field: the overridden unlock at (present if unlock_at is overridden)
-    UnlockAt time.Time `json:"unlock_at"`
+	// AllDay field: the overridden all day flag (present if due_at is overridden)
+	AllDay bool `json:"all_day"`
+	// AllDayDate field: the overridden all day date (present if due_at is overridden)
+	AllDayDate time.Time `json:"all_day_date"`
+	// AssignmentID field: the ID of the assignment the override applies to
+	AssignmentID int `json:"assignment_id"`
+	// CourseSectionID field: the ID of the overrides's target section (present if the override targets a section)
+	CourseSectionID int `json:"course_section_id"`
+	// DueAt field: the overridden due at (present if due_at is overridden)
+	DueAt time.Time `json:"due_at"`
+	// GroupID field: the ID of the override's target group (present if the override targets a group and the assignment
+	// is a group assignment)
+	GroupID int `json:"group_id"`
+	// ID field: the ID of the assignment override
+	ID int `json:"id"`
+	// LockAt field: the overridden lock at, if any (present if lock_at is overridden)
+	LockAt time.Time `json:"lock_at"`
+	// StudentIds field: the IDs of the override's target students (present if the override targets an ad-hoc set of
+	// students)
+	StudentIds []int `json:"student_ids"`
+	// Title field: the title of the override
+	Title string `json:"title"`
+	// UnlockAt field: the overridden unlock at (present if unlock_at is overridden)
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // ExternalToolTagAttributes model object
 type ExternalToolTagAttributes struct {
-    // NewTab field: Whether or not there is a new tab for the external tool
-    NewTab bool `json:"new_tab"`
-    // ResourceLinkID field: the identifier for this tool_tag
-    ResourceLinkID string `json:"resource_link_id"`
-    // URL field: URL to the external tool
-    URL string `json:"url"`
+	// NewTab field: Whether or not there is a new tab for the external tool
+	NewTab bool `json:"new_tab"`
+	// ResourceLinkID field: the identifier for this tool_tag
+	ResourceLinkID string `json:"resource_link_id"`
+	// URL field: URL to the external tool
+	URL string `json:"url"`
 }
 
 // LockInfo model object
 type LockInfo struct {
-    // AssetString field: Asset string for the object causing the lock
-    AssetString string `json:"asset_string"`
-    // ContextModule field: (Optional) Context module causing the lock.
-    ContextModule string `json:"context_module"`
-    // LockAt field: (Optional) Time at which this was/will be locked. Must be after the due date.
-    LockAt time.Time `json:"lock_at"`
-    // ManuallyLocked field
-    ManuallyLocked bool `json:"manually_locked"`
-    // UnlockAt field: (Optional) Time at which this was/will be unlocked. Must be before the due date.
-    UnlockAt time.Time `json:"unlock_at"`
+	// AssetString field: Asset string for the object causing the lock
+	AssetString string `json:"asset_string"`
+	// ContextModule field: (Optional) Context module causing the lock.
+	ContextModule string `json:"context_module"`
+	// LockAt field: (Optional) Time at which this was/will be locked. Must be after the due date.
+	LockAt time.Time `json:"lock_at"`
+	// ManuallyLocked field
+	ManuallyLocked bool `json:"manually_locked"`
+	// UnlockAt field: (Optional) Time at which this was/will be unlocked. Must be before the due date.
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // RubricRating model object
 type RubricRating struct {
-    // Description field
-    Description string `json:"description"`
-    // ID field
-    ID string `json:"id"`
-    // LongDescription field
-    LongDescription string `json:"long_description"`
-    // Points field
-    Points int `json:"points"`
-    // CriterionID field
-    CriterionID string `json:"criterion_id"`
+	// Description field
+	Description string `json:"description"`
+	// ID field
+	ID string `json:"id"`
+	// LongDescription field
+	LongDescription string `json:"long_description"`
+	// Points field
+	Points int `json:"points"`
+	// CriterionID field
+	CriterionID string `json:"criterion_id"`
 }
 
 // RubricCriteria model object
 type RubricCriteria struct {
-    // CriterionUseRange field
-    CriterionUseRange bool `json:"criterion_use_range"`
-    // Description field
-    Description string `json:"description"`
-    // ID field: The id of rubric criteria.
-    ID string `json:"id"`
-    // IgnoreForScoring field
-    IgnoreForScoring bool `json:"ignore_for_scoring"`
-    // LearningOutcomeID field: (Optional) The id of the learning outcome this criteria uses, if any.
-    LearningOutcomeID string `json:"learning_outcome_id"`
-    // LongDescription field
-    LongDescription string `json:"long_description"`
-    // Points field
-    Points int `json:"points"`
-    // Ratings field
-    Ratings []RubricRating `json:"ratings"`
-    // VendorGUID field: (Optional) The 3rd party vendor's GUID for the outcome this criteria references, if any.
-    VendorGUID string `json:"vendor_guid"`
+	// CriterionUseRange field
+	CriterionUseRange bool `json:"criterion_use_range"`
+	// Description field
+	Description string `json:"description"`
+	// ID field: The id of rubric criteria.
+	ID string `json:"id"`
+	// IgnoreForScoring field
+	IgnoreForScoring bool `json:"ignore_for_scoring"`
+	// LearningOutcomeID field: (Optional) The id of the learning outcome this criteria uses, if any.
+	LearningOutcomeID string `json:"learning_outcome_id"`
+	// LongDescription field
+	LongDescription string `json:"long_description"`
+	// Points field
+	Points int `json:"points"`
+	// Ratings field
+	Ratings []RubricRating `json:"ratings"`
+	// VendorGUID field: (Optional) The 3rd party vendor's GUID for the outcome this criteria references, if any.
+	VendorGUID string `json:"vendor_guid"`
 }
 
 // AssignmentDate model object: Object representing a due date for an assignment or quiz. If the due date came from an
 // assignment override, it will have an 'id' field.
 type AssignmentDate struct {
-    // Base field: (Optional, present if 'id' is missing) whether this date represents the assignment's or quiz's
-    // default due date
-    Base bool `json:"base"`
-    // DueAt field: The due date for the assignment. Must be between the unlock date and the lock date if there are lock
-    // dates
-    DueAt time.Time `json:"due_at"`
-    // ID field: (Optional, missing if 'base' is present) id of the assignment override this date represents
-    ID int `json:"id"`
-    // LockAt field: The lock date for the assignment. Must be after the due date if there is a due date.
-    LockAt time.Time `json:"lock_at"`
-    // Title field
-    Title string `json:"title"`
-    // UnlockAt field: The unlock date for the assignment. Must be before the due date if there is a due date.
-    UnlockAt time.Time `json:"unlock_at"`
+	// Base field: (Optional, present if 'id' is missing) whether this date represents the assignment's or quiz's
+	// default due date
+	Base bool `json:"base"`
+	// DueAt field: The due date for the assignment. Must be between the unlock date and the lock date if there are lock
+	// dates
+	DueAt time.Time `json:"due_at"`
+	// ID field: (Optional, missing if 'base' is present) id of the assignment override this date represents
+	ID int `json:"id"`
+	// LockAt field: The lock date for the assignment. Must be after the due date if there is a due date.
+	LockAt time.Time `json:"lock_at"`
+	// Title field
+	Title string `json:"title"`
+	// UnlockAt field: The unlock date for the assignment. Must be before the due date if there is a due date.
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // TurnitinSettings model object
 type TurnitinSettings struct {
-    // ExcludeBiblio field
-    ExcludeBiblio bool `json:"exclude_biblio"`
-    // ExcludeQuoted field
-    ExcludeQuoted bool `json:"exclude_quoted"`
-    // ExcludeSmallMatchesType field
-    ExcludeSmallMatchesType string `json:"exclude_small_matches_type"`
-    // ExcludeSmallMatchesValue field
-    ExcludeSmallMatchesValue int `json:"exclude_small_matches_value"`
-    // InternetCheck field
-    InternetCheck bool `json:"internet_check"`
-    // JournalCheck field
-    JournalCheck bool `json:"journal_check"`
-    // OriginalityReportVisibility field
-    OriginalityReportVisibility string `json:"originality_report_visibility"`
-    // SPaperCheck field
-    SPaperCheck bool `json:"s_paper_check"`
+	// ExcludeBiblio field
+	ExcludeBiblio bool `json:"exclude_biblio"`
+	// ExcludeQuoted field
+	ExcludeQuoted bool `json:"exclude_quoted"`
+	// ExcludeSmallMatchesType field
+	ExcludeSmallMatchesType string `json:"exclude_small_matches_type"`
+	// ExcludeSmallMatchesValue field
+	ExcludeSmallMatchesValue int `json:"exclude_small_matches_value"`
+	// InternetCheck field
+	InternetCheck bool `json:"internet_check"`
+	// JournalCheck field
+	JournalCheck bool `json:"journal_check"`
+	// OriginalityReportVisibility field
+	OriginalityReportVisibility string `json:"originality_report_visibility"`
+	// SPaperCheck field
+	SPaperCheck bool `json:"s_paper_check"`
 }
 
 // NeedsGradingCount model object: Used by Assignment model
 type NeedsGradingCount struct {
-    // NeedsGradingCount field: Number of submissions that need grading
-    NeedsGradingCount int `json:"needs_grading_count"`
-    // SectionID field: The section ID
-    SectionID string `json:"section_id"`
+	// NeedsGradingCount field: Number of submissions that need grading
+	NeedsGradingCount int `json:"needs_grading_count"`
+	// SectionID field: The section ID
+	SectionID string `json:"section_id"`
 }
 
 // Assignment model object
 type Assignment struct {
-    // AllDates field: (Optional) all dates associated with the assignment, if applicable
-    AllDates []AssignmentDate `json:"all_dates"`
-    // AllowedAttempts field: The number of submission attempts a student can make for this assignment. -1 is considered
-    // unlimited.
-    AllowedAttempts int `json:"allowed_attempts"`
-    // AllowedExtensions field: Allowed file extensions, which take effect if submission_types includes 'online_upload'.
-    AllowedExtensions []string `json:"allowed_extensions"`
-    // AnonymousGrading field: Boolean indicating if the assignment is graded anonymously. If true, graders cannot see
-    // student identities.
-    AnonymousGrading bool `json:"anonymous_grading"`
-    // AnonymousSubmissions field: (Optional) whether anonymous submissions are accepted (applies only to quiz
-    // assignments)
-    AnonymousSubmissions bool `json:"anonymous_submissions"`
-    // AssignmentGroupID field: the ID of the assignment's group
-    AssignmentGroupID int `json:"assignment_group_id"`
-    // AssignmentVisibility field: (Optional) If 'assignment_visibility' is included in the 'include' parameter,
-    // includes an array of student IDs who can see this assignment.
-    AssignmentVisibility []int `json:"assignment_visibility"`
-    // AutomaticPeerReviews field: Boolean indicating peer reviews are assigned automatically. If false, the teacher is
-    // expected to manually assign peer reviews.
-    AutomaticPeerReviews bool `json:"automatic_peer_reviews"`
-    // CourseID field: the ID of the course the assignment belongs to
-    CourseID int `json:"course_id"`
-    // CreatedAt field: The time at which this assignment was originally created
-    CreatedAt time.Time `json:"created_at"`
-    // Description field: the assignment description, in an HTML fragment
-    Description string `json:"description"`
-    // DiscussionTopic field: (Optional) the DiscussionTopic associated with the assignment, if applicable
-    DiscussionTopic *DiscussionTopic `json:"discussion_topic"`
-    // DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
-    // assignment overrides, this field will be the due date as it applies to the user requesting information from the
-    // API.
-    DueAt time.Time `json:"due_at"`
-    // DueDateRequired field: Boolean flag indicating whether the assignment requires a due date based on the account
-    // level setting
-    DueDateRequired bool `json:"due_date_required"`
-    // ExternalToolTagAttributes field: (Optional) assignment's settings for external tools if submission_types include
-    // 'external_tool'. Only url and new_tab are included (new_tab defaults to false).  Use the 'External Tools' API if
-    // you need more information about an external tool.
-    ExternalToolTagAttributes *ExternalToolTagAttributes `json:"external_tool_tag_attributes"`
-    // FinalGraderID field: The user ID of the grader responsible for choosing final grades for this assignment. Only
-    // relevant for moderated assignments.
-    FinalGraderID int `json:"final_grader_id"`
-    // FreezeOnCopy field: (Optional) Boolean indicating if assignment will be frozen when it is copied. NOTE: This
-    // field will only be present if the AssignmentFreezer plugin is available for your account.
-    FreezeOnCopy bool `json:"freeze_on_copy"`
-    // Frozen field: (Optional) Boolean indicating if assignment is frozen for the calling user. NOTE: This field will
-    // only be present if the AssignmentFreezer plugin is available for your account.
-    Frozen bool `json:"frozen"`
-    // FrozenAttributes field: (Optional) Array of frozen attributes for the assignment. Only account administrators
-    // currently have permission to change an attribute in this list. Will be empty if no attributes are frozen for this
-    // assignment. Possible frozen attributes are: title, description, lock_at, points_possible, grading_type,
-    // submission_types, assignment_group_id, allowed_extensions, group_category_id, notify_of_update, peer_reviews
-    // NOTE: This field will only be present if the AssignmentFreezer plugin is available for your account.
-    FrozenAttributes []string `json:"frozen_attributes"`
-    // GradeGroupStudentsIndividually field: If this is a group assignment, boolean flag indicating whether or not
-    // students will be graded individually.
-    GradeGroupStudentsIndividually bool `json:"grade_group_students_individually"`
-    // GraderCommentsVisibleToGraders field: Boolean indicating if provisional graders' comments are visible to other
-    // provisional graders. Only relevant for moderated assignments.
-    GraderCommentsVisibleToGraders bool `json:"grader_comments_visible_to_graders"`
-    // GraderCount field: The maximum number of provisional graders who may issue grades for this assignment. Only
-    // relevant for moderated assignments. Must be a positive value, and must be set to 1 if the course has fewer than
-    // two active instructors. Otherwise, the maximum value is the number of active instructors in the course minus one,
-    // or 10 if the course has more than 11 active instructors.
-    GraderCount int `json:"grader_count"`
-    // GraderNamesVisibleToFinalGrader field: Boolean indicating if provisional grader identities are visible to the
-    // final grader. Only relevant for moderated assignments.
-    GraderNamesVisibleToFinalGrader bool `json:"grader_names_visible_to_final_grader"`
-    // GradersAnonymousToGraders field: Boolean indicating if provisional graders' identities are hidden from other
-    // provisional graders. Only relevant for moderated assignments with grader_comments_visible_to_graders set to true.
-    GradersAnonymousToGraders bool `json:"graders_anonymous_to_graders"`
-    // GradingStandardID field: The id of the grading standard being applied to this assignment. Valid if grading_type
-    // is 'letter_grade' or 'gpa_scale'.
-    GradingStandardID int `json:"grading_standard_id"`
-    // GradingType field: The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade',
-    // 'gpa_scale', 'points'
-    GradingType *AssignmentGradingType `json:"grading_type"`
-    // GroupCategoryID field: The ID of the assignment’s group set, if this is a group assignment. For group
-    // discussions, set group_category_id on the discussion topic, not the linked assignment.
-    GroupCategoryID int `json:"group_category_id"`
-    // HasOverrides field: whether this assignment has overrides
-    HasOverrides bool `json:"has_overrides"`
-    // HasSubmittedSubmissions field: If true, the assignment has been submitted to by at least one student
-    HasSubmittedSubmissions bool `json:"has_submitted_submissions"`
-    // HTMLURL field: the URL to the assignment's web page
-    HTMLURL string `json:"html_url"`
-    // ID field: the ID of the assignment
-    ID int `json:"id"`
-    // IntegrationData field: (optional, Third Party integration data for assignment)
-    IntegrationData map[interface{}]interface{} `json:"integration_data"`
-    // IntegrationID field: (optional, Third Party unique identifier for Assignment)
-    IntegrationID string `json:"integration_id"`
-    // IntraGroupPeerReviews field: Boolean representing whether or not members from within the same group on a group
-    // assignment can be assigned to peer review their own group's work
-    IntraGroupPeerReviews bool `json:"intra_group_peer_reviews"`
-    // LockAt field: the lock date (assignment is locked after this date). returns null if not present. NOTE: If this
-    // assignment has assignment overrides, this field will be the lock date as it applies to the user requesting
-    // information from the API.
-    LockAt time.Time `json:"lock_at"`
-    // LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
-    // is true.
-    LockExplanation string `json:"lock_explanation"`
-    // LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
-    LockInfo *LockInfo `json:"lock_info"`
-    // LockedForUser field: Whether or not this is locked for the user.
-    LockedForUser bool `json:"locked_for_user"`
-    // MaxNameLength field: An integer indicating the maximum length an assignment's name may be
-    MaxNameLength int `json:"max_name_length"`
-    // ModeratedGrading field: Boolean indicating if the assignment is moderated.
-    ModeratedGrading bool `json:"moderated_grading"`
-    // Muted field: For courses using Old Gradebook, indicates whether the assignment is muted. For courses using New
-    // Gradebook, true if the assignment has any unposted submissions, otherwise false. To see the posted status of
-    // submissions, check the 'posted_attribute' on Submission.
-    Muted bool `json:"muted"`
-    // Name field: the name of the assignment
-    Name string `json:"name"`
-    // NeedsGradingCount field: if the requesting user has grading rights, the number of submissions that need grading.
-    NeedsGradingCount int `json:"needs_grading_count"`
-    // NeedsGradingCountBySection field: if the requesting user has grading rights and the
-    // 'needs_grading_count_by_section' flag is specified, the number of submissions that need grading split out by
-    // section. NOTE: This key is NOT present unless you pass the 'needs_grading_count_by_section' argument as true. 
-    // ANOTHER NOTE: it's possible to be enrolled in multiple sections, and if a student is setup that way they will
-    // show an assignment that needs grading in multiple sections (effectively the count will be duplicated between
-    // sections)
-    NeedsGradingCountBySection []NeedsGradingCount `json:"needs_grading_count_by_section"`
-    // OmitFromFinalGrade field: (Optional) If true, the assignment will be omitted from the student's final grade
-    OmitFromFinalGrade bool `json:"omit_from_final_grade"`
-    // OnlyVisibleToOverrides field: Whether the assignment is only visible to overrides.
-    OnlyVisibleToOverrides bool `json:"only_visible_to_overrides"`
-    // Overrides field: (Optional) If 'overrides' is included in the 'include' parameter, includes an array of
-    // assignment override objects.
-    Overrides []AssignmentOverride `json:"overrides"`
-    // PeerReviewCount field: Integer representing the amount of reviews each user is assigned. NOTE: This key is NOT
-    // present unless you have automatic_peer_reviews set to true.
-    PeerReviewCount int `json:"peer_review_count"`
-    // PeerReviews field: Boolean indicating if peer reviews are required for this assignment
-    PeerReviews bool `json:"peer_reviews"`
-    // PeerReviewsAssignAt field: String representing a date the reviews are due by. Must be a date that occurs after
-    // the default due date. If blank, or date is not after the assignment's due date, the assignment's due date will be
-    // used. NOTE: This key is NOT present unless you have automatic_peer_reviews set to true.
-    PeerReviewsAssignAt time.Time `json:"peer_reviews_assign_at"`
-    // PointsPossible field: the maximum points possible for the assignment
-    PointsPossible float64 `json:"points_possible"`
-    // Position field: the sorting order of the assignment in the group
-    Position int `json:"position"`
-    // PostManually field: Whether the assignment has manual posting enabled. Only relevant for courses using New
-    // Gradebook.
-    PostManually bool `json:"post_manually"`
-    // PostToSis field: (optional, present if Sync Grades to SIS feature is enabled)
-    PostToSis bool `json:"post_to_sis"`
-    // Published field: Whether the assignment is published
-    Published bool `json:"published"`
-    // QuizID field: (Optional) id of the associated quiz (applies only when submission_types is ['online_quiz'])
-    QuizID int `json:"quiz_id"`
-    // Rubric field: (Optional) A list of scoring criteria and ratings for each rubric criterion. Included if there is
-    // an associated rubric.
-    Rubric []RubricCriteria `json:"rubric"`
-    // RubricSettings field: (Optional) An object describing the basic attributes of the rubric, including the point
-    // total. Included if there is an associated rubric.
-    RubricSettings string `json:"rubric_settings"`
-    // Submission field: (Optional) If 'submission' is included in the 'include' parameter, includes a Submission object
-    // that represents the current user's (user who is requesting information from the api) current submission for the
-    // assignment. See the Submissions API for an example response. If the user does not have a submission, this key
-    // will be absent.
-    Submission *Submission `json:"submission"`
-    // SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
-    // following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
-    // 'online_url', 'online_upload' 'media_recording'
-    SubmissionTypes *AssignmentSubmissionTypes `json:"submission_types"`
-    // SubmissionsDownloadURL field: the URL to download all submissions as a zip
-    SubmissionsDownloadURL string `json:"submissions_download_url"`
-    // TurnitinEnabled field: Boolean flag indicating whether or not Turnitin has been enabled for the assignment. NOTE:
-    // This flag will not appear unless your account has the Turnitin plugin available
-    TurnitinEnabled bool `json:"turnitin_enabled"`
-    // TurnitinSettings field: Settings to pass along to turnitin to control what kinds of matches should be considered.
-    // originality_report_visibility can be 'immediate', 'after_grading', 'after_due_date', or 'never'
-    // exclude_small_matches_type can be null, 'percent', 'words' exclude_small_matches_value: - if type is null, this
-    // will be null also - if type is 'percent', this will be a number between 0 and 100 representing match size to
-    // exclude as a percentage of the document size. - if type is 'words', this will be number > 0 representing how many
-    // words a match must contain for it to be considered NOTE: This flag will not appear unless your account has the
-    // Turnitin plugin available
-    TurnitinSettings *TurnitinSettings `json:"turnitin_settings"`
-    // UnlockAt field: the unlock date (assignment is unlocked after this date) returns null if not present NOTE: If
-    // this assignment has assignment overrides, this field will be the unlock date as it applies to the user requesting
-    // information from the API.
-    UnlockAt time.Time `json:"unlock_at"`
-    // Unpublishable field: Whether the assignment's 'published' state can be changed to false. Will be false if there
-    // are student submissions for the assignment.
-    Unpublishable bool `json:"unpublishable"`
-    // UpdatedAt field: The time at which this assignment was last modified in any way
-    UpdatedAt time.Time `json:"updated_at"`
-    // UseRubricForGrading field: (Optional) If true, the rubric is directly tied to grading the assignment. Otherwise,
-    // it is only advisory. Included if there is an associated rubric.
-    UseRubricForGrading bool `json:"use_rubric_for_grading"`
-    // VericiteEnabled field: Boolean flag indicating whether or not VeriCite has been enabled for the assignment. NOTE:
-    // This flag will not appear unless your account has the VeriCite plugin available
-    VericiteEnabled bool `json:"vericite_enabled"`
+	// AllDates field: (Optional) all dates associated with the assignment, if applicable
+	AllDates []AssignmentDate `json:"all_dates"`
+	// AllowedAttempts field: The number of submission attempts a student can make for this assignment. -1 is considered
+	// unlimited.
+	AllowedAttempts int `json:"allowed_attempts"`
+	// AllowedExtensions field: Allowed file extensions, which take effect if submission_types includes 'online_upload'.
+	AllowedExtensions []string `json:"allowed_extensions"`
+	// AnonymousGrading field: Boolean indicating if the assignment is graded anonymously. If true, graders cannot see
+	// student identities.
+	AnonymousGrading bool `json:"anonymous_grading"`
+	// AnonymousSubmissions field: (Optional) whether anonymous submissions are accepted (applies only to quiz
+	// assignments)
+	AnonymousSubmissions bool `json:"anonymous_submissions"`
+	// AssignmentGroupID field: the ID of the assignment's group
+	AssignmentGroupID int `json:"assignment_group_id"`
+	// AssignmentVisibility field: (Optional) If 'assignment_visibility' is included in the 'include' parameter,
+	// includes an array of student IDs who can see this assignment.
+	AssignmentVisibility []int `json:"assignment_visibility"`
+	// AutomaticPeerReviews field: Boolean indicating peer reviews are assigned automatically. If false, the teacher is
+	// expected to manually assign peer reviews.
+	AutomaticPeerReviews bool `json:"automatic_peer_reviews"`
+	// CourseID field: the ID of the course the assignment belongs to
+	CourseID int `json:"course_id"`
+	// CreatedAt field: The time at which this assignment was originally created
+	CreatedAt time.Time `json:"created_at"`
+	// Description field: the assignment description, in an HTML fragment
+	Description string `json:"description"`
+	// DiscussionTopic field: (Optional) the DiscussionTopic associated with the assignment, if applicable
+	DiscussionTopic *DiscussionTopic `json:"discussion_topic"`
+	// DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
+	// assignment overrides, this field will be the due date as it applies to the user requesting information from the
+	// API.
+	DueAt time.Time `json:"due_at"`
+	// DueDateRequired field: Boolean flag indicating whether the assignment requires a due date based on the account
+	// level setting
+	DueDateRequired bool `json:"due_date_required"`
+	// ExternalToolTagAttributes field: (Optional) assignment's settings for external tools if submission_types include
+	// 'external_tool'. Only url and new_tab are included (new_tab defaults to false).  Use the 'External Tools' API if
+	// you need more information about an external tool.
+	ExternalToolTagAttributes *ExternalToolTagAttributes `json:"external_tool_tag_attributes"`
+	// FinalGraderID field: The user ID of the grader responsible for choosing final grades for this assignment. Only
+	// relevant for moderated assignments.
+	FinalGraderID int `json:"final_grader_id"`
+	// FreezeOnCopy field: (Optional) Boolean indicating if assignment will be frozen when it is copied. NOTE: This
+	// field will only be present if the AssignmentFreezer plugin is available for your account.
+	FreezeOnCopy bool `json:"freeze_on_copy"`
+	// Frozen field: (Optional) Boolean indicating if assignment is frozen for the calling user. NOTE: This field will
+	// only be present if the AssignmentFreezer plugin is available for your account.
+	Frozen bool `json:"frozen"`
+	// FrozenAttributes field: (Optional) Array of frozen attributes for the assignment. Only account administrators
+	// currently have permission to change an attribute in this list. Will be empty if no attributes are frozen for this
+	// assignment. Possible frozen attributes are: title, description, lock_at, points_possible, grading_type,
+	// submission_types, assignment_group_id, allowed_extensions, group_category_id, notify_of_update, peer_reviews
+	// NOTE: This field will only be present if the AssignmentFreezer plugin is available for your account.
+	FrozenAttributes []string `json:"frozen_attributes"`
+	// GradeGroupStudentsIndividually field: If this is a group assignment, boolean flag indicating whether or not
+	// students will be graded individually.
+	GradeGroupStudentsIndividually bool `json:"grade_group_students_individually"`
+	// GraderCommentsVisibleToGraders field: Boolean indicating if provisional graders' comments are visible to other
+	// provisional graders. Only relevant for moderated assignments.
+	GraderCommentsVisibleToGraders bool `json:"grader_comments_visible_to_graders"`
+	// GraderCount field: The maximum number of provisional graders who may issue grades for this assignment. Only
+	// relevant for moderated assignments. Must be a positive value, and must be set to 1 if the course has fewer than
+	// two active instructors. Otherwise, the maximum value is the number of active instructors in the course minus one,
+	// or 10 if the course has more than 11 active instructors.
+	GraderCount int `json:"grader_count"`
+	// GraderNamesVisibleToFinalGrader field: Boolean indicating if provisional grader identities are visible to the
+	// final grader. Only relevant for moderated assignments.
+	GraderNamesVisibleToFinalGrader bool `json:"grader_names_visible_to_final_grader"`
+	// GradersAnonymousToGraders field: Boolean indicating if provisional graders' identities are hidden from other
+	// provisional graders. Only relevant for moderated assignments with grader_comments_visible_to_graders set to true.
+	GradersAnonymousToGraders bool `json:"graders_anonymous_to_graders"`
+	// GradingStandardID field: The id of the grading standard being applied to this assignment. Valid if grading_type
+	// is 'letter_grade' or 'gpa_scale'.
+	GradingStandardID int `json:"grading_standard_id"`
+	// GradingType field: The type of grading the assignment receives; one of 'pass_fail', 'percent', 'letter_grade',
+	// 'gpa_scale', 'points'
+	GradingType *AssignmentGradingType `json:"grading_type"`
+	// GroupCategoryID field: The ID of the assignment’s group set, if this is a group assignment. For group
+	// discussions, set group_category_id on the discussion topic, not the linked assignment.
+	GroupCategoryID int `json:"group_category_id"`
+	// HasOverrides field: whether this assignment has overrides
+	HasOverrides bool `json:"has_overrides"`
+	// HasSubmittedSubmissions field: If true, the assignment has been submitted to by at least one student
+	HasSubmittedSubmissions bool `json:"has_submitted_submissions"`
+	// HTMLURL field: the URL to the assignment's web page
+	HTMLURL string `json:"html_url"`
+	// ID field: the ID of the assignment
+	ID int `json:"id"`
+	// IntegrationData field: (optional, Third Party integration data for assignment)
+	IntegrationData map[interface{}]interface{} `json:"integration_data"`
+	// IntegrationID field: (optional, Third Party unique identifier for Assignment)
+	IntegrationID string `json:"integration_id"`
+	// IntraGroupPeerReviews field: Boolean representing whether or not members from within the same group on a group
+	// assignment can be assigned to peer review their own group's work
+	IntraGroupPeerReviews bool `json:"intra_group_peer_reviews"`
+	// LockAt field: the lock date (assignment is locked after this date). returns null if not present. NOTE: If this
+	// assignment has assignment overrides, this field will be the lock date as it applies to the user requesting
+	// information from the API.
+	LockAt time.Time `json:"lock_at"`
+	// LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
+	// is true.
+	LockExplanation string `json:"lock_explanation"`
+	// LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
+	LockInfo *LockInfo `json:"lock_info"`
+	// LockedForUser field: Whether or not this is locked for the user.
+	LockedForUser bool `json:"locked_for_user"`
+	// MaxNameLength field: An integer indicating the maximum length an assignment's name may be
+	MaxNameLength int `json:"max_name_length"`
+	// ModeratedGrading field: Boolean indicating if the assignment is moderated.
+	ModeratedGrading bool `json:"moderated_grading"`
+	// Muted field: For courses using Old Gradebook, indicates whether the assignment is muted. For courses using New
+	// Gradebook, true if the assignment has any unposted submissions, otherwise false. To see the posted status of
+	// submissions, check the 'posted_attribute' on Submission.
+	Muted bool `json:"muted"`
+	// Name field: the name of the assignment
+	Name string `json:"name"`
+	// NeedsGradingCount field: if the requesting user has grading rights, the number of submissions that need grading.
+	NeedsGradingCount int `json:"needs_grading_count"`
+	// NeedsGradingCountBySection field: if the requesting user has grading rights and the
+	// 'needs_grading_count_by_section' flag is specified, the number of submissions that need grading split out by
+	// section. NOTE: This key is NOT present unless you pass the 'needs_grading_count_by_section' argument as true.
+	// ANOTHER NOTE: it's possible to be enrolled in multiple sections, and if a student is setup that way they will
+	// show an assignment that needs grading in multiple sections (effectively the count will be duplicated between
+	// sections)
+	NeedsGradingCountBySection []NeedsGradingCount `json:"needs_grading_count_by_section"`
+	// OmitFromFinalGrade field: (Optional) If true, the assignment will be omitted from the student's final grade
+	OmitFromFinalGrade bool `json:"omit_from_final_grade"`
+	// OnlyVisibleToOverrides field: Whether the assignment is only visible to overrides.
+	OnlyVisibleToOverrides bool `json:"only_visible_to_overrides"`
+	// Overrides field: (Optional) If 'overrides' is included in the 'include' parameter, includes an array of
+	// assignment override objects.
+	Overrides []AssignmentOverride `json:"overrides"`
+	// PeerReviewCount field: Integer representing the amount of reviews each user is assigned. NOTE: This key is NOT
+	// present unless you have automatic_peer_reviews set to true.
+	PeerReviewCount int `json:"peer_review_count"`
+	// PeerReviews field: Boolean indicating if peer reviews are required for this assignment
+	PeerReviews bool `json:"peer_reviews"`
+	// PeerReviewsAssignAt field: String representing a date the reviews are due by. Must be a date that occurs after
+	// the default due date. If blank, or date is not after the assignment's due date, the assignment's due date will be
+	// used. NOTE: This key is NOT present unless you have automatic_peer_reviews set to true.
+	PeerReviewsAssignAt time.Time `json:"peer_reviews_assign_at"`
+	// PointsPossible field: the maximum points possible for the assignment
+	PointsPossible float64 `json:"points_possible"`
+	// Position field: the sorting order of the assignment in the group
+	Position int `json:"position"`
+	// PostManually field: Whether the assignment has manual posting enabled. Only relevant for courses using New
+	// Gradebook.
+	PostManually bool `json:"post_manually"`
+	// PostToSis field: (optional, present if Sync Grades to SIS feature is enabled)
+	PostToSis bool `json:"post_to_sis"`
+	// Published field: Whether the assignment is published
+	Published bool `json:"published"`
+	// QuizID field: (Optional) id of the associated quiz (applies only when submission_types is ['online_quiz'])
+	QuizID int `json:"quiz_id"`
+	// Rubric field: (Optional) A list of scoring criteria and ratings for each rubric criterion. Included if there is
+	// an associated rubric.
+	Rubric []RubricCriteria `json:"rubric"`
+	// RubricSettings field: (Optional) An object describing the basic attributes of the rubric, including the point
+	// total. Included if there is an associated rubric.
+	RubricSettings string `json:"rubric_settings"`
+	// Submission field: (Optional) If 'submission' is included in the 'include' parameter, includes a Submission object
+	// that represents the current user's (user who is requesting information from the api) current submission for the
+	// assignment. See the Submissions API for an example response. If the user does not have a submission, this key
+	// will be absent.
+	Submission *Submission `json:"submission"`
+	// SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
+	// following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
+	// 'online_url', 'online_upload' 'media_recording'
+	SubmissionTypes *AssignmentSubmissionTypes `json:"submission_types"`
+	// SubmissionsDownloadURL field: the URL to download all submissions as a zip
+	SubmissionsDownloadURL string `json:"submissions_download_url"`
+	// TurnitinEnabled field: Boolean flag indicating whether or not Turnitin has been enabled for the assignment. NOTE:
+	// This flag will not appear unless your account has the Turnitin plugin available
+	TurnitinEnabled bool `json:"turnitin_enabled"`
+	// TurnitinSettings field: Settings to pass along to turnitin to control what kinds of matches should be considered.
+	// originality_report_visibility can be 'immediate', 'after_grading', 'after_due_date', or 'never'
+	// exclude_small_matches_type can be null, 'percent', 'words' exclude_small_matches_value: - if type is null, this
+	// will be null also - if type is 'percent', this will be a number between 0 and 100 representing match size to
+	// exclude as a percentage of the document size. - if type is 'words', this will be number > 0 representing how many
+	// words a match must contain for it to be considered NOTE: This flag will not appear unless your account has the
+	// Turnitin plugin available
+	TurnitinSettings *TurnitinSettings `json:"turnitin_settings"`
+	// UnlockAt field: the unlock date (assignment is unlocked after this date) returns null if not present NOTE: If
+	// this assignment has assignment overrides, this field will be the unlock date as it applies to the user requesting
+	// information from the API.
+	UnlockAt time.Time `json:"unlock_at"`
+	// Unpublishable field: Whether the assignment's 'published' state can be changed to false. Will be false if there
+	// are student submissions for the assignment.
+	Unpublishable bool `json:"unpublishable"`
+	// UpdatedAt field: The time at which this assignment was last modified in any way
+	UpdatedAt time.Time `json:"updated_at"`
+	// UseRubricForGrading field: (Optional) If true, the rubric is directly tied to grading the assignment. Otherwise,
+	// it is only advisory. Included if there is an associated rubric.
+	UseRubricForGrading bool `json:"use_rubric_for_grading"`
+	// VericiteEnabled field: Boolean flag indicating whether or not VeriCite has been enabled for the assignment. NOTE:
+	// This flag will not appear unless your account has the VeriCite plugin available
+	VericiteEnabled bool `json:"vericite_enabled"`
 }
 
 // AuthenticationEvent model object
 type AuthenticationEvent struct {
-    // AccountID field: ID of the account associated with the event. will match the account_id in the associated
-    // pseudonym.
-    AccountID int `json:"account_id"`
-    // CreatedAt field: timestamp of the event
-    CreatedAt time.Time `json:"created_at"`
-    // EventType field: authentication event type ('login' or 'logout')
-    EventType *AuthenticationEventEventType `json:"event_type"`
-    // PseudonymID field: ID of the pseudonym (login) associated with the event
-    PseudonymID int `json:"pseudonym_id"`
-    // UserID field: ID of the user associated with the event will match the user_id in the associated pseudonym.
-    UserID int `json:"user_id"`
+	// AccountID field: ID of the account associated with the event. will match the account_id in the associated
+	// pseudonym.
+	AccountID int `json:"account_id"`
+	// CreatedAt field: timestamp of the event
+	CreatedAt time.Time `json:"created_at"`
+	// EventType field: authentication event type ('login' or 'logout')
+	EventType *AuthenticationEventEventType `json:"event_type"`
+	// PseudonymID field: ID of the pseudonym (login) associated with the event
+	PseudonymID int `json:"pseudonym_id"`
+	// UserID field: ID of the user associated with the event will match the user_id in the associated pseudonym.
+	UserID int `json:"user_id"`
 }
 
 // AuthenticationProvider model object
 type AuthenticationProvider struct {
-    // AuthBase field: Valid for LDAP and CAS providers.
-    AuthBase string `json:"auth_base"`
-    // AuthFilter field: Valid for LDAP providers.
-    AuthFilter string `json:"auth_filter"`
-    // AuthHost field: Valid for LDAP providers.
-    AuthHost string `json:"auth_host"`
-    // AuthOverTLS field: Valid for LDAP providers.
-    AuthOverTLS int `json:"auth_over_tls"`
-    // AuthPort field: Valid for LDAP providers.
-    AuthPort int `json:"auth_port"`
-    // AuthType field: Valid for all providers.
-    AuthType string `json:"auth_type"`
-    // AuthUsername field: Valid for LDAP providers.
-    AuthUsername string `json:"auth_username"`
-    // CertificateFingerprint field: Valid for SAML providers.
-    CertificateFingerprint string `json:"certificate_fingerprint"`
-    // FederatedAttributes field
-    FederatedAttributes *FederatedAttributesConfig `json:"federated_attributes"`
-    // ID field: Valid for all providers.
-    ID int `json:"id"`
-    // IdentifierFormat field: Valid for SAML providers.
-    IdentifierFormat string `json:"identifier_format"`
-    // IdpEntityID field: Valid for SAML providers.
-    IdpEntityID string `json:"idp_entity_id"`
-    // JitProvisioning field: Just In Time provisioning. Valid for all providers except Canvas (which has the similar in
-    // concept self_registration setting).
-    JitProvisioning bool `json:"jit_provisioning"`
-    // LogInURL field: Valid for SAML and CAS providers.
-    LogInURL string `json:"log_in_url"`
-    // LogOutURL field: Valid for SAML providers.
-    LogOutURL string `json:"log_out_url"`
-    // LoginAttribute field: Valid for SAML providers.
-    LoginAttribute string `json:"login_attribute"`
-    // Position field: Valid for all providers.
-    Position int `json:"position"`
-    // RequestedAuthnContext field: Valid for SAML providers.
-    RequestedAuthnContext string `json:"requested_authn_context"`
-    // SigAlg field: Valid for SAML providers.
-    SigAlg string `json:"sig_alg"`
+	// AuthBase field: Valid for LDAP and CAS providers.
+	AuthBase string `json:"auth_base"`
+	// AuthFilter field: Valid for LDAP providers.
+	AuthFilter string `json:"auth_filter"`
+	// AuthHost field: Valid for LDAP providers.
+	AuthHost string `json:"auth_host"`
+	// AuthOverTLS field: Valid for LDAP providers.
+	AuthOverTLS int `json:"auth_over_tls"`
+	// AuthPort field: Valid for LDAP providers.
+	AuthPort int `json:"auth_port"`
+	// AuthType field: Valid for all providers.
+	AuthType string `json:"auth_type"`
+	// AuthUsername field: Valid for LDAP providers.
+	AuthUsername string `json:"auth_username"`
+	// CertificateFingerprint field: Valid for SAML providers.
+	CertificateFingerprint string `json:"certificate_fingerprint"`
+	// FederatedAttributes field
+	FederatedAttributes *FederatedAttributesConfig `json:"federated_attributes"`
+	// ID field: Valid for all providers.
+	ID int `json:"id"`
+	// IdentifierFormat field: Valid for SAML providers.
+	IdentifierFormat string `json:"identifier_format"`
+	// IdpEntityID field: Valid for SAML providers.
+	IdpEntityID string `json:"idp_entity_id"`
+	// JitProvisioning field: Just In Time provisioning. Valid for all providers except Canvas (which has the similar in
+	// concept self_registration setting).
+	JitProvisioning bool `json:"jit_provisioning"`
+	// LogInURL field: Valid for SAML and CAS providers.
+	LogInURL string `json:"log_in_url"`
+	// LogOutURL field: Valid for SAML providers.
+	LogOutURL string `json:"log_out_url"`
+	// LoginAttribute field: Valid for SAML providers.
+	LoginAttribute string `json:"login_attribute"`
+	// Position field: Valid for all providers.
+	Position int `json:"position"`
+	// RequestedAuthnContext field: Valid for SAML providers.
+	RequestedAuthnContext string `json:"requested_authn_context"`
+	// SigAlg field: Valid for SAML providers.
+	SigAlg string `json:"sig_alg"`
 }
 
 // SSOSettings model object: Settings that are applicable across an account's authentication configuration, even if
 // there are multiple individual providers
 type SSOSettings struct {
-    // AuthDiscoveryURL field: If a discovery url is set, canvas will forward all users to that URL when they need to be
-    // authenticated. That page will need to then help the user figure out where they need to go to log in. If no
-    // discovery url is configured, the first configuration will be used to attempt to authenticate the user.
-    AuthDiscoveryURL string `json:"auth_discovery_url"`
-    // ChangePasswordURL field: The url to redirect users to for password resets. Leave blank for default Canvas
-    // behavior
-    ChangePasswordURL string `json:"change_password_url"`
-    // LoginHandleName field: The label used for unique login identifiers.
-    LoginHandleName string `json:"login_handle_name"`
-    // UnknownUserURL field: If an unknown user url is set, Canvas will forward to that url when a service authenticates
-    // a user, but that user does not exist in Canvas. The default behavior is to present an error.
-    UnknownUserURL string `json:"unknown_user_url"`
+	// AuthDiscoveryURL field: If a discovery url is set, canvas will forward all users to that URL when they need to be
+	// authenticated. That page will need to then help the user figure out where they need to go to log in. If no
+	// discovery url is configured, the first configuration will be used to attempt to authenticate the user.
+	AuthDiscoveryURL string `json:"auth_discovery_url"`
+	// ChangePasswordURL field: The url to redirect users to for password resets. Leave blank for default Canvas
+	// behavior
+	ChangePasswordURL string `json:"change_password_url"`
+	// LoginHandleName field: The label used for unique login identifiers.
+	LoginHandleName string `json:"login_handle_name"`
+	// UnknownUserURL field: If an unknown user url is set, Canvas will forward to that url when a service authenticates
+	// a user, but that user does not exist in Canvas. The default behavior is to present an error.
+	UnknownUserURL string `json:"unknown_user_url"`
 }
 
 // FederatedAttributesConfig model object: A mapping of Canvas attribute names to attribute names that a provider may
@@ -3285,604 +3369,604 @@ type SSOSettings struct {
 // responses, full FederatedAttributeConfig objects are returned if JIT provisioning is enabled, otherwise just the
 // attribute names are returned.
 type FederatedAttributesConfig struct {
-    // AdminRoles field: A comma separated list of role names to grant to the user. Note that these only apply at the
-    // root account level, and not sub-accounts. If the attribute is not marked for provisioning only, the user will
-    // also be removed from any other roles they currently hold that are not still specified by the IdP.
-    AdminRoles string `json:"admin_roles"`
-    // DisplayName field: The full display name of the user
-    DisplayName string `json:"display_name"`
-    // Email field: The user's e-mail address
-    Email string `json:"email"`
-    // GivenName field: The first, or given, name of the user
-    GivenName string `json:"given_name"`
-    // IntegrationID field: The secondary unique identifier for SIS purposes
-    IntegrationID string `json:"integration_id"`
-    // Locale field: The user's preferred locale/language
-    Locale string `json:"locale"`
-    // Name field: The full name of the user
-    Name string `json:"name"`
-    // SisUserID field: The unique SIS identifier
-    SisUserID string `json:"sis_user_id"`
-    // SortableName field: The full name of the user for sorting purposes
-    SortableName string `json:"sortable_name"`
-    // Surname field: The surname, or last name, of the user
-    Surname string `json:"surname"`
-    // Timezone field: The user's preferred time zone
-    Timezone string `json:"timezone"`
+	// AdminRoles field: A comma separated list of role names to grant to the user. Note that these only apply at the
+	// root account level, and not sub-accounts. If the attribute is not marked for provisioning only, the user will
+	// also be removed from any other roles they currently hold that are not still specified by the IdP.
+	AdminRoles string `json:"admin_roles"`
+	// DisplayName field: The full display name of the user
+	DisplayName string `json:"display_name"`
+	// Email field: The user's e-mail address
+	Email string `json:"email"`
+	// GivenName field: The first, or given, name of the user
+	GivenName string `json:"given_name"`
+	// IntegrationID field: The secondary unique identifier for SIS purposes
+	IntegrationID string `json:"integration_id"`
+	// Locale field: The user's preferred locale/language
+	Locale string `json:"locale"`
+	// Name field: The full name of the user
+	Name string `json:"name"`
+	// SisUserID field: The unique SIS identifier
+	SisUserID string `json:"sis_user_id"`
+	// SortableName field: The full name of the user for sorting purposes
+	SortableName string `json:"sortable_name"`
+	// Surname field: The surname, or last name, of the user
+	Surname string `json:"surname"`
+	// Timezone field: The user's preferred time zone
+	Timezone string `json:"timezone"`
 }
 
 // FederatedAttributeConfig model object: A single attribute name to be federated when a user logs in
 type FederatedAttributeConfig struct {
-    // Attribute field: The name of the attribute as it will be sent from the authentication provider
-    Attribute string `json:"attribute"`
-    // ProvisioningOnly field: If the attribute should be applied only when provisioning a new user, rather than all
-    // logins
-    ProvisioningOnly bool `json:"provisioning_only"`
+	// Attribute field: The name of the attribute as it will be sent from the authentication provider
+	Attribute string `json:"attribute"`
+	// ProvisioningOnly field: If the attribute should be applied only when provisioning a new user, rather than all
+	// logins
+	ProvisioningOnly bool `json:"provisioning_only"`
 }
 
 // CalendarEvent model object
 type CalendarEvent struct {
-    // AllContextCodes field: a comma-separated list of all calendar contexts this event is part of
-    AllContextCodes string `json:"all_context_codes"`
-    // AllDay field: Boolean indicating whether this is an all-day event (midnight to midnight)
-    AllDay bool `json:"all_day"`
-    // AllDayDate field: The date of this event
-    AllDayDate time.Time `json:"all_day_date"`
-    // AppointmentGroupID field: Various Appointment-Group-related fields.These fields are only pertinent to time slots
-    // (appointments) and reservations of those time slots. See the Appointment Groups API. The id of the appointment
-    // group
-    AppointmentGroupID int `json:"appointment_group_id"`
-    // AppointmentGroupURL field: The API URL of the appointment group
-    AppointmentGroupURL string `json:"appointment_group_url"`
-    // AvailableSlots field: If the event is a time slot and it has a participant limit, an integer indicating how many
-    // slots are available
-    AvailableSlots int `json:"available_slots"`
-    // ChildEvents field: Included by default, but may be excluded (see include[] option). If this is a time slot (see
-    // the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will
-    // be a list of section-level events (if any)
-    ChildEvents []int `json:"child_events"`
-    // ChildEventsCount field: The number of child_events. See child_events (and parent_event_id)
-    ChildEventsCount int `json:"child_events_count"`
-    // ContextCode field: the context code of the calendar this event belongs to (course, user or group)
-    ContextCode string `json:"context_code"`
-    // CreatedAt field: When the calendar event was created
-    CreatedAt time.Time `json:"created_at"`
-    // Description field: The HTML description of the event
-    Description string `json:"description"`
-    // EffectiveContextCode field: if specified, it indicates which calendar this event should be displayed on. for
-    // example, a section-level event would have the course's context code here, while the section's context code would
-    // be returned above)
-    EffectiveContextCode string `json:"effective_context_code"`
-    // EndAt field: The end timestamp of the event
-    EndAt time.Time `json:"end_at"`
-    // Group field: If the event is a group-level reservation, this will contain the group participant JSON (refer to
-    // the Groups API).
-    Group string `json:"group"`
-    // Hidden field: Whether this event should be displayed on the calendar. Only true for course-level events with
-    // section-level child events.
-    Hidden bool `json:"hidden"`
-    // HTMLURL field: URL for a user to view this event
-    HTMLURL string `json:"html_url"`
-    // ID field: The ID of the calendar event
-    ID int `json:"id"`
-    // LocationAddress field: The address where the event is taking place
-    LocationAddress string `json:"location_address"`
-    // LocationName field: The location name of the event
-    LocationName string `json:"location_name"`
-    // OwnReservation field: If the event is a reservation, this a boolean indicating whether it is the current user's
-    // reservation, or someone else's
-    OwnReservation bool `json:"own_reservation"`
-    // ParentEventID field: Normally null. If this is a reservation (see the Appointment Groups API), the id will
-    // indicate the time slot it is for. If this is a section-level event, this will be the course-level parent event.
-    ParentEventID int `json:"parent_event_id"`
-    // ParticipantType field: The type of participant to sign up for a slot: 'User' or 'Group'
-    ParticipantType string `json:"participant_type"`
-    // ParticipantsPerAppointment field: If the event is a time slot, this is the participant limit
-    ParticipantsPerAppointment int `json:"participants_per_appointment"`
-    // ReserveURL field: If the event is a time slot, the API URL for reserving it
-    ReserveURL string `json:"reserve_url"`
-    // Reserved field: If the event is a time slot, a boolean indicating whether the user has already made a reservation
-    // for it
-    Reserved bool `json:"reserved"`
-    // StartAt field: The start timestamp of the event
-    StartAt time.Time `json:"start_at"`
-    // Title field: The title of the calendar event
-    Title string `json:"title"`
-    // UpdatedAt field: When the calendar event was last updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: URL for this calendar event (to update, delete, etc.)
-    URL string `json:"url"`
-    // User field: If the event is a user-level reservation, this will contain the user participant JSON (refer to the
-    // Users API).
-    User string `json:"user"`
-    // WorkflowState field: Current state of the event ('active', 'locked' or 'deleted') 'locked' indicates that
-    // start_at/end_at cannot be changed (though the event could be deleted). Normally only reservations or time slots
-    // with reservations are locked (see the Appointment Groups API)
-    WorkflowState string `json:"workflow_state"`
+	// AllContextCodes field: a comma-separated list of all calendar contexts this event is part of
+	AllContextCodes string `json:"all_context_codes"`
+	// AllDay field: Boolean indicating whether this is an all-day event (midnight to midnight)
+	AllDay bool `json:"all_day"`
+	// AllDayDate field: The date of this event
+	AllDayDate time.Time `json:"all_day_date"`
+	// AppointmentGroupID field: Various Appointment-Group-related fields.These fields are only pertinent to time slots
+	// (appointments) and reservations of those time slots. See the Appointment Groups API. The id of the appointment
+	// group
+	AppointmentGroupID int `json:"appointment_group_id"`
+	// AppointmentGroupURL field: The API URL of the appointment group
+	AppointmentGroupURL string `json:"appointment_group_url"`
+	// AvailableSlots field: If the event is a time slot and it has a participant limit, an integer indicating how many
+	// slots are available
+	AvailableSlots int `json:"available_slots"`
+	// ChildEvents field: Included by default, but may be excluded (see include[] option). If this is a time slot (see
+	// the Appointment Groups API) this will be a list of any reservations. If this is a course-level event, this will
+	// be a list of section-level events (if any)
+	ChildEvents []int `json:"child_events"`
+	// ChildEventsCount field: The number of child_events. See child_events (and parent_event_id)
+	ChildEventsCount int `json:"child_events_count"`
+	// ContextCode field: the context code of the calendar this event belongs to (course, user or group)
+	ContextCode string `json:"context_code"`
+	// CreatedAt field: When the calendar event was created
+	CreatedAt time.Time `json:"created_at"`
+	// Description field: The HTML description of the event
+	Description string `json:"description"`
+	// EffectiveContextCode field: if specified, it indicates which calendar this event should be displayed on. for
+	// example, a section-level event would have the course's context code here, while the section's context code would
+	// be returned above)
+	EffectiveContextCode string `json:"effective_context_code"`
+	// EndAt field: The end timestamp of the event
+	EndAt time.Time `json:"end_at"`
+	// Group field: If the event is a group-level reservation, this will contain the group participant JSON (refer to
+	// the Groups API).
+	Group string `json:"group"`
+	// Hidden field: Whether this event should be displayed on the calendar. Only true for course-level events with
+	// section-level child events.
+	Hidden bool `json:"hidden"`
+	// HTMLURL field: URL for a user to view this event
+	HTMLURL string `json:"html_url"`
+	// ID field: The ID of the calendar event
+	ID int `json:"id"`
+	// LocationAddress field: The address where the event is taking place
+	LocationAddress string `json:"location_address"`
+	// LocationName field: The location name of the event
+	LocationName string `json:"location_name"`
+	// OwnReservation field: If the event is a reservation, this a boolean indicating whether it is the current user's
+	// reservation, or someone else's
+	OwnReservation bool `json:"own_reservation"`
+	// ParentEventID field: Normally null. If this is a reservation (see the Appointment Groups API), the id will
+	// indicate the time slot it is for. If this is a section-level event, this will be the course-level parent event.
+	ParentEventID int `json:"parent_event_id"`
+	// ParticipantType field: The type of participant to sign up for a slot: 'User' or 'Group'
+	ParticipantType string `json:"participant_type"`
+	// ParticipantsPerAppointment field: If the event is a time slot, this is the participant limit
+	ParticipantsPerAppointment int `json:"participants_per_appointment"`
+	// ReserveURL field: If the event is a time slot, the API URL for reserving it
+	ReserveURL string `json:"reserve_url"`
+	// Reserved field: If the event is a time slot, a boolean indicating whether the user has already made a reservation
+	// for it
+	Reserved bool `json:"reserved"`
+	// StartAt field: The start timestamp of the event
+	StartAt time.Time `json:"start_at"`
+	// Title field: The title of the calendar event
+	Title string `json:"title"`
+	// UpdatedAt field: When the calendar event was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: URL for this calendar event (to update, delete, etc.)
+	URL string `json:"url"`
+	// User field: If the event is a user-level reservation, this will contain the user participant JSON (refer to the
+	// Users API).
+	User string `json:"user"`
+	// WorkflowState field: Current state of the event ('active', 'locked' or 'deleted') 'locked' indicates that
+	// start_at/end_at cannot be changed (though the event could be deleted). Normally only reservations or time slots
+	// with reservations are locked (see the Appointment Groups API)
+	WorkflowState string `json:"workflow_state"`
 }
 
 // AssignmentEvent model object
 type AssignmentEvent struct {
-    // AllDay field: Boolean indicating whether this is an all-day event (e.g. assignment due at midnight)
-    AllDay bool `json:"all_day"`
-    // AllDayDate field: The due date of this assignment
-    AllDayDate time.Time `json:"all_day_date"`
-    // Assignment field: The full assignment JSON data (See the Assignments API)
-    Assignment *Assignment `json:"assignment"`
-    // AssignmentOverrides field: The list of AssignmentOverrides that apply to this event (See the Assignments API).
-    // This information is useful for determining which students or sections this assignment-due event applies to.
-    AssignmentOverrides *AssignmentOverride `json:"assignment_overrides"`
-    // ContextCode field: the context code of the (course) calendar this assignment belongs to
-    ContextCode string `json:"context_code"`
-    // CreatedAt field: When the assignment was created
-    CreatedAt time.Time `json:"created_at"`
-    // Description field: The HTML description of the assignment
-    Description string `json:"description"`
-    // EndAt field: The due_at timestamp of the assignment
-    EndAt time.Time `json:"end_at"`
-    // HTMLURL field: URL for a user to view this assignment
-    HTMLURL string `json:"html_url"`
-    // ID field: A synthetic ID for the assignment
-    ID string `json:"id"`
-    // StartAt field: The due_at timestamp of the assignment
-    StartAt time.Time `json:"start_at"`
-    // Title field: The title of the assignment
-    Title string `json:"title"`
-    // UpdatedAt field: When the assignment was last updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: URL for this assignment (note that updating/deleting should be done via the Assignments API)
-    URL string `json:"url"`
-    // WorkflowState field: Current state of the assignment ('published' or 'deleted')
-    WorkflowState *AssignmentEventWorkflowState `json:"workflow_state"`
+	// AllDay field: Boolean indicating whether this is an all-day event (e.g. assignment due at midnight)
+	AllDay bool `json:"all_day"`
+	// AllDayDate field: The due date of this assignment
+	AllDayDate time.Time `json:"all_day_date"`
+	// Assignment field: The full assignment JSON data (See the Assignments API)
+	Assignment *Assignment `json:"assignment"`
+	// AssignmentOverrides field: The list of AssignmentOverrides that apply to this event (See the Assignments API).
+	// This information is useful for determining which students or sections this assignment-due event applies to.
+	AssignmentOverrides *AssignmentOverride `json:"assignment_overrides"`
+	// ContextCode field: the context code of the (course) calendar this assignment belongs to
+	ContextCode string `json:"context_code"`
+	// CreatedAt field: When the assignment was created
+	CreatedAt time.Time `json:"created_at"`
+	// Description field: The HTML description of the assignment
+	Description string `json:"description"`
+	// EndAt field: The due_at timestamp of the assignment
+	EndAt time.Time `json:"end_at"`
+	// HTMLURL field: URL for a user to view this assignment
+	HTMLURL string `json:"html_url"`
+	// ID field: A synthetic ID for the assignment
+	ID string `json:"id"`
+	// StartAt field: The due_at timestamp of the assignment
+	StartAt time.Time `json:"start_at"`
+	// Title field: The title of the assignment
+	Title string `json:"title"`
+	// UpdatedAt field: When the assignment was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: URL for this assignment (note that updating/deleting should be done via the Assignments API)
+	URL string `json:"url"`
+	// WorkflowState field: Current state of the assignment ('published' or 'deleted')
+	WorkflowState *AssignmentEventWorkflowState `json:"workflow_state"`
 }
 
 // Collaboration model object
 type Collaboration struct {
-    // CollaborationType field: A name for the type of collaboration
-    CollaborationType string `json:"collaboration_type"`
-    // ContextID field: The canvas id of the course or group to which the collaboration belongs
-    ContextID int `json:"context_id"`
-    // ContextType field: The canvas type of the course or group to which the collaboration belongs
-    ContextType string `json:"context_type"`
-    // CreatedAt field: The timestamp when the collaboration was created
-    CreatedAt time.Time `json:"created_at"`
-    // Description field
-    Description string `json:"description"`
-    // DocumentID field: The collaboration document identifier for the collaboration provider
-    DocumentID string `json:"document_id"`
-    // ID field: The unique identifier for the collaboration
-    ID int `json:"id"`
-    // Title field
-    Title string `json:"title"`
-    // Type field: Another representation of the collaboration type
-    Type string `json:"type"`
-    // UpdateURL field: The LTI launch url to edit the collaboration
-    UpdateURL string `json:"update_url"`
-    // UpdatedAt field: The timestamp when the collaboration was last modified
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: The LTI launch url to view collaboration.
-    URL string `json:"url"`
-    // UserID field: The canvas id of the user who created the collaboration
-    UserID int `json:"user_id"`
-    // UserName field: The name of the user who owns the collaboration
-    UserName string `json:"user_name"`
+	// CollaborationType field: A name for the type of collaboration
+	CollaborationType string `json:"collaboration_type"`
+	// ContextID field: The canvas id of the course or group to which the collaboration belongs
+	ContextID int `json:"context_id"`
+	// ContextType field: The canvas type of the course or group to which the collaboration belongs
+	ContextType string `json:"context_type"`
+	// CreatedAt field: The timestamp when the collaboration was created
+	CreatedAt time.Time `json:"created_at"`
+	// Description field
+	Description string `json:"description"`
+	// DocumentID field: The collaboration document identifier for the collaboration provider
+	DocumentID string `json:"document_id"`
+	// ID field: The unique identifier for the collaboration
+	ID int `json:"id"`
+	// Title field
+	Title string `json:"title"`
+	// Type field: Another representation of the collaboration type
+	Type string `json:"type"`
+	// UpdateURL field: The LTI launch url to edit the collaboration
+	UpdateURL string `json:"update_url"`
+	// UpdatedAt field: The timestamp when the collaboration was last modified
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: The LTI launch url to view collaboration.
+	URL string `json:"url"`
+	// UserID field: The canvas id of the user who created the collaboration
+	UserID int `json:"user_id"`
+	// UserName field: The name of the user who owns the collaboration
+	UserName string `json:"user_name"`
 }
 
 // Collaborator model object
 type Collaborator struct {
-    // ID field: The unique user or group identifier for the collaborator.
-    ID int `json:"id"`
-    // Name field: The name of the collaborator.
-    Name string `json:"name"`
-    // Type field: The type of collaborator (e.g. 'user' or 'group').
-    Type *CollaboratorType `json:"type"`
+	// ID field: The unique user or group identifier for the collaborator.
+	ID int `json:"id"`
+	// Name field: The name of the collaborator.
+	Name string `json:"name"`
+	// Type field: The type of collaborator (e.g. 'user' or 'group').
+	Type *CollaboratorType `json:"type"`
 }
 
 // CommMessage model object
 type CommMessage struct {
-    // Body field: The plain text body of the message
-    Body string `json:"body"`
-    // CreatedAt field: The date and time this message was created
-    CreatedAt time.Time `json:"created_at"`
-    // From field: The address that was put in the 'from' field of the message
-    From string `json:"from"`
-    // FromName field: The display name for the from address
-    FromName string `json:"from_name"`
-    // HTMLBody field: The HTML body of the message.
-    HTMLBody string `json:"html_body"`
-    // ID field: The ID of the CommMessage.
-    ID int `json:"id"`
-    // ReplyTo field: The reply_to header of the message
-    ReplyTo string `json:"reply_to"`
-    // SentAt field: The date and time this message was sent
-    SentAt time.Time `json:"sent_at"`
-    // Subject field: The message subject
-    Subject string `json:"subject"`
-    // To field: The address the message was sent to:
-    To string `json:"to"`
-    // WorkflowState field: The workflow state of the message. One of 'created', 'staged', 'sending', 'sent', 'bounced',
-    // 'dashboard', 'cancelled', or 'closed'
-    WorkflowState *CommMessageWorkflowState `json:"workflow_state"`
+	// Body field: The plain text body of the message
+	Body string `json:"body"`
+	// CreatedAt field: The date and time this message was created
+	CreatedAt time.Time `json:"created_at"`
+	// From field: The address that was put in the 'from' field of the message
+	From string `json:"from"`
+	// FromName field: The display name for the from address
+	FromName string `json:"from_name"`
+	// HTMLBody field: The HTML body of the message.
+	HTMLBody string `json:"html_body"`
+	// ID field: The ID of the CommMessage.
+	ID int `json:"id"`
+	// ReplyTo field: The reply_to header of the message
+	ReplyTo string `json:"reply_to"`
+	// SentAt field: The date and time this message was sent
+	SentAt time.Time `json:"sent_at"`
+	// Subject field: The message subject
+	Subject string `json:"subject"`
+	// To field: The address the message was sent to:
+	To string `json:"to"`
+	// WorkflowState field: The workflow state of the message. One of 'created', 'staged', 'sending', 'sent', 'bounced',
+	// 'dashboard', 'cancelled', or 'closed'
+	WorkflowState *CommMessageWorkflowState `json:"workflow_state"`
 }
 
 // CommunicationChannel model object
 type CommunicationChannel struct {
-    // Address field: The address, or path, of the communication channel.
-    Address string `json:"address"`
-    // ID field: The ID of the communication channel.
-    ID int `json:"id"`
-    // Position field: The position of this communication channel relative to the user's other channels when they are
-    // ordered.
-    Position int `json:"position"`
-    // Type field: The type of communcation channel being described. Possible values are: 'email', 'push', 'sms', or
-    // 'twitter'. This field determines the type of value seen in 'address'.
-    Type *CommunicationChannelType `json:"type"`
-    // UserID field: The ID of the user that owns this communication channel.
-    UserID int `json:"user_id"`
-    // WorkflowState field: The current state of the communication channel. Possible values are: 'unconfirmed' or
-    // 'active'.
-    WorkflowState *CommunicationChannelWorkflowState `json:"workflow_state"`
+	// Address field: The address, or path, of the communication channel.
+	Address string `json:"address"`
+	// ID field: The ID of the communication channel.
+	ID int `json:"id"`
+	// Position field: The position of this communication channel relative to the user's other channels when they are
+	// ordered.
+	Position int `json:"position"`
+	// Type field: The type of communcation channel being described. Possible values are: 'email', 'push', 'sms', or
+	// 'twitter'. This field determines the type of value seen in 'address'.
+	Type *CommunicationChannelType `json:"type"`
+	// UserID field: The ID of the user that owns this communication channel.
+	UserID int `json:"user_id"`
+	// WorkflowState field: The current state of the communication channel. Possible values are: 'unconfirmed' or
+	// 'active'.
+	WorkflowState *CommunicationChannelWorkflowState `json:"workflow_state"`
 }
 
 // ConferenceRecording model object
 type ConferenceRecording struct {
-    // CreatedAt field
-    CreatedAt time.Time `json:"created_at"`
-    // DurationMinutes field
-    DurationMinutes int `json:"duration_minutes"`
-    // PlaybackURL field
-    PlaybackURL string `json:"playback_url"`
-    // Title field
-    Title string `json:"title"`
-    // UpdatedAt field
-    UpdatedAt time.Time `json:"updated_at"`
+	// CreatedAt field
+	CreatedAt time.Time `json:"created_at"`
+	// DurationMinutes field
+	DurationMinutes int `json:"duration_minutes"`
+	// PlaybackURL field
+	PlaybackURL string `json:"playback_url"`
+	// Title field
+	Title string `json:"title"`
+	// UpdatedAt field
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // Conference model object
 type Conference struct {
-    // ConferenceKey field: The 3rd party's ID for the conference
-    ConferenceKey string `json:"conference_key"`
-    // ConferenceType field: The type of conference
-    ConferenceType string `json:"conference_type"`
-    // ContextID field: The ID of this conference's context.
-    ContextID int `json:"context_id"`
-    // ContextType field: The type of this conference's context, typically 'Course' or 'Group'.
-    ContextType string `json:"context_type"`
-    // Description field: The description for the conference
-    Description string `json:"description"`
-    // Duration field: The expected duration the conference is supposed to last
-    Duration int `json:"duration"`
-    // EndedAt field: The date that the conference ended at, null if it hasn't ended
-    EndedAt time.Time `json:"ended_at"`
-    // HasAdvancedSettings field: True if the conference type has advanced settings.
-    HasAdvancedSettings bool `json:"has_advanced_settings"`
-    // ID field: The id of the conference
-    ID int `json:"id"`
-    // JoinURL field: URL to join the conference, may be null if the conference type doesn't set it
-    JoinURL string `json:"join_url"`
-    // LongRunning field: If true the conference is long running and has no expected end time
-    LongRunning bool `json:"long_running"`
-    // Recordings field: A List of recordings for the conference
-    Recordings []ConferenceRecording `json:"recordings"`
-    // StartedAt field: The date the conference started at, null if it hasn't started
-    StartedAt time.Time `json:"started_at"`
-    // Title field: The title of the conference
-    Title string `json:"title"`
-    // URL field: URL for the conference, may be null if the conference type doesn't set it
-    URL string `json:"url"`
-    // UserSettings field: A collection of settings specific to the conference type
-    UserSettings map[interface{}]interface{} `json:"user_settings"`
-    // Users field: Array of user ids that are participants in the conference
-    Users []int `json:"users"`
+	// ConferenceKey field: The 3rd party's ID for the conference
+	ConferenceKey string `json:"conference_key"`
+	// ConferenceType field: The type of conference
+	ConferenceType string `json:"conference_type"`
+	// ContextID field: The ID of this conference's context.
+	ContextID int `json:"context_id"`
+	// ContextType field: The type of this conference's context, typically 'Course' or 'Group'.
+	ContextType string `json:"context_type"`
+	// Description field: The description for the conference
+	Description string `json:"description"`
+	// Duration field: The expected duration the conference is supposed to last
+	Duration int `json:"duration"`
+	// EndedAt field: The date that the conference ended at, null if it hasn't ended
+	EndedAt time.Time `json:"ended_at"`
+	// HasAdvancedSettings field: True if the conference type has advanced settings.
+	HasAdvancedSettings bool `json:"has_advanced_settings"`
+	// ID field: The id of the conference
+	ID int `json:"id"`
+	// JoinURL field: URL to join the conference, may be null if the conference type doesn't set it
+	JoinURL string `json:"join_url"`
+	// LongRunning field: If true the conference is long running and has no expected end time
+	LongRunning bool `json:"long_running"`
+	// Recordings field: A List of recordings for the conference
+	Recordings []ConferenceRecording `json:"recordings"`
+	// StartedAt field: The date the conference started at, null if it hasn't started
+	StartedAt time.Time `json:"started_at"`
+	// Title field: The title of the conference
+	Title string `json:"title"`
+	// URL field: URL for the conference, may be null if the conference type doesn't set it
+	URL string `json:"url"`
+	// UserSettings field: A collection of settings specific to the conference type
+	UserSettings map[interface{}]interface{} `json:"user_settings"`
+	// Users field: Array of user ids that are participants in the conference
+	Users []int `json:"users"`
 }
 
 // ContentExport model object
 type ContentExport struct {
-    // Attachment field: attachment api object for the export package (not present before the export completes or after
-    // it becomes unavailable for download.)
-    Attachment *File `json:"attachment"`
-    // CreatedAt field: the date and time this export was requested
-    CreatedAt time.Time `json:"created_at"`
-    // ExportType field: the type of content migration: 'common_cartridge' or 'qti'
-    ExportType *ContentExportExportType `json:"export_type"`
-    // ID field: the unique identifier for the export
-    ID int `json:"id"`
-    // ProgressURL field: The api endpoint for polling the current progress
-    ProgressURL string `json:"progress_url"`
-    // UserID field: The ID of the user who started the export
-    UserID int `json:"user_id"`
-    // WorkflowState field: Current state of the content migration: created exporting exported failed
-    WorkflowState *ContentExportWorkflowState `json:"workflow_state"`
+	// Attachment field: attachment api object for the export package (not present before the export completes or after
+	// it becomes unavailable for download.)
+	Attachment *File `json:"attachment"`
+	// CreatedAt field: the date and time this export was requested
+	CreatedAt time.Time `json:"created_at"`
+	// ExportType field: the type of content migration: 'common_cartridge' or 'qti'
+	ExportType *ContentExportExportType `json:"export_type"`
+	// ID field: the unique identifier for the export
+	ID int `json:"id"`
+	// ProgressURL field: The api endpoint for polling the current progress
+	ProgressURL string `json:"progress_url"`
+	// UserID field: The ID of the user who started the export
+	UserID int `json:"user_id"`
+	// WorkflowState field: Current state of the content migration: created exporting exported failed
+	WorkflowState *ContentExportWorkflowState `json:"workflow_state"`
 }
 
 // ContentMigration model object
 type ContentMigration struct {
-    // Attachment field: attachment api object for the uploaded file may not be present for all migrations
-    Attachment string `json:"attachment"`
-    // FinishedAt field: timestamp
-    FinishedAt time.Time `json:"finished_at"`
-    // ID field: the unique identifier for the migration
-    ID int `json:"id"`
-    // MigrationIssuesURL field: API url to the content migration's issues
-    MigrationIssuesURL string `json:"migration_issues_url"`
-    // MigrationType field: the type of content migration
-    MigrationType string `json:"migration_type"`
-    // MigrationTypeTitle field: the name of the content migration type
-    MigrationTypeTitle string `json:"migration_type_title"`
-    // PreAttachment field: file uploading data, see {file:file_uploads.html File Upload Documentation} for file upload
-    // workflow This works a little differently in that all the file data is in the pre_attachment hash if there is no
-    // upload_url then there was an attachment pre-processing error, the error message will be in the message key This
-    // data will only be here after a create or update call
-    PreAttachment string `json:"pre_attachment"`
-    // ProgressURL field: The api endpoint for polling the current progress
-    ProgressURL string `json:"progress_url"`
-    // StartedAt field: timestamp
-    StartedAt time.Time `json:"started_at"`
-    // UserID field: The user who started the migration
-    UserID int `json:"user_id"`
-    // WorkflowState field: Current state of the content migration: pre_processing, pre_processed, running,
-    // waiting_for_select, completed, failed
-    WorkflowState *ContentMigrationWorkflowState `json:"workflow_state"`
+	// Attachment field: attachment api object for the uploaded file may not be present for all migrations
+	Attachment string `json:"attachment"`
+	// FinishedAt field: timestamp
+	FinishedAt time.Time `json:"finished_at"`
+	// ID field: the unique identifier for the migration
+	ID int `json:"id"`
+	// MigrationIssuesURL field: API url to the content migration's issues
+	MigrationIssuesURL string `json:"migration_issues_url"`
+	// MigrationType field: the type of content migration
+	MigrationType string `json:"migration_type"`
+	// MigrationTypeTitle field: the name of the content migration type
+	MigrationTypeTitle string `json:"migration_type_title"`
+	// PreAttachment field: file uploading data, see {file:file_uploads.html File Upload Documentation} for file upload
+	// workflow This works a little differently in that all the file data is in the pre_attachment hash if there is no
+	// upload_url then there was an attachment pre-processing error, the error message will be in the message key This
+	// data will only be here after a create or update call
+	PreAttachment string `json:"pre_attachment"`
+	// ProgressURL field: The api endpoint for polling the current progress
+	ProgressURL string `json:"progress_url"`
+	// StartedAt field: timestamp
+	StartedAt time.Time `json:"started_at"`
+	// UserID field: The user who started the migration
+	UserID int `json:"user_id"`
+	// WorkflowState field: Current state of the content migration: pre_processing, pre_processed, running,
+	// waiting_for_select, completed, failed
+	WorkflowState *ContentMigrationWorkflowState `json:"workflow_state"`
 }
 
 // Migrator model object
 type Migrator struct {
-    // Name field: Description of the package type expected
-    Name string `json:"name"`
-    // RequiredSettings field: A list of fields this system requires
-    RequiredSettings []string `json:"required_settings"`
-    // RequiresFileUpload field: Whether this endpoint requires a file upload
-    RequiresFileUpload bool `json:"requires_file_upload"`
-    // Type field: The value to pass to the create endpoint
-    Type string `json:"type"`
+	// Name field: Description of the package type expected
+	Name string `json:"name"`
+	// RequiredSettings field: A list of fields this system requires
+	RequiredSettings []string `json:"required_settings"`
+	// RequiresFileUpload field: Whether this endpoint requires a file upload
+	RequiresFileUpload bool `json:"requires_file_upload"`
+	// Type field: The value to pass to the create endpoint
+	Type string `json:"type"`
 }
 
 // ContentShare model object: Content shared between users
 type ContentShare struct {
-    // ContentExport field: The content export record associated with this content share
-    ContentExport *ContentExport `json:"content_export"`
-    // ContentType field: The type of content that was shared. Can be assignment, discussion_topic, page, quiz, module,
-    // or module_item.
-    ContentType string `json:"content_type"`
-    // CreatedAt field: The datetime the content was shared with this user.
-    CreatedAt time.Time `json:"created_at"`
-    // ID field: The id of the content share for the current user
-    ID int `json:"id"`
-    // Name field: The name of the shared content
-    Name string `json:"name"`
-    // ReadState field: Whether the recipient has viewed the content share.
-    ReadState string `json:"read_state"`
-    // Receivers field: An Array of users the content is shared with.  This field is provided only to senders; an empty
-    // array will be returned for the receiving users.
-    Receivers []map[interface{}]interface{} `json:"receivers"`
-    // Sender field: The user who shared the content. This field is provided only to receivers; it is not populated in
-    // the sender's list of sent content shares.
-    Sender map[interface{}]interface{} `json:"sender"`
-    // SourceCourse field: The course the content was originally shared from.
-    SourceCourse map[interface{}]interface{} `json:"source_course"`
-    // UpdatedAt field: The datetime the content was updated.
-    UpdatedAt time.Time `json:"updated_at"`
-    // UserID field: The id of the user who sent or received the content share.
-    UserID int `json:"user_id"`
+	// ContentExport field: The content export record associated with this content share
+	ContentExport *ContentExport `json:"content_export"`
+	// ContentType field: The type of content that was shared. Can be assignment, discussion_topic, page, quiz, module,
+	// or module_item.
+	ContentType string `json:"content_type"`
+	// CreatedAt field: The datetime the content was shared with this user.
+	CreatedAt time.Time `json:"created_at"`
+	// ID field: The id of the content share for the current user
+	ID int `json:"id"`
+	// Name field: The name of the shared content
+	Name string `json:"name"`
+	// ReadState field: Whether the recipient has viewed the content share.
+	ReadState string `json:"read_state"`
+	// Receivers field: An Array of users the content is shared with.  This field is provided only to senders; an empty
+	// array will be returned for the receiving users.
+	Receivers []map[interface{}]interface{} `json:"receivers"`
+	// Sender field: The user who shared the content. This field is provided only to receivers; it is not populated in
+	// the sender's list of sent content shares.
+	Sender map[interface{}]interface{} `json:"sender"`
+	// SourceCourse field: The course the content was originally shared from.
+	SourceCourse map[interface{}]interface{} `json:"source_course"`
+	// UpdatedAt field: The datetime the content was updated.
+	UpdatedAt time.Time `json:"updated_at"`
+	// UserID field: The id of the user who sent or received the content share.
+	UserID int `json:"user_id"`
 }
 
 // CompletionRequirement model object
 type CompletionRequirement struct {
-    // Completed field: whether the calling user has met this requirement (Optional; present only if the caller is a
-    // student or if the optional parameter 'student_id' is included)
-    Completed bool `json:"completed"`
-    // MinScore field: minimum score required to complete (only present when type == 'min_score')
-    MinScore int `json:"min_score"`
-    // Type field: one of 'must_view', 'must_submit', 'must_contribute', 'min_score'
-    Type *CompletionRequirementType `json:"type"`
+	// Completed field: whether the calling user has met this requirement (Optional; present only if the caller is a
+	// student or if the optional parameter 'student_id' is included)
+	Completed bool `json:"completed"`
+	// MinScore field: minimum score required to complete (only present when type == 'min_score')
+	MinScore int `json:"min_score"`
+	// Type field: one of 'must_view', 'must_submit', 'must_contribute', 'min_score'
+	Type *CompletionRequirementType `json:"type"`
 }
 
 // ContentDetails model object
 type ContentDetails struct {
-    // DueAt field
-    DueAt time.Time `json:"due_at"`
-    // LockAt field
-    LockAt time.Time `json:"lock_at"`
-    // LockExplanation field
-    LockExplanation string `json:"lock_explanation"`
-    // LockInfo field
-    LockInfo *LockInfo `json:"lock_info"`
-    // LockedForUser field
-    LockedForUser bool `json:"locked_for_user"`
-    // PointsPossible field
-    PointsPossible int `json:"points_possible"`
-    // UnlockAt field
-    UnlockAt time.Time `json:"unlock_at"`
+	// DueAt field
+	DueAt time.Time `json:"due_at"`
+	// LockAt field
+	LockAt time.Time `json:"lock_at"`
+	// LockExplanation field
+	LockExplanation string `json:"lock_explanation"`
+	// LockInfo field
+	LockInfo *LockInfo `json:"lock_info"`
+	// LockedForUser field
+	LockedForUser bool `json:"locked_for_user"`
+	// PointsPossible field
+	PointsPossible int `json:"points_possible"`
+	// UnlockAt field
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // ModuleItem model object
 type ModuleItem struct {
-    // CompletionRequirement field: Completion requirement for this module item
-    CompletionRequirement *CompletionRequirement `json:"completion_requirement"`
-    // ContentDetails field: (Present only if requested through include[]=content_details) If applicable, returns
-    // additional details specific to the associated object
-    ContentDetails *ContentDetails `json:"content_details"`
-    // ContentID field: the id of the object referred to applies to 'File', 'Discussion', 'Assignment', 'Quiz',
-    // 'ExternalTool' types
-    ContentID int `json:"content_id"`
-    // ExternalURL field: (only for 'ExternalUrl' and 'ExternalTool' types) external url that the item points to
-    ExternalURL string `json:"external_url"`
-    // HTMLURL field: link to the item in Canvas
-    HTMLURL string `json:"html_url"`
-    // ID field: the unique identifier for the module item
-    ID int `json:"id"`
-    // Indent field: 0-based indent level; module items may be indented to show a hierarchy
-    Indent int `json:"indent"`
-    // ModuleID field: the id of the Module this item appears in
-    ModuleID int `json:"module_id"`
-    // NewTab field: (only for 'ExternalTool' type) whether the external tool opens in a new tab
-    NewTab bool `json:"new_tab"`
-    // PageURL field: (only for 'Page' type) unique locator for the linked wiki page
-    PageURL string `json:"page_url"`
-    // Position field: the position of this item in the module (1-based)
-    Position int `json:"position"`
-    // Published field: (Optional) Whether this module item is published. This field is present only if the caller has
-    // permission to view unpublished items.
-    Published bool `json:"published"`
-    // Title field: the title of this item
-    Title string `json:"title"`
-    // Type field: the type of object referred to one of 'File', 'Page', 'Discussion', 'Assignment', 'Quiz',
-    // 'SubHeader', 'ExternalUrl', 'ExternalTool'
-    Type *ModuleItemType `json:"type"`
-    // URL field: (Optional) link to the Canvas API object, if applicable
-    URL string `json:"url"`
+	// CompletionRequirement field: Completion requirement for this module item
+	CompletionRequirement *CompletionRequirement `json:"completion_requirement"`
+	// ContentDetails field: (Present only if requested through include[]=content_details) If applicable, returns
+	// additional details specific to the associated object
+	ContentDetails *ContentDetails `json:"content_details"`
+	// ContentID field: the id of the object referred to applies to 'File', 'Discussion', 'Assignment', 'Quiz',
+	// 'ExternalTool' types
+	ContentID int `json:"content_id"`
+	// ExternalURL field: (only for 'ExternalUrl' and 'ExternalTool' types) external url that the item points to
+	ExternalURL string `json:"external_url"`
+	// HTMLURL field: link to the item in Canvas
+	HTMLURL string `json:"html_url"`
+	// ID field: the unique identifier for the module item
+	ID int `json:"id"`
+	// Indent field: 0-based indent level; module items may be indented to show a hierarchy
+	Indent int `json:"indent"`
+	// ModuleID field: the id of the Module this item appears in
+	ModuleID int `json:"module_id"`
+	// NewTab field: (only for 'ExternalTool' type) whether the external tool opens in a new tab
+	NewTab bool `json:"new_tab"`
+	// PageURL field: (only for 'Page' type) unique locator for the linked wiki page
+	PageURL string `json:"page_url"`
+	// Position field: the position of this item in the module (1-based)
+	Position int `json:"position"`
+	// Published field: (Optional) Whether this module item is published. This field is present only if the caller has
+	// permission to view unpublished items.
+	Published bool `json:"published"`
+	// Title field: the title of this item
+	Title string `json:"title"`
+	// Type field: the type of object referred to one of 'File', 'Page', 'Discussion', 'Assignment', 'Quiz',
+	// 'SubHeader', 'ExternalUrl', 'ExternalTool'
+	Type *ModuleItemType `json:"type"`
+	// URL field: (Optional) link to the Canvas API object, if applicable
+	URL string `json:"url"`
 }
 
 // ModuleItemSequenceNode model object
 type ModuleItemSequenceNode struct {
-    // Current field: The ModuleItem being queried
-    Current *ModuleItem `json:"current"`
-    // MasteryPath field: The conditional release rule for the module item, if applicable
-    MasteryPath map[interface{}]interface{} `json:"mastery_path"`
-    // Next field: The next ModuleItem in the sequence
-    Next *ModuleItem `json:"next"`
-    // Prev field: The previous ModuleItem in the sequence
-    Prev *ModuleItem `json:"prev"`
+	// Current field: The ModuleItem being queried
+	Current *ModuleItem `json:"current"`
+	// MasteryPath field: The conditional release rule for the module item, if applicable
+	MasteryPath map[interface{}]interface{} `json:"mastery_path"`
+	// Next field: The next ModuleItem in the sequence
+	Next *ModuleItem `json:"next"`
+	// Prev field: The previous ModuleItem in the sequence
+	Prev *ModuleItem `json:"prev"`
 }
 
 // ModuleItemSequence model object
 type ModuleItemSequence struct {
-    // Items field: an array containing one ModuleItemSequenceNode for each appearence of the asset in the module
-    // sequence (up to 10 total)
-    Items []ModuleItemSequenceNode `json:"items"`
-    // Modules field: an array containing each Module referenced above
-    Modules []Module `json:"modules"`
+	// Items field: an array containing one ModuleItemSequenceNode for each appearence of the asset in the module
+	// sequence (up to 10 total)
+	Items []ModuleItemSequenceNode `json:"items"`
+	// Modules field: an array containing each Module referenced above
+	Modules []Module `json:"modules"`
 }
 
 // Module model object
 type Module struct {
-    // CompletedAt field: the date the calling user completed the module (Optional; present only if the caller is a
-    // student or if the optional parameter 'student_id' is included)
-    CompletedAt time.Time `json:"completed_at"`
-    // ID field: the unique identifier for the module
-    ID int `json:"id"`
-    // Items field: The contents of this module, as an array of Module Items. (Present only if requested via
-    // include[]=items AND the module is not deemed too large by Canvas.)
-    Items []ModuleItem `json:"items"`
-    // ItemsCount field: The number of items in the module
-    ItemsCount int `json:"items_count"`
-    // ItemsURL field: The API URL to retrive this module's items
-    ItemsURL string `json:"items_url"`
-    // Name field: the name of this module
-    Name string `json:"name"`
-    // Position field: the position of this module in the course (1-based)
-    Position int `json:"position"`
-    // PrerequisiteModuleIds field: IDs of Modules that must be completed before this one is unlocked
-    PrerequisiteModuleIds []int `json:"prerequisite_module_ids"`
-    // PublishFinalGrade field: if the student's final grade for the course should be published to the SIS upon
-    // completion of this module
-    PublishFinalGrade bool `json:"publish_final_grade"`
-    // Published field: (Optional) Whether this module is published. This field is present only if the caller has
-    // permission to view unpublished modules.
-    Published bool `json:"published"`
-    // RequireSequentialProgress field: Whether module items must be unlocked in order
-    RequireSequentialProgress bool `json:"require_sequential_progress"`
-    // State field: The state of this Module for the calling user one of 'locked', 'unlocked', 'started', 'completed'
-    // (Optional; present only if the caller is a student or if the optional parameter 'student_id' is included)
-    State *ModuleState `json:"state"`
-    // UnlockAt field: (Optional) the date this module will unlock
-    UnlockAt time.Time `json:"unlock_at"`
-    // WorkflowState field: the state of the module: 'active', 'deleted'
-    WorkflowState *ModuleWorkflowState `json:"workflow_state"`
+	// CompletedAt field: the date the calling user completed the module (Optional; present only if the caller is a
+	// student or if the optional parameter 'student_id' is included)
+	CompletedAt time.Time `json:"completed_at"`
+	// ID field: the unique identifier for the module
+	ID int `json:"id"`
+	// Items field: The contents of this module, as an array of Module Items. (Present only if requested via
+	// include[]=items AND the module is not deemed too large by Canvas.)
+	Items []ModuleItem `json:"items"`
+	// ItemsCount field: The number of items in the module
+	ItemsCount int `json:"items_count"`
+	// ItemsURL field: The API URL to retrive this module's items
+	ItemsURL string `json:"items_url"`
+	// Name field: the name of this module
+	Name string `json:"name"`
+	// Position field: the position of this module in the course (1-based)
+	Position int `json:"position"`
+	// PrerequisiteModuleIds field: IDs of Modules that must be completed before this one is unlocked
+	PrerequisiteModuleIds []int `json:"prerequisite_module_ids"`
+	// PublishFinalGrade field: if the student's final grade for the course should be published to the SIS upon
+	// completion of this module
+	PublishFinalGrade bool `json:"publish_final_grade"`
+	// Published field: (Optional) Whether this module is published. This field is present only if the caller has
+	// permission to view unpublished modules.
+	Published bool `json:"published"`
+	// RequireSequentialProgress field: Whether module items must be unlocked in order
+	RequireSequentialProgress bool `json:"require_sequential_progress"`
+	// State field: The state of this Module for the calling user one of 'locked', 'unlocked', 'started', 'completed'
+	// (Optional; present only if the caller is a student or if the optional parameter 'student_id' is included)
+	State *ModuleState `json:"state"`
+	// UnlockAt field: (Optional) the date this module will unlock
+	UnlockAt time.Time `json:"unlock_at"`
+	// WorkflowState field: the state of the module: 'active', 'deleted'
+	WorkflowState *ModuleWorkflowState `json:"workflow_state"`
 }
 
 // Conversation model object
 type Conversation struct {
-    // Audience field: Array of user ids who are involved in the conversation, ordered by participation level, then
-    // alphabetical. Excludes current user, unless this is a monologue.
-    Audience []int `json:"audience"`
-    // AudienceContexts field: Most relevant shared contexts (courses and groups) between current user and other
-    // participants. If there is only one participant, it will also include that user's enrollment(s)/ membership
-    // type(s) in each course/group.
-    AudienceContexts []string `json:"audience_contexts"`
-    // AvatarURL field: URL to appropriate icon for this conversation (custom, individual or group avatar, depending on
-    // audience).
-    AvatarURL string `json:"avatar_url"`
-    // ContextName field: Name of the course or group in which the conversation is occurring.
-    ContextName string `json:"context_name"`
-    // ID field: the unique identifier for the conversation.
-    ID int `json:"id"`
-    // LastMessage field: A <=100 character preview from the most recent message.
-    LastMessage string `json:"last_message"`
-    // MessageCount field: the number of messages in the conversation.
-    MessageCount int `json:"message_count"`
-    // Participants field: Array of users participating in the conversation. Includes current user.
-    Participants []ConversationParticipant `json:"participants"`
-    // Private field: whether the conversation is private.
-    Private bool `json:"private"`
-    // Properties field: Additional conversation flags (last_author, attachments, media_objects). Each listed property
-    // means the flag is set to true (i.e. the current user is the most recent author, there are attachments, or there
-    // are media objects)
-    Properties []string `json:"properties"`
-    // Starred field: whether the conversation is starred.
-    Starred bool `json:"starred"`
-    // StartAt field: the date and time at which the last message was sent.
-    StartAt time.Time `json:"start_at"`
-    // Subject field: the subject of the conversation.
-    Subject string `json:"subject"`
-    // Subscribed field: whether the current user is subscribed to the conversation.
-    Subscribed bool `json:"subscribed"`
-    // Visible field: indicates whether the conversation is visible under the current scope and filter. This attribute
-    // is always true in the index API response, and is primarily useful in create/update responses so that you can know
-    // if the record should be displayed in the UI. The default scope is assumed, unless a scope or filter is passed to
-    // the create/update API call.
-    Visible bool `json:"visible"`
-    // WorkflowState field: The current state of the conversation (read, unread or archived).
-    WorkflowState string `json:"workflow_state"`
+	// Audience field: Array of user ids who are involved in the conversation, ordered by participation level, then
+	// alphabetical. Excludes current user, unless this is a monologue.
+	Audience []int `json:"audience"`
+	// AudienceContexts field: Most relevant shared contexts (courses and groups) between current user and other
+	// participants. If there is only one participant, it will also include that user's enrollment(s)/ membership
+	// type(s) in each course/group.
+	AudienceContexts []string `json:"audience_contexts"`
+	// AvatarURL field: URL to appropriate icon for this conversation (custom, individual or group avatar, depending on
+	// audience).
+	AvatarURL string `json:"avatar_url"`
+	// ContextName field: Name of the course or group in which the conversation is occurring.
+	ContextName string `json:"context_name"`
+	// ID field: the unique identifier for the conversation.
+	ID int `json:"id"`
+	// LastMessage field: A <=100 character preview from the most recent message.
+	LastMessage string `json:"last_message"`
+	// MessageCount field: the number of messages in the conversation.
+	MessageCount int `json:"message_count"`
+	// Participants field: Array of users participating in the conversation. Includes current user.
+	Participants []ConversationParticipant `json:"participants"`
+	// Private field: whether the conversation is private.
+	Private bool `json:"private"`
+	// Properties field: Additional conversation flags (last_author, attachments, media_objects). Each listed property
+	// means the flag is set to true (i.e. the current user is the most recent author, there are attachments, or there
+	// are media objects)
+	Properties []string `json:"properties"`
+	// Starred field: whether the conversation is starred.
+	Starred bool `json:"starred"`
+	// StartAt field: the date and time at which the last message was sent.
+	StartAt time.Time `json:"start_at"`
+	// Subject field: the subject of the conversation.
+	Subject string `json:"subject"`
+	// Subscribed field: whether the current user is subscribed to the conversation.
+	Subscribed bool `json:"subscribed"`
+	// Visible field: indicates whether the conversation is visible under the current scope and filter. This attribute
+	// is always true in the index API response, and is primarily useful in create/update responses so that you can know
+	// if the record should be displayed in the UI. The default scope is assumed, unless a scope or filter is passed to
+	// the create/update API call.
+	Visible bool `json:"visible"`
+	// WorkflowState field: The current state of the conversation (read, unread or archived).
+	WorkflowState string `json:"workflow_state"`
 }
 
 // ConversationParticipant model object
 type ConversationParticipant struct {
-    // AvatarURL field: If requested, this field will be included and contain a url to retrieve the user's avatar.
-    AvatarURL string `json:"avatar_url"`
-    // FullName field: The full name of the user.
-    FullName string `json:"full_name"`
-    // ID field: The user ID for the participant.
-    ID int `json:"id"`
-    // Name field: A short name the user has selected, for use in conversations or other less formal places through the
-    // site.
-    Name string `json:"name"`
+	// AvatarURL field: If requested, this field will be included and contain a url to retrieve the user's avatar.
+	AvatarURL string `json:"avatar_url"`
+	// FullName field: The full name of the user.
+	FullName string `json:"full_name"`
+	// ID field: The user ID for the participant.
+	ID int `json:"id"`
+	// Name field: A short name the user has selected, for use in conversations or other less formal places through the
+	// site.
+	Name string `json:"name"`
 }
 
 // CourseEventLink model object
 type CourseEventLink struct {
-    // CopiedFrom field: ID of the course that this course was copied from. This is only included if the event_type is
-    // copied_from.
-    CopiedFrom int `json:"copied_from"`
-    // CopiedTo field: ID of the course that this course was copied to. This is only included if the event_type is
-    // copied_to.
-    CopiedTo int `json:"copied_to"`
-    // Course field: ID of the course for the event.
-    Course int `json:"course"`
-    // PageView field: ID of the page view during the event if it exists.
-    PageView string `json:"page_view"`
-    // SisBatch field: ID of the SIS batch that triggered the event.
-    SisBatch int `json:"sis_batch"`
-    // User field: ID of the user for the event (who made the change).
-    User int `json:"user"`
+	// CopiedFrom field: ID of the course that this course was copied from. This is only included if the event_type is
+	// copied_from.
+	CopiedFrom int `json:"copied_from"`
+	// CopiedTo field: ID of the course that this course was copied to. This is only included if the event_type is
+	// copied_to.
+	CopiedTo int `json:"copied_to"`
+	// Course field: ID of the course for the event.
+	Course int `json:"course"`
+	// PageView field: ID of the page view during the event if it exists.
+	PageView string `json:"page_view"`
+	// SisBatch field: ID of the SIS batch that triggered the event.
+	SisBatch int `json:"sis_batch"`
+	// User field: ID of the user for the event (who made the change).
+	User int `json:"user"`
 }
 
 // CourseEvent model object
 type CourseEvent struct {
-    // CreatedAt field: timestamp of the event
-    CreatedAt time.Time `json:"created_at"`
-    // EventData field: Course event data depending on the event type.  This will return an object containing the
-    // relevant event data.  An updated event type will return an UpdatedEventData object.
-    EventData string `json:"event_data"`
-    // EventSource field: Course event source depending on the event type.  This will return a string containing the
-    // source of the event.
-    EventSource string `json:"event_source"`
-    // EventType field: Course event type The event type defines the type and schema of the event_data object.
-    EventType string `json:"event_type"`
-    // ID field: ID of the event.
-    ID string `json:"id"`
-    // Links field: Jsonapi.org links
-    Links *CourseEventLink `json:"links"`
+	// CreatedAt field: timestamp of the event
+	CreatedAt time.Time `json:"created_at"`
+	// EventData field: Course event data depending on the event type.  This will return an object containing the
+	// relevant event data.  An updated event type will return an UpdatedEventData object.
+	EventData string `json:"event_data"`
+	// EventSource field: Course event source depending on the event type.  This will return a string containing the
+	// source of the event.
+	EventSource string `json:"event_source"`
+	// EventType field: Course event type The event type defines the type and schema of the event_data object.
+	EventType string `json:"event_type"`
+	// ID field: ID of the event.
+	ID string `json:"id"`
+	// Links field: Jsonapi.org links
+	Links *CourseEventLink `json:"links"`
 }
 
 // CreatedEventData model object: The created event data object returns all the fields that were set in the format of
@@ -3890,2333 +3974,2333 @@ type CourseEvent struct {
 // [:old_value, :new_value].  The created event type also includes a created_source field to specify what triggered the
 // creation of the course.
 type CreatedEventData struct {
-    // ConcludeAt field
-    ConcludeAt []time.Time `json:"conclude_at"`
-    // CreatedSource field: The type of action that triggered the creation of the course.
-    CreatedSource string `json:"created_source"`
-    // IsPublic field
-    IsPublic []bool `json:"is_public"`
-    // Name field
-    Name []string `json:"name"`
-    // StartAt field
-    StartAt []time.Time `json:"start_at"`
+	// ConcludeAt field
+	ConcludeAt []time.Time `json:"conclude_at"`
+	// CreatedSource field: The type of action that triggered the creation of the course.
+	CreatedSource string `json:"created_source"`
+	// IsPublic field
+	IsPublic []bool `json:"is_public"`
+	// Name field
+	Name []string `json:"name"`
+	// StartAt field
+	StartAt []time.Time `json:"start_at"`
 }
 
 // UpdatedEventData model object: The updated event data object returns all the fields that have changed in the format
 // of the following example.  If a field does not exist it was not changed.  The value is an array that contains the
 // before and after values for the change as in [:old_value, :new_value].
 type UpdatedEventData struct {
-    // ConcludeAt field
-    ConcludeAt []time.Time `json:"conclude_at"`
-    // IsPublic field
-    IsPublic []bool `json:"is_public"`
-    // Name field
-    Name []string `json:"name"`
-    // StartAt field
-    StartAt []time.Time `json:"start_at"`
+	// ConcludeAt field
+	ConcludeAt []time.Time `json:"conclude_at"`
+	// IsPublic field
+	IsPublic []bool `json:"is_public"`
+	// Name field
+	Name []string `json:"name"`
+	// StartAt field
+	StartAt []time.Time `json:"start_at"`
 }
 
 // CourseNickname model object
 type CourseNickname struct {
-    // CourseID field: the ID of the course
-    CourseID int `json:"course_id"`
-    // Name field: the actual name of the course
-    Name string `json:"name"`
-    // Nickname field: the calling user's nickname for the course
-    Nickname string `json:"nickname"`
+	// CourseID field: the ID of the course
+	CourseID int `json:"course_id"`
+	// Name field: the actual name of the course
+	Name string `json:"name"`
+	// Nickname field: the calling user's nickname for the course
+	Nickname string `json:"nickname"`
 }
 
 // Term model object
 type Term struct {
-    // EndAt field
-    EndAt time.Time `json:"end_at"`
-    // ID field
-    ID int `json:"id"`
-    // Name field
-    Name string `json:"name"`
-    // StartAt field
-    StartAt time.Time `json:"start_at"`
+	// EndAt field
+	EndAt time.Time `json:"end_at"`
+	// ID field
+	ID int `json:"id"`
+	// Name field
+	Name string `json:"name"`
+	// StartAt field
+	StartAt time.Time `json:"start_at"`
 }
 
 // CourseProgress model object
 type CourseProgress struct {
-    // CompletedAt field: date the course was completed. null if the course has not been completed by this user
-    CompletedAt time.Time `json:"completed_at"`
-    // NextRequirementURL field: url to next module item that has an unmet requirement. null if the user has completed
-    // the course or the current module does not require sequential progress
-    NextRequirementURL string `json:"next_requirement_url"`
-    // RequirementCompletedCount field: total number of requirements the user has completed from all modules
-    RequirementCompletedCount int `json:"requirement_completed_count"`
-    // RequirementCount field: total number of requirements from all modules
-    RequirementCount int `json:"requirement_count"`
+	// CompletedAt field: date the course was completed. null if the course has not been completed by this user
+	CompletedAt time.Time `json:"completed_at"`
+	// NextRequirementURL field: url to next module item that has an unmet requirement. null if the user has completed
+	// the course or the current module does not require sequential progress
+	NextRequirementURL string `json:"next_requirement_url"`
+	// RequirementCompletedCount field: total number of requirements the user has completed from all modules
+	RequirementCompletedCount int `json:"requirement_completed_count"`
+	// RequirementCount field: total number of requirements from all modules
+	RequirementCount int `json:"requirement_count"`
 }
 
 // Course model object
 type Course struct {
-    // AccessRestrictedByDate field: optional: this will be true if this user is currently prevented from viewing the
-    // course because of date restriction settings
-    AccessRestrictedByDate bool `json:"access_restricted_by_date"`
-    // AccountID field: the account associated with the course
-    AccountID int `json:"account_id"`
-    // AllowStudentAssignmentEdits field
-    AllowStudentAssignmentEdits bool `json:"allow_student_assignment_edits"`
-    // AllowStudentForumAttachments field
-    AllowStudentForumAttachments bool `json:"allow_student_forum_attachments"`
-    // AllowWikiComments field
-    AllowWikiComments bool `json:"allow_wiki_comments"`
-    // ApplyAssignmentGroupWeights field: weight final grade based on assignment group percentages
-    ApplyAssignmentGroupWeights bool `json:"apply_assignment_group_weights"`
-    // Blueprint field: optional: whether the course is set as a Blueprint Course (blueprint fields require the
-    // Blueprint Courses feature)
-    Blueprint bool `json:"blueprint"`
-    // BlueprintRestrictions field: optional: Set of restrictions applied to all locked course objects
-    BlueprintRestrictions map[interface{}]interface{} `json:"blueprint_restrictions"`
-    // BlueprintRestrictionsByObjectType field: optional: Sets of restrictions differentiated by object type applied to
-    // locked course objects
-    BlueprintRestrictionsByObjectType map[interface{}]interface{} `json:"blueprint_restrictions_by_object_type"`
-    // Calendar field: course calendar
-    Calendar *CalendarLink `json:"calendar"`
-    // CourseCode field: the course code
-    CourseCode string `json:"course_code"`
-    // CourseFormat field
-    CourseFormat string `json:"course_format"`
-    // CourseProgress field: optional: information on progress through the course returned only if
-    // include[]=course_progress
-    CourseProgress *CourseProgress `json:"course_progress"`
-    // CreatedAt field: the date the course was created.
-    CreatedAt time.Time `json:"created_at"`
-    // DefaultView field: the type of page that users will see when they first visit the course - 'feed': Recent
-    // Activity Dashboard - 'wiki': Wiki Front Page - 'modules': Course Modules/Sections Page - 'assignments': Course
-    // Assignments List - 'syllabus': Course Syllabus Page other types may be added in the future
-    DefaultView *CourseDefaultView `json:"default_view"`
-    // EndAt field: the end date for the course, if applicable
-    EndAt time.Time `json:"end_at"`
-    // EnrollmentTermID field: the enrollment term associated with the course
-    EnrollmentTermID int `json:"enrollment_term_id"`
-    // Enrollments field: A list of enrollments linking the current user to the course. for student enrollments, grading
-    // information may be included if include[]=total_scores
-    Enrollments []Enrollment `json:"enrollments"`
-    // GradePassbackSetting field: the grade_passback_setting set on the course
-    GradePassbackSetting string `json:"grade_passback_setting"`
-    // GradingStandardID field: the grading standard associated with the course
-    GradingStandardID int `json:"grading_standard_id"`
-    // HideFinalGrades field
-    HideFinalGrades bool `json:"hide_final_grades"`
-    // ID field: the unique identifier for the course
-    ID int `json:"id"`
-    // IntegrationID field: the integration identifier for the course, if defined. This field is only included if the
-    // user has permission to view SIS information.
-    IntegrationID string `json:"integration_id"`
-    // IsPublic field
-    IsPublic bool `json:"is_public"`
-    // IsPublicToAuthUsers field
-    IsPublicToAuthUsers bool `json:"is_public_to_auth_users"`
-    // License field
-    License string `json:"license"`
-    // Locale field: the course-set locale, if applicable
-    Locale string `json:"locale"`
-    // Name field: the full name of the course
-    Name string `json:"name"`
-    // NeedsGradingCount field: optional: the number of submissions needing grading returned only if the current user
-    // has grading rights and include[]=needs_grading_count
-    NeedsGradingCount int `json:"needs_grading_count"`
-    // OpenEnrollment field
-    OpenEnrollment bool `json:"open_enrollment"`
-    // Permissions field: optional: the permissions the user has for the course. returned only for a single course and
-    // include[]=permissions
-    Permissions map[string]bool `json:"permissions"`
-    // PublicDescription field: optional: the public description of the course
-    PublicDescription string `json:"public_description"`
-    // PublicSyllabus field
-    PublicSyllabus bool `json:"public_syllabus"`
-    // PublicSyllabusToAuth field
-    PublicSyllabusToAuth bool `json:"public_syllabus_to_auth"`
-    // RestrictEnrollmentsToCourseDates field
-    RestrictEnrollmentsToCourseDates bool `json:"restrict_enrollments_to_course_dates"`
-    // RootAccountID field: the root account associated with the course
-    RootAccountID int `json:"root_account_id"`
-    // SelfEnrollment field
-    SelfEnrollment bool `json:"self_enrollment"`
-    // SisCourseID field: the SIS identifier for the course, if defined. This field is only included if the user has
-    // permission to view SIS information.
-    SisCourseID string `json:"sis_course_id"`
-    // SisImportID field: the unique identifier for the SIS import. This field is only included if the user has
-    // permission to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // StartAt field: the start date for the course, if applicable
-    StartAt time.Time `json:"start_at"`
-    // StorageQuotaMb field
-    StorageQuotaMb int `json:"storage_quota_mb"`
-    // StorageQuotaUsedMb field
-    StorageQuotaUsedMb float64 `json:"storage_quota_used_mb"`
-    // SyllabusBody field: optional: user-generated HTML for the course syllabus
-    SyllabusBody string `json:"syllabus_body"`
-    // Term field: optional: the enrollment term object for the course returned only if include[]=term
-    Term *Term `json:"term"`
-    // TimeZone field: The course's IANA time zone name.
-    TimeZone string `json:"time_zone"`
-    // TotalStudents field: optional: the total number of active and invited students in the course
-    TotalStudents int `json:"total_students"`
-    // UUID field: the UUID of the course
-    UUID string `json:"uuid"`
-    // WorkflowState field: the current state of the course one of 'unpublished', 'available', 'completed', or 'deleted'
-    WorkflowState *CourseWorkflowState `json:"workflow_state"`
+	// AccessRestrictedByDate field: optional: this will be true if this user is currently prevented from viewing the
+	// course because of date restriction settings
+	AccessRestrictedByDate bool `json:"access_restricted_by_date"`
+	// AccountID field: the account associated with the course
+	AccountID int `json:"account_id"`
+	// AllowStudentAssignmentEdits field
+	AllowStudentAssignmentEdits bool `json:"allow_student_assignment_edits"`
+	// AllowStudentForumAttachments field
+	AllowStudentForumAttachments bool `json:"allow_student_forum_attachments"`
+	// AllowWikiComments field
+	AllowWikiComments bool `json:"allow_wiki_comments"`
+	// ApplyAssignmentGroupWeights field: weight final grade based on assignment group percentages
+	ApplyAssignmentGroupWeights bool `json:"apply_assignment_group_weights"`
+	// Blueprint field: optional: whether the course is set as a Blueprint Course (blueprint fields require the
+	// Blueprint Courses feature)
+	Blueprint bool `json:"blueprint"`
+	// BlueprintRestrictions field: optional: Set of restrictions applied to all locked course objects
+	BlueprintRestrictions map[interface{}]interface{} `json:"blueprint_restrictions"`
+	// BlueprintRestrictionsByObjectType field: optional: Sets of restrictions differentiated by object type applied to
+	// locked course objects
+	BlueprintRestrictionsByObjectType map[interface{}]interface{} `json:"blueprint_restrictions_by_object_type"`
+	// Calendar field: course calendar
+	Calendar *CalendarLink `json:"calendar"`
+	// CourseCode field: the course code
+	CourseCode string `json:"course_code"`
+	// CourseFormat field
+	CourseFormat string `json:"course_format"`
+	// CourseProgress field: optional: information on progress through the course returned only if
+	// include[]=course_progress
+	CourseProgress *CourseProgress `json:"course_progress"`
+	// CreatedAt field: the date the course was created.
+	CreatedAt time.Time `json:"created_at"`
+	// DefaultView field: the type of page that users will see when they first visit the course - 'feed': Recent
+	// Activity Dashboard - 'wiki': Wiki Front Page - 'modules': Course Modules/Sections Page - 'assignments': Course
+	// Assignments List - 'syllabus': Course Syllabus Page other types may be added in the future
+	DefaultView *CourseDefaultView `json:"default_view"`
+	// EndAt field: the end date for the course, if applicable
+	EndAt time.Time `json:"end_at"`
+	// EnrollmentTermID field: the enrollment term associated with the course
+	EnrollmentTermID int `json:"enrollment_term_id"`
+	// Enrollments field: A list of enrollments linking the current user to the course. for student enrollments, grading
+	// information may be included if include[]=total_scores
+	Enrollments []Enrollment `json:"enrollments"`
+	// GradePassbackSetting field: the grade_passback_setting set on the course
+	GradePassbackSetting string `json:"grade_passback_setting"`
+	// GradingStandardID field: the grading standard associated with the course
+	GradingStandardID int `json:"grading_standard_id"`
+	// HideFinalGrades field
+	HideFinalGrades bool `json:"hide_final_grades"`
+	// ID field: the unique identifier for the course
+	ID int `json:"id"`
+	// IntegrationID field: the integration identifier for the course, if defined. This field is only included if the
+	// user has permission to view SIS information.
+	IntegrationID string `json:"integration_id"`
+	// IsPublic field
+	IsPublic bool `json:"is_public"`
+	// IsPublicToAuthUsers field
+	IsPublicToAuthUsers bool `json:"is_public_to_auth_users"`
+	// License field
+	License string `json:"license"`
+	// Locale field: the course-set locale, if applicable
+	Locale string `json:"locale"`
+	// Name field: the full name of the course
+	Name string `json:"name"`
+	// NeedsGradingCount field: optional: the number of submissions needing grading returned only if the current user
+	// has grading rights and include[]=needs_grading_count
+	NeedsGradingCount int `json:"needs_grading_count"`
+	// OpenEnrollment field
+	OpenEnrollment bool `json:"open_enrollment"`
+	// Permissions field: optional: the permissions the user has for the course. returned only for a single course and
+	// include[]=permissions
+	Permissions map[string]bool `json:"permissions"`
+	// PublicDescription field: optional: the public description of the course
+	PublicDescription string `json:"public_description"`
+	// PublicSyllabus field
+	PublicSyllabus bool `json:"public_syllabus"`
+	// PublicSyllabusToAuth field
+	PublicSyllabusToAuth bool `json:"public_syllabus_to_auth"`
+	// RestrictEnrollmentsToCourseDates field
+	RestrictEnrollmentsToCourseDates bool `json:"restrict_enrollments_to_course_dates"`
+	// RootAccountID field: the root account associated with the course
+	RootAccountID int `json:"root_account_id"`
+	// SelfEnrollment field
+	SelfEnrollment bool `json:"self_enrollment"`
+	// SisCourseID field: the SIS identifier for the course, if defined. This field is only included if the user has
+	// permission to view SIS information.
+	SisCourseID string `json:"sis_course_id"`
+	// SisImportID field: the unique identifier for the SIS import. This field is only included if the user has
+	// permission to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// StartAt field: the start date for the course, if applicable
+	StartAt time.Time `json:"start_at"`
+	// StorageQuotaMb field
+	StorageQuotaMb int `json:"storage_quota_mb"`
+	// StorageQuotaUsedMb field
+	StorageQuotaUsedMb float64 `json:"storage_quota_used_mb"`
+	// SyllabusBody field: optional: user-generated HTML for the course syllabus
+	SyllabusBody string `json:"syllabus_body"`
+	// Term field: optional: the enrollment term object for the course returned only if include[]=term
+	Term *Term `json:"term"`
+	// TimeZone field: The course's IANA time zone name.
+	TimeZone string `json:"time_zone"`
+	// TotalStudents field: optional: the total number of active and invited students in the course
+	TotalStudents int `json:"total_students"`
+	// UUID field: the UUID of the course
+	UUID string `json:"uuid"`
+	// WorkflowState field: the current state of the course one of 'unpublished', 'available', 'completed', or 'deleted'
+	WorkflowState *CourseWorkflowState `json:"workflow_state"`
 }
 
 // CalendarLink model object
 type CalendarLink struct {
-    // Ics field: The URL of the calendar in ICS format
-    Ics string `json:"ics"`
+	// Ics field: The URL of the calendar in ICS format
+	Ics string `json:"ics"`
 }
 
 // ColumnDatum model object: ColumnDatum objects contain the entry for a column for each user.
 type ColumnDatum struct {
-    // Content field
-    Content string `json:"content"`
-    // UserID field
-    UserID int `json:"user_id"`
+	// Content field
+	Content string `json:"content"`
+	// UserID field
+	UserID int `json:"user_id"`
 }
 
 // CustomColumn model object
 type CustomColumn struct {
-    // Hidden field: won't be displayed if hidden is true
-    Hidden bool `json:"hidden"`
-    // ID field: The ID of the custom gradebook column
-    ID int `json:"id"`
-    // Position field: column order
-    Position int `json:"position"`
-    // ReadOnly field: won't be editable in the gradebook UI
-    ReadOnly bool `json:"read_only"`
-    // TeacherNotes field: When true, this column's visibility will be toggled in the Gradebook when a user selects to
-    // show or hide notes
-    TeacherNotes bool `json:"teacher_notes"`
-    // Title field: header text
-    Title string `json:"title"`
+	// Hidden field: won't be displayed if hidden is true
+	Hidden bool `json:"hidden"`
+	// ID field: The ID of the custom gradebook column
+	ID int `json:"id"`
+	// Position field: column order
+	Position int `json:"position"`
+	// ReadOnly field: won't be editable in the gradebook UI
+	ReadOnly bool `json:"read_only"`
+	// TeacherNotes field: When true, this column's visibility will be toggled in the Gradebook when a user selects to
+	// show or hide notes
+	TeacherNotes bool `json:"teacher_notes"`
+	// Title field: header text
+	Title string `json:"title"`
 }
 
 // DeveloperKeyAccountBinding model object
 type DeveloperKeyAccountBinding struct {
-    // AccountID field: The global Canvas ID of the account in the binding
-    AccountID float64 `json:"account_id"`
-    // AccountOwnsBinding field: True if the requested context owns the binding
-    AccountOwnsBinding bool `json:"account_owns_binding"`
-    // DeveloperKeyID field: The global Canvas ID of the developer key in the binding
-    DeveloperKeyID float64 `json:"developer_key_id"`
-    // ID field: The Canvas ID of the binding
-    ID float64 `json:"id"`
-    // WorkflowState field: The workflow state of the binding. Will be one of 'on', 'off', or 'allow.'
-    WorkflowState float64 `json:"workflow_state"`
+	// AccountID field: The global Canvas ID of the account in the binding
+	AccountID float64 `json:"account_id"`
+	// AccountOwnsBinding field: True if the requested context owns the binding
+	AccountOwnsBinding bool `json:"account_owns_binding"`
+	// DeveloperKeyID field: The global Canvas ID of the developer key in the binding
+	DeveloperKeyID float64 `json:"developer_key_id"`
+	// ID field: The Canvas ID of the binding
+	ID float64 `json:"id"`
+	// WorkflowState field: The workflow state of the binding. Will be one of 'on', 'off', or 'allow.'
+	WorkflowState float64 `json:"workflow_state"`
 }
 
 // FileAttachment model object: A file attachment
 type FileAttachment struct {
-    // ContentType field
-    ContentType string `json:"content-type"`
-    // DisplayName field
-    DisplayName string `json:"display_name"`
-    // Filename field
-    Filename string `json:"filename"`
-    // URL field
-    URL string `json:"url"`
+	// ContentType field
+	ContentType string `json:"content-type"`
+	// DisplayName field
+	DisplayName string `json:"display_name"`
+	// Filename field
+	Filename string `json:"filename"`
+	// URL field
+	URL string `json:"url"`
 }
 
 // DiscussionTopic model object: A discussion topic
 type DiscussionTopic struct {
-    // AllowRating field: Whether or not users can rate entries in this topic.
-    AllowRating bool `json:"allow_rating"`
-    // AssignmentID field: The unique identifier of the assignment if the topic is for grading, otherwise null.
-    AssignmentID int `json:"assignment_id"`
-    // Attachments field: Array of file attachments.
-    Attachments []FileAttachment `json:"attachments"`
-    // DelayedPostAt field: The datetime to publish the topic (if not right away).
-    DelayedPostAt time.Time `json:"delayed_post_at"`
-    // DiscussionSubentryCount field: The count of entries in the topic.
-    DiscussionSubentryCount int `json:"discussion_subentry_count"`
-    // DiscussionType field: The type of discussion. Values are 'side_comment', for discussions that only allow one
-    // level of nested comments, and 'threaded' for fully threaded discussions.
-    DiscussionType *DiscussionTopicDiscussionType `json:"discussion_type"`
-    // GroupCategoryID field: The unique identifier of the group category if the topic is a group discussion, otherwise
-    // null.
-    GroupCategoryID int `json:"group_category_id"`
-    // GroupTopicChildren field: An array of group discussions the user is a part of. Fields include: id, group_id
-    GroupTopicChildren []map[interface{}]interface{} `json:"group_topic_children"`
-    // HTMLURL field: The URL to the discussion topic in canvas.
-    HTMLURL string `json:"html_url"`
-    // ID field: The ID of this topic.
-    ID int `json:"id"`
-    // LastReplyAt field: The datetime for when the last reply was in the topic.
-    LastReplyAt time.Time `json:"last_reply_at"`
-    // LockAt field: The datetime to lock the topic (if ever).
-    LockAt time.Time `json:"lock_at"`
-    // LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
-    // is true.
-    LockExplanation string `json:"lock_explanation"`
-    // LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
-    LockInfo *LockInfo `json:"lock_info"`
-    // Locked field: Whether or not the discussion is 'closed for comments'.
-    Locked bool `json:"locked"`
-    // LockedForUser field: Whether or not this is locked for the user.
-    LockedForUser bool `json:"locked_for_user"`
-    // Message field: The HTML content of the message body.
-    Message string `json:"message"`
-    // OnlyGradersCanRate field: Whether or not grade permissions are required to rate entries.
-    OnlyGradersCanRate bool `json:"only_graders_can_rate"`
-    // Permissions field: The current user's permissions on this topic.
-    Permissions map[string]bool `json:"permissions"`
-    // Pinned field: Whether or not the discussion has been 'pinned' by an instructor
-    Pinned bool `json:"pinned"`
-    // PodcastURL field: If the topic is a podcast topic this is the feed url for the current user.
-    PodcastURL string `json:"podcast_url"`
-    // PostedAt field: The datetime the topic was posted. If it is null it hasn't been posted yet. (see delayed_post_at)
-    PostedAt time.Time `json:"posted_at"`
-    // Published field: Whether this discussion topic is published (true) or draft state (false)
-    Published bool `json:"published"`
-    // ReadState field: The read_state of the topic for the current user, 'read' or 'unread'.
-    ReadState *DiscussionTopicReadState `json:"read_state"`
-    // RequireInitialPost field: If true then a user may not respond to other replies until that user has made an
-    // initial reply. Defaults to false.
-    RequireInitialPost bool `json:"require_initial_post"`
-    // RootTopicID field: If the topic is for grading and a group assignment this will point to the original topic in
-    // the course.
-    RootTopicID int `json:"root_topic_id"`
-    // SortByRating field: Whether or not entries should be sorted by rating.
-    SortByRating bool `json:"sort_by_rating"`
-    // Subscribed field: Whether or not the current user is subscribed to this topic.
-    Subscribed bool `json:"subscribed"`
-    // SubscriptionHold field: (Optional) Why the user cannot subscribe to this topic. Only one reason will be returned
-    // even if multiple apply. Can be one of: 'initial_post_required': The user must post a reply first;
-    // 'not_in_group_set': The user is not in the group set for this graded group discussion; 'not_in_group': The user
-    // is not in this topic's group; 'topic_is_announcement': This topic is an announcement
-    SubscriptionHold *DiscussionTopicSubscriptionHold `json:"subscription_hold"`
-    // Title field: The topic title.
-    Title string `json:"title"`
-    // TopicChildren field: DEPRECATED An array of topic_ids for the group discussions the user is a part of.
-    TopicChildren []int `json:"topic_children"`
-    // UnreadCount field: The count of unread entries of this topic for the current user.
-    UnreadCount int `json:"unread_count"`
-    // UserCanSeePosts field: Whether or not posts in this topic are visible to the user.
-    UserCanSeePosts bool `json:"user_can_see_posts"`
-    // UserName field: The username of the topic creator.
-    UserName string `json:"user_name"`
+	// AllowRating field: Whether or not users can rate entries in this topic.
+	AllowRating bool `json:"allow_rating"`
+	// AssignmentID field: The unique identifier of the assignment if the topic is for grading, otherwise null.
+	AssignmentID int `json:"assignment_id"`
+	// Attachments field: Array of file attachments.
+	Attachments []FileAttachment `json:"attachments"`
+	// DelayedPostAt field: The datetime to publish the topic (if not right away).
+	DelayedPostAt time.Time `json:"delayed_post_at"`
+	// DiscussionSubentryCount field: The count of entries in the topic.
+	DiscussionSubentryCount int `json:"discussion_subentry_count"`
+	// DiscussionType field: The type of discussion. Values are 'side_comment', for discussions that only allow one
+	// level of nested comments, and 'threaded' for fully threaded discussions.
+	DiscussionType *DiscussionTopicDiscussionType `json:"discussion_type"`
+	// GroupCategoryID field: The unique identifier of the group category if the topic is a group discussion, otherwise
+	// null.
+	GroupCategoryID int `json:"group_category_id"`
+	// GroupTopicChildren field: An array of group discussions the user is a part of. Fields include: id, group_id
+	GroupTopicChildren []map[interface{}]interface{} `json:"group_topic_children"`
+	// HTMLURL field: The URL to the discussion topic in canvas.
+	HTMLURL string `json:"html_url"`
+	// ID field: The ID of this topic.
+	ID int `json:"id"`
+	// LastReplyAt field: The datetime for when the last reply was in the topic.
+	LastReplyAt time.Time `json:"last_reply_at"`
+	// LockAt field: The datetime to lock the topic (if ever).
+	LockAt time.Time `json:"lock_at"`
+	// LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
+	// is true.
+	LockExplanation string `json:"lock_explanation"`
+	// LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
+	LockInfo *LockInfo `json:"lock_info"`
+	// Locked field: Whether or not the discussion is 'closed for comments'.
+	Locked bool `json:"locked"`
+	// LockedForUser field: Whether or not this is locked for the user.
+	LockedForUser bool `json:"locked_for_user"`
+	// Message field: The HTML content of the message body.
+	Message string `json:"message"`
+	// OnlyGradersCanRate field: Whether or not grade permissions are required to rate entries.
+	OnlyGradersCanRate bool `json:"only_graders_can_rate"`
+	// Permissions field: The current user's permissions on this topic.
+	Permissions map[string]bool `json:"permissions"`
+	// Pinned field: Whether or not the discussion has been 'pinned' by an instructor
+	Pinned bool `json:"pinned"`
+	// PodcastURL field: If the topic is a podcast topic this is the feed url for the current user.
+	PodcastURL string `json:"podcast_url"`
+	// PostedAt field: The datetime the topic was posted. If it is null it hasn't been posted yet. (see delayed_post_at)
+	PostedAt time.Time `json:"posted_at"`
+	// Published field: Whether this discussion topic is published (true) or draft state (false)
+	Published bool `json:"published"`
+	// ReadState field: The read_state of the topic for the current user, 'read' or 'unread'.
+	ReadState *DiscussionTopicReadState `json:"read_state"`
+	// RequireInitialPost field: If true then a user may not respond to other replies until that user has made an
+	// initial reply. Defaults to false.
+	RequireInitialPost bool `json:"require_initial_post"`
+	// RootTopicID field: If the topic is for grading and a group assignment this will point to the original topic in
+	// the course.
+	RootTopicID int `json:"root_topic_id"`
+	// SortByRating field: Whether or not entries should be sorted by rating.
+	SortByRating bool `json:"sort_by_rating"`
+	// Subscribed field: Whether or not the current user is subscribed to this topic.
+	Subscribed bool `json:"subscribed"`
+	// SubscriptionHold field: (Optional) Why the user cannot subscribe to this topic. Only one reason will be returned
+	// even if multiple apply. Can be one of: 'initial_post_required': The user must post a reply first;
+	// 'not_in_group_set': The user is not in the group set for this graded group discussion; 'not_in_group': The user
+	// is not in this topic's group; 'topic_is_announcement': This topic is an announcement
+	SubscriptionHold *DiscussionTopicSubscriptionHold `json:"subscription_hold"`
+	// Title field: The topic title.
+	Title string `json:"title"`
+	// TopicChildren field: DEPRECATED An array of topic_ids for the group discussions the user is a part of.
+	TopicChildren []int `json:"topic_children"`
+	// UnreadCount field: The count of unread entries of this topic for the current user.
+	UnreadCount int `json:"unread_count"`
+	// UserCanSeePosts field: Whether or not posts in this topic are visible to the user.
+	UserCanSeePosts bool `json:"user_can_see_posts"`
+	// UserName field: The username of the topic creator.
+	UserName string `json:"user_name"`
 }
 
 // Grade model object
 type Grade struct {
-    // CurrentGrade field: The user's current grade in the class. Only included if user has permissions to view this
-    // grade.
-    CurrentGrade string `json:"current_grade"`
-    // CurrentScore field: The user's current score in the class. Only included if user has permissions to view this
-    // score.
-    CurrentScore string `json:"current_score"`
-    // FinalGrade field: The user's final grade for the class. Only included if user has permissions to view this grade.
-    FinalGrade string `json:"final_grade"`
-    // FinalScore field: The user's final score for the class. Only included if user has permissions to view this score.
-    FinalScore string `json:"final_score"`
-    // HTMLURL field: The URL to the Canvas web UI page for the user's grades, if this is a student enrollment.
-    HTMLURL string `json:"html_url"`
-    // UnpostedCurrentGrade field: The user's current grade in the class including muted/unposted assignments. Only
-    // included if user has permissions to view this grade, typically teachers, TAs, and admins.
-    UnpostedCurrentGrade string `json:"unposted_current_grade"`
-    // UnpostedCurrentScore field: The user's current score in the class including muted/unposted assignments. Only
-    // included if user has permissions to view this score, typically teachers, TAs, and admins..
-    UnpostedCurrentScore string `json:"unposted_current_score"`
-    // UnpostedFinalGrade field: The user's final grade for the class including muted/unposted assignments. Only
-    // included if user has permissions to view this grade, typically teachers, TAs, and admins..
-    UnpostedFinalGrade string `json:"unposted_final_grade"`
-    // UnpostedFinalScore field: The user's final score for the class including muted/unposted assignments. Only
-    // included if user has permissions to view this score, typically teachers, TAs, and admins..
-    UnpostedFinalScore string `json:"unposted_final_score"`
+	// CurrentGrade field: The user's current grade in the class. Only included if user has permissions to view this
+	// grade.
+	CurrentGrade string `json:"current_grade"`
+	// CurrentScore field: The user's current score in the class. Only included if user has permissions to view this
+	// score.
+	CurrentScore string `json:"current_score"`
+	// FinalGrade field: The user's final grade for the class. Only included if user has permissions to view this grade.
+	FinalGrade string `json:"final_grade"`
+	// FinalScore field: The user's final score for the class. Only included if user has permissions to view this score.
+	FinalScore string `json:"final_score"`
+	// HTMLURL field: The URL to the Canvas web UI page for the user's grades, if this is a student enrollment.
+	HTMLURL string `json:"html_url"`
+	// UnpostedCurrentGrade field: The user's current grade in the class including muted/unposted assignments. Only
+	// included if user has permissions to view this grade, typically teachers, TAs, and admins.
+	UnpostedCurrentGrade string `json:"unposted_current_grade"`
+	// UnpostedCurrentScore field: The user's current score in the class including muted/unposted assignments. Only
+	// included if user has permissions to view this score, typically teachers, TAs, and admins..
+	UnpostedCurrentScore string `json:"unposted_current_score"`
+	// UnpostedFinalGrade field: The user's final grade for the class including muted/unposted assignments. Only
+	// included if user has permissions to view this grade, typically teachers, TAs, and admins..
+	UnpostedFinalGrade string `json:"unposted_final_grade"`
+	// UnpostedFinalScore field: The user's final score for the class including muted/unposted assignments. Only
+	// included if user has permissions to view this score, typically teachers, TAs, and admins..
+	UnpostedFinalScore string `json:"unposted_final_score"`
 }
 
 // Enrollment model object
 type Enrollment struct {
-    // AssociatedUserID field: The unique id of the associated user. Will be null unless type is ObserverEnrollment.
-    AssociatedUserID int `json:"associated_user_id"`
-    // CourseID field: The unique id of the course.
-    CourseID int `json:"course_id"`
-    // CourseIntegrationID field: The Course Integration ID in which the enrollment is associated. This field is only
-    // included if the user has permission to view SIS information.
-    CourseIntegrationID string `json:"course_integration_id"`
-    // CourseSectionID field: The unique id of the user's section.
-    CourseSectionID int `json:"course_section_id"`
-    // CreatedAt field: The created time of the enrollment, in ISO8601 format.
-    CreatedAt time.Time `json:"created_at"`
-    // CurrentGradingPeriodID field: optional: The id of the currently active grading period, if one exists. If the
-    // course the enrollment belongs to does not have grading periods, or if no currently active grading period exists,
-    // the value will be null. (applies only to student enrollments, and only available in course endpoints)
-    CurrentGradingPeriodID int `json:"current_grading_period_id"`
-    // CurrentGradingPeriodTitle field: optional: The name of the currently active grading period, if one exists. If the
-    // course the enrollment belongs to does not have grading periods, or if no currently active grading period exists,
-    // the value will be null. (applies only to student enrollments, and only available in course endpoints)
-    CurrentGradingPeriodTitle string `json:"current_grading_period_title"`
-    // CurrentPeriodOverrideGrade field: The user's override grade for the current grading period.
-    CurrentPeriodOverrideGrade string `json:"current_period_override_grade"`
-    // CurrentPeriodOverrideScore field: The user's override score for the current grading period.
-    CurrentPeriodOverrideScore float64 `json:"current_period_override_score"`
-    // CurrentPeriodUnpostedCurrentGrade field: optional: The letter grade equivalent of
-    // current_period_unposted_current_score, if available. Only included if user has permission to view this grade,
-    // typically teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if
-    // no currently active grading period exists, the value will be null. (applies only to student enrollments, and only
-    // available in course endpoints)
-    CurrentPeriodUnpostedCurrentGrade string `json:"current_period_unposted_current_grade"`
-    // CurrentPeriodUnpostedCurrentScore field: optional: The student's score in the course for the current grading
-    // period, including muted/unposted assignments. Only included if user has permission to view this score, typically
-    // teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if no
-    // currently active grading period exists, the value will be null. (applies only to student enrollments, and only
-    // available in course endpoints)
-    CurrentPeriodUnpostedCurrentScore float64 `json:"current_period_unposted_current_score"`
-    // CurrentPeriodUnpostedFinalGrade field: optional: The letter grade equivalent of
-    // current_period_unposted_final_score, if available. Only included if user has permission to view this grade,
-    // typically teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if
-    // no currently active grading period exists, the value will be null. (applies only to student enrollments, and only
-    // available in course endpoints)
-    CurrentPeriodUnpostedFinalGrade string `json:"current_period_unposted_final_grade"`
-    // CurrentPeriodUnpostedFinalScore field: optional: The student's score in the course for the current grading
-    // period, including muted/unposted assignments and including ungraded assignments with a score of 0. Only included
-    // if user has permission to view this score, typically teachers, TAs, and admins. If the course the enrollment
-    // belongs to does not have grading periods, or if no currently active grading period exists, the value will be
-    // null. (applies only to student enrollments, and only available in course endpoints)
-    CurrentPeriodUnpostedFinalScore float64 `json:"current_period_unposted_final_score"`
-    // EndAt field: The end time of the enrollment, in ISO8601 format.
-    EndAt time.Time `json:"end_at"`
-    // EnrollmentState field: The state of the user's enrollment in the course.
-    EnrollmentState string `json:"enrollment_state"`
-    // Grades field: The URL to the Canvas web UI page containing the grades associated with this enrollment.
-    Grades *Grade `json:"grades"`
-    // HasGradingPeriods field: optional: Indicates whether the course the enrollment belongs to has grading periods set
-    // up. (applies only to student enrollments, and only available in course endpoints)
-    HasGradingPeriods bool `json:"has_grading_periods"`
-    // HTMLURL field: The URL to the Canvas web UI page for this course enrollment.
-    HTMLURL string `json:"html_url"`
-    // ID field: The ID of the enrollment.
-    ID int `json:"id"`
-    // LastActivityAt field: The last activity time of the user for the enrollment, in ISO8601 format.
-    LastActivityAt time.Time `json:"last_activity_at"`
-    // LastAttendedAt field: The last attended date of the user for the enrollment in a course, in ISO8601 format.
-    LastAttendedAt time.Time `json:"last_attended_at"`
-    // LimitPrivilegesToCourseSection field: User can only access his or her own course section.
-    LimitPrivilegesToCourseSection bool `json:"limit_privileges_to_course_section"`
-    // OverrideGrade field: The user's override grade for the course.
-    OverrideGrade string `json:"override_grade"`
-    // OverrideScore field: The user's override score for the course.
-    OverrideScore float64 `json:"override_score"`
-    // Role field: The enrollment role, for course-level permissions. This field will match `type` if the enrollment
-    // role has not been customized.
-    Role string `json:"role"`
-    // RoleID field: The id of the enrollment role.
-    RoleID int `json:"role_id"`
-    // RootAccountID field: The unique id of the user's account.
-    RootAccountID int `json:"root_account_id"`
-    // SectionIntegrationID field: The Section Integration ID in which the enrollment is associated. This field is only
-    // included if the user has permission to view SIS information.
-    SectionIntegrationID string `json:"section_integration_id"`
-    // SisAccountID field: The SIS Account ID in which the enrollment is associated. Only displayed if present. This
-    // field is only included if the user has permission to view SIS information.
-    SisAccountID string `json:"sis_account_id"`
-    // SisCourseID field: The SIS Course ID in which the enrollment is associated. Only displayed if present. This field
-    // is only included if the user has permission to view SIS information.
-    SisCourseID string `json:"sis_course_id"`
-    // SisImportID field: The unique identifier for the SIS import. This field is only included if the user has
-    // permission to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // SisSectionID field: The SIS Section ID in which the enrollment is associated. Only displayed if present. This
-    // field is only included if the user has permission to view SIS information.
-    SisSectionID string `json:"sis_section_id"`
-    // SisUserID field: The SIS User ID in which the enrollment is associated. Only displayed if present. This field is
-    // only included if the user has permission to view SIS information.
-    SisUserID string `json:"sis_user_id"`
-    // StartAt field: The start time of the enrollment, in ISO8601 format.
-    StartAt time.Time `json:"start_at"`
-    // TotalActivityTime field: The total activity time of the user for the enrollment, in seconds.
-    TotalActivityTime int `json:"total_activity_time"`
-    // TotalsForAllGradingPeriodsOption field: optional: Indicates whether the course the enrollment belongs to has the
-    // Display Totals for 'All Grading Periods' feature enabled. (applies only to student enrollments, and only
-    // available in course endpoints)
-    TotalsForAllGradingPeriodsOption bool `json:"totals_for_all_grading_periods_option"`
-    // Type field: The enrollment type. One of 'StudentEnrollment', 'TeacherEnrollment', 'TaEnrollment',
-    // 'DesignerEnrollment', 'ObserverEnrollment'.
-    Type string `json:"type"`
-    // UnpostedCurrentGrade field: The user's current grade in the class including muted/unposted assignments. Only
-    // included if user has permissions to view this grade, typically teachers, TAs, and admins.
-    UnpostedCurrentGrade string `json:"unposted_current_grade"`
-    // UnpostedCurrentScore field: The user's current score in the class including muted/unposted assignments. Only
-    // included if user has permissions to view this score, typically teachers, TAs, and admins..
-    UnpostedCurrentScore string `json:"unposted_current_score"`
-    // UnpostedFinalGrade field: The user's final grade for the class including muted/unposted assignments. Only
-    // included if user has permissions to view this grade, typically teachers, TAs, and admins..
-    UnpostedFinalGrade string `json:"unposted_final_grade"`
-    // UnpostedFinalScore field: The user's final score for the class including muted/unposted assignments. Only
-    // included if user has permissions to view this score, typically teachers, TAs, and admins..
-    UnpostedFinalScore string `json:"unposted_final_score"`
-    // UpdatedAt field: The updated time of the enrollment, in ISO8601 format.
-    UpdatedAt time.Time `json:"updated_at"`
-    // User field: A description of the user.
-    User *User `json:"user"`
-    // UserID field: The unique id of the user.
-    UserID int `json:"user_id"`
+	// AssociatedUserID field: The unique id of the associated user. Will be null unless type is ObserverEnrollment.
+	AssociatedUserID int `json:"associated_user_id"`
+	// CourseID field: The unique id of the course.
+	CourseID int `json:"course_id"`
+	// CourseIntegrationID field: The Course Integration ID in which the enrollment is associated. This field is only
+	// included if the user has permission to view SIS information.
+	CourseIntegrationID string `json:"course_integration_id"`
+	// CourseSectionID field: The unique id of the user's section.
+	CourseSectionID int `json:"course_section_id"`
+	// CreatedAt field: The created time of the enrollment, in ISO8601 format.
+	CreatedAt time.Time `json:"created_at"`
+	// CurrentGradingPeriodID field: optional: The id of the currently active grading period, if one exists. If the
+	// course the enrollment belongs to does not have grading periods, or if no currently active grading period exists,
+	// the value will be null. (applies only to student enrollments, and only available in course endpoints)
+	CurrentGradingPeriodID int `json:"current_grading_period_id"`
+	// CurrentGradingPeriodTitle field: optional: The name of the currently active grading period, if one exists. If the
+	// course the enrollment belongs to does not have grading periods, or if no currently active grading period exists,
+	// the value will be null. (applies only to student enrollments, and only available in course endpoints)
+	CurrentGradingPeriodTitle string `json:"current_grading_period_title"`
+	// CurrentPeriodOverrideGrade field: The user's override grade for the current grading period.
+	CurrentPeriodOverrideGrade string `json:"current_period_override_grade"`
+	// CurrentPeriodOverrideScore field: The user's override score for the current grading period.
+	CurrentPeriodOverrideScore float64 `json:"current_period_override_score"`
+	// CurrentPeriodUnpostedCurrentGrade field: optional: The letter grade equivalent of
+	// current_period_unposted_current_score, if available. Only included if user has permission to view this grade,
+	// typically teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if
+	// no currently active grading period exists, the value will be null. (applies only to student enrollments, and only
+	// available in course endpoints)
+	CurrentPeriodUnpostedCurrentGrade string `json:"current_period_unposted_current_grade"`
+	// CurrentPeriodUnpostedCurrentScore field: optional: The student's score in the course for the current grading
+	// period, including muted/unposted assignments. Only included if user has permission to view this score, typically
+	// teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if no
+	// currently active grading period exists, the value will be null. (applies only to student enrollments, and only
+	// available in course endpoints)
+	CurrentPeriodUnpostedCurrentScore float64 `json:"current_period_unposted_current_score"`
+	// CurrentPeriodUnpostedFinalGrade field: optional: The letter grade equivalent of
+	// current_period_unposted_final_score, if available. Only included if user has permission to view this grade,
+	// typically teachers, TAs, and admins. If the course the enrollment belongs to does not have grading periods, or if
+	// no currently active grading period exists, the value will be null. (applies only to student enrollments, and only
+	// available in course endpoints)
+	CurrentPeriodUnpostedFinalGrade string `json:"current_period_unposted_final_grade"`
+	// CurrentPeriodUnpostedFinalScore field: optional: The student's score in the course for the current grading
+	// period, including muted/unposted assignments and including ungraded assignments with a score of 0. Only included
+	// if user has permission to view this score, typically teachers, TAs, and admins. If the course the enrollment
+	// belongs to does not have grading periods, or if no currently active grading period exists, the value will be
+	// null. (applies only to student enrollments, and only available in course endpoints)
+	CurrentPeriodUnpostedFinalScore float64 `json:"current_period_unposted_final_score"`
+	// EndAt field: The end time of the enrollment, in ISO8601 format.
+	EndAt time.Time `json:"end_at"`
+	// EnrollmentState field: The state of the user's enrollment in the course.
+	EnrollmentState string `json:"enrollment_state"`
+	// Grades field: The URL to the Canvas web UI page containing the grades associated with this enrollment.
+	Grades *Grade `json:"grades"`
+	// HasGradingPeriods field: optional: Indicates whether the course the enrollment belongs to has grading periods set
+	// up. (applies only to student enrollments, and only available in course endpoints)
+	HasGradingPeriods bool `json:"has_grading_periods"`
+	// HTMLURL field: The URL to the Canvas web UI page for this course enrollment.
+	HTMLURL string `json:"html_url"`
+	// ID field: The ID of the enrollment.
+	ID int `json:"id"`
+	// LastActivityAt field: The last activity time of the user for the enrollment, in ISO8601 format.
+	LastActivityAt time.Time `json:"last_activity_at"`
+	// LastAttendedAt field: The last attended date of the user for the enrollment in a course, in ISO8601 format.
+	LastAttendedAt time.Time `json:"last_attended_at"`
+	// LimitPrivilegesToCourseSection field: User can only access his or her own course section.
+	LimitPrivilegesToCourseSection bool `json:"limit_privileges_to_course_section"`
+	// OverrideGrade field: The user's override grade for the course.
+	OverrideGrade string `json:"override_grade"`
+	// OverrideScore field: The user's override score for the course.
+	OverrideScore float64 `json:"override_score"`
+	// Role field: The enrollment role, for course-level permissions. This field will match `type` if the enrollment
+	// role has not been customized.
+	Role string `json:"role"`
+	// RoleID field: The id of the enrollment role.
+	RoleID int `json:"role_id"`
+	// RootAccountID field: The unique id of the user's account.
+	RootAccountID int `json:"root_account_id"`
+	// SectionIntegrationID field: The Section Integration ID in which the enrollment is associated. This field is only
+	// included if the user has permission to view SIS information.
+	SectionIntegrationID string `json:"section_integration_id"`
+	// SisAccountID field: The SIS Account ID in which the enrollment is associated. Only displayed if present. This
+	// field is only included if the user has permission to view SIS information.
+	SisAccountID string `json:"sis_account_id"`
+	// SisCourseID field: The SIS Course ID in which the enrollment is associated. Only displayed if present. This field
+	// is only included if the user has permission to view SIS information.
+	SisCourseID string `json:"sis_course_id"`
+	// SisImportID field: The unique identifier for the SIS import. This field is only included if the user has
+	// permission to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// SisSectionID field: The SIS Section ID in which the enrollment is associated. Only displayed if present. This
+	// field is only included if the user has permission to view SIS information.
+	SisSectionID string `json:"sis_section_id"`
+	// SisUserID field: The SIS User ID in which the enrollment is associated. Only displayed if present. This field is
+	// only included if the user has permission to view SIS information.
+	SisUserID string `json:"sis_user_id"`
+	// StartAt field: The start time of the enrollment, in ISO8601 format.
+	StartAt time.Time `json:"start_at"`
+	// TotalActivityTime field: The total activity time of the user for the enrollment, in seconds.
+	TotalActivityTime int `json:"total_activity_time"`
+	// TotalsForAllGradingPeriodsOption field: optional: Indicates whether the course the enrollment belongs to has the
+	// Display Totals for 'All Grading Periods' feature enabled. (applies only to student enrollments, and only
+	// available in course endpoints)
+	TotalsForAllGradingPeriodsOption bool `json:"totals_for_all_grading_periods_option"`
+	// Type field: The enrollment type. One of 'StudentEnrollment', 'TeacherEnrollment', 'TaEnrollment',
+	// 'DesignerEnrollment', 'ObserverEnrollment'.
+	Type string `json:"type"`
+	// UnpostedCurrentGrade field: The user's current grade in the class including muted/unposted assignments. Only
+	// included if user has permissions to view this grade, typically teachers, TAs, and admins.
+	UnpostedCurrentGrade string `json:"unposted_current_grade"`
+	// UnpostedCurrentScore field: The user's current score in the class including muted/unposted assignments. Only
+	// included if user has permissions to view this score, typically teachers, TAs, and admins..
+	UnpostedCurrentScore string `json:"unposted_current_score"`
+	// UnpostedFinalGrade field: The user's final grade for the class including muted/unposted assignments. Only
+	// included if user has permissions to view this grade, typically teachers, TAs, and admins..
+	UnpostedFinalGrade string `json:"unposted_final_grade"`
+	// UnpostedFinalScore field: The user's final score for the class including muted/unposted assignments. Only
+	// included if user has permissions to view this score, typically teachers, TAs, and admins..
+	UnpostedFinalScore string `json:"unposted_final_score"`
+	// UpdatedAt field: The updated time of the enrollment, in ISO8601 format.
+	UpdatedAt time.Time `json:"updated_at"`
+	// User field: A description of the user.
+	User *User `json:"user"`
+	// UserID field: The unique id of the user.
+	UserID int `json:"user_id"`
 }
 
 // CourseEpubExport model object: Combination of a Course & EpubExport.
 type CourseEpubExport struct {
-    // EpubExport field: ePub export API object
-    EpubExport *EpubExport `json:"epub_export"`
-    // ID field: the unique identifier for the course
-    ID int `json:"id"`
-    // Name field: the name for the course
-    Name string `json:"name"`
+	// EpubExport field: ePub export API object
+	EpubExport *EpubExport `json:"epub_export"`
+	// ID field: the unique identifier for the course
+	ID int `json:"id"`
+	// Name field: the name for the course
+	Name string `json:"name"`
 }
 
 // EpubExport model object
 type EpubExport struct {
-    // Attachment field: attachment api object for the export ePub (not present until the export completes)
-    Attachment *File `json:"attachment"`
-    // CreatedAt field: the date and time this export was requested
-    CreatedAt time.Time `json:"created_at"`
-    // ID field: the unique identifier for the export
-    ID int `json:"id"`
-    // ProgressURL field: The api endpoint for polling the current progress
-    ProgressURL string `json:"progress_url"`
-    // UserID field: The ID of the user who started the export
-    UserID int `json:"user_id"`
-    // WorkflowState field: Current state of the ePub export: created exporting exported generating generated failed
-    WorkflowState *EpubExportWorkflowState `json:"workflow_state"`
+	// Attachment field: attachment api object for the export ePub (not present until the export completes)
+	Attachment *File `json:"attachment"`
+	// CreatedAt field: the date and time this export was requested
+	CreatedAt time.Time `json:"created_at"`
+	// ID field: the unique identifier for the export
+	ID int `json:"id"`
+	// ProgressURL field: The api endpoint for polling the current progress
+	ProgressURL string `json:"progress_url"`
+	// UserID field: The ID of the user who started the export
+	UserID int `json:"user_id"`
+	// WorkflowState field: Current state of the ePub export: created exporting exported generating generated failed
+	WorkflowState *EpubExportWorkflowState `json:"workflow_state"`
 }
 
 // ErrorReport model object: A collection of information around a specific notification of a problem
 type ErrorReport struct {
-    // Comments field: long form documentation of what was witnessed
-    Comments string `json:"comments"`
-    // ContextAssetString field: string describing the asset being interacted with at the time of error.  Formatted
-    // '[type]_[id]'
-    ContextAssetString string `json:"context_asset_string"`
-    // Email field: the email address of the reporting user
-    Email string `json:"email"`
-    // Subject field: The users problem summary, like an email subject line
-    Subject string `json:"subject"`
-    // URL field: URL of the page on which the error was reported
-    URL string `json:"url"`
-    // UserPerceivedSeverity field: categorization of how bad the user thinks the problem is.  Should be one of
-    // [just_a_comment, not_urgent, workaround_possible, blocks_what_i_need_to_do, extreme_critical_emergency].
-    UserPerceivedSeverity string `json:"user_perceived_severity"`
-    // UserRoles field: comma seperated list of roles the reporting user holds.  Can be one [student], or many
-    // [teacher,admin]
-    UserRoles string `json:"user_roles"`
+	// Comments field: long form documentation of what was witnessed
+	Comments string `json:"comments"`
+	// ContextAssetString field: string describing the asset being interacted with at the time of error.  Formatted
+	// '[type]_[id]'
+	ContextAssetString string `json:"context_asset_string"`
+	// Email field: the email address of the reporting user
+	Email string `json:"email"`
+	// Subject field: The users problem summary, like an email subject line
+	Subject string `json:"subject"`
+	// URL field: URL of the page on which the error was reported
+	URL string `json:"url"`
+	// UserPerceivedSeverity field: categorization of how bad the user thinks the problem is.  Should be one of
+	// [just_a_comment, not_urgent, workaround_possible, blocks_what_i_need_to_do, extreme_critical_emergency].
+	UserPerceivedSeverity string `json:"user_perceived_severity"`
+	// UserRoles field: comma seperated list of roles the reporting user holds.  Can be one [student], or many
+	// [teacher,admin]
+	UserRoles string `json:"user_roles"`
 }
 
 // ExternalFeed model object
 type ExternalFeed struct {
-    // CreatedAt field: When this external feed was added to Canvas
-    CreatedAt time.Time `json:"created_at"`
-    // DisplayName field: The title of the feed, pulled from the feed itself. If the feed hasn't yet been pulled, a
-    // temporary name will be synthesized based on the URL
-    DisplayName string `json:"display_name"`
-    // HeaderMatch field: If not null, only feed entries whose title contains this string will trigger new posts in
-    // Canvas
-    HeaderMatch string `json:"header_match"`
-    // ID field: The ID of the feed
-    ID int `json:"id"`
-    // URL field: The HTTP/HTTPS URL to the feed
-    URL string `json:"url"`
-    // Verbosity field: The verbosity setting determines how much of the feed's content is imported into Canvas as part
-    // of the posting. 'link_only' means that only the title and a link to the item. 'truncate' means that a summary of
-    // the first portion of the item body will be used. 'full' means that the full item body will be used.
-    Verbosity *ExternalFeedVerbosity `json:"verbosity"`
+	// CreatedAt field: When this external feed was added to Canvas
+	CreatedAt time.Time `json:"created_at"`
+	// DisplayName field: The title of the feed, pulled from the feed itself. If the feed hasn't yet been pulled, a
+	// temporary name will be synthesized based on the URL
+	DisplayName string `json:"display_name"`
+	// HeaderMatch field: If not null, only feed entries whose title contains this string will trigger new posts in
+	// Canvas
+	HeaderMatch string `json:"header_match"`
+	// ID field: The ID of the feed
+	ID int `json:"id"`
+	// URL field: The HTTP/HTTPS URL to the feed
+	URL string `json:"url"`
+	// Verbosity field: The verbosity setting determines how much of the feed's content is imported into Canvas as part
+	// of the posting. 'link_only' means that only the title and a link to the item. 'truncate' means that a summary of
+	// the first portion of the item body will be used. 'full' means that the full item body will be used.
+	Verbosity *ExternalFeedVerbosity `json:"verbosity"`
 }
 
 // Favorite model object
 type Favorite struct {
-    // ContextID field: The ID of the object the Favorite refers to
-    ContextID int `json:"context_id"`
-    // ContextType field: The type of the object the Favorite refers to (currently, only 'Course' is supported)
-    ContextType *FavoriteContextType `json:"context_type"`
+	// ContextID field: The ID of the object the Favorite refers to
+	ContextID int `json:"context_id"`
+	// ContextType field: The type of the object the Favorite refers to (currently, only 'Course' is supported)
+	ContextType *FavoriteContextType `json:"context_type"`
 }
 
 // Feature model object
 type Feature struct {
-    // AppliesTo field: The type of object the feature applies to (RootAccount, Account, Course, or User):
-    //  RootAccount features may only be controlled by flags on root accounts.
-    //  Account features may be controlled by flags on accounts and their parent accounts.
-    //  Course features may be controlled by flags on courses and their parent accounts.
-    //  User features may be controlled by flags on users and site admin only.
-    AppliesTo *FeatureAppliesTo `json:"applies_to"`
-    // Autoexpand field: Whether the details of the feature are autoexpanded on page load vs. the user clicking to
-    // expand.
-    Autoexpand bool `json:"autoexpand"`
-    // Beta field: Whether the feature is a beta feature. If true, the feature may not be fully polished and may be
-    // subject to change in the future.
-    Beta bool `json:"beta"`
-    // Development field: Whether the feature is in active development. Features in this state are only visible in test
-    // and beta instances and are not yet available for production use.
-    Development bool `json:"development"`
-    // DisplayName field: The user-visible name of the feature
-    DisplayName string `json:"display_name"`
-    // EnableAt field: The date this feature will be globally enabled, or null if this is not planned. (This information
-    // is subject to change.)
-    EnableAt time.Time `json:"enable_at"`
-    // Feature field: The symbolic name of the feature, used in FeatureFlags
-    Feature string `json:"feature"`
-    // FeatureFlag field: The FeatureFlag that applies to the caller
-    FeatureFlag *FeatureFlag `json:"feature_flag"`
-    // ReleaseNotesURL field: A URL to the release notes describing the feature
-    ReleaseNotesURL string `json:"release_notes_url"`
-    // RootOptIn field: If true, a feature that is 'allowed' globally will be 'off' by default in root accounts.
-    // Otherwise, root accounts inherit the global 'allowed' setting, which allows sub-accounts and courses to turn
-    // features on with no root account action.
-    RootOptIn bool `json:"root_opt_in"`
+	// AppliesTo field: The type of object the feature applies to (RootAccount, Account, Course, or User):
+	//  RootAccount features may only be controlled by flags on root accounts.
+	//  Account features may be controlled by flags on accounts and their parent accounts.
+	//  Course features may be controlled by flags on courses and their parent accounts.
+	//  User features may be controlled by flags on users and site admin only.
+	AppliesTo *FeatureAppliesTo `json:"applies_to"`
+	// Autoexpand field: Whether the details of the feature are autoexpanded on page load vs. the user clicking to
+	// expand.
+	Autoexpand bool `json:"autoexpand"`
+	// Beta field: Whether the feature is a beta feature. If true, the feature may not be fully polished and may be
+	// subject to change in the future.
+	Beta bool `json:"beta"`
+	// Development field: Whether the feature is in active development. Features in this state are only visible in test
+	// and beta instances and are not yet available for production use.
+	Development bool `json:"development"`
+	// DisplayName field: The user-visible name of the feature
+	DisplayName string `json:"display_name"`
+	// EnableAt field: The date this feature will be globally enabled, or null if this is not planned. (This information
+	// is subject to change.)
+	EnableAt time.Time `json:"enable_at"`
+	// Feature field: The symbolic name of the feature, used in FeatureFlags
+	Feature string `json:"feature"`
+	// FeatureFlag field: The FeatureFlag that applies to the caller
+	FeatureFlag *FeatureFlag `json:"feature_flag"`
+	// ReleaseNotesURL field: A URL to the release notes describing the feature
+	ReleaseNotesURL string `json:"release_notes_url"`
+	// RootOptIn field: If true, a feature that is 'allowed' globally will be 'off' by default in root accounts.
+	// Otherwise, root accounts inherit the global 'allowed' setting, which allows sub-accounts and courses to turn
+	// features on with no root account action.
+	RootOptIn bool `json:"root_opt_in"`
 }
 
 // FeatureFlag model object
 type FeatureFlag struct {
-    // ContextID field: The id of the object to which this flag applies (This field is not present if this FeatureFlag
-    // represents the global Canvas default)
-    ContextID int `json:"context_id"`
-    // ContextType field: The type of object to which this flag applies (Account, Course, or User). (This field is not
-    // present if this FeatureFlag represents the global Canvas default)
-    ContextType *FeatureFlagContextType `json:"context_type"`
-    // Feature field: The feature this flag controls
-    Feature string `json:"feature"`
-    // Locked field: If set, this feature flag cannot be changed in the caller's context because the flag is set 'off'
-    // or 'on' in a higher context
-    Locked bool `json:"locked"`
-    // State field: The policy for the feature at this context.  can be 'off', 'allowed', or 'on'.
-    State *FeatureFlagState `json:"state"`
+	// ContextID field: The id of the object to which this flag applies (This field is not present if this FeatureFlag
+	// represents the global Canvas default)
+	ContextID int `json:"context_id"`
+	// ContextType field: The type of object to which this flag applies (Account, Course, or User). (This field is not
+	// present if this FeatureFlag represents the global Canvas default)
+	ContextType *FeatureFlagContextType `json:"context_type"`
+	// Feature field: The feature this flag controls
+	Feature string `json:"feature"`
+	// Locked field: If set, this feature flag cannot be changed in the caller's context because the flag is set 'off'
+	// or 'on' in a higher context
+	Locked bool `json:"locked"`
+	// State field: The policy for the feature at this context.  can be 'off', 'allowed', or 'on'.
+	State *FeatureFlagState `json:"state"`
 }
 
 // File model object
 type File struct {
-    // ContentType field
-    ContentType string `json:"content-type"`
-    // CreatedAt field
-    CreatedAt time.Time `json:"created_at"`
-    // DisplayName field
-    DisplayName string `json:"display_name"`
-    // Filename field
-    Filename string `json:"filename"`
-    // FolderID field
-    FolderID int `json:"folder_id"`
-    // Hidden field
-    Hidden bool `json:"hidden"`
-    // HiddenForUser field
-    HiddenForUser bool `json:"hidden_for_user"`
-    // ID field
-    ID int `json:"id"`
-    // LockAt field
-    LockAt time.Time `json:"lock_at"`
-    // LockExplanation field
-    LockExplanation string `json:"lock_explanation"`
-    // LockInfo field
-    LockInfo *LockInfo `json:"lock_info"`
-    // Locked field
-    Locked bool `json:"locked"`
-    // LockedForUser field
-    LockedForUser bool `json:"locked_for_user"`
-    // MediaEntryID field: identifier for file in third-party transcoding service
-    MediaEntryID string `json:"media_entry_id"`
-    // MimeClass field: simplified content-type mapping
-    MimeClass string `json:"mime_class"`
-    // ModifiedAt field
-    ModifiedAt time.Time `json:"modified_at"`
-    // PreviewURL field: optional: url to the document preview. This url is specific to the user making the api call.
-    // Only included in submission endpoints.
-    PreviewURL string `json:"preview_url"`
-    // Size field: file size in bytes
-    Size int `json:"size"`
-    // ThumbnailURL field
-    ThumbnailURL string `json:"thumbnail_url"`
-    // UnlockAt field
-    UnlockAt time.Time `json:"unlock_at"`
-    // UpdatedAt field
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field
-    URL string `json:"url"`
-    // UUID field
-    UUID string `json:"uuid"`
+	// ContentType field
+	ContentType string `json:"content-type"`
+	// CreatedAt field
+	CreatedAt time.Time `json:"created_at"`
+	// DisplayName field
+	DisplayName string `json:"display_name"`
+	// Filename field
+	Filename string `json:"filename"`
+	// FolderID field
+	FolderID int `json:"folder_id"`
+	// Hidden field
+	Hidden bool `json:"hidden"`
+	// HiddenForUser field
+	HiddenForUser bool `json:"hidden_for_user"`
+	// ID field
+	ID int `json:"id"`
+	// LockAt field
+	LockAt time.Time `json:"lock_at"`
+	// LockExplanation field
+	LockExplanation string `json:"lock_explanation"`
+	// LockInfo field
+	LockInfo *LockInfo `json:"lock_info"`
+	// Locked field
+	Locked bool `json:"locked"`
+	// LockedForUser field
+	LockedForUser bool `json:"locked_for_user"`
+	// MediaEntryID field: identifier for file in third-party transcoding service
+	MediaEntryID string `json:"media_entry_id"`
+	// MimeClass field: simplified content-type mapping
+	MimeClass string `json:"mime_class"`
+	// ModifiedAt field
+	ModifiedAt time.Time `json:"modified_at"`
+	// PreviewURL field: optional: url to the document preview. This url is specific to the user making the api call.
+	// Only included in submission endpoints.
+	PreviewURL string `json:"preview_url"`
+	// Size field: file size in bytes
+	Size int `json:"size"`
+	// ThumbnailURL field
+	ThumbnailURL string `json:"thumbnail_url"`
+	// UnlockAt field
+	UnlockAt time.Time `json:"unlock_at"`
+	// UpdatedAt field
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field
+	URL string `json:"url"`
+	// UUID field
+	UUID string `json:"uuid"`
 }
 
 // Folder model object
 type Folder struct {
-    // ContextID field
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // CreatedAt field
-    CreatedAt time.Time `json:"created_at"`
-    // FilesCount field
-    FilesCount int `json:"files_count"`
-    // FilesURL field
-    FilesURL string `json:"files_url"`
-    // FoldersCount field
-    FoldersCount int `json:"folders_count"`
-    // FoldersURL field
-    FoldersURL string `json:"folders_url"`
-    // ForSubmissions field: If true, indicates this is a read-only folder containing files submitted to assignments
-    ForSubmissions bool `json:"for_submissions"`
-    // FullName field
-    FullName string `json:"full_name"`
-    // Hidden field
-    Hidden bool `json:"hidden"`
-    // HiddenForUser field
-    HiddenForUser bool `json:"hidden_for_user"`
-    // ID field
-    ID int `json:"id"`
-    // LockAt field
-    LockAt time.Time `json:"lock_at"`
-    // Locked field
-    Locked bool `json:"locked"`
-    // LockedForUser field
-    LockedForUser bool `json:"locked_for_user"`
-    // Name field
-    Name string `json:"name"`
-    // ParentFolderID field
-    ParentFolderID int `json:"parent_folder_id"`
-    // Position field
-    Position int `json:"position"`
-    // UnlockAt field
-    UnlockAt time.Time `json:"unlock_at"`
-    // UpdatedAt field
-    UpdatedAt time.Time `json:"updated_at"`
+	// ContextID field
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// CreatedAt field
+	CreatedAt time.Time `json:"created_at"`
+	// FilesCount field
+	FilesCount int `json:"files_count"`
+	// FilesURL field
+	FilesURL string `json:"files_url"`
+	// FoldersCount field
+	FoldersCount int `json:"folders_count"`
+	// FoldersURL field
+	FoldersURL string `json:"folders_url"`
+	// ForSubmissions field: If true, indicates this is a read-only folder containing files submitted to assignments
+	ForSubmissions bool `json:"for_submissions"`
+	// FullName field
+	FullName string `json:"full_name"`
+	// Hidden field
+	Hidden bool `json:"hidden"`
+	// HiddenForUser field
+	HiddenForUser bool `json:"hidden_for_user"`
+	// ID field
+	ID int `json:"id"`
+	// LockAt field
+	LockAt time.Time `json:"lock_at"`
+	// Locked field
+	Locked bool `json:"locked"`
+	// LockedForUser field
+	LockedForUser bool `json:"locked_for_user"`
+	// Name field
+	Name string `json:"name"`
+	// ParentFolderID field
+	ParentFolderID int `json:"parent_folder_id"`
+	// Position field
+	Position int `json:"position"`
+	// UnlockAt field
+	UnlockAt time.Time `json:"unlock_at"`
+	// UpdatedAt field
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // GradeChangeEventLinks model object
 type GradeChangeEventLinks struct {
-    // Assignment field: ID of the assignment associated with the event
-    Assignment int `json:"assignment"`
-    // Course field: ID of the course associated with the event. will match the context_id in the associated assignment
-    // if the context type for the assignment is a course
-    Course int `json:"course"`
-    // Grader field: ID of the grader associated with the event. will match the grader_id in the associated submission.
-    Grader int `json:"grader"`
-    // PageView field: ID of the page view during the event if it exists.
-    PageView string `json:"page_view"`
-    // Student field: ID of the student associated with the event. will match the user_id in the associated submission.
-    Student int `json:"student"`
+	// Assignment field: ID of the assignment associated with the event
+	Assignment int `json:"assignment"`
+	// Course field: ID of the course associated with the event. will match the context_id in the associated assignment
+	// if the context type for the assignment is a course
+	Course int `json:"course"`
+	// Grader field: ID of the grader associated with the event. will match the grader_id in the associated submission.
+	Grader int `json:"grader"`
+	// PageView field: ID of the page view during the event if it exists.
+	PageView string `json:"page_view"`
+	// Student field: ID of the student associated with the event. will match the user_id in the associated submission.
+	Student int `json:"student"`
 }
 
 // GradeChangeEvent model object
 type GradeChangeEvent struct {
-    // CreatedAt field: timestamp of the event
-    CreatedAt time.Time `json:"created_at"`
-    // EventType field: GradeChange event type
-    EventType string `json:"event_type"`
-    // ExcusedAfter field: Boolean indicating whether the submission was excused after the change.
-    ExcusedAfter bool `json:"excused_after"`
-    // ExcusedBefore field: Boolean indicating whether the submission was excused before the change.
-    ExcusedBefore bool `json:"excused_before"`
-    // GradeAfter field: The grade after the change.
-    GradeAfter string `json:"grade_after"`
-    // GradeBefore field: The grade before the change.
-    GradeBefore string `json:"grade_before"`
-    // GradedAnonymously field: Boolean indicating whether the student name was visible when the grade was given. Could
-    // be null if the grade change record was created before this feature existed.
-    GradedAnonymously bool `json:"graded_anonymously"`
-    // ID field: ID of the event.
-    ID string `json:"id"`
-    // Links field
-    Links *GradeChangeEventLinks `json:"links"`
-    // RequestID field: The unique request id of the request during the grade change.
-    RequestID string `json:"request_id"`
-    // VersionNumber field: Version Number of the grade change submission.
-    VersionNumber string `json:"version_number"`
+	// CreatedAt field: timestamp of the event
+	CreatedAt time.Time `json:"created_at"`
+	// EventType field: GradeChange event type
+	EventType string `json:"event_type"`
+	// ExcusedAfter field: Boolean indicating whether the submission was excused after the change.
+	ExcusedAfter bool `json:"excused_after"`
+	// ExcusedBefore field: Boolean indicating whether the submission was excused before the change.
+	ExcusedBefore bool `json:"excused_before"`
+	// GradeAfter field: The grade after the change.
+	GradeAfter string `json:"grade_after"`
+	// GradeBefore field: The grade before the change.
+	GradeBefore string `json:"grade_before"`
+	// GradedAnonymously field: Boolean indicating whether the student name was visible when the grade was given. Could
+	// be null if the grade change record was created before this feature existed.
+	GradedAnonymously bool `json:"graded_anonymously"`
+	// ID field: ID of the event.
+	ID string `json:"id"`
+	// Links field
+	Links *GradeChangeEventLinks `json:"links"`
+	// RequestID field: The unique request id of the request during the grade change.
+	RequestID string `json:"request_id"`
+	// VersionNumber field: Version Number of the grade change submission.
+	VersionNumber string `json:"version_number"`
 }
 
 // Grader model object
 type Grader struct {
-    // Assignments field: the assignment groups for all submissions in this response that were graded by this user.  The
-    // details are not nested inside here, but the fact that an assignment is present here means that the grader did
-    // grade submissions for this assignment on the contextual date. You can use the id of a grader and of an assignment
-    // to make another API call to find all submissions for a grader/assignment combination on a given date.
-    Assignments []int `json:"assignments"`
-    // ID field: the user_id of the user who graded the contained submissions
-    ID int `json:"id"`
-    // Name field: the name of the user who graded the contained submissions
-    Name string `json:"name"`
+	// Assignments field: the assignment groups for all submissions in this response that were graded by this user.  The
+	// details are not nested inside here, but the fact that an assignment is present here means that the grader did
+	// grade submissions for this assignment on the contextual date. You can use the id of a grader and of an assignment
+	// to make another API call to find all submissions for a grader/assignment combination on a given date.
+	Assignments []int `json:"assignments"`
+	// ID field: the user_id of the user who graded the contained submissions
+	ID int `json:"id"`
+	// Name field: the name of the user who graded the contained submissions
+	Name string `json:"name"`
 }
 
 // Day model object
 type Day struct {
-    // Date field: the date represented by this entry
-    Date time.Time `json:"date"`
-    // Graders field: an array of the graders who were responsible for the submissions in this response. the submissions
-    // are grouped according to the person who graded them and the assignment they were submitted for.
-    Graders int `json:"graders"`
+	// Date field: the date represented by this entry
+	Date time.Time `json:"date"`
+	// Graders field: an array of the graders who were responsible for the submissions in this response. the submissions
+	// are grouped according to the person who graded them and the assignment they were submitted for.
+	Graders int `json:"graders"`
 }
 
 // SubmissionVersion model object: A SubmissionVersion object contains all the fields that a Submission object does,
 // plus additional fields prefixed with current_* new_* and previous_* described below.
 type SubmissionVersion struct {
-    // AssignmentID field: the id of the assignment this submissions is for
-    AssignmentID int `json:"assignment_id"`
-    // AssignmentName field: the name of the assignment this submission is for
-    AssignmentName string `json:"assignment_name"`
-    // Body field: the body text of the submission
-    Body string `json:"body"`
-    // CurrentGrade field: the most up to date grade for the current version of this submission
-    CurrentGrade string `json:"current_grade"`
-    // CurrentGradedAt field: the latest time stamp for the grading of this submission
-    CurrentGradedAt time.Time `json:"current_graded_at"`
-    // CurrentGrader field: the name of the most recent grader for this submission
-    CurrentGrader string `json:"current_grader"`
-    // GradeMatchesCurrentSubmission field: boolean indicating whether the grade is equal to the current submission
-    // grade
-    GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
-    // GradedAt field: time stamp for the grading of this version of the submission
-    GradedAt time.Time `json:"graded_at"`
-    // Grader field: the name of the user who graded this version of the submission
-    Grader string `json:"grader"`
-    // GraderID field: the user id of the user who graded this version of the submission
-    GraderID int `json:"grader_id"`
-    // ID field: the id of the submission of which this is a version
-    ID int `json:"id"`
-    // NewGrade field: the updated grade provided in this version of the submission
-    NewGrade string `json:"new_grade"`
-    // NewGradedAt field: the timestamp for the grading of this version of the submission (alias for graded_at)
-    NewGradedAt time.Time `json:"new_graded_at"`
-    // NewGrader field: alias for 'grader'
-    NewGrader string `json:"new_grader"`
-    // PreviousGrade field: the grade for the submission version immediately preceding this one
-    PreviousGrade string `json:"previous_grade"`
-    // PreviousGradedAt field: the timestamp for the grading of the submission version immediately preceding this one
-    PreviousGradedAt time.Time `json:"previous_graded_at"`
-    // PreviousGrader field: the name of the grader who graded the version of this submission immediately preceding this
-    // one
-    PreviousGrader string `json:"previous_grader"`
-    // Score field: the score for this version of the submission
-    Score int `json:"score"`
-    // SubmissionType field: the type of submission
-    SubmissionType string `json:"submission_type"`
-    // URL field: the url of the submission, if there is one
-    URL string `json:"url"`
-    // UserID field: the user ID of the student who created this submission
-    UserID int `json:"user_id"`
-    // UserName field: the name of the student who created this submission
-    UserName string `json:"user_name"`
-    // WorkflowState field: the state of the submission at this version
-    WorkflowState string `json:"workflow_state"`
+	// AssignmentID field: the id of the assignment this submissions is for
+	AssignmentID int `json:"assignment_id"`
+	// AssignmentName field: the name of the assignment this submission is for
+	AssignmentName string `json:"assignment_name"`
+	// Body field: the body text of the submission
+	Body string `json:"body"`
+	// CurrentGrade field: the most up to date grade for the current version of this submission
+	CurrentGrade string `json:"current_grade"`
+	// CurrentGradedAt field: the latest time stamp for the grading of this submission
+	CurrentGradedAt time.Time `json:"current_graded_at"`
+	// CurrentGrader field: the name of the most recent grader for this submission
+	CurrentGrader string `json:"current_grader"`
+	// GradeMatchesCurrentSubmission field: boolean indicating whether the grade is equal to the current submission
+	// grade
+	GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
+	// GradedAt field: time stamp for the grading of this version of the submission
+	GradedAt time.Time `json:"graded_at"`
+	// Grader field: the name of the user who graded this version of the submission
+	Grader string `json:"grader"`
+	// GraderID field: the user id of the user who graded this version of the submission
+	GraderID int `json:"grader_id"`
+	// ID field: the id of the submission of which this is a version
+	ID int `json:"id"`
+	// NewGrade field: the updated grade provided in this version of the submission
+	NewGrade string `json:"new_grade"`
+	// NewGradedAt field: the timestamp for the grading of this version of the submission (alias for graded_at)
+	NewGradedAt time.Time `json:"new_graded_at"`
+	// NewGrader field: alias for 'grader'
+	NewGrader string `json:"new_grader"`
+	// PreviousGrade field: the grade for the submission version immediately preceding this one
+	PreviousGrade string `json:"previous_grade"`
+	// PreviousGradedAt field: the timestamp for the grading of the submission version immediately preceding this one
+	PreviousGradedAt time.Time `json:"previous_graded_at"`
+	// PreviousGrader field: the name of the grader who graded the version of this submission immediately preceding this
+	// one
+	PreviousGrader string `json:"previous_grader"`
+	// Score field: the score for this version of the submission
+	Score int `json:"score"`
+	// SubmissionType field: the type of submission
+	SubmissionType string `json:"submission_type"`
+	// URL field: the url of the submission, if there is one
+	URL string `json:"url"`
+	// UserID field: the user ID of the student who created this submission
+	UserID int `json:"user_id"`
+	// UserName field: the name of the student who created this submission
+	UserName string `json:"user_name"`
+	// WorkflowState field: the state of the submission at this version
+	WorkflowState string `json:"workflow_state"`
 }
 
 // SubmissionHistory model object
 type SubmissionHistory struct {
-    // SubmissionID field: the id of the submission
-    SubmissionID int `json:"submission_id"`
-    // Versions field: an array of all the versions of this submission
-    Versions []SubmissionVersion `json:"versions"`
+	// SubmissionID field: the id of the submission
+	SubmissionID int `json:"submission_id"`
+	// Versions field: an array of all the versions of this submission
+	Versions []SubmissionVersion `json:"versions"`
 }
 
 // GradingPeriod model object
 type GradingPeriod struct {
-    // CloseDate field: Grades can only be changed before the close date of the grading period.
-    CloseDate string `json:"close_date"`
-    // EndDate field: The end date of the grading period.
-    EndDate string `json:"end_date"`
-    // ID field: The unique identifier for the grading period.
-    ID int `json:"id"`
-    // IsClosed field: If true, the grading period's close_date has passed.
-    IsClosed bool `json:"is_closed"`
-    // StartDate field: The start date of the grading period.
-    StartDate string `json:"start_date"`
-    // Title field: The title for the grading period.
-    Title string `json:"title"`
-    // Weight field: A weight value that contributes to the overall weight of a grading period set which is used to
-    // calculate how much assignments in this period contribute to the total grade
-    Weight int `json:"weight"`
+	// CloseDate field: Grades can only be changed before the close date of the grading period.
+	CloseDate string `json:"close_date"`
+	// EndDate field: The end date of the grading period.
+	EndDate string `json:"end_date"`
+	// ID field: The unique identifier for the grading period.
+	ID int `json:"id"`
+	// IsClosed field: If true, the grading period's close_date has passed.
+	IsClosed bool `json:"is_closed"`
+	// StartDate field: The start date of the grading period.
+	StartDate string `json:"start_date"`
+	// Title field: The title for the grading period.
+	Title string `json:"title"`
+	// Weight field: A weight value that contributes to the overall weight of a grading period set which is used to
+	// calculate how much assignments in this period contribute to the total grade
+	Weight int `json:"weight"`
 }
 
 // GradingSchemeEntry model object
 type GradingSchemeEntry struct {
-    // Name field: The name for an entry value within a GradingStandard that describes the range of the value
-    Name string `json:"name"`
-    // Value field: The value for the name of the entry within a GradingStandard.  The entry represents the lower bound
-    // of the range for the entry. This range includes the value up to the next entry in the GradingStandard, or 100 if
-    // there is no upper bound. The lowest value will have a lower bound range of 0.
-    Value int `json:"value"`
+	// Name field: The name for an entry value within a GradingStandard that describes the range of the value
+	Name string `json:"name"`
+	// Value field: The value for the name of the entry within a GradingStandard.  The entry represents the lower bound
+	// of the range for the entry. This range includes the value up to the next entry in the GradingStandard, or 100 if
+	// there is no upper bound. The lowest value will have a lower bound range of 0.
+	Value int `json:"value"`
 }
 
 // GradingStandard model object
 type GradingStandard struct {
-    // ContextID field: the id for the context either the Account or Course id
-    ContextID int `json:"context_id"`
-    // ContextType field: the context this standard is associated with, either 'Account' or 'Course'
-    ContextType string `json:"context_type"`
-    // GradingScheme field: A list of GradingSchemeEntry that make up the Grading Standard as an array of values with
-    // the scheme name and value
-    GradingScheme []GradingSchemeEntry `json:"grading_scheme"`
-    // ID field: the id of the grading standard
-    ID int `json:"id"`
-    // Title field: the title of the grading standard
-    Title string `json:"title"`
+	// ContextID field: the id for the context either the Account or Course id
+	ContextID int `json:"context_id"`
+	// ContextType field: the context this standard is associated with, either 'Account' or 'Course'
+	ContextType string `json:"context_type"`
+	// GradingScheme field: A list of GradingSchemeEntry that make up the Grading Standard as an array of values with
+	// the scheme name and value
+	GradingScheme []GradingSchemeEntry `json:"grading_scheme"`
+	// ID field: the id of the grading standard
+	ID int `json:"id"`
+	// Title field: the title of the grading standard
+	Title string `json:"title"`
 }
 
 // GroupCategory model object
 type GroupCategory struct {
-    // AccountID field
-    AccountID int `json:"account_id"`
-    // AutoLeader field: Gives instructors the ability to automatically have group leaders assigned.  Values include
-    // 'random', 'first', and null; 'random' picks a student from the group at random as the leader, 'first' sets the
-    // first student to be assigned to the group as the leader
-    AutoLeader *GroupCategoryAutoLeader `json:"auto_leader"`
-    // ContextType field: The course or account that the category group belongs to. The pattern here is that whatever
-    // the context_type is, there will be an _id field named after that type. So if instead context_type was 'Course',
-    // the course_id field would be replaced by an course_id field.
-    ContextType string `json:"context_type"`
-    // GroupLimit field: If self-signup is enabled, group_limit can be set to cap the number of users in each group. If
-    // null, there is no limit.
-    GroupLimit int `json:"group_limit"`
-    // ID field: The ID of the group category.
-    ID int `json:"id"`
-    // Name field: The display name of the group category.
-    Name string `json:"name"`
-    // Progress field: If the group category has not yet finished a randomly student assignment request, a progress
-    // object will be attached, which will contain information related to the progress of the assignment request. Refer
-    // to the Progress API for more information
-    Progress *Progress `json:"progress"`
-    // Role field: Certain types of group categories have special role designations. Currently, these include:
-    // 'communities', 'student_organized', and 'imported'. Regular course/account group categories have a role of null.
-    Role string `json:"role"`
-    // SelfSignup field: If the group category allows users to join a group themselves, thought they may only be a
-    // member of one group per group category at a time. Values include 'restricted', 'enabled', and null 'enabled'
-    // allows students to assign themselves to a group 'restricted' restricts them to only joining a group in their
-    // section null disallows students from joining groups
-    SelfSignup *GroupCategorySelfSignup `json:"self_signup"`
-    // SisGroupCategoryID field: The SIS identifier for the group category. This field is only included if the user has
-    // permission to manage or view SIS information.
-    SisGroupCategoryID string `json:"sis_group_category_id"`
-    // SisImportID field: The unique identifier for the SIS import. This field is only included if the user has
-    // permission to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
+	// AccountID field
+	AccountID int `json:"account_id"`
+	// AutoLeader field: Gives instructors the ability to automatically have group leaders assigned.  Values include
+	// 'random', 'first', and null; 'random' picks a student from the group at random as the leader, 'first' sets the
+	// first student to be assigned to the group as the leader
+	AutoLeader *GroupCategoryAutoLeader `json:"auto_leader"`
+	// ContextType field: The course or account that the category group belongs to. The pattern here is that whatever
+	// the context_type is, there will be an _id field named after that type. So if instead context_type was 'Course',
+	// the course_id field would be replaced by an course_id field.
+	ContextType string `json:"context_type"`
+	// GroupLimit field: If self-signup is enabled, group_limit can be set to cap the number of users in each group. If
+	// null, there is no limit.
+	GroupLimit int `json:"group_limit"`
+	// ID field: The ID of the group category.
+	ID int `json:"id"`
+	// Name field: The display name of the group category.
+	Name string `json:"name"`
+	// Progress field: If the group category has not yet finished a randomly student assignment request, a progress
+	// object will be attached, which will contain information related to the progress of the assignment request. Refer
+	// to the Progress API for more information
+	Progress *Progress `json:"progress"`
+	// Role field: Certain types of group categories have special role designations. Currently, these include:
+	// 'communities', 'student_organized', and 'imported'. Regular course/account group categories have a role of null.
+	Role string `json:"role"`
+	// SelfSignup field: If the group category allows users to join a group themselves, thought they may only be a
+	// member of one group per group category at a time. Values include 'restricted', 'enabled', and null 'enabled'
+	// allows students to assign themselves to a group 'restricted' restricts them to only joining a group in their
+	// section null disallows students from joining groups
+	SelfSignup *GroupCategorySelfSignup `json:"self_signup"`
+	// SisGroupCategoryID field: The SIS identifier for the group category. This field is only included if the user has
+	// permission to manage or view SIS information.
+	SisGroupCategoryID string `json:"sis_group_category_id"`
+	// SisImportID field: The unique identifier for the SIS import. This field is only included if the user has
+	// permission to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
 }
 
 // GroupMembership model object
 type GroupMembership struct {
-    // GroupID field: The id of the group object to which the membership belongs
-    GroupID int `json:"group_id"`
-    // ID field: The id of the membership object
-    ID int `json:"id"`
-    // JustCreated field: optional: whether or not the record was just created on a create call (POST), i.e. was the
-    // user just added to the group, or was the user already a member
-    JustCreated bool `json:"just_created"`
-    // Moderator field: Whether or not the user is a moderator of the group (the must also be an active member of the
-    // group to moderate)
-    Moderator bool `json:"moderator"`
-    // SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
-    // manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // UserID field: The id of the user object to which the membership belongs
-    UserID int `json:"user_id"`
-    // WorkflowState field: The current state of the membership. Current possible values are 'accepted', 'invited', and
-    // 'requested'
-    WorkflowState *GroupMembershipWorkflowState `json:"workflow_state"`
+	// GroupID field: The id of the group object to which the membership belongs
+	GroupID int `json:"group_id"`
+	// ID field: The id of the membership object
+	ID int `json:"id"`
+	// JustCreated field: optional: whether or not the record was just created on a create call (POST), i.e. was the
+	// user just added to the group, or was the user already a member
+	JustCreated bool `json:"just_created"`
+	// Moderator field: Whether or not the user is a moderator of the group (the must also be an active member of the
+	// group to moderate)
+	Moderator bool `json:"moderator"`
+	// SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
+	// manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// UserID field: The id of the user object to which the membership belongs
+	UserID int `json:"user_id"`
+	// WorkflowState field: The current state of the membership. Current possible values are 'accepted', 'invited', and
+	// 'requested'
+	WorkflowState *GroupMembershipWorkflowState `json:"workflow_state"`
 }
 
 // Group model object
 type Group struct {
-    // AvatarURL field: The url of the group's avatar
-    AvatarURL string `json:"avatar_url"`
-    // ContextType field: The course or account that the group belongs to. The pattern here is that whatever the
-    // context_type is, there will be an _id field named after that type. So if instead context_type was 'account', the
-    // course_id field would be replaced by an account_id field.
-    ContextType string `json:"context_type"`
-    // CourseID field
-    CourseID int `json:"course_id"`
-    // Description field: A description of the group. This is plain text.
-    Description string `json:"description"`
-    // FollowedByUser field: Whether or not the current user is following this group.
-    FollowedByUser bool `json:"followed_by_user"`
-    // GroupCategoryID field: The ID of the group's category.
-    GroupCategoryID int `json:"group_category_id"`
-    // ID field: The ID of the group.
-    ID int `json:"id"`
-    // IsPublic field: Whether or not the group is public.  Currently only community groups can be made public.  Also,
-    // once a group has been set to public, it cannot be changed back to private.
-    IsPublic bool `json:"is_public"`
-    // JoinLevel field: How people are allowed to join the group.  For all groups except for community groups, the user
-    // must share the group's parent course or account.  For student organized or community groups, where a user can be
-    // a member of as many or few as they want, the applicable levels are 'parent_context_auto_join',
-    // 'parent_context_request', and 'invitation_only'.  For class groups, where students are divided up and should only
-    // be part of one group of the category, this value will always be 'invitation_only', and is not relevant. * If
-    // 'parent_context_auto_join', anyone can join and will be automatically accepted. * If 'parent_context_request',
-    // anyone  can request to join, which must be approved by a group moderator. * If 'invitation_only', only those how
-    // have received an invitation my join the group, by accepting that invitation.
-    JoinLevel *GroupJoinLevel `json:"join_level"`
-    // MembersCount field: The number of members currently in the group
-    MembersCount int `json:"members_count"`
-    // Name field: The display name of the group.
-    Name string `json:"name"`
-    // Permissions field: optional: the permissions the user has for the group. returned only for a single group and
-    // include[]=permissions
-    Permissions map[string]bool `json:"permissions"`
-    // Role field: Certain types of groups have special role designations. Currently, these include: 'communities',
-    // 'student_organized', and 'imported'. Regular course/account groups have a role of null.
-    Role *GroupRole `json:"role"`
-    // SisGroupID field: The SIS ID of the group. Only included if the user has permission to view SIS information.
-    SisGroupID string `json:"sis_group_id"`
-    // SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
-    // manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // StorageQuotaMb field: the storage quota for the group, in megabytes
-    StorageQuotaMb int `json:"storage_quota_mb"`
+	// AvatarURL field: The url of the group's avatar
+	AvatarURL string `json:"avatar_url"`
+	// ContextType field: The course or account that the group belongs to. The pattern here is that whatever the
+	// context_type is, there will be an _id field named after that type. So if instead context_type was 'account', the
+	// course_id field would be replaced by an account_id field.
+	ContextType string `json:"context_type"`
+	// CourseID field
+	CourseID int `json:"course_id"`
+	// Description field: A description of the group. This is plain text.
+	Description string `json:"description"`
+	// FollowedByUser field: Whether or not the current user is following this group.
+	FollowedByUser bool `json:"followed_by_user"`
+	// GroupCategoryID field: The ID of the group's category.
+	GroupCategoryID int `json:"group_category_id"`
+	// ID field: The ID of the group.
+	ID int `json:"id"`
+	// IsPublic field: Whether or not the group is public.  Currently only community groups can be made public.  Also,
+	// once a group has been set to public, it cannot be changed back to private.
+	IsPublic bool `json:"is_public"`
+	// JoinLevel field: How people are allowed to join the group.  For all groups except for community groups, the user
+	// must share the group's parent course or account.  For student organized or community groups, where a user can be
+	// a member of as many or few as they want, the applicable levels are 'parent_context_auto_join',
+	// 'parent_context_request', and 'invitation_only'.  For class groups, where students are divided up and should only
+	// be part of one group of the category, this value will always be 'invitation_only', and is not relevant. * If
+	// 'parent_context_auto_join', anyone can join and will be automatically accepted. * If 'parent_context_request',
+	// anyone  can request to join, which must be approved by a group moderator. * If 'invitation_only', only those how
+	// have received an invitation my join the group, by accepting that invitation.
+	JoinLevel *GroupJoinLevel `json:"join_level"`
+	// MembersCount field: The number of members currently in the group
+	MembersCount int `json:"members_count"`
+	// Name field: The display name of the group.
+	Name string `json:"name"`
+	// Permissions field: optional: the permissions the user has for the group. returned only for a single group and
+	// include[]=permissions
+	Permissions map[string]bool `json:"permissions"`
+	// Role field: Certain types of groups have special role designations. Currently, these include: 'communities',
+	// 'student_organized', and 'imported'. Regular course/account groups have a role of null.
+	Role *GroupRole `json:"role"`
+	// SisGroupID field: The SIS ID of the group. Only included if the user has permission to view SIS information.
+	SisGroupID string `json:"sis_group_id"`
+	// SisImportID field: The id of the SIS import if created through SIS. Only included if the user has permission to
+	// manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// StorageQuotaMb field: the storage quota for the group, in megabytes
+	StorageQuotaMb int `json:"storage_quota_mb"`
 }
 
 // JWT model object
 type JWT struct {
-    // Token field: The signed, encrypted, base64 encoded JWT
-    Token string `json:"token"`
+	// Token field: The signed, encrypted, base64 encoded JWT
+	Token string `json:"token"`
 }
 
 // LatePolicy model object
 type LatePolicy struct {
-    // CourseID field: the unique identifier for the course
-    CourseID int `json:"course_id"`
-    // CreatedAt field: the time at which this late policy was originally created
-    CreatedAt time.Time `json:"created_at"`
-    // ID field: the unique identifier for the late policy
-    ID int `json:"id"`
-    // LateSubmissionDeduction field: amount of percentage points to deduct per late_submission_interval
-    LateSubmissionDeduction float64 `json:"late_submission_deduction"`
-    // LateSubmissionDeductionEnabled field: whether to enable late submission deductions
-    LateSubmissionDeductionEnabled bool `json:"late_submission_deduction_enabled"`
-    // LateSubmissionInterval field: time interval for late submission deduction
-    LateSubmissionInterval string `json:"late_submission_interval"`
-    // LateSubmissionMinimumPercent field: the minimum score a submission can receive in percentage points
-    LateSubmissionMinimumPercent float64 `json:"late_submission_minimum_percent"`
-    // LateSubmissionMinimumPercentEnabled field: whether to enable late submission minimum percent
-    LateSubmissionMinimumPercentEnabled bool `json:"late_submission_minimum_percent_enabled"`
-    // MissingSubmissionDeduction field: amount of percentage points to deduct
-    MissingSubmissionDeduction float64 `json:"missing_submission_deduction"`
-    // MissingSubmissionDeductionEnabled field: whether to enable missing submission deductions
-    MissingSubmissionDeductionEnabled bool `json:"missing_submission_deduction_enabled"`
-    // UpdatedAt field: the time at which this late policy was last modified in any way
-    UpdatedAt time.Time `json:"updated_at"`
+	// CourseID field: the unique identifier for the course
+	CourseID int `json:"course_id"`
+	// CreatedAt field: the time at which this late policy was originally created
+	CreatedAt time.Time `json:"created_at"`
+	// ID field: the unique identifier for the late policy
+	ID int `json:"id"`
+	// LateSubmissionDeduction field: amount of percentage points to deduct per late_submission_interval
+	LateSubmissionDeduction float64 `json:"late_submission_deduction"`
+	// LateSubmissionDeductionEnabled field: whether to enable late submission deductions
+	LateSubmissionDeductionEnabled bool `json:"late_submission_deduction_enabled"`
+	// LateSubmissionInterval field: time interval for late submission deduction
+	LateSubmissionInterval string `json:"late_submission_interval"`
+	// LateSubmissionMinimumPercent field: the minimum score a submission can receive in percentage points
+	LateSubmissionMinimumPercent float64 `json:"late_submission_minimum_percent"`
+	// LateSubmissionMinimumPercentEnabled field: whether to enable late submission minimum percent
+	LateSubmissionMinimumPercentEnabled bool `json:"late_submission_minimum_percent_enabled"`
+	// MissingSubmissionDeduction field: amount of percentage points to deduct
+	MissingSubmissionDeduction float64 `json:"missing_submission_deduction"`
+	// MissingSubmissionDeductionEnabled field: whether to enable missing submission deductions
+	MissingSubmissionDeductionEnabled bool `json:"missing_submission_deduction_enabled"`
+	// UpdatedAt field: the time at which this late policy was last modified in any way
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // MigrationIssue model object
 type MigrationIssue struct {
-    // ContentMigrationURL field: API url to the content migration
-    ContentMigrationURL string `json:"content_migration_url"`
-    // CreatedAt field: timestamp
-    CreatedAt time.Time `json:"created_at"`
-    // Description field: Description of the issue for the end-user
-    Description string `json:"description"`
-    // ErrorMessage field: Site administrator error message (If the requesting user has permissions)
-    ErrorMessage string `json:"error_message"`
-    // ErrorReportHTMLURL field: Link to a Canvas error report if present (If the requesting user has permissions)
-    ErrorReportHTMLURL string `json:"error_report_html_url"`
-    // FixIssueHTMLURL field: HTML Url to the Canvas page to investigate the issue
-    FixIssueHTMLURL string `json:"fix_issue_html_url"`
-    // ID field: the unique identifier for the issue
-    ID int `json:"id"`
-    // IssueType field: Severity of the issue: todo, warning, error
-    IssueType *MigrationIssueIssueType `json:"issue_type"`
-    // UpdatedAt field: timestamp
-    UpdatedAt time.Time `json:"updated_at"`
-    // WorkflowState field: Current state of the issue: active, resolved
-    WorkflowState *MigrationIssueWorkflowState `json:"workflow_state"`
+	// ContentMigrationURL field: API url to the content migration
+	ContentMigrationURL string `json:"content_migration_url"`
+	// CreatedAt field: timestamp
+	CreatedAt time.Time `json:"created_at"`
+	// Description field: Description of the issue for the end-user
+	Description string `json:"description"`
+	// ErrorMessage field: Site administrator error message (If the requesting user has permissions)
+	ErrorMessage string `json:"error_message"`
+	// ErrorReportHTMLURL field: Link to a Canvas error report if present (If the requesting user has permissions)
+	ErrorReportHTMLURL string `json:"error_report_html_url"`
+	// FixIssueHTMLURL field: HTML Url to the Canvas page to investigate the issue
+	FixIssueHTMLURL string `json:"fix_issue_html_url"`
+	// ID field: the unique identifier for the issue
+	ID int `json:"id"`
+	// IssueType field: Severity of the issue: todo, warning, error
+	IssueType *MigrationIssueIssueType `json:"issue_type"`
+	// UpdatedAt field: timestamp
+	UpdatedAt time.Time `json:"updated_at"`
+	// WorkflowState field: Current state of the issue: active, resolved
+	WorkflowState *MigrationIssueWorkflowState `json:"workflow_state"`
 }
 
 // NotificationPreference model object
 type NotificationPreference struct {
-    // Category field: The category of that notification
-    Category string `json:"category"`
-    // Frequency field: How often to send notifications to this communication channel for the given notification.
-    // Possible values are 'immediately', 'daily', 'weekly', and 'never'
-    Frequency *NotificationPreferenceFrequency `json:"frequency"`
-    // Href field
-    Href string `json:"href"`
-    // Notification field: The notification this preference belongs to
-    Notification string `json:"notification"`
+	// Category field: The category of that notification
+	Category string `json:"category"`
+	// Frequency field: How often to send notifications to this communication channel for the given notification.
+	// Possible values are 'immediately', 'daily', 'weekly', and 'never'
+	Frequency *NotificationPreferenceFrequency `json:"frequency"`
+	// Href field
+	Href string `json:"href"`
+	// Notification field: The notification this preference belongs to
+	Notification string `json:"notification"`
 }
 
 // OutcomeGroup model object
 type OutcomeGroup struct {
-    // CanEdit field: whether the current user can update the outcome group
-    CanEdit bool `json:"can_edit"`
-    // ContextID field: the context owning the outcome group. may be null for global outcome groups. omitted in the
-    // abbreviated form.
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // Description field: description of the outcome group. omitted in the abbreviated form.
-    Description string `json:"description"`
-    // ID field: the ID of the outcome group
-    ID int `json:"id"`
-    // ImportURL field: the URL for importing another group into this outcome group. should be treated as opaque.
-    // omitted in the abbreviated form.
-    ImportURL string `json:"import_url"`
-    // OutcomesURL field: the URL for listing/creating outcome links under the outcome group. should be treated as
-    // opaque
-    OutcomesURL string `json:"outcomes_url"`
-    // ParentOutcomeGroup field: an abbreviated OutcomeGroup object representing the parent group of this outcome group,
-    // if any. omitted in the abbreviated form.
-    ParentOutcomeGroup *OutcomeGroup `json:"parent_outcome_group"`
-    // SubgroupsURL field: the URL for listing/creating subgroups under the outcome group. should be treated as opaque
-    SubgroupsURL string `json:"subgroups_url"`
-    // Title field: title of the outcome group
-    Title string `json:"title"`
-    // URL field: the URL for fetching/updating the outcome group. should be treated as opaque
-    URL string `json:"url"`
-    // VendorGUID field: A custom GUID for the learning standard.
-    VendorGUID string `json:"vendor_guid"`
+	// CanEdit field: whether the current user can update the outcome group
+	CanEdit bool `json:"can_edit"`
+	// ContextID field: the context owning the outcome group. may be null for global outcome groups. omitted in the
+	// abbreviated form.
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// Description field: description of the outcome group. omitted in the abbreviated form.
+	Description string `json:"description"`
+	// ID field: the ID of the outcome group
+	ID int `json:"id"`
+	// ImportURL field: the URL for importing another group into this outcome group. should be treated as opaque.
+	// omitted in the abbreviated form.
+	ImportURL string `json:"import_url"`
+	// OutcomesURL field: the URL for listing/creating outcome links under the outcome group. should be treated as
+	// opaque
+	OutcomesURL string `json:"outcomes_url"`
+	// ParentOutcomeGroup field: an abbreviated OutcomeGroup object representing the parent group of this outcome group,
+	// if any. omitted in the abbreviated form.
+	ParentOutcomeGroup *OutcomeGroup `json:"parent_outcome_group"`
+	// SubgroupsURL field: the URL for listing/creating subgroups under the outcome group. should be treated as opaque
+	SubgroupsURL string `json:"subgroups_url"`
+	// Title field: title of the outcome group
+	Title string `json:"title"`
+	// URL field: the URL for fetching/updating the outcome group. should be treated as opaque
+	URL string `json:"url"`
+	// VendorGUID field: A custom GUID for the learning standard.
+	VendorGUID string `json:"vendor_guid"`
 }
 
 // OutcomeLink model object
 type OutcomeLink struct {
-    // Assessed field: whether this outcome has been used to assess a student in the context of this outcome link.  In
-    // other words, this will be set to true if the context is a course, and a student has been assessed with this
-    // outcome in that course.
-    Assessed bool `json:"assessed"`
-    // CanUnlink field: whether this outcome link is manageable and is not the last link to an aligned outcome
-    CanUnlink bool `json:"can_unlink"`
-    // ContextID field: the context owning the outcome link. will match the context owning the outcome group containing
-    // the outcome link; included for convenience. may be null for links in global outcome groups.
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // Outcome field: an abbreviated Outcome object representing the outcome linked into the containing outcome group.
-    Outcome *Outcome `json:"outcome"`
-    // OutcomeGroup field: an abbreviated OutcomeGroup object representing the group containing the outcome link.
-    OutcomeGroup *OutcomeGroup `json:"outcome_group"`
-    // URL field: the URL for fetching/updating the outcome link. should be treated as opaque
-    URL string `json:"url"`
+	// Assessed field: whether this outcome has been used to assess a student in the context of this outcome link.  In
+	// other words, this will be set to true if the context is a course, and a student has been assessed with this
+	// outcome in that course.
+	Assessed bool `json:"assessed"`
+	// CanUnlink field: whether this outcome link is manageable and is not the last link to an aligned outcome
+	CanUnlink bool `json:"can_unlink"`
+	// ContextID field: the context owning the outcome link. will match the context owning the outcome group containing
+	// the outcome link; included for convenience. may be null for links in global outcome groups.
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// Outcome field: an abbreviated Outcome object representing the outcome linked into the containing outcome group.
+	Outcome *Outcome `json:"outcome"`
+	// OutcomeGroup field: an abbreviated OutcomeGroup object representing the group containing the outcome link.
+	OutcomeGroup *OutcomeGroup `json:"outcome_group"`
+	// URL field: the URL for fetching/updating the outcome link. should be treated as opaque
+	URL string `json:"url"`
 }
 
 // OutcomeImportData model object
 type OutcomeImportData struct {
-    // ImportType field: The type of outcome import
-    ImportType string `json:"import_type"`
+	// ImportType field: The type of outcome import
+	ImportType string `json:"import_type"`
 }
 
 // OutcomeImport model object
 type OutcomeImport struct {
-    // CreatedAt field: The date the outcome import was created.
-    CreatedAt time.Time `json:"created_at"`
-    // Data field: See the OutcomeImportData specification above.
-    Data *OutcomeImportData `json:"data"`
-    // EndedAt field: The date the outcome import finished. Returns null if not finished.
-    EndedAt time.Time `json:"ended_at"`
-    // ID field: The unique identifier for the outcome import.
-    ID int `json:"id"`
-    // ProcessingErrors field: An array of row number / error message pairs. Returns the first 25 errors.
-    ProcessingErrors [][]map[interface{}]interface{} `json:"processing_errors"`
-    // Progress field: The progress of the outcome import.
-    Progress string `json:"progress"`
-    // UpdatedAt field: The date the outcome import was last updated.
-    UpdatedAt time.Time `json:"updated_at"`
-    // User field: The user that initiated the outcome_import. See the Users API for details.
-    User *User `json:"user"`
-    // WorkflowState field: The current state of the outcome import.
-    //  'created': The outcome import has been created.
-    //  'importing': The outcome import is currently processing.
-    //  'succeeded': The outcome import has completed successfully.
-    //  'failed': The outcome import failed.
-    WorkflowState *OutcomeImportWorkflowState `json:"workflow_state"`
+	// CreatedAt field: The date the outcome import was created.
+	CreatedAt time.Time `json:"created_at"`
+	// Data field: See the OutcomeImportData specification above.
+	Data *OutcomeImportData `json:"data"`
+	// EndedAt field: The date the outcome import finished. Returns null if not finished.
+	EndedAt time.Time `json:"ended_at"`
+	// ID field: The unique identifier for the outcome import.
+	ID int `json:"id"`
+	// ProcessingErrors field: An array of row number / error message pairs. Returns the first 25 errors.
+	ProcessingErrors [][]map[interface{}]interface{} `json:"processing_errors"`
+	// Progress field: The progress of the outcome import.
+	Progress string `json:"progress"`
+	// UpdatedAt field: The date the outcome import was last updated.
+	UpdatedAt time.Time `json:"updated_at"`
+	// User field: The user that initiated the outcome_import. See the Users API for details.
+	User *User `json:"user"`
+	// WorkflowState field: The current state of the outcome import.
+	//  'created': The outcome import has been created.
+	//  'importing': The outcome import is currently processing.
+	//  'succeeded': The outcome import has completed successfully.
+	//  'failed': The outcome import failed.
+	WorkflowState *OutcomeImportWorkflowState `json:"workflow_state"`
 }
 
 // ProficiencyRating model object
 type ProficiencyRating struct {
-    // Color field: The hex color code of the rating
-    Color string `json:"color"`
-    // Description field: The description of the rating
-    Description string `json:"description"`
-    // Mastery field: Indicates the rating where mastery is first achieved
-    Mastery bool `json:"mastery"`
-    // Points field: A non-negative number of points for the rating
-    Points float64 `json:"points"`
+	// Color field: The hex color code of the rating
+	Color string `json:"color"`
+	// Description field: The description of the rating
+	Description string `json:"description"`
+	// Mastery field: Indicates the rating where mastery is first achieved
+	Mastery bool `json:"mastery"`
+	// Points field: A non-negative number of points for the rating
+	Points float64 `json:"points"`
 }
 
 // Proficiency model object
 type Proficiency struct {
-    // Ratings field: An array of proficiency ratings. See the ProficiencyRating specification above.
-    Ratings []interface{} `json:"ratings"`
+	// Ratings field: An array of proficiency ratings. See the ProficiencyRating specification above.
+	Ratings []interface{} `json:"ratings"`
 }
 
 // OutcomeResult model object: A student's result for an outcome
 type OutcomeResult struct {
-    // ID field: A unique identifier for this result
-    ID int `json:"id"`
-    // Links field: Unique identifiers of objects associated with this result
-    Links map[interface{}]interface{} `json:"links"`
-    // Percent field: score's percent of maximum points possible for outcome, scaled to reflect any custom mastery
-    // levels that differ from the learning outcome
-    Percent float64 `json:"percent"`
-    // Score field: The student's score
-    Score int `json:"score"`
-    // SubmittedOrAssessedAt field: The datetime the resulting OutcomeResult was submitted at, or absent that, when it
-    // was assessed.
-    SubmittedOrAssessedAt time.Time `json:"submitted_or_assessed_at"`
+	// ID field: A unique identifier for this result
+	ID int `json:"id"`
+	// Links field: Unique identifiers of objects associated with this result
+	Links map[interface{}]interface{} `json:"links"`
+	// Percent field: score's percent of maximum points possible for outcome, scaled to reflect any custom mastery
+	// levels that differ from the learning outcome
+	Percent float64 `json:"percent"`
+	// Score field: The student's score
+	Score int `json:"score"`
+	// SubmittedOrAssessedAt field: The datetime the resulting OutcomeResult was submitted at, or absent that, when it
+	// was assessed.
+	SubmittedOrAssessedAt time.Time `json:"submitted_or_assessed_at"`
 }
 
 // OutcomeRollupScoreLinks model object
 type OutcomeRollupScoreLinks struct {
-    // Outcome field: The id of the related outcome
-    Outcome int `json:"outcome"`
+	// Outcome field: The id of the related outcome
+	Outcome int `json:"outcome"`
 }
 
 // OutcomeRollupScore model object
 type OutcomeRollupScore struct {
-    // Count field: The number of alignment scores included in this rollup.
-    Count int `json:"count"`
-    // Links field
-    Links *OutcomeRollupScoreLinks `json:"links"`
-    // Score field: The rollup score for the outcome, based on the student alignment scores related to the outcome. This
-    // could be null if the student has no related scores.
-    Score int `json:"score"`
+	// Count field: The number of alignment scores included in this rollup.
+	Count int `json:"count"`
+	// Links field
+	Links *OutcomeRollupScoreLinks `json:"links"`
+	// Score field: The rollup score for the outcome, based on the student alignment scores related to the outcome. This
+	// could be null if the student has no related scores.
+	Score int `json:"score"`
 }
 
 // OutcomeRollupLinks model object
 type OutcomeRollupLinks struct {
-    // Course field: If an aggregate result was requested, the course field will be present. Otherwise, the user and
-    // section field will be present (Optional) The id of the course that this rollup applies to
-    Course int `json:"course"`
-    // Section field: (Optional) The id of the section the user is in
-    Section int `json:"section"`
-    // User field: (Optional) The id of the user that this rollup applies to
-    User int `json:"user"`
+	// Course field: If an aggregate result was requested, the course field will be present. Otherwise, the user and
+	// section field will be present (Optional) The id of the course that this rollup applies to
+	Course int `json:"course"`
+	// Section field: (Optional) The id of the section the user is in
+	Section int `json:"section"`
+	// User field: (Optional) The id of the user that this rollup applies to
+	User int `json:"user"`
 }
 
 // OutcomeRollup model object
 type OutcomeRollup struct {
-    // Links field
-    Links *OutcomeRollupLinks `json:"links"`
-    // Name field: The name of the resource for this rollup. For example, the user name.
-    Name string `json:"name"`
-    // Scores field: an array of OutcomeRollupScore objects
-    Scores *OutcomeRollupScore `json:"scores"`
+	// Links field
+	Links *OutcomeRollupLinks `json:"links"`
+	// Name field: The name of the resource for this rollup. For example, the user name.
+	Name string `json:"name"`
+	// Scores field: an array of OutcomeRollupScore objects
+	Scores *OutcomeRollupScore `json:"scores"`
 }
 
 // OutcomeAlignment model object: An asset aligned with this outcome
 type OutcomeAlignment struct {
-    // HTMLURL field: (Optional) A URL for details about this alignment
-    HTMLURL string `json:"html_url"`
-    // ID field: A unique identifier for this alignment
-    ID string `json:"id"`
-    // Name field: The name of this alignment
-    Name string `json:"name"`
-    // AssessmentID field: the id of the aligned live assessment (null for assignments).
-    AssessmentID int `json:"assessment_id"`
-    // AssignmentID field: the id of the aligned assignment (null for live assessments).
-    AssignmentID int `json:"assignment_id"`
-    // SubmissionTypes field: a string representing the different submission types of an aligned assignment.
-    SubmissionTypes string `json:"submission_types"`
-    // Title field: the title of the aligned assignment.
-    Title string `json:"title"`
-    // URL field: the URL for the aligned assignment.
-    URL string `json:"url"`
+	// HTMLURL field: (Optional) A URL for details about this alignment
+	HTMLURL string `json:"html_url"`
+	// ID field: A unique identifier for this alignment
+	ID string `json:"id"`
+	// Name field: The name of this alignment
+	Name string `json:"name"`
+	// AssessmentID field: the id of the aligned live assessment (null for assignments).
+	AssessmentID int `json:"assessment_id"`
+	// AssignmentID field: the id of the aligned assignment (null for live assessments).
+	AssignmentID int `json:"assignment_id"`
+	// SubmissionTypes field: a string representing the different submission types of an aligned assignment.
+	SubmissionTypes string `json:"submission_types"`
+	// Title field: the title of the aligned assignment.
+	Title string `json:"title"`
+	// URL field: the URL for the aligned assignment.
+	URL string `json:"url"`
 }
 
 // OutcomePath model object: The full path to an outcome
 type OutcomePath struct {
-    // ID field: A unique identifier for this outcome
-    ID int `json:"id"`
-    // Parts field: an array of OutcomePathPart objects
-    Parts *OutcomePathPart `json:"parts"`
+	// ID field: A unique identifier for this outcome
+	ID int `json:"id"`
+	// Parts field: an array of OutcomePathPart objects
+	Parts *OutcomePathPart `json:"parts"`
 }
 
 // OutcomePathPart model object: An outcome or outcome group
 type OutcomePathPart struct {
-    // Name field: The title of the outcome or outcome group
-    Name string `json:"name"`
+	// Name field: The title of the outcome or outcome group
+	Name string `json:"name"`
 }
 
 // Outcome model object
 type Outcome struct {
-    // Assessed field: whether this outcome has been used to assess a student
-    Assessed bool `json:"assessed"`
-    // CalculationInt field: this defines the variable value used by the calculation_method. included only if
-    // calculation_method uses it
-    CalculationInt int `json:"calculation_int"`
-    // CalculationMethod field: the method used to calculate a students score
-    CalculationMethod *OutcomeCalculationMethod `json:"calculation_method"`
-    // CanEdit field: whether the current user can update the outcome
-    CanEdit bool `json:"can_edit"`
-    // CanUnlink field: whether the outcome can be unlinked
-    CanUnlink bool `json:"can_unlink"`
-    // ContextID field: the context owning the outcome. may be null for global outcomes
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // Description field: description of the outcome. omitted in the abbreviated form.
-    Description string `json:"description"`
-    // DisplayName field: Optional friendly name for reporting
-    DisplayName string `json:"display_name"`
-    // HasUpdateableRubrics field: whether updates to this outcome will propagate to unassessed rubrics that have
-    // imported it
-    HasUpdateableRubrics bool `json:"has_updateable_rubrics"`
-    // ID field: the ID of the outcome
-    ID int `json:"id"`
-    // MasteryPoints field: points necessary to demonstrate mastery outcomes. included only if the outcome embeds a
-    // rubric criterion. omitted in the abbreviated form.
-    MasteryPoints int `json:"mastery_points"`
-    // PointsPossible field: maximum points possible. included only if the outcome embeds a rubric criterion. omitted in
-    // the abbreviated form.
-    PointsPossible int `json:"points_possible"`
-    // Ratings field: possible ratings for this outcome. included only if the outcome embeds a rubric criterion. omitted
-    // in the abbreviated form.
-    Ratings []RubricRating `json:"ratings"`
-    // Title field: title of the outcome
-    Title string `json:"title"`
-    // URL field: the URL for fetching/updating the outcome. should be treated as opaque
-    URL string `json:"url"`
-    // VendorGUID field: A custom GUID for the learning standard.
-    VendorGUID string `json:"vendor_guid"`
+	// Assessed field: whether this outcome has been used to assess a student
+	Assessed bool `json:"assessed"`
+	// CalculationInt field: this defines the variable value used by the calculation_method. included only if
+	// calculation_method uses it
+	CalculationInt int `json:"calculation_int"`
+	// CalculationMethod field: the method used to calculate a students score
+	CalculationMethod *OutcomeCalculationMethod `json:"calculation_method"`
+	// CanEdit field: whether the current user can update the outcome
+	CanEdit bool `json:"can_edit"`
+	// CanUnlink field: whether the outcome can be unlinked
+	CanUnlink bool `json:"can_unlink"`
+	// ContextID field: the context owning the outcome. may be null for global outcomes
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// Description field: description of the outcome. omitted in the abbreviated form.
+	Description string `json:"description"`
+	// DisplayName field: Optional friendly name for reporting
+	DisplayName string `json:"display_name"`
+	// HasUpdateableRubrics field: whether updates to this outcome will propagate to unassessed rubrics that have
+	// imported it
+	HasUpdateableRubrics bool `json:"has_updateable_rubrics"`
+	// ID field: the ID of the outcome
+	ID int `json:"id"`
+	// MasteryPoints field: points necessary to demonstrate mastery outcomes. included only if the outcome embeds a
+	// rubric criterion. omitted in the abbreviated form.
+	MasteryPoints int `json:"mastery_points"`
+	// PointsPossible field: maximum points possible. included only if the outcome embeds a rubric criterion. omitted in
+	// the abbreviated form.
+	PointsPossible int `json:"points_possible"`
+	// Ratings field: possible ratings for this outcome. included only if the outcome embeds a rubric criterion. omitted
+	// in the abbreviated form.
+	Ratings []RubricRating `json:"ratings"`
+	// Title field: title of the outcome
+	Title string `json:"title"`
+	// URL field: the URL for fetching/updating the outcome. should be treated as opaque
+	URL string `json:"url"`
+	// VendorGUID field: A custom GUID for the learning standard.
+	VendorGUID string `json:"vendor_guid"`
 }
 
 // PageView model object: The record of a user page view access in Canvas
 type PageView struct {
-    // Action field: The rails action that handled the request
-    Action string `json:"action"`
-    // AppName field: If the request is from an API request, the app that generated the access token
-    AppName string `json:"app_name"`
-    // AssetType field: The type of asset in the context for the request, if any
-    AssetType string `json:"asset_type"`
-    // ContextType field: The type of context for the request
-    ContextType string `json:"context_type"`
-    // Contributed field: This field is deprecated, and will always be false
-    Contributed bool `json:"contributed"`
-    // Controller field: The rails controller that handled the request
-    Controller string `json:"controller"`
-    // CreatedAt field: When the request was made
-    CreatedAt time.Time `json:"created_at"`
-    // HTTPMethod field: The HTTP method such as GET or POST
-    HTTPMethod string `json:"http_method"`
-    // ID field: A UUID representing the page view.  This is also the unique request id
-    ID string `json:"id"`
-    // InteractionSeconds field: An approximation of how long the user spent on the page, in seconds
-    InteractionSeconds float64 `json:"interaction_seconds"`
-    // Links field: The page view links to define the relationships
-    Links *PageViewLinks `json:"links"`
-    // Participated field: True if the request counted as participating, such as submitting homework
-    Participated bool `json:"participated"`
-    // RemoteIP field: The origin IP address of the request
-    RemoteIP string `json:"remote_ip"`
-    // RenderTime field: How long the response took to render, in seconds
-    RenderTime float64 `json:"render_time"`
-    // URL field: The URL requested
-    URL string `json:"url"`
-    // UserAgent field: The user-agent of the browser or program that made the request
-    UserAgent string `json:"user_agent"`
-    // UserRequest field: A flag indicating whether the request was user-initiated, or automatic (such as an AJAX call)
-    UserRequest bool `json:"user_request"`
+	// Action field: The rails action that handled the request
+	Action string `json:"action"`
+	// AppName field: If the request is from an API request, the app that generated the access token
+	AppName string `json:"app_name"`
+	// AssetType field: The type of asset in the context for the request, if any
+	AssetType string `json:"asset_type"`
+	// ContextType field: The type of context for the request
+	ContextType string `json:"context_type"`
+	// Contributed field: This field is deprecated, and will always be false
+	Contributed bool `json:"contributed"`
+	// Controller field: The rails controller that handled the request
+	Controller string `json:"controller"`
+	// CreatedAt field: When the request was made
+	CreatedAt time.Time `json:"created_at"`
+	// HTTPMethod field: The HTTP method such as GET or POST
+	HTTPMethod string `json:"http_method"`
+	// ID field: A UUID representing the page view.  This is also the unique request id
+	ID string `json:"id"`
+	// InteractionSeconds field: An approximation of how long the user spent on the page, in seconds
+	InteractionSeconds float64 `json:"interaction_seconds"`
+	// Links field: The page view links to define the relationships
+	Links *PageViewLinks `json:"links"`
+	// Participated field: True if the request counted as participating, such as submitting homework
+	Participated bool `json:"participated"`
+	// RemoteIP field: The origin IP address of the request
+	RemoteIP string `json:"remote_ip"`
+	// RenderTime field: How long the response took to render, in seconds
+	RenderTime float64 `json:"render_time"`
+	// URL field: The URL requested
+	URL string `json:"url"`
+	// UserAgent field: The user-agent of the browser or program that made the request
+	UserAgent string `json:"user_agent"`
+	// UserRequest field: A flag indicating whether the request was user-initiated, or automatic (such as an AJAX call)
+	UserRequest bool `json:"user_request"`
 }
 
 // PageViewLinks model object: The links of a page view access in Canvas
 type PageViewLinks struct {
-    // Account field: The ID of the account context for this page view
-    Account int `json:"account"`
-    // Asset field: The ID of the asset for the request, if any
-    Asset int `json:"asset"`
-    // Context field: The ID of the context for the request (course id if context_type is Course, etc)
-    Context int `json:"context"`
-    // RealUser field: The ID of the actual user who made this request, if the request was made by a user who was
-    // masquerading
-    RealUser int `json:"real_user"`
-    // User field: The ID of the user for this page view
-    User int `json:"user"`
+	// Account field: The ID of the account context for this page view
+	Account int `json:"account"`
+	// Asset field: The ID of the asset for the request, if any
+	Asset int `json:"asset"`
+	// Context field: The ID of the context for the request (course id if context_type is Course, etc)
+	Context int `json:"context"`
+	// RealUser field: The ID of the actual user who made this request, if the request was made by a user who was
+	// masquerading
+	RealUser int `json:"real_user"`
+	// User field: The ID of the user for this page view
+	User int `json:"user"`
 }
 
 // PeerReview model object
 type PeerReview struct {
-    // Assessor field: The User object for the assessor if the user include parameter is provided (see user API)
-    // (optional)
-    Assessor string `json:"assessor"`
-    // AssessorID field: The assessors user id
-    AssessorID int `json:"assessor_id"`
-    // AssetID field: The id for the asset associated with this Peer Review
-    AssetID int `json:"asset_id"`
-    // AssetType field: The type of the asset
-    AssetType string `json:"asset_type"`
-    // ID field: The id of the Peer Review
-    ID int `json:"id"`
-    // SubmissionComments field: The submission comments associated with this Peer Review if the submission_comment
-    // include parameter is provided (see submissions API) (optional)
-    SubmissionComments string `json:"submission_comments"`
-    // User field: the User object for the owner of the asset if the user include parameter is provided (see user API)
-    // (optional)
-    User string `json:"user"`
-    // UserID field: The user id for the owner of the asset
-    UserID int `json:"user_id"`
-    // WorkflowState field: The state of the Peer Review, either 'assigned' or 'completed'
-    WorkflowState string `json:"workflow_state"`
+	// Assessor field: The User object for the assessor if the user include parameter is provided (see user API)
+	// (optional)
+	Assessor string `json:"assessor"`
+	// AssessorID field: The assessors user id
+	AssessorID int `json:"assessor_id"`
+	// AssetID field: The id for the asset associated with this Peer Review
+	AssetID int `json:"asset_id"`
+	// AssetType field: The type of the asset
+	AssetType string `json:"asset_type"`
+	// ID field: The id of the Peer Review
+	ID int `json:"id"`
+	// SubmissionComments field: The submission comments associated with this Peer Review if the submission_comment
+	// include parameter is provided (see submissions API) (optional)
+	SubmissionComments string `json:"submission_comments"`
+	// User field: the User object for the owner of the asset if the user include parameter is provided (see user API)
+	// (optional)
+	User string `json:"user"`
+	// UserID field: The user id for the owner of the asset
+	UserID int `json:"user_id"`
+	// WorkflowState field: The state of the Peer Review, either 'assigned' or 'completed'
+	WorkflowState string `json:"workflow_state"`
 }
 
 // PlannerNote model object: A planner note
 type PlannerNote struct {
-    // CourseID field: The course that the note is in relation too, if applicable
-    CourseID int `json:"course_id"`
-    // Description field: The description of the planner note
-    Description string `json:"description"`
-    // ID field: The ID of the planner note
-    ID int `json:"id"`
-    // LinkedObjectHTMLURL field: the Canvas web URL of the linked learning object
-    LinkedObjectHTMLURL string `json:"linked_object_html_url"`
-    // LinkedObjectID field: the id of the linked learning object
-    LinkedObjectID int `json:"linked_object_id"`
-    // LinkedObjectType field: the type of the linked learning object
-    LinkedObjectType string `json:"linked_object_type"`
-    // LinkedObjectURL field: the API URL of the linked learning object
-    LinkedObjectURL string `json:"linked_object_url"`
-    // Title field: The title for a planner note
-    Title string `json:"title"`
-    // TodoDate field: The datetime of when the planner note should show up on their planner
-    TodoDate time.Time `json:"todo_date"`
-    // UserID field: The id of the associated user creating the planner note
-    UserID int `json:"user_id"`
-    // WorkflowState field: The current published state of the planner note
-    WorkflowState string `json:"workflow_state"`
+	// CourseID field: The course that the note is in relation too, if applicable
+	CourseID int `json:"course_id"`
+	// Description field: The description of the planner note
+	Description string `json:"description"`
+	// ID field: The ID of the planner note
+	ID int `json:"id"`
+	// LinkedObjectHTMLURL field: the Canvas web URL of the linked learning object
+	LinkedObjectHTMLURL string `json:"linked_object_html_url"`
+	// LinkedObjectID field: the id of the linked learning object
+	LinkedObjectID int `json:"linked_object_id"`
+	// LinkedObjectType field: the type of the linked learning object
+	LinkedObjectType string `json:"linked_object_type"`
+	// LinkedObjectURL field: the API URL of the linked learning object
+	LinkedObjectURL string `json:"linked_object_url"`
+	// Title field: The title for a planner note
+	Title string `json:"title"`
+	// TodoDate field: The datetime of when the planner note should show up on their planner
+	TodoDate time.Time `json:"todo_date"`
+	// UserID field: The id of the associated user creating the planner note
+	UserID int `json:"user_id"`
+	// WorkflowState field: The current published state of the planner note
+	WorkflowState string `json:"workflow_state"`
 }
 
 // PlannerOverride model object: User-controlled setting for whether an item should be displayed on the planner or not
 type PlannerOverride struct {
-    // AssignmentID field: The id of the plannable's associated assignment, if it has one
-    AssignmentID int `json:"assignment_id"`
-    // CreatedAt field: The datetime of when the planner override was created
-    CreatedAt time.Time `json:"created_at"`
-    // DeletedAt field: The datetime of when the planner override was deleted, if applicable
-    DeletedAt time.Time `json:"deleted_at"`
-    // Dismissed field: Controls whether or not the associated plannable item shows up in the opportunities list
-    Dismissed bool `json:"dismissed"`
-    // ID field: The ID of the planner override
-    ID int `json:"id"`
-    // MarkedComplete field: Controls whether or not the associated plannable item is marked complete on the planner
-    MarkedComplete bool `json:"marked_complete"`
-    // PlannableID field: The id of the associated object for the planner override
-    PlannableID int `json:"plannable_id"`
-    // PlannableType field: The type of the associated object for the planner override
-    PlannableType string `json:"plannable_type"`
-    // UpdatedAt field: The datetime of when the planner override was updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // UserID field: The id of the associated user for the planner override
-    UserID int `json:"user_id"`
-    // WorkflowState field: The current published state of the item, synced with the associated object
-    WorkflowState string `json:"workflow_state"`
+	// AssignmentID field: The id of the plannable's associated assignment, if it has one
+	AssignmentID int `json:"assignment_id"`
+	// CreatedAt field: The datetime of when the planner override was created
+	CreatedAt time.Time `json:"created_at"`
+	// DeletedAt field: The datetime of when the planner override was deleted, if applicable
+	DeletedAt time.Time `json:"deleted_at"`
+	// Dismissed field: Controls whether or not the associated plannable item shows up in the opportunities list
+	Dismissed bool `json:"dismissed"`
+	// ID field: The ID of the planner override
+	ID int `json:"id"`
+	// MarkedComplete field: Controls whether or not the associated plannable item is marked complete on the planner
+	MarkedComplete bool `json:"marked_complete"`
+	// PlannableID field: The id of the associated object for the planner override
+	PlannableID int `json:"plannable_id"`
+	// PlannableType field: The type of the associated object for the planner override
+	PlannableType string `json:"plannable_type"`
+	// UpdatedAt field: The datetime of when the planner override was updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// UserID field: The id of the associated user for the planner override
+	UserID int `json:"user_id"`
+	// WorkflowState field: The current published state of the item, synced with the associated object
+	WorkflowState string `json:"workflow_state"`
 }
 
 // Profile model object: Profile details for a Canvas user.
 type Profile struct {
-    // AvatarURL field: The avatar_url can change over time, so we recommend not caching it for more than a few hours
-    AvatarURL string `json:"avatar_url"`
-    // Bio field
-    Bio string `json:"bio"`
-    // Calendar field
-    Calendar *CalendarLink `json:"calendar"`
-    // ID field: The ID of the user.
-    ID int `json:"id"`
-    // Locale field: The users locale.
-    Locale string `json:"locale"`
-    // LoginID field: sample_user@example.com
-    LoginID string `json:"login_id"`
-    // LtiUserID field
-    LtiUserID string `json:"lti_user_id"`
-    // Name field: Sample User
-    Name string `json:"name"`
-    // PrimaryEmail field: sample_user@example.com
-    PrimaryEmail string `json:"primary_email"`
-    // ShortName field: Sample User
-    ShortName string `json:"short_name"`
-    // SisUserID field: sis1
-    SisUserID string `json:"sis_user_id"`
-    // SortableName field: user, sample
-    SortableName string `json:"sortable_name"`
-    // TimeZone field: Optional: This field is only returned in certain API calls, and will return the IANA time zone
-    // name of the user's preferred timezone.
-    TimeZone string `json:"time_zone"`
-    // Title field
-    Title string `json:"title"`
+	// AvatarURL field: The avatar_url can change over time, so we recommend not caching it for more than a few hours
+	AvatarURL string `json:"avatar_url"`
+	// Bio field
+	Bio string `json:"bio"`
+	// Calendar field
+	Calendar *CalendarLink `json:"calendar"`
+	// ID field: The ID of the user.
+	ID int `json:"id"`
+	// Locale field: The users locale.
+	Locale string `json:"locale"`
+	// LoginID field: sample_user@example.com
+	LoginID string `json:"login_id"`
+	// LtiUserID field
+	LtiUserID string `json:"lti_user_id"`
+	// Name field: Sample User
+	Name string `json:"name"`
+	// PrimaryEmail field: sample_user@example.com
+	PrimaryEmail string `json:"primary_email"`
+	// ShortName field: Sample User
+	ShortName string `json:"short_name"`
+	// SisUserID field: sis1
+	SisUserID string `json:"sis_user_id"`
+	// SortableName field: user, sample
+	SortableName string `json:"sortable_name"`
+	// TimeZone field: Optional: This field is only returned in certain API calls, and will return the IANA time zone
+	// name of the user's preferred timezone.
+	TimeZone string `json:"time_zone"`
+	// Title field
+	Title string `json:"title"`
 }
 
 // Avatar model object: Possible avatar for a user.
 type Avatar struct {
-    // ContentType field: ['attachment' type only] the content-type of the attachment.
-    ContentType string `json:"content-type"`
-    // DisplayName field: A textual description of the avatar record.
-    DisplayName string `json:"display_name"`
-    // Filename field: ['attachment' type only] the filename of the attachment
-    Filename string `json:"filename"`
-    // ID field: ['attachment' type only] the internal id of the attachment
-    ID int `json:"id"`
-    // Size field: ['attachment' type only] the size of the attachment
-    Size int `json:"size"`
-    // Token field: A unique representation of the avatar record which can be used to set the avatar with the user
-    // update endpoint. Note: this is an internal representation and is subject to change without notice. It should be
-    // consumed with this api endpoint and used in the user update endpoint, and should not be constructed by the
-    // client.
-    Token string `json:"token"`
-    // Type field: ['gravatar'|'attachment'|'no_pic'] The type of avatar record, for categorization purposes.
-    Type string `json:"type"`
-    // URL field: The url of the avatar
-    URL string `json:"url"`
+	// ContentType field: ['attachment' type only] the content-type of the attachment.
+	ContentType string `json:"content-type"`
+	// DisplayName field: A textual description of the avatar record.
+	DisplayName string `json:"display_name"`
+	// Filename field: ['attachment' type only] the filename of the attachment
+	Filename string `json:"filename"`
+	// ID field: ['attachment' type only] the internal id of the attachment
+	ID int `json:"id"`
+	// Size field: ['attachment' type only] the size of the attachment
+	Size int `json:"size"`
+	// Token field: A unique representation of the avatar record which can be used to set the avatar with the user
+	// update endpoint. Note: this is an internal representation and is subject to change without notice. It should be
+	// consumed with this api endpoint and used in the user update endpoint, and should not be constructed by the
+	// client.
+	Token string `json:"token"`
+	// Type field: ['gravatar'|'attachment'|'no_pic'] The type of avatar record, for categorization purposes.
+	Type string `json:"type"`
+	// URL field: The url of the avatar
+	URL string `json:"url"`
 }
 
 // Progress model object
 type Progress struct {
-    // Completion field: percent completed
-    Completion int `json:"completion"`
-    // ContextID field: the context owning the job.
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // CreatedAt field: the time the job was created
-    CreatedAt time.Time `json:"created_at"`
-    // ID field: the ID of the Progress object
-    ID int `json:"id"`
-    // Message field: optional details about the job
-    Message string `json:"message"`
-    // Results field: optional results of the job. omitted when job is still pending
-    Results map[interface{}]interface{} `json:"results"`
-    // Tag field: the type of operation
-    Tag string `json:"tag"`
-    // UpdatedAt field: the time the job was last updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: url where a progress update can be retrieved
-    URL string `json:"url"`
-    // UserID field: the id of the user who started the job
-    UserID int `json:"user_id"`
-    // WorkflowState field: the state of the job one of 'queued', 'running', 'completed', 'failed'
-    WorkflowState *ProgressWorkflowState `json:"workflow_state"`
+	// Completion field: percent completed
+	Completion int `json:"completion"`
+	// ContextID field: the context owning the job.
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// CreatedAt field: the time the job was created
+	CreatedAt time.Time `json:"created_at"`
+	// ID field: the ID of the Progress object
+	ID int `json:"id"`
+	// Message field: optional details about the job
+	Message string `json:"message"`
+	// Results field: optional results of the job. omitted when job is still pending
+	Results map[interface{}]interface{} `json:"results"`
+	// Tag field: the type of operation
+	Tag string `json:"tag"`
+	// UpdatedAt field: the time the job was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: url where a progress update can be retrieved
+	URL string `json:"url"`
+	// UserID field: the id of the user who started the job
+	UserID int `json:"user_id"`
+	// WorkflowState field: the state of the job one of 'queued', 'running', 'completed', 'failed'
+	WorkflowState *ProgressWorkflowState `json:"workflow_state"`
 }
 
 // ProvisionalGrade model object
 type ProvisionalGrade struct {
-    // Final field: Whether this is the 'final' provisional grade created by the moderator
-    Final bool `json:"final"`
-    // Grade field: The grade
-    Grade string `json:"grade"`
-    // GradeMatchesCurrentSubmission field: Whether the grade was applied to the most current submission (false if the
-    // student resubmitted after grading)
-    GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
-    // GradedAt field: When the grade was given
-    GradedAt time.Time `json:"graded_at"`
-    // ProvisionalGradeID field: The identifier for the provisional grade
-    ProvisionalGradeID int `json:"provisional_grade_id"`
-    // Score field: The numeric score
-    Score int `json:"score"`
-    // SpeedgraderURL field: A link to view this provisional grade in SpeedGrader™
-    SpeedgraderURL string `json:"speedgrader_url"`
+	// Final field: Whether this is the 'final' provisional grade created by the moderator
+	Final bool `json:"final"`
+	// Grade field: The grade
+	Grade string `json:"grade"`
+	// GradeMatchesCurrentSubmission field: Whether the grade was applied to the most current submission (false if the
+	// student resubmitted after grading)
+	GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
+	// GradedAt field: When the grade was given
+	GradedAt time.Time `json:"graded_at"`
+	// ProvisionalGradeID field: The identifier for the provisional grade
+	ProvisionalGradeID int `json:"provisional_grade_id"`
+	// Score field: The numeric score
+	Score int `json:"score"`
+	// SpeedgraderURL field: A link to view this provisional grade in SpeedGrader™
+	SpeedgraderURL string `json:"speedgrader_url"`
 }
 
 // RolePermissions model object
 type RolePermissions struct {
-    // AppliesToDescendants field: Whether the permission cascades down to sub accounts of the account this role is in.
-    // Only present if enabled is true
-    AppliesToDescendants bool `json:"applies_to_descendants"`
-    // AppliesToSelf field: Whether the permission applies to the account this role is in. Only present if enabled is
-    // true
-    AppliesToSelf bool `json:"applies_to_self"`
-    // Enabled field: Whether the role has the permission
-    Enabled bool `json:"enabled"`
-    // Explicit field: Whether the value of enabled is specified explicitly by this role, or inherited from an upstream
-    // role.
-    Explicit bool `json:"explicit"`
-    // Locked field: Whether the permission is locked by this role
-    Locked bool `json:"locked"`
-    // PriorDefault field: The value that would have been inherited from upstream if the role had not explicitly set a
-    // value. Only present if explicit is true.
-    PriorDefault bool `json:"prior_default"`
-    // Readonly field: Whether the permission can be modified in this role (i.e. whether the permission is locked by an
-    // upstream role).
-    Readonly bool `json:"readonly"`
+	// AppliesToDescendants field: Whether the permission cascades down to sub accounts of the account this role is in.
+	// Only present if enabled is true
+	AppliesToDescendants bool `json:"applies_to_descendants"`
+	// AppliesToSelf field: Whether the permission applies to the account this role is in. Only present if enabled is
+	// true
+	AppliesToSelf bool `json:"applies_to_self"`
+	// Enabled field: Whether the role has the permission
+	Enabled bool `json:"enabled"`
+	// Explicit field: Whether the value of enabled is specified explicitly by this role, or inherited from an upstream
+	// role.
+	Explicit bool `json:"explicit"`
+	// Locked field: Whether the permission is locked by this role
+	Locked bool `json:"locked"`
+	// PriorDefault field: The value that would have been inherited from upstream if the role had not explicitly set a
+	// value. Only present if explicit is true.
+	PriorDefault bool `json:"prior_default"`
+	// Readonly field: Whether the permission can be modified in this role (i.e. whether the permission is locked by an
+	// upstream role).
+	Readonly bool `json:"readonly"`
 }
 
 // Role model object
 type Role struct {
-    // Account field: JSON representation of the account the role is in.
-    Account *Account `json:"account"`
-    // BaseRoleType field: The role type that is being used as a base for this role. For account-level roles, this is
-    // 'AccountMembership'. For course-level roles, it is an enrollment type.
-    BaseRoleType string `json:"base_role_type"`
-    // Label field: The label of the role.
-    Label string `json:"label"`
-    // Permissions field: A dictionary of permissions keyed by name (see permissions input parameter in the 'Create a
-    // role' API).
-    Permissions map[string]RolePermissions `json:"permissions"`
-    // Role field: The label of the role. (Deprecated alias for 'label')
-    Role string `json:"role"`
-    // WorkflowState field: The state of the role: 'active', 'inactive', or 'built_in'
-    WorkflowState string `json:"workflow_state"`
+	// Account field: JSON representation of the account the role is in.
+	Account *Account `json:"account"`
+	// BaseRoleType field: The role type that is being used as a base for this role. For account-level roles, this is
+	// 'AccountMembership'. For course-level roles, it is an enrollment type.
+	BaseRoleType string `json:"base_role_type"`
+	// Label field: The label of the role.
+	Label string `json:"label"`
+	// Permissions field: A dictionary of permissions keyed by name (see permissions input parameter in the 'Create a
+	// role' API).
+	Permissions map[string]RolePermissions `json:"permissions"`
+	// Role field: The label of the role. (Deprecated alias for 'label')
+	Role string `json:"role"`
+	// WorkflowState field: The state of the role: 'active', 'inactive', or 'built_in'
+	WorkflowState string `json:"workflow_state"`
 }
 
 // Rubric model object
 type Rubric struct {
-    // Assessments field: If an assessment type is included in the 'include' parameter, includes an array of rubric
-    // assessment objects for a given rubric, based on the assessment type requested. If the user does not request an
-    // assessment type this key will be absent.
-    Assessments []RubricAssessment `json:"assessments"`
-    // Associations field: If an association type is included in the 'include' parameter, includes an array of rubric
-    // association objects for a given rubric, based on the association type requested. If the user does not request an
-    // association type this key will be absent.
-    Associations []RubricAssociation `json:"associations"`
-    // ContextID field: the context owning the rubric
-    ContextID int `json:"context_id"`
-    // ContextType field
-    ContextType string `json:"context_type"`
-    // Data field: An array with all of this Rubric's grading Criteria
-    Data []RubricCriterion `json:"data"`
-    // FreeFormCriterionComments field: whether or not free-form comments are used
-    FreeFormCriterionComments bool `json:"free_form_criterion_comments"`
-    // HideScoreTotal field
-    HideScoreTotal bool `json:"hide_score_total"`
-    // ID field: the ID of the rubric
-    ID int `json:"id"`
-    // PointsPossible field
-    PointsPossible int `json:"points_possible"`
-    // ReadOnly field
-    ReadOnly bool `json:"read_only"`
-    // Reusable field
-    Reusable bool `json:"reusable"`
-    // Title field: title of the rubric
-    Title string `json:"title"`
+	// Assessments field: If an assessment type is included in the 'include' parameter, includes an array of rubric
+	// assessment objects for a given rubric, based on the assessment type requested. If the user does not request an
+	// assessment type this key will be absent.
+	Assessments []RubricAssessment `json:"assessments"`
+	// Associations field: If an association type is included in the 'include' parameter, includes an array of rubric
+	// association objects for a given rubric, based on the association type requested. If the user does not request an
+	// association type this key will be absent.
+	Associations []RubricAssociation `json:"associations"`
+	// ContextID field: the context owning the rubric
+	ContextID int `json:"context_id"`
+	// ContextType field
+	ContextType string `json:"context_type"`
+	// Data field: An array with all of this Rubric's grading Criteria
+	Data []RubricCriterion `json:"data"`
+	// FreeFormCriterionComments field: whether or not free-form comments are used
+	FreeFormCriterionComments bool `json:"free_form_criterion_comments"`
+	// HideScoreTotal field
+	HideScoreTotal bool `json:"hide_score_total"`
+	// ID field: the ID of the rubric
+	ID int `json:"id"`
+	// PointsPossible field
+	PointsPossible int `json:"points_possible"`
+	// ReadOnly field
+	ReadOnly bool `json:"read_only"`
+	// Reusable field
+	Reusable bool `json:"reusable"`
+	// Title field: title of the rubric
+	Title string `json:"title"`
 }
 
 // RubricCriterion model object
 type RubricCriterion struct {
-    // CriterionUseRange field
-    CriterionUseRange bool `json:"criterion_use_range"`
-    // Description field
-    Description string `json:"description"`
-    // ID field: the ID of the criterion
-    ID string `json:"id"`
-    // LongDescription field
-    LongDescription string `json:"long_description"`
-    // Points field
-    Points int `json:"points"`
-    // Ratings field: the possible ratings for this Criterion
-    Ratings []RubricRating `json:"ratings"`
+	// CriterionUseRange field
+	CriterionUseRange bool `json:"criterion_use_range"`
+	// Description field
+	Description string `json:"description"`
+	// ID field: the ID of the criterion
+	ID string `json:"id"`
+	// LongDescription field
+	LongDescription string `json:"long_description"`
+	// Points field
+	Points int `json:"points"`
+	// Ratings field: the possible ratings for this Criterion
+	Ratings []RubricRating `json:"ratings"`
 }
 
 // RubricAssessment model object
 type RubricAssessment struct {
-    // ArtifactAttempt field: the current number of attempts made on the object of the assessment
-    ArtifactAttempt int `json:"artifact_attempt"`
-    // ArtifactID field: the id of the object of the assessment
-    ArtifactID int `json:"artifact_id"`
-    // ArtifactType field: the object of the assessment
-    ArtifactType string `json:"artifact_type"`
-    // AssessmentType field: the type of assessment. values will be either 'grading', 'peer_review', or
-    // 'provisional_grade'
-    AssessmentType string `json:"assessment_type"`
-    // AssessorID field: user id of the person who made the assessment
-    AssessorID int `json:"assessor_id"`
-    // Comments field: (Optional) If 'comments_only' is included in the 'style' parameter, returned assessments will
-    // include only the comments portion of their data hash. If the user does not request a style, this key will be
-    // absent.
-    Comments []string `json:"comments"`
-    // Data field: (Optional) If 'full' is included in the 'style' parameter, returned assessments will have their full
-    // details contained in their data hash. If the user does not request a style, this key will be absent.
-    Data []map[interface{}]interface{} `json:"data"`
-    // ID field: the ID of the rubric
-    ID int `json:"id"`
-    // RubricAssociationID field
-    RubricAssociationID int `json:"rubric_association_id"`
-    // RubricID field: the rubric the assessment belongs to
-    RubricID int `json:"rubric_id"`
-    // Score field
-    Score int `json:"score"`
+	// ArtifactAttempt field: the current number of attempts made on the object of the assessment
+	ArtifactAttempt int `json:"artifact_attempt"`
+	// ArtifactID field: the id of the object of the assessment
+	ArtifactID int `json:"artifact_id"`
+	// ArtifactType field: the object of the assessment
+	ArtifactType string `json:"artifact_type"`
+	// AssessmentType field: the type of assessment. values will be either 'grading', 'peer_review', or
+	// 'provisional_grade'
+	AssessmentType string `json:"assessment_type"`
+	// AssessorID field: user id of the person who made the assessment
+	AssessorID int `json:"assessor_id"`
+	// Comments field: (Optional) If 'comments_only' is included in the 'style' parameter, returned assessments will
+	// include only the comments portion of their data hash. If the user does not request a style, this key will be
+	// absent.
+	Comments []string `json:"comments"`
+	// Data field: (Optional) If 'full' is included in the 'style' parameter, returned assessments will have their full
+	// details contained in their data hash. If the user does not request a style, this key will be absent.
+	Data []map[interface{}]interface{} `json:"data"`
+	// ID field: the ID of the rubric
+	ID int `json:"id"`
+	// RubricAssociationID field
+	RubricAssociationID int `json:"rubric_association_id"`
+	// RubricID field: the rubric the assessment belongs to
+	RubricID int `json:"rubric_id"`
+	// Score field
+	Score int `json:"score"`
 }
 
 // RubricAssociation model object
 type RubricAssociation struct {
-    // AssociationID field: the ID of the object this association links to
-    AssociationID int `json:"association_id"`
-    // AssociationType field: the type of object this association links to
-    AssociationType string `json:"association_type"`
-    // HideOutcomeResults field
-    HideOutcomeResults bool `json:"hide_outcome_results"`
-    // HidePoints field
-    HidePoints bool `json:"hide_points"`
-    // HideScoreTotal field: Whether or not the score total is displayed within the rubric. This option is only
-    // available if the rubric is not used for grading.
-    HideScoreTotal bool `json:"hide_score_total"`
-    // ID field: the ID of the association
-    ID int `json:"id"`
-    // Purpose field: Whether or not the association is for grading (and thus linked to an assignment) or if it's to
-    // indicate the rubric should appear in its context. Values will be grading or bookmark.
-    Purpose string `json:"purpose"`
-    // RubricID field: the ID of the rubric
-    RubricID int `json:"rubric_id"`
-    // SummaryData field
-    SummaryData string `json:"summary_data"`
-    // UseForGrading field: Whether or not the associated rubric is used for grade calculation
-    UseForGrading bool `json:"use_for_grading"`
+	// AssociationID field: the ID of the object this association links to
+	AssociationID int `json:"association_id"`
+	// AssociationType field: the type of object this association links to
+	AssociationType string `json:"association_type"`
+	// HideOutcomeResults field
+	HideOutcomeResults bool `json:"hide_outcome_results"`
+	// HidePoints field
+	HidePoints bool `json:"hide_points"`
+	// HideScoreTotal field: Whether or not the score total is displayed within the rubric. This option is only
+	// available if the rubric is not used for grading.
+	HideScoreTotal bool `json:"hide_score_total"`
+	// ID field: the ID of the association
+	ID int `json:"id"`
+	// Purpose field: Whether or not the association is for grading (and thus linked to an assignment) or if it's to
+	// indicate the rubric should appear in its context. Values will be grading or bookmark.
+	Purpose string `json:"purpose"`
+	// RubricID field: the ID of the rubric
+	RubricID int `json:"rubric_id"`
+	// SummaryData field
+	SummaryData string `json:"summary_data"`
+	// UseForGrading field: Whether or not the associated rubric is used for grade calculation
+	UseForGrading bool `json:"use_for_grading"`
 }
 
 // Scope model object
 type Scope struct {
-    // Action field: The controller action the scope is associated to
-    Action string `json:"action"`
-    // Controller field: The controller the scope is associated to
-    Controller string `json:"controller"`
-    // Resource field: The resource the scope is associated with
-    Resource string `json:"resource"`
-    // ResourceName field: The localized resource name
-    ResourceName string `json:"resource_name"`
-    // Scope field: The identifier for the scope
-    Scope string `json:"scope"`
-    // Verb field: The HTTP verb for the scope
-    Verb string `json:"verb"`
+	// Action field: The controller action the scope is associated to
+	Action string `json:"action"`
+	// Controller field: The controller the scope is associated to
+	Controller string `json:"controller"`
+	// Resource field: The resource the scope is associated with
+	Resource string `json:"resource"`
+	// ResourceName field: The localized resource name
+	ResourceName string `json:"resource_name"`
+	// Scope field: The identifier for the scope
+	Scope string `json:"scope"`
+	// Verb field: The HTTP verb for the scope
+	Verb string `json:"verb"`
 }
 
 // Section model object
 type Section struct {
-    // CourseID field: The unique Canvas identifier for the course in which the section belongs
-    CourseID int `json:"course_id"`
-    // EndAt field: the end date for the section, if applicable
-    EndAt time.Time `json:"end_at"`
-    // ID field: The unique identifier for the section.
-    ID int `json:"id"`
-    // IntegrationID field: Optional: The integration ID of the section. This field is only included if the user has
-    // permission to view SIS information.
-    IntegrationID string `json:"integration_id"`
-    // Name field: The name of the section.
-    Name string `json:"name"`
-    // NonxlistCourseID field: The unique identifier of the original course of a cross-listed section
-    NonxlistCourseID int `json:"nonxlist_course_id"`
-    // RestrictEnrollmentsToSectionDates field: Restrict user enrollments to the start and end dates of the section
-    RestrictEnrollmentsToSectionDates bool `json:"restrict_enrollments_to_section_dates"`
-    // SisCourseID field: The unique SIS identifier for the course in which the section belongs. This field is only
-    // included if the user has permission to view SIS information.
-    SisCourseID string `json:"sis_course_id"`
-    // SisImportID field: The unique identifier for the SIS import if created through SIS. This field is only included
-    // if the user has permission to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // SisSectionID field: The sis id of the section. This field is only included if the user has permission to view SIS
-    // information.
-    SisSectionID string `json:"sis_section_id"`
-    // StartAt field: the start date for the section, if applicable
-    StartAt time.Time `json:"start_at"`
-    // TotalStudents field: optional: the total number of active and invited students in the section
-    TotalStudents int `json:"total_students"`
+	// CourseID field: The unique Canvas identifier for the course in which the section belongs
+	CourseID int `json:"course_id"`
+	// EndAt field: the end date for the section, if applicable
+	EndAt time.Time `json:"end_at"`
+	// ID field: The unique identifier for the section.
+	ID int `json:"id"`
+	// IntegrationID field: Optional: The integration ID of the section. This field is only included if the user has
+	// permission to view SIS information.
+	IntegrationID string `json:"integration_id"`
+	// Name field: The name of the section.
+	Name string `json:"name"`
+	// NonxlistCourseID field: The unique identifier of the original course of a cross-listed section
+	NonxlistCourseID int `json:"nonxlist_course_id"`
+	// RestrictEnrollmentsToSectionDates field: Restrict user enrollments to the start and end dates of the section
+	RestrictEnrollmentsToSectionDates bool `json:"restrict_enrollments_to_section_dates"`
+	// SisCourseID field: The unique SIS identifier for the course in which the section belongs. This field is only
+	// included if the user has permission to view SIS information.
+	SisCourseID string `json:"sis_course_id"`
+	// SisImportID field: The unique identifier for the SIS import if created through SIS. This field is only included
+	// if the user has permission to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// SisSectionID field: The sis id of the section. This field is only included if the user has permission to view SIS
+	// information.
+	SisSectionID string `json:"sis_section_id"`
+	// StartAt field: the start date for the section, if applicable
+	StartAt time.Time `json:"start_at"`
+	// TotalStudents field: optional: the total number of active and invited students in the section
+	TotalStudents int `json:"total_students"`
 }
 
 // SharedBrandConfig model object
 type SharedBrandConfig struct {
-    // AccountID field: The id of the account it should be shared within.
-    AccountID string `json:"account_id"`
-    // BrandConfigMd5 field: The md5 (since BrandConfigs are identified by MD5 and not numeric id) of the BrandConfig to
-    // share.
-    BrandConfigMd5 string `json:"brand_config_md5"`
-    // CreatedAt field: When this was created
-    CreatedAt time.Time `json:"created_at"`
-    // ID field: The shared_brand_config identifier.
-    ID int `json:"id"`
-    // Name field: The name to share this theme as
-    Name string `json:"name"`
-    // UpdatedAt field: When this was last updated
-    UpdatedAt time.Time `json:"updated_at"`
+	// AccountID field: The id of the account it should be shared within.
+	AccountID string `json:"account_id"`
+	// BrandConfigMd5 field: The md5 (since BrandConfigs are identified by MD5 and not numeric id) of the BrandConfig to
+	// share.
+	BrandConfigMd5 string `json:"brand_config_md5"`
+	// CreatedAt field: When this was created
+	CreatedAt time.Time `json:"created_at"`
+	// ID field: The shared_brand_config identifier.
+	ID int `json:"id"`
+	// Name field: The name to share this theme as
+	Name string `json:"name"`
+	// UpdatedAt field: When this was last updated
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 // SisAssignment model object: Assignments that have post_to_sis enabled with other objects for convenience
 type SisAssignment struct {
-    // AssignmentGroup field: Includes attributes of a assignment_group for convenience. For more details see
-    // Assignments API.
-    AssignmentGroup []AssignmentGroupAttributes `json:"assignment_group"`
-    // CourseID field: The unique identifier for the course.
-    CourseID int `json:"course_id"`
-    // CreatedAt field: The time at which this assignment was originally created
-    CreatedAt time.Time `json:"created_at"`
-    // DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
-    // assignment overrides, this field will be the due date as it applies to the user requesting information from the
-    // API.
-    DueAt time.Time `json:"due_at"`
-    // ID field: The unique identifier for the assignment.
-    ID int `json:"id"`
-    // IncludeInFinalGrade field: If false, the assignment will be omitted from the student's final grade
-    IncludeInFinalGrade bool `json:"include_in_final_grade"`
-    // IntegrationData field: (optional, Third Party integration data for assignment)
-    IntegrationData string `json:"integration_data"`
-    // IntegrationID field: Third Party integration id for assignment
-    IntegrationID string `json:"integration_id"`
-    // LockAt field: (Optional) Time at which this was/will be locked.
-    LockAt time.Time `json:"lock_at"`
-    // Name field: the name of the assignment
-    Name string `json:"name"`
-    // PointsPossible field: The maximum points possible for the assignment
-    PointsPossible int `json:"points_possible"`
-    // Sections field: Includes attributes of a section for convenience. For more details see Sections API.
-    Sections []SectionAttributes `json:"sections"`
-    // SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
-    // following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
-    // 'online_url', 'online_upload' 'media_recording'
-    SubmissionTypes *SisAssignmentSubmissionTypes `json:"submission_types"`
-    // UnlockAt field: (Optional) Time at which this was/will be unlocked.
-    UnlockAt time.Time `json:"unlock_at"`
-    // UserOverrides field: Includes attributes of a user assignment overrides. For more details see Assignments API.
-    UserOverrides []UserAssignmentOverrideAttributes `json:"user_overrides"`
+	// AssignmentGroup field: Includes attributes of a assignment_group for convenience. For more details see
+	// Assignments API.
+	AssignmentGroup []AssignmentGroupAttributes `json:"assignment_group"`
+	// CourseID field: The unique identifier for the course.
+	CourseID int `json:"course_id"`
+	// CreatedAt field: The time at which this assignment was originally created
+	CreatedAt time.Time `json:"created_at"`
+	// DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
+	// assignment overrides, this field will be the due date as it applies to the user requesting information from the
+	// API.
+	DueAt time.Time `json:"due_at"`
+	// ID field: The unique identifier for the assignment.
+	ID int `json:"id"`
+	// IncludeInFinalGrade field: If false, the assignment will be omitted from the student's final grade
+	IncludeInFinalGrade bool `json:"include_in_final_grade"`
+	// IntegrationData field: (optional, Third Party integration data for assignment)
+	IntegrationData string `json:"integration_data"`
+	// IntegrationID field: Third Party integration id for assignment
+	IntegrationID string `json:"integration_id"`
+	// LockAt field: (Optional) Time at which this was/will be locked.
+	LockAt time.Time `json:"lock_at"`
+	// Name field: the name of the assignment
+	Name string `json:"name"`
+	// PointsPossible field: The maximum points possible for the assignment
+	PointsPossible int `json:"points_possible"`
+	// Sections field: Includes attributes of a section for convenience. For more details see Sections API.
+	Sections []SectionAttributes `json:"sections"`
+	// SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
+	// following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
+	// 'online_url', 'online_upload' 'media_recording'
+	SubmissionTypes *SisAssignmentSubmissionTypes `json:"submission_types"`
+	// UnlockAt field: (Optional) Time at which this was/will be unlocked.
+	UnlockAt time.Time `json:"unlock_at"`
+	// UserOverrides field: Includes attributes of a user assignment overrides. For more details see Assignments API.
+	UserOverrides []UserAssignmentOverrideAttributes `json:"user_overrides"`
 }
 
 // AssignmentGroupAttributes model object: Some of the attributes of an Assignment Group. See Assignments API for more
 // details
 type AssignmentGroupAttributes struct {
-    // GroupWeight field: the weight of the Assignment Group
-    GroupWeight int `json:"group_weight"`
-    // ID field: the id of the Assignment Group
-    ID int `json:"id"`
-    // IntegrationData field: the integration data of the Assignment Group
-    IntegrationData map[interface{}]interface{} `json:"integration_data"`
-    // Name field: the name of the Assignment Group
-    Name string `json:"name"`
-    // SisSourceID field: the sis source id of the Assignment Group
-    SisSourceID string `json:"sis_source_id"`
+	// GroupWeight field: the weight of the Assignment Group
+	GroupWeight int `json:"group_weight"`
+	// ID field: the id of the Assignment Group
+	ID int `json:"id"`
+	// IntegrationData field: the integration data of the Assignment Group
+	IntegrationData map[interface{}]interface{} `json:"integration_data"`
+	// Name field: the name of the Assignment Group
+	Name string `json:"name"`
+	// SisSourceID field: the sis source id of the Assignment Group
+	SisSourceID string `json:"sis_source_id"`
 }
 
 // SectionAttributes model object: Some of the attributes of a section. For more details see Sections API.
 type SectionAttributes struct {
-    // ID field: The unique identifier for the section.
-    ID int `json:"id"`
-    // IntegrationID field: Optional: The integration ID of the section.
-    IntegrationID string `json:"integration_id"`
-    // Name field: The name of the section.
-    Name string `json:"name"`
-    // OriginCourse field: The course to which the section belongs or the course from which the section was cross-listed
-    OriginCourse *CourseAttributes `json:"origin_course"`
-    // Override field: Optional: Attributes of the assignment override that apply to the section. See Assignment API for
-    // more details
-    Override *SectionAssignmentOverrideAttributes `json:"override"`
-    // SisID field: The sis id of the section.
-    SisID string `json:"sis_id"`
-    // XlistCourse field: Optional: Attributes of the xlist course. Only present when the section has been cross-listed.
-    // See Courses API for more details
-    XlistCourse *CourseAttributes `json:"xlist_course"`
+	// ID field: The unique identifier for the section.
+	ID int `json:"id"`
+	// IntegrationID field: Optional: The integration ID of the section.
+	IntegrationID string `json:"integration_id"`
+	// Name field: The name of the section.
+	Name string `json:"name"`
+	// OriginCourse field: The course to which the section belongs or the course from which the section was cross-listed
+	OriginCourse *CourseAttributes `json:"origin_course"`
+	// Override field: Optional: Attributes of the assignment override that apply to the section. See Assignment API for
+	// more details
+	Override *SectionAssignmentOverrideAttributes `json:"override"`
+	// SisID field: The sis id of the section.
+	SisID string `json:"sis_id"`
+	// XlistCourse field: Optional: Attributes of the xlist course. Only present when the section has been cross-listed.
+	// See Courses API for more details
+	XlistCourse *CourseAttributes `json:"xlist_course"`
 }
 
 // CourseAttributes model object: Attributes of a course object.  See Courses API for more details
 type CourseAttributes struct {
-    // ID field: The unique Canvas identifier for the origin course
-    ID int `json:"id"`
-    // IntegrationID field: The integration ID of the origin_course.
-    IntegrationID string `json:"integration_id"`
-    // Name field: The name of the origin course.
-    Name string `json:"name"`
-    // SisID field: The sis id of the origin_course.
-    SisID string `json:"sis_id"`
+	// ID field: The unique Canvas identifier for the origin course
+	ID int `json:"id"`
+	// IntegrationID field: The integration ID of the origin_course.
+	IntegrationID string `json:"integration_id"`
+	// Name field: The name of the origin course.
+	Name string `json:"name"`
+	// SisID field: The sis id of the origin_course.
+	SisID string `json:"sis_id"`
 }
 
 // SectionAssignmentOverrideAttributes model object: Attributes of an assignment override that apply to the section
 // object.  See Assignments API for more details
 type SectionAssignmentOverrideAttributes struct {
-    // DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
-    // assignment overrides, this field will be the due date as it applies to the user requesting information from the
-    // API.
-    DueAt time.Time `json:"due_at"`
-    // LockAt field: (Optional) Time at which this was/will be locked.
-    LockAt time.Time `json:"lock_at"`
-    // OverrideTitle field: The title for the assignment override
-    OverrideTitle string `json:"override_title"`
-    // UnlockAt field: (Optional) Time at which this was/will be unlocked.
-    UnlockAt time.Time `json:"unlock_at"`
+	// DueAt field: the due date for the assignment. returns null if not present. NOTE: If this assignment has
+	// assignment overrides, this field will be the due date as it applies to the user requesting information from the
+	// API.
+	DueAt time.Time `json:"due_at"`
+	// LockAt field: (Optional) Time at which this was/will be locked.
+	LockAt time.Time `json:"lock_at"`
+	// OverrideTitle field: The title for the assignment override
+	OverrideTitle string `json:"override_title"`
+	// UnlockAt field: (Optional) Time at which this was/will be unlocked.
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // UserAssignmentOverrideAttributes model object: Attributes of assignment overrides that apply to users.  See
 // Assignments API for more details
 type UserAssignmentOverrideAttributes struct {
-    // DueAt field: The time at which this assignment is due
-    DueAt time.Time `json:"due_at"`
-    // ID field: The unique Canvas identifier for the assignment override
-    ID int `json:"id"`
-    // LockAt field: (Optional) Time at which this was/will be locked.
-    LockAt time.Time `json:"lock_at"`
-    // Students field: Includes attributes of a student for convenience. For more details see Users API.
-    Students []StudentAttributes `json:"students"`
-    // Title field: The title of the assignment override.
-    Title string `json:"title"`
-    // UnlockAt field: (Optional) Time at which this was/will be unlocked.
-    UnlockAt time.Time `json:"unlock_at"`
+	// DueAt field: The time at which this assignment is due
+	DueAt time.Time `json:"due_at"`
+	// ID field: The unique Canvas identifier for the assignment override
+	ID int `json:"id"`
+	// LockAt field: (Optional) Time at which this was/will be locked.
+	LockAt time.Time `json:"lock_at"`
+	// Students field: Includes attributes of a student for convenience. For more details see Users API.
+	Students []StudentAttributes `json:"students"`
+	// Title field: The title of the assignment override.
+	Title string `json:"title"`
+	// UnlockAt field: (Optional) Time at which this was/will be unlocked.
+	UnlockAt time.Time `json:"unlock_at"`
 }
 
 // StudentAttributes model object: Attributes of student.  See Users API for more details
 type StudentAttributes struct {
-    // SisUserID field: The SIS ID associated with the user.  This field is only included if the user came from a SIS
-    // import and has permissions to view SIS information.
-    SisUserID string `json:"sis_user_id"`
-    // UserID field: The unique Canvas identifier for the user
-    UserID int `json:"user_id"`
+	// SisUserID field: The SIS ID associated with the user.  This field is only included if the user came from a SIS
+	// import and has permissions to view SIS information.
+	SisUserID string `json:"sis_user_id"`
+	// UserID field: The unique Canvas identifier for the user
+	UserID int `json:"user_id"`
 }
 
 // SisImportError model object
 type SisImportError struct {
-    // File field: The file where the error message occurred.
-    File string `json:"file"`
-    // Message field: The error message that from the record.
-    Message string `json:"message"`
-    // Row field: The line number where the error occurred. Some Importers do not yet support this. This is a 1 based
-    // index starting with the header row.
-    Row int `json:"row"`
-    // RowInfo field: The contents of the line that had the error.
-    RowInfo string `json:"row_info"`
-    // SisImportID field: The unique identifier for the SIS import.
-    SisImportID int `json:"sis_import_id"`
+	// File field: The file where the error message occurred.
+	File string `json:"file"`
+	// Message field: The error message that from the record.
+	Message string `json:"message"`
+	// Row field: The line number where the error occurred. Some Importers do not yet support this. This is a 1 based
+	// index starting with the header row.
+	Row int `json:"row"`
+	// RowInfo field: The contents of the line that had the error.
+	RowInfo string `json:"row_info"`
+	// SisImportID field: The unique identifier for the SIS import.
+	SisImportID int `json:"sis_import_id"`
 }
 
 // SisImportData model object
 type SisImportData struct {
-    // Counts field: The number of rows processed for each type of import
-    Counts *SisImportCounts `json:"counts"`
-    // ImportType field: The type of SIS import
-    ImportType string `json:"import_type"`
-    // SuppliedBatches field: Which files were included in the SIS import
-    SuppliedBatches []string `json:"supplied_batches"`
+	// Counts field: The number of rows processed for each type of import
+	Counts *SisImportCounts `json:"counts"`
+	// ImportType field: The type of SIS import
+	ImportType string `json:"import_type"`
+	// SuppliedBatches field: Which files were included in the SIS import
+	SuppliedBatches []string `json:"supplied_batches"`
 }
 
 // SisImportStatistic model object
 type SisImportStatistic struct {
-    // Concluded field: This is the number of items that marked as completed. This only applies to courses and
-    // enrollments.
-    Concluded int `json:"concluded"`
-    // Created field: This is the number of items that were created.
-    Created int `json:"created"`
-    // Deactivated field: This is the number of Enrollments that were marked as 'inactive'. This only applies to
-    // enrollments.
-    Deactivated int `json:"deactivated"`
-    // Deleted field: This is the number of items that were deleted.
-    Deleted int `json:"deleted"`
-    // Restored field: This is the number of items that were set to an active state from a completed, inactive, or
-    // deleted state.
-    Restored int `json:"restored"`
+	// Concluded field: This is the number of items that marked as completed. This only applies to courses and
+	// enrollments.
+	Concluded int `json:"concluded"`
+	// Created field: This is the number of items that were created.
+	Created int `json:"created"`
+	// Deactivated field: This is the number of Enrollments that were marked as 'inactive'. This only applies to
+	// enrollments.
+	Deactivated int `json:"deactivated"`
+	// Deleted field: This is the number of items that were deleted.
+	Deleted int `json:"deleted"`
+	// Restored field: This is the number of items that were set to an active state from a completed, inactive, or
+	// deleted state.
+	Restored int `json:"restored"`
 }
 
 // SisImportStatistics model object
 type SisImportStatistics struct {
-    // AbstractCourse field: This contains that statistics for abstract courses.
-    AbstractCourse *SisImportStatistic `json:"AbstractCourse"`
-    // Account field: This contains that statistics for accounts.
-    Account *SisImportStatistic `json:"Account"`
-    // AccountUser field: This contains that statistics for account users.
-    AccountUser *SisImportStatistic `json:"AccountUser"`
-    // CommunicationChannel field: This contains that statistics for communication channels. This is an indirect effect
-    // from creating or deleting a user.
-    CommunicationChannel *SisImportStatistic `json:"CommunicationChannel"`
-    // Course field: This contains that statistics for courses.
-    Course *SisImportStatistic `json:"Course"`
-    // CourseSection field: This contains that statistics for course sections.
-    CourseSection *SisImportStatistic `json:"CourseSection"`
-    // Enrollment field: This contains that statistics for enrollments.
-    Enrollment *SisImportStatistic `json:"Enrollment"`
-    // EnrollmentTerm field: This contains that statistics for terms.
-    EnrollmentTerm *SisImportStatistic `json:"EnrollmentTerm"`
-    // Group field: This contains that statistics for groups.
-    Group *SisImportStatistic `json:"Group"`
-    // GroupCategory field: This contains that statistics for group categories.
-    GroupCategory *SisImportStatistic `json:"GroupCategory"`
-    // GroupMembership field: This contains that statistics for group memberships. This can be a direct impact from the
-    // import or indirect from an enrollment being deleted.
-    GroupMembership *SisImportStatistic `json:"GroupMembership"`
-    // Pseudonym field: This contains that statistics for pseudonyms. Pseudonyms are logins for users, and are the
-    // object that ties an enrollment to a user. This would be impacted from the user importer. 
-    Pseudonym *SisImportStatistic `json:"Pseudonym"`
-    // UserObserver field: This contains that statistics for user observers.
-    UserObserver *SisImportStatistic `json:"UserObserver"`
-    // TotalStateChanges field: This is the total number of items that were changed in the sis import. There are a few
-    // caveats that can cause this number to not add up to the individual counts. There are some state changes that
-    // happen that have no impact to the object. An example would be changing a course from 'created' to 'claimed'. Both
-    // of these would be considered an active course, but would increment this counter. In this example the course would
-    // not increment the created or restored counters for course statistic.
-    TotalStateChanges int `json:"total_state_changes"`
+	// AbstractCourse field: This contains that statistics for abstract courses.
+	AbstractCourse *SisImportStatistic `json:"AbstractCourse"`
+	// Account field: This contains that statistics for accounts.
+	Account *SisImportStatistic `json:"Account"`
+	// AccountUser field: This contains that statistics for account users.
+	AccountUser *SisImportStatistic `json:"AccountUser"`
+	// CommunicationChannel field: This contains that statistics for communication channels. This is an indirect effect
+	// from creating or deleting a user.
+	CommunicationChannel *SisImportStatistic `json:"CommunicationChannel"`
+	// Course field: This contains that statistics for courses.
+	Course *SisImportStatistic `json:"Course"`
+	// CourseSection field: This contains that statistics for course sections.
+	CourseSection *SisImportStatistic `json:"CourseSection"`
+	// Enrollment field: This contains that statistics for enrollments.
+	Enrollment *SisImportStatistic `json:"Enrollment"`
+	// EnrollmentTerm field: This contains that statistics for terms.
+	EnrollmentTerm *SisImportStatistic `json:"EnrollmentTerm"`
+	// Group field: This contains that statistics for groups.
+	Group *SisImportStatistic `json:"Group"`
+	// GroupCategory field: This contains that statistics for group categories.
+	GroupCategory *SisImportStatistic `json:"GroupCategory"`
+	// GroupMembership field: This contains that statistics for group memberships. This can be a direct impact from the
+	// import or indirect from an enrollment being deleted.
+	GroupMembership *SisImportStatistic `json:"GroupMembership"`
+	// Pseudonym field: This contains that statistics for pseudonyms. Pseudonyms are logins for users, and are the
+	// object that ties an enrollment to a user. This would be impacted from the user importer.
+	Pseudonym *SisImportStatistic `json:"Pseudonym"`
+	// UserObserver field: This contains that statistics for user observers.
+	UserObserver *SisImportStatistic `json:"UserObserver"`
+	// TotalStateChanges field: This is the total number of items that were changed in the sis import. There are a few
+	// caveats that can cause this number to not add up to the individual counts. There are some state changes that
+	// happen that have no impact to the object. An example would be changing a course from 'created' to 'claimed'. Both
+	// of these would be considered an active course, but would increment this counter. In this example the course would
+	// not increment the created or restored counters for course statistic.
+	TotalStateChanges int `json:"total_state_changes"`
 }
 
 // SisImportCounts model object
 type SisImportCounts struct {
-    // AbstractCourses field
-    AbstractCourses int `json:"abstract_courses"`
-    // Accounts field
-    Accounts int `json:"accounts"`
-    // BatchCoursesDeleted field: the number of courses that were removed because they were not included in the batch
-    // for batch_mode imports. Only included if courses were deleted
-    BatchCoursesDeleted int `json:"batch_courses_deleted"`
-    // BatchEnrollmentsDeleted field: the number of enrollments that were removed because they were not included in the
-    // batch for batch_mode imports. Only included if enrollments were deleted
-    BatchEnrollmentsDeleted int `json:"batch_enrollments_deleted"`
-    // BatchSectionsDeleted field: the number of sections that were removed because they were not included in the batch
-    // for batch_mode imports. Only included if sections were deleted
-    BatchSectionsDeleted int `json:"batch_sections_deleted"`
-    // Courses field
-    Courses int `json:"courses"`
-    // Enrollments field
-    Enrollments int `json:"enrollments"`
-    // ErrorCount field
-    ErrorCount int `json:"error_count"`
-    // GradePublishingResults field
-    GradePublishingResults int `json:"grade_publishing_results"`
-    // GroupMemberships field
-    GroupMemberships int `json:"group_memberships"`
-    // Groups field
-    Groups int `json:"groups"`
-    // Sections field
-    Sections int `json:"sections"`
-    // Terms field
-    Terms int `json:"terms"`
-    // Users field
-    Users int `json:"users"`
-    // WarningCount field
-    WarningCount int `json:"warning_count"`
-    // Xlists field
-    Xlists int `json:"xlists"`
+	// AbstractCourses field
+	AbstractCourses int `json:"abstract_courses"`
+	// Accounts field
+	Accounts int `json:"accounts"`
+	// BatchCoursesDeleted field: the number of courses that were removed because they were not included in the batch
+	// for batch_mode imports. Only included if courses were deleted
+	BatchCoursesDeleted int `json:"batch_courses_deleted"`
+	// BatchEnrollmentsDeleted field: the number of enrollments that were removed because they were not included in the
+	// batch for batch_mode imports. Only included if enrollments were deleted
+	BatchEnrollmentsDeleted int `json:"batch_enrollments_deleted"`
+	// BatchSectionsDeleted field: the number of sections that were removed because they were not included in the batch
+	// for batch_mode imports. Only included if sections were deleted
+	BatchSectionsDeleted int `json:"batch_sections_deleted"`
+	// Courses field
+	Courses int `json:"courses"`
+	// Enrollments field
+	Enrollments int `json:"enrollments"`
+	// ErrorCount field
+	ErrorCount int `json:"error_count"`
+	// GradePublishingResults field
+	GradePublishingResults int `json:"grade_publishing_results"`
+	// GroupMemberships field
+	GroupMemberships int `json:"group_memberships"`
+	// Groups field
+	Groups int `json:"groups"`
+	// Sections field
+	Sections int `json:"sections"`
+	// Terms field
+	Terms int `json:"terms"`
+	// Users field
+	Users int `json:"users"`
+	// WarningCount field
+	WarningCount int `json:"warning_count"`
+	// Xlists field
+	Xlists int `json:"xlists"`
 }
 
 // SisImport model object
 type SisImport struct {
-    // AddSisStickiness field: Whether stickiness was added to the batch changes.
-    AddSisStickiness bool `json:"add_sis_stickiness"`
-    // BatchMode field: Whether the import was run in batch mode.
-    BatchMode bool `json:"batch_mode"`
-    // BatchModeTermID field: The term the batch was limited to.
-    BatchModeTermID string `json:"batch_mode_term_id"`
-    // ClearSisStickiness field: Whether stickiness was cleared.
-    ClearSisStickiness bool `json:"clear_sis_stickiness"`
-    // CreatedAt field: The date the SIS import was created.
-    CreatedAt time.Time `json:"created_at"`
-    // CsvAttachments field: An array of CSV files for processing
-    CsvAttachments [][]File `json:"csv_attachments"`
-    // Data field: data
-    Data *SisImportData `json:"data"`
-    // DiffedAgainstImportID field: The ID of the SIS Import that this import was diffed against
-    DiffedAgainstImportID int `json:"diffed_against_import_id"`
-    // DiffingDataSetIdentifier field: The identifier of the data set that this SIS batch diffs against
-    DiffingDataSetIdentifier string `json:"diffing_data_set_identifier"`
-    // EndedAt field: The date the SIS import finished. Returns null if not finished.
-    EndedAt time.Time `json:"ended_at"`
-    // ErrorsAttachment field: The errors_attachment api object of the SIS import. Only available if there are errors or
-    // warning and import has completed.
-    ErrorsAttachment *File `json:"errors_attachment"`
-    // ID field: The unique identifier for the SIS import.
-    ID int `json:"id"`
-    // MultiTermBatchMode field: Enables batch mode against all terms in term file. Requires change_threshold to be set.
-    MultiTermBatchMode bool `json:"multi_term_batch_mode"`
-    // OverrideSisStickiness field: Whether UI changes were overridden.
-    OverrideSisStickiness bool `json:"override_sis_stickiness"`
-    // ProcessingErrors field: An array of CSV_file/error_message pairs.
-    ProcessingErrors [][]string `json:"processing_errors"`
-    // ProcessingWarnings field: Only imports that are complete will get this data. An array of CSV_file/warning_message
-    // pairs.
-    ProcessingWarnings [][]string `json:"processing_warnings"`
-    // Progress field: The progress of the SIS import. The progress will reset when using batch_mode and have a
-    // different progress for the cleanup stage
-    Progress string `json:"progress"`
-    // SkipDeletes field: When set the import will skip any deletes.
-    SkipDeletes bool `json:"skip_deletes"`
-    // Statistics field: statistics
-    Statistics *SisImportStatistics `json:"statistics"`
-    // UpdatedAt field: The date the SIS import was last updated.
-    UpdatedAt time.Time `json:"updated_at"`
-    // User field: The user that initiated the sis_batch. See the Users API for details.
-    User *User `json:"user"`
-    // WorkflowState field: The current state of the SIS import.
-    //  'initializing': The SIS import is being created, if this gets stuck in initializing, it will not import and will
-    // continue on to next import.
-    //  'created': The SIS import has been created.
-    //  'importing': The SIS import is currently processing.
-    //  'cleanup_batch': The SIS import is currently cleaning up courses, sections, and enrollments not included in the
-    // batch for batch_mode imports.
-    //  'imported': The SIS import has completed successfully.
-    //  'imported_with_messages': The SIS import completed with errors or warnings.
-    //  'aborted': The SIS import was aborted.
-    //  'failed_with_messages': The SIS import failed with errors.
-    //  'failed': The SIS import failed.
-    //  'restoring': The SIS import is restoring states of imported items.
-    //  'partially_restored': The SIS import is restored some of the states of imported items. This is generally due to
-    // passing a param like undelete only.
-    //  'restored': The SIS import is restored all of the states of imported items.
-    WorkflowState *SisImportWorkflowState `json:"workflow_state"`
+	// AddSisStickiness field: Whether stickiness was added to the batch changes.
+	AddSisStickiness bool `json:"add_sis_stickiness"`
+	// BatchMode field: Whether the import was run in batch mode.
+	BatchMode bool `json:"batch_mode"`
+	// BatchModeTermID field: The term the batch was limited to.
+	BatchModeTermID string `json:"batch_mode_term_id"`
+	// ClearSisStickiness field: Whether stickiness was cleared.
+	ClearSisStickiness bool `json:"clear_sis_stickiness"`
+	// CreatedAt field: The date the SIS import was created.
+	CreatedAt time.Time `json:"created_at"`
+	// CsvAttachments field: An array of CSV files for processing
+	CsvAttachments [][]File `json:"csv_attachments"`
+	// Data field: data
+	Data *SisImportData `json:"data"`
+	// DiffedAgainstImportID field: The ID of the SIS Import that this import was diffed against
+	DiffedAgainstImportID int `json:"diffed_against_import_id"`
+	// DiffingDataSetIdentifier field: The identifier of the data set that this SIS batch diffs against
+	DiffingDataSetIdentifier string `json:"diffing_data_set_identifier"`
+	// EndedAt field: The date the SIS import finished. Returns null if not finished.
+	EndedAt time.Time `json:"ended_at"`
+	// ErrorsAttachment field: The errors_attachment api object of the SIS import. Only available if there are errors or
+	// warning and import has completed.
+	ErrorsAttachment *File `json:"errors_attachment"`
+	// ID field: The unique identifier for the SIS import.
+	ID int `json:"id"`
+	// MultiTermBatchMode field: Enables batch mode against all terms in term file. Requires change_threshold to be set.
+	MultiTermBatchMode bool `json:"multi_term_batch_mode"`
+	// OverrideSisStickiness field: Whether UI changes were overridden.
+	OverrideSisStickiness bool `json:"override_sis_stickiness"`
+	// ProcessingErrors field: An array of CSV_file/error_message pairs.
+	ProcessingErrors [][]string `json:"processing_errors"`
+	// ProcessingWarnings field: Only imports that are complete will get this data. An array of CSV_file/warning_message
+	// pairs.
+	ProcessingWarnings [][]string `json:"processing_warnings"`
+	// Progress field: The progress of the SIS import. The progress will reset when using batch_mode and have a
+	// different progress for the cleanup stage
+	Progress string `json:"progress"`
+	// SkipDeletes field: When set the import will skip any deletes.
+	SkipDeletes bool `json:"skip_deletes"`
+	// Statistics field: statistics
+	Statistics *SisImportStatistics `json:"statistics"`
+	// UpdatedAt field: The date the SIS import was last updated.
+	UpdatedAt time.Time `json:"updated_at"`
+	// User field: The user that initiated the sis_batch. See the Users API for details.
+	User *User `json:"user"`
+	// WorkflowState field: The current state of the SIS import.
+	//  'initializing': The SIS import is being created, if this gets stuck in initializing, it will not import and will
+	// continue on to next import.
+	//  'created': The SIS import has been created.
+	//  'importing': The SIS import is currently processing.
+	//  'cleanup_batch': The SIS import is currently cleaning up courses, sections, and enrollments not included in the
+	// batch for batch_mode imports.
+	//  'imported': The SIS import has completed successfully.
+	//  'imported_with_messages': The SIS import completed with errors or warnings.
+	//  'aborted': The SIS import was aborted.
+	//  'failed_with_messages': The SIS import failed with errors.
+	//  'failed': The SIS import failed.
+	//  'restoring': The SIS import is restoring states of imported items.
+	//  'partially_restored': The SIS import is restored some of the states of imported items. This is generally due to
+	// passing a param like undelete only.
+	//  'restored': The SIS import is restored all of the states of imported items.
+	WorkflowState *SisImportWorkflowState `json:"workflow_state"`
 }
 
 // Submission model object
 type Submission struct {
-    // AnonymousID field: A unique short ID identifying this submission without reference to the owning user. Only
-    // included if the caller has administrator access for the current account.
-    AnonymousID string `json:"anonymous_id"`
-    // Assignment field: The submission's assignment (see the assignments API) (optional)
-    Assignment *Assignment `json:"assignment"`
-    // AssignmentID field: The submission's assignment id
-    AssignmentID int `json:"assignment_id"`
-    // AssignmentVisible field: Whether the assignment is visible to the user who submitted the assignment. Submissions
-    // where `assignment_visible` is false no longer count towards the student's grade and the assignment can no longer
-    // be accessed by the student. `assignment_visible` becomes false for submissions that do not have a grade and whose
-    // assignment is no longer assigned to the student's section.
-    AssignmentVisible bool `json:"assignment_visible"`
-    // Attempt field: This is the submission attempt number.
-    Attempt int `json:"attempt"`
-    // Body field: The content of the submission, if it was submitted directly in a text field.
-    Body string `json:"body"`
-    // Course field: The submission's course (see the course API) (optional)
-    Course *Course `json:"course"`
-    // Excused field: Whether the assignment is excused.  Excused assignments have no impact on a user's grade.
-    Excused bool `json:"excused"`
-    // ExtraAttempts field: Extra submission attempts allowed for the given user and assignment.
-    ExtraAttempts float64 `json:"extra_attempts"`
-    // Grade field: The grade for the submission, translated into the assignment grading scheme (so a letter grade, for
-    // example).
-    Grade string `json:"grade"`
-    // GradeMatchesCurrentSubmission field: A boolean flag which is false if the student has re-submitted since the
-    // submission was last graded.
-    GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
-    // GradedAt field
-    GradedAt time.Time `json:"graded_at"`
-    // GraderID field: The id of the user who graded the submission. This will be null for submissions that haven't been
-    // graded yet. It will be a positive number if a real user has graded the submission and a negative number if the
-    // submission was graded by a process (e.g. Quiz autograder and autograding LTI tools).  Specifically autograded
-    // quizzes set grader_id to the negative of the quiz id.  Submissions autograded by LTI tools set grader_id to the
-    // negative of the tool id.
-    GraderID int `json:"grader_id"`
-    // HTMLURL field: URL to the submission. This will require the user to log in.
-    HTMLURL string `json:"html_url"`
-    // Late field: Whether the submission was made after the applicable due date
-    Late bool `json:"late"`
-    // LatePolicyStatus field: The status of the submission in relation to the late policy. Can be late, missing, none,
-    // or null.
-    LatePolicyStatus string `json:"late_policy_status"`
-    // Missing field: Whether the assignment is missing.
-    Missing bool `json:"missing"`
-    // PointsDeducted field: The amount of points automatically deducted from the score by the missing/late policy for a
-    // late or missing assignment.
-    PointsDeducted float64 `json:"points_deducted"`
-    // PostedAt field: The date this submission was posted to the student, or nil if it has not been posted.
-    PostedAt time.Time `json:"posted_at"`
-    // PreviewURL field: URL to the submission preview. This will require the user to log in.
-    PreviewURL string `json:"preview_url"`
-    // Score field: The raw score
-    Score float64 `json:"score"`
-    // SecondsLate field: The amount of time, in seconds, that an submission is late by.
-    SecondsLate float64 `json:"seconds_late"`
-    // SubmissionComments field: Associated comments for a submission (optional)
-    SubmissionComments []SubmissionComment `json:"submission_comments"`
-    // SubmissionType field: The types of submission ex:
-    // ('online_text_entry'|'online_url'|'online_upload'|'media_recording')
-    SubmissionType *SubmissionSubmissionType `json:"submission_type"`
-    // SubmittedAt field: The timestamp when the assignment was submitted
-    SubmittedAt time.Time `json:"submitted_at"`
-    // URL field: The URL of the submission (for 'online_url' submissions).
-    URL string `json:"url"`
-    // User field: The submissions user (see user API) (optional)
-    User *User `json:"user"`
-    // UserID field: The id of the user who created the submission
-    UserID int `json:"user_id"`
-    // WorkflowState field: The current state of the submission
-    WorkflowState *SubmissionWorkflowState `json:"workflow_state"`
+	// AnonymousID field: A unique short ID identifying this submission without reference to the owning user. Only
+	// included if the caller has administrator access for the current account.
+	AnonymousID string `json:"anonymous_id"`
+	// Assignment field: The submission's assignment (see the assignments API) (optional)
+	Assignment *Assignment `json:"assignment"`
+	// AssignmentID field: The submission's assignment id
+	AssignmentID int `json:"assignment_id"`
+	// AssignmentVisible field: Whether the assignment is visible to the user who submitted the assignment. Submissions
+	// where `assignment_visible` is false no longer count towards the student's grade and the assignment can no longer
+	// be accessed by the student. `assignment_visible` becomes false for submissions that do not have a grade and whose
+	// assignment is no longer assigned to the student's section.
+	AssignmentVisible bool `json:"assignment_visible"`
+	// Attempt field: This is the submission attempt number.
+	Attempt int `json:"attempt"`
+	// Body field: The content of the submission, if it was submitted directly in a text field.
+	Body string `json:"body"`
+	// Course field: The submission's course (see the course API) (optional)
+	Course *Course `json:"course"`
+	// Excused field: Whether the assignment is excused.  Excused assignments have no impact on a user's grade.
+	Excused bool `json:"excused"`
+	// ExtraAttempts field: Extra submission attempts allowed for the given user and assignment.
+	ExtraAttempts float64 `json:"extra_attempts"`
+	// Grade field: The grade for the submission, translated into the assignment grading scheme (so a letter grade, for
+	// example).
+	Grade string `json:"grade"`
+	// GradeMatchesCurrentSubmission field: A boolean flag which is false if the student has re-submitted since the
+	// submission was last graded.
+	GradeMatchesCurrentSubmission bool `json:"grade_matches_current_submission"`
+	// GradedAt field
+	GradedAt time.Time `json:"graded_at"`
+	// GraderID field: The id of the user who graded the submission. This will be null for submissions that haven't been
+	// graded yet. It will be a positive number if a real user has graded the submission and a negative number if the
+	// submission was graded by a process (e.g. Quiz autograder and autograding LTI tools).  Specifically autograded
+	// quizzes set grader_id to the negative of the quiz id.  Submissions autograded by LTI tools set grader_id to the
+	// negative of the tool id.
+	GraderID int `json:"grader_id"`
+	// HTMLURL field: URL to the submission. This will require the user to log in.
+	HTMLURL string `json:"html_url"`
+	// Late field: Whether the submission was made after the applicable due date
+	Late bool `json:"late"`
+	// LatePolicyStatus field: The status of the submission in relation to the late policy. Can be late, missing, none,
+	// or null.
+	LatePolicyStatus string `json:"late_policy_status"`
+	// Missing field: Whether the assignment is missing.
+	Missing bool `json:"missing"`
+	// PointsDeducted field: The amount of points automatically deducted from the score by the missing/late policy for a
+	// late or missing assignment.
+	PointsDeducted float64 `json:"points_deducted"`
+	// PostedAt field: The date this submission was posted to the student, or nil if it has not been posted.
+	PostedAt time.Time `json:"posted_at"`
+	// PreviewURL field: URL to the submission preview. This will require the user to log in.
+	PreviewURL string `json:"preview_url"`
+	// Score field: The raw score
+	Score float64 `json:"score"`
+	// SecondsLate field: The amount of time, in seconds, that an submission is late by.
+	SecondsLate float64 `json:"seconds_late"`
+	// SubmissionComments field: Associated comments for a submission (optional)
+	SubmissionComments []SubmissionComment `json:"submission_comments"`
+	// SubmissionType field: The types of submission ex:
+	// ('online_text_entry'|'online_url'|'online_upload'|'media_recording')
+	SubmissionType *SubmissionSubmissionType `json:"submission_type"`
+	// SubmittedAt field: The timestamp when the assignment was submitted
+	SubmittedAt time.Time `json:"submitted_at"`
+	// URL field: The URL of the submission (for 'online_url' submissions).
+	URL string `json:"url"`
+	// User field: The submissions user (see user API) (optional)
+	User *User `json:"user"`
+	// UserID field: The id of the user who created the submission
+	UserID int `json:"user_id"`
+	// WorkflowState field: The current state of the submission
+	WorkflowState *SubmissionWorkflowState `json:"workflow_state"`
 }
 
 // MediaComment model object
 type MediaComment struct {
-    // ContentType field
-    ContentType string `json:"content-type"`
-    // DisplayName field
-    DisplayName string `json:"display_name"`
-    // MediaID field
-    MediaID string `json:"media_id"`
-    // MediaType field
-    MediaType string `json:"media_type"`
-    // URL field
-    URL string `json:"url"`
+	// ContentType field
+	ContentType string `json:"content-type"`
+	// DisplayName field
+	DisplayName string `json:"display_name"`
+	// MediaID field
+	MediaID string `json:"media_id"`
+	// MediaType field
+	MediaType string `json:"media_type"`
+	// URL field
+	URL string `json:"url"`
 }
 
 // SubmissionComment model object
 type SubmissionComment struct {
-    // Author field: Abbreviated user object UserDisplay (see users API).
-    Author string `json:"author"`
-    // AuthorID field
-    AuthorID int `json:"author_id"`
-    // AuthorName field
-    AuthorName string `json:"author_name"`
-    // Comment field
-    Comment string `json:"comment"`
-    // CreatedAt field
-    CreatedAt time.Time `json:"created_at"`
-    // EditedAt field
-    EditedAt time.Time `json:"edited_at"`
-    // ID field
-    ID int `json:"id"`
-    // MediaComment field
-    MediaComment *MediaComment `json:"media_comment"`
+	// Author field: Abbreviated user object UserDisplay (see users API).
+	Author string `json:"author"`
+	// AuthorID field
+	AuthorID int `json:"author_id"`
+	// AuthorName field
+	AuthorName string `json:"author_name"`
+	// Comment field
+	Comment string `json:"comment"`
+	// CreatedAt field
+	CreatedAt time.Time `json:"created_at"`
+	// EditedAt field
+	EditedAt time.Time `json:"edited_at"`
+	// ID field
+	ID int `json:"id"`
+	// MediaComment field
+	MediaComment *MediaComment `json:"media_comment"`
 }
 
 // Tab model object
 type Tab struct {
-    // Hidden field: only included if true
-    Hidden bool `json:"hidden"`
-    // HTMLURL field
-    HTMLURL string `json:"html_url"`
-    // ID field
-    ID string `json:"id"`
-    // Label field
-    Label string `json:"label"`
-    // Position field: 1 based
-    Position int `json:"position"`
-    // Type field
-    Type string `json:"type"`
-    // Visibility field: possible values are: public, members, admins, and none
-    Visibility string `json:"visibility"`
+	// Hidden field: only included if true
+	Hidden bool `json:"hidden"`
+	// HTMLURL field
+	HTMLURL string `json:"html_url"`
+	// ID field
+	ID string `json:"id"`
+	// Label field
+	Label string `json:"label"`
+	// Position field: 1 based
+	Position int `json:"position"`
+	// Type field
+	Type string `json:"type"`
+	// Visibility field: possible values are: public, members, admins, and none
+	Visibility string `json:"visibility"`
 }
 
 // EnrollmentTerm model object
 type EnrollmentTerm struct {
-    // EndAt field: The datetime of the end of the term.
-    EndAt time.Time `json:"end_at"`
-    // ID field: The unique identifier for the enrollment term.
-    ID int `json:"id"`
-    // Name field: The name of the term.
-    Name string `json:"name"`
-    // Overrides field: Term date overrides for specific enrollment types
-    Overrides map[interface{}]interface{} `json:"overrides"`
-    // SisImportID field: the unique identifier for the SIS import. This field is only included if the user has
-    // permission to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // SisTermID field: The SIS id of the term. Only included if the user has permission to view SIS information.
-    SisTermID string `json:"sis_term_id"`
-    // StartAt field: The datetime of the start of the term.
-    StartAt time.Time `json:"start_at"`
-    // WorkflowState field: The state of the term. Can be 'active' or 'deleted'.
-    WorkflowState string `json:"workflow_state"`
+	// EndAt field: The datetime of the end of the term.
+	EndAt time.Time `json:"end_at"`
+	// ID field: The unique identifier for the enrollment term.
+	ID int `json:"id"`
+	// Name field: The name of the term.
+	Name string `json:"name"`
+	// Overrides field: Term date overrides for specific enrollment types
+	Overrides map[interface{}]interface{} `json:"overrides"`
+	// SisImportID field: the unique identifier for the SIS import. This field is only included if the user has
+	// permission to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// SisTermID field: The SIS id of the term. Only included if the user has permission to view SIS information.
+	SisTermID string `json:"sis_term_id"`
+	// StartAt field: The datetime of the start of the term.
+	StartAt time.Time `json:"start_at"`
+	// WorkflowState field: The state of the term. Can be 'active' or 'deleted'.
+	WorkflowState string `json:"workflow_state"`
 }
 
 // EnrollmentTermsList model object
 type EnrollmentTermsList struct {
-    // EnrollmentTerms field: a paginated list of all terms in the account
-    EnrollmentTerms []EnrollmentTerm `json:"enrollment_terms"`
+	// EnrollmentTerms field: a paginated list of all terms in the account
+	EnrollmentTerms []EnrollmentTerm `json:"enrollment_terms"`
 }
 
 // UsageRights model object: Describes the copyright and license information for a File
 type UsageRights struct {
-    // FileIds field: List of ids of files that were updated
-    FileIds []int `json:"file_ids"`
-    // LegalCopyright field: Copyright line for the file
-    LegalCopyright string `json:"legal_copyright"`
-    // License field: License identifier for the file.
-    License string `json:"license"`
-    // LicenseName field: Readable license name
-    LicenseName string `json:"license_name"`
-    // Message field: Explanation of the action performed
-    Message string `json:"message"`
-    // UseJustification field: Justification for using the file in a Canvas course. Valid values are 'own_copyright',
-    // 'public_domain', 'used_by_permission', 'fair_use', 'creative_commons'
-    UseJustification string `json:"use_justification"`
+	// FileIds field: List of ids of files that were updated
+	FileIds []int `json:"file_ids"`
+	// LegalCopyright field: Copyright line for the file
+	LegalCopyright string `json:"legal_copyright"`
+	// License field: License identifier for the file.
+	License string `json:"license"`
+	// LicenseName field: Readable license name
+	LicenseName string `json:"license_name"`
+	// Message field: Explanation of the action performed
+	Message string `json:"message"`
+	// UseJustification field: Justification for using the file in a Canvas course. Valid values are 'own_copyright',
+	// 'public_domain', 'used_by_permission', 'fair_use', 'creative_commons'
+	UseJustification string `json:"use_justification"`
 }
 
 // License model object
 type License struct {
-    // ID field: a short string identifying the license
-    ID string `json:"id"`
-    // Name field: the name of the license
-    Name string `json:"name"`
-    // URL field: a link to the license text
-    URL string `json:"url"`
+	// ID field: a short string identifying the license
+	ID string `json:"id"`
+	// Name field: the name of the license
+	Name string `json:"name"`
+	// URL field: a link to the license text
+	URL string `json:"url"`
 }
 
 // UserDisplay model object: This mini-object is used for secondary user responses, when we just want to provide enough
 // information to display a user.
 type UserDisplay struct {
-    // AvatarImageURL field: If avatars are enabled, this field will be included and contain a url to retrieve the
-    // user's avatar.
-    AvatarImageURL string `json:"avatar_image_url"`
-    // HTMLURL field: URL to access user, either nested to a context or directly.
-    HTMLURL string `json:"html_url"`
-    // ID field: The ID of the user.
-    ID int `json:"id"`
-    // ShortName field: A short name the user has selected, for use in conversations or other less formal places through
-    // the site.
-    ShortName string `json:"short_name"`
+	// AvatarImageURL field: If avatars are enabled, this field will be included and contain a url to retrieve the
+	// user's avatar.
+	AvatarImageURL string `json:"avatar_image_url"`
+	// HTMLURL field: URL to access user, either nested to a context or directly.
+	HTMLURL string `json:"html_url"`
+	// ID field: The ID of the user.
+	ID int `json:"id"`
+	// ShortName field: A short name the user has selected, for use in conversations or other less formal places through
+	// the site.
+	ShortName string `json:"short_name"`
 }
 
 // AnonymousUserDisplay model object: This mini-object is returned in place of UserDisplay when returning student data
 // for anonymous assignments, and includes an anonymous ID to identify a user within the scope of a single assignment.
 type AnonymousUserDisplay struct {
-    // AnonymousID field: A unique short ID identifying this user within the scope of a particular assignment.
-    AnonymousID string `json:"anonymous_id"`
-    // AvatarImageURL field: A URL to retrieve a generic avatar.
-    AvatarImageURL string `json:"avatar_image_url"`
+	// AnonymousID field: A unique short ID identifying this user within the scope of a particular assignment.
+	AnonymousID string `json:"anonymous_id"`
+	// AvatarImageURL field: A URL to retrieve a generic avatar.
+	AvatarImageURL string `json:"avatar_image_url"`
 }
 
 // User model object: A Canvas user, e.g. a student, teacher, administrator, observer, etc.
 type User struct {
-    // AvatarURL field: If avatars are enabled, this field will be included and contain a url to retrieve the user's
-    // avatar.
-    AvatarURL string `json:"avatar_url"`
-    // Bio field: Optional: The user's bio.
-    Bio string `json:"bio"`
-    // Email field: Optional: This field can be requested with certain API calls, and will return the users primary
-    // email address.
-    Email string `json:"email"`
-    // Enrollments field: Optional: This field can be requested with certain API calls, and will return a list of the
-    // users active enrollments. See the List enrollments API for more details about the format of these records.
-    Enrollments []Enrollment `json:"enrollments"`
-    // ID field: The ID of the user.
-    ID int `json:"id"`
-    // IntegrationID field: The integration_id associated with the user.  This field is only included if the user came
-    // from a SIS import and has permissions to view SIS information.
-    IntegrationID string `json:"integration_id"`
-    // LastLogin field: Optional: This field is only returned in certain API calls, and will return a timestamp
-    // representing the last time the user logged in to canvas.
-    LastLogin string `json:"last_login"`
-    // Locale field: Optional: This field can be requested with certain API calls, and will return the users locale in
-    // RFC 5646 format.
-    Locale string `json:"locale"`
-    // LoginID field: The unique login id for the user.  This is what the user uses to log in to Canvas.
-    LoginID string `json:"login_id"`
-    // Name field: The name of the user.
-    Name string `json:"name"`
-    // ShortName field: A short name the user has selected, for use in conversations or other less formal places through
-    // the site.
-    ShortName string `json:"short_name"`
-    // SisImportID field: The id of the SIS import.  This field is only included if the user came from a SIS import and
-    // has permissions to manage SIS information.
-    SisImportID int `json:"sis_import_id"`
-    // SisUserID field: The SIS ID associated with the user.  This field is only included if the user came from a SIS
-    // import and has permissions to view SIS information.
-    SisUserID string `json:"sis_user_id"`
-    // SortableName field: The name of the user that is should be used for sorting groups of users, such as in the
-    // gradebook.
-    SortableName string `json:"sortable_name"`
-    // TimeZone field: Optional: This field is only returned in certain API calls, and will return the IANA time zone
-    // name of the user's preferred timezone.
-    TimeZone string `json:"time_zone"`
+	// AvatarURL field: If avatars are enabled, this field will be included and contain a url to retrieve the user's
+	// avatar.
+	AvatarURL string `json:"avatar_url"`
+	// Bio field: Optional: The user's bio.
+	Bio string `json:"bio"`
+	// Email field: Optional: This field can be requested with certain API calls, and will return the users primary
+	// email address.
+	Email string `json:"email"`
+	// Enrollments field: Optional: This field can be requested with certain API calls, and will return a list of the
+	// users active enrollments. See the List enrollments API for more details about the format of these records.
+	Enrollments []Enrollment `json:"enrollments"`
+	// ID field: The ID of the user.
+	ID int `json:"id"`
+	// IntegrationID field: The integration_id associated with the user.  This field is only included if the user came
+	// from a SIS import and has permissions to view SIS information.
+	IntegrationID string `json:"integration_id"`
+	// LastLogin field: Optional: This field is only returned in certain API calls, and will return a timestamp
+	// representing the last time the user logged in to canvas.
+	LastLogin string `json:"last_login"`
+	// Locale field: Optional: This field can be requested with certain API calls, and will return the users locale in
+	// RFC 5646 format.
+	Locale string `json:"locale"`
+	// LoginID field: The unique login id for the user.  This is what the user uses to log in to Canvas.
+	LoginID string `json:"login_id"`
+	// Name field: The name of the user.
+	Name string `json:"name"`
+	// ShortName field: A short name the user has selected, for use in conversations or other less formal places through
+	// the site.
+	ShortName string `json:"short_name"`
+	// SisImportID field: The id of the SIS import.  This field is only included if the user came from a SIS import and
+	// has permissions to manage SIS information.
+	SisImportID int `json:"sis_import_id"`
+	// SisUserID field: The SIS ID associated with the user.  This field is only included if the user came from a SIS
+	// import and has permissions to view SIS information.
+	SisUserID string `json:"sis_user_id"`
+	// SortableName field: The name of the user that is should be used for sorting groups of users, such as in the
+	// gradebook.
+	SortableName string `json:"sortable_name"`
+	// TimeZone field: Optional: This field is only returned in certain API calls, and will return the IANA time zone
+	// name of the user's preferred timezone.
+	TimeZone string `json:"time_zone"`
 }
 
 // Page model object
 type Page struct {
-    // Body field: the page content, in HTML (present when requesting a single page; omitted when listing pages)
-    Body string `json:"body"`
-    // CreatedAt field: the creation date for the page
-    CreatedAt time.Time `json:"created_at"`
-    // EditingRoles field: roles allowed to edit the page; comma-separated list comprising a combination of 'teachers',
-    // 'students', 'members', and/or 'public' if not supplied, course defaults are used
-    EditingRoles string `json:"editing_roles"`
-    // FrontPage field: whether this page is the front page for the wiki
-    FrontPage bool `json:"front_page"`
-    // HideFromStudents field: (DEPRECATED) whether this page is hidden from students (note: this is always reflected as
-    // the inverse of the published value)
-    HideFromStudents bool `json:"hide_from_students"`
-    // LastEditedBy field: the User who last edited the page (this may not be present if the page was imported from
-    // another system)
-    LastEditedBy *User `json:"last_edited_by"`
-    // LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
-    // is true.
-    LockExplanation string `json:"lock_explanation"`
-    // LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
-    LockInfo *LockInfo `json:"lock_info"`
-    // LockedForUser field: Whether or not this is locked for the user.
-    LockedForUser bool `json:"locked_for_user"`
-    // Published field: whether the page is published (true) or draft state (false).
-    Published bool `json:"published"`
-    // Title field: the title of the page
-    Title string `json:"title"`
-    // UpdatedAt field: the date the page was last updated
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: the unique locator for the page
-    URL string `json:"url"`
+	// Body field: the page content, in HTML (present when requesting a single page; omitted when listing pages)
+	Body string `json:"body"`
+	// CreatedAt field: the creation date for the page
+	CreatedAt time.Time `json:"created_at"`
+	// EditingRoles field: roles allowed to edit the page; comma-separated list comprising a combination of 'teachers',
+	// 'students', 'members', and/or 'public' if not supplied, course defaults are used
+	EditingRoles string `json:"editing_roles"`
+	// FrontPage field: whether this page is the front page for the wiki
+	FrontPage bool `json:"front_page"`
+	// HideFromStudents field: (DEPRECATED) whether this page is hidden from students (note: this is always reflected as
+	// the inverse of the published value)
+	HideFromStudents bool `json:"hide_from_students"`
+	// LastEditedBy field: the User who last edited the page (this may not be present if the page was imported from
+	// another system)
+	LastEditedBy *User `json:"last_edited_by"`
+	// LockExplanation field: (Optional) An explanation of why this is locked for the user. Present when locked_for_user
+	// is true.
+	LockExplanation string `json:"lock_explanation"`
+	// LockInfo field: (Optional) Information for the user about the lock. Present when locked_for_user is true.
+	LockInfo *LockInfo `json:"lock_info"`
+	// LockedForUser field: Whether or not this is locked for the user.
+	LockedForUser bool `json:"locked_for_user"`
+	// Published field: whether the page is published (true) or draft state (false).
+	Published bool `json:"published"`
+	// Title field: the title of the page
+	Title string `json:"title"`
+	// UpdatedAt field: the date the page was last updated
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: the unique locator for the page
+	URL string `json:"url"`
 }
 
 // PageRevision model object
 type PageRevision struct {
-    // Body field: the historic page contents
-    Body string `json:"body"`
-    // EditedBy field: the User who saved this revision, if applicable (this may not be present if the page was imported
-    // from another system)
-    EditedBy *User `json:"edited_by"`
-    // Latest field: whether this is the latest revision or not
-    Latest bool `json:"latest"`
-    // RevisionID field: an identifier for this revision of the page
-    RevisionID int `json:"revision_id"`
-    // Title field: the historic page title
-    Title string `json:"title"`
-    // UpdatedAt field: the time when this revision was saved
-    UpdatedAt time.Time `json:"updated_at"`
-    // URL field: the following fields are not included in the index action and may be omitted from the show action via
-    // summary=1 the historic url of the page
-    URL string `json:"url"`
+	// Body field: the historic page contents
+	Body string `json:"body"`
+	// EditedBy field: the User who saved this revision, if applicable (this may not be present if the page was imported
+	// from another system)
+	EditedBy *User `json:"edited_by"`
+	// Latest field: whether this is the latest revision or not
+	Latest bool `json:"latest"`
+	// RevisionID field: an identifier for this revision of the page
+	RevisionID int `json:"revision_id"`
+	// Title field: the historic page title
+	Title string `json:"title"`
+	// UpdatedAt field: the time when this revision was saved
+	UpdatedAt time.Time `json:"updated_at"`
+	// URL field: the following fields are not included in the index action and may be omitted from the show action via
+	// summary=1 the historic url of the page
+	URL string `json:"url"`
 }
 
 // AccountNotificationsIndexOfActiveGlobalNotificationForTheUser API call: Returns a list of all global notifications in
@@ -6851,7 +6935,7 @@ func (c *Canvas) AppointmentGroupsListAppointmentGroups(progress *task.Progress,
 // are specified, the response will return a new_appointments array (same format as appointments array, see "List
 // appointment groups" action)
 func (c *Canvas) AppointmentGroupsCreateAnAppointmentGroup(progress *task.Progress, appointmentGroup *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("appointment_groups.json'")
+	endpoint := fmt.Sprintf("appointment_groups.json")
 	params := map[string]interface{}{}
 	if appointmentGroup != nil {
 		params["appointment_group"] = *appointmentGroup
@@ -6895,7 +6979,7 @@ func (c *Canvas) AppointmentGroupsGetASingleAppointmentGroup(progress *task.Prog
 // specified, the response will return a new_appointments array (same format as appointments array, see "List
 // appointment groups" action).
 func (c *Canvas) AppointmentGroupsUpdateAnAppointmentGroup(progress *task.Progress, appointmentGroup *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("appointment_groups/543.json'")
+	endpoint := fmt.Sprintf("appointment_groups/543.json")
 	params := map[string]interface{}{}
 	if appointmentGroup != nil {
 		params["appointment_group"] = *appointmentGroup
@@ -6917,7 +7001,7 @@ func (c *Canvas) AppointmentGroupsUpdateAnAppointmentGroup(progress *task.Progre
 // AppointmentGroupsDeleteAnAppointmentGroup API call: Delete an appointment group (and associated time slots and
 // reservations) and return the deleted group
 func (c *Canvas) AppointmentGroupsDeleteAnAppointmentGroup(progress *task.Progress, cancelReason *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("appointment_groups/543.json'")
+	endpoint := fmt.Sprintf("appointment_groups/543.json")
 	params := map[string]interface{}{}
 	if cancelReason != nil {
 		params["cancel_reason"] = *cancelReason
@@ -7018,6 +7102,109 @@ func (c *Canvas) AssignmentExtensionsSetExtensionsForStudentAssignmentSubmission
 	var res *map[string]interface{}
 	callback := func(obj interface{}) error {
 		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AssignmentGroupsGetAnAssignmentGroup API call: Returns the assignment group with the given id.
+func (c *Canvas) AssignmentGroupsGetAnAssignmentGroup(progress *task.Progress, include *AssignmentGroupsGetAnAssignmentGroupInclude, overrideAssignmentDates *bool, gradingPeriodID *int) (*AssignmentGroup, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if include != nil {
+		params["include"] = *include
+	}
+	if overrideAssignmentDates != nil {
+		params["override_assignment_dates"] = *overrideAssignmentDates
+	}
+	if gradingPeriodID != nil {
+		params["grading_period_id"] = *gradingPeriodID
+	}
+	responseCtor := func() interface{} {
+		return &AssignmentGroup{}
+	}
+	var res *AssignmentGroup
+	callback := func(obj interface{}) error {
+		res = obj.(*AssignmentGroup)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AssignmentGroupsCreateAnAssignmentGroup API call: Create a new assignment group for this course.
+func (c *Canvas) AssignmentGroupsCreateAnAssignmentGroup(progress *task.Progress, name *string, position *int, groupWeight *float64, sisSourceID *string, integrationData map[string]interface{}, rules *interface{}) (*AssignmentGroup, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if name != nil {
+		params["name"] = *name
+	}
+	if position != nil {
+		params["position"] = *position
+	}
+	if groupWeight != nil {
+		params["group_weight"] = *groupWeight
+	}
+	if sisSourceID != nil {
+		params["sis_source_id"] = *sisSourceID
+	}
+	if integrationData != nil && len(integrationData) > 0 {
+		params["integration_data"] = integrationData
+	}
+	if rules != nil {
+		params["rules"] = *rules
+	}
+	responseCtor := func() interface{} {
+		return &AssignmentGroup{}
+	}
+	var res *AssignmentGroup
+	callback := func(obj interface{}) error {
+		res = obj.(*AssignmentGroup)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AssignmentGroupsEditAnAssignmentGroup API call: Modify an existing Assignment Group. Accepts the same parameters as
+// Assignment Group creation
+func (c *Canvas) AssignmentGroupsEditAnAssignmentGroup(progress *task.Progress) (*AssignmentGroup, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &AssignmentGroup{}
+	}
+	var res *AssignmentGroup
+	callback := func(obj interface{}) error {
+		res = obj.(*AssignmentGroup)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AssignmentGroupsDestroyAnAssignmentGroup API call: Deletes the assignment group with the given id.
+func (c *Canvas) AssignmentGroupsDestroyAnAssignmentGroup(progress *task.Progress, moveAssignmentsTo *int) (*AssignmentGroup, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if moveAssignmentsTo != nil {
+		params["move_assignments_to"] = *moveAssignmentsTo
+	}
+	responseCtor := func() interface{} {
+		return &AssignmentGroup{}
+	}
+	var res *AssignmentGroup
+	callback := func(obj interface{}) error {
+		res = obj.(*AssignmentGroup)
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
@@ -7139,7 +7326,7 @@ func (c *Canvas) AssignmentsRedirectToTheAssignmentOverrideForASection(progress 
 
 // AssignmentsCreateAnAssignmentOverride API call
 func (c *Canvas) AssignmentsCreateAnAssignmentOverride(progress *task.Progress, assignmentOverride *interface{}) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides.json'")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides.json")
 	params := map[string]interface{}{}
 	if assignmentOverride != nil {
 		params["assignment_override"] = *assignmentOverride
@@ -7160,7 +7347,7 @@ func (c *Canvas) AssignmentsCreateAnAssignmentOverride(progress *task.Progress, 
 
 // AssignmentsUpdateAnAssignmentOverride API call
 func (c *Canvas) AssignmentsUpdateAnAssignmentOverride(progress *task.Progress, assignmentOverride *interface{}) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json'")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json")
 	params := map[string]interface{}{}
 	if assignmentOverride != nil {
 		params["assignment_override"] = *assignmentOverride
@@ -7181,7 +7368,7 @@ func (c *Canvas) AssignmentsUpdateAnAssignmentOverride(progress *task.Progress, 
 
 // AssignmentsDeleteAnAssignmentOverride API call: Deletes an override and returns its former details.
 func (c *Canvas) AssignmentsDeleteAnAssignmentOverride(progress *task.Progress) (*AssignmentOverride, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json'")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/overrides/3.json")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &AssignmentOverride{}
@@ -7248,7 +7435,7 @@ func (c *Canvas) AssignmentsBatchCreateOverridesInACourse(progress *task.Progres
 	return res, nil
 }
 
-// AssignmentsBatchUpdateOverridesInACourse API call: Updates a list of specified overrides for each assignment. 
+// AssignmentsBatchUpdateOverridesInACourse API call: Updates a list of specified overrides for each assignment.
 // Handles overrides in a transaction, so either all updates are applied or none. See
 // {api:AssignmentOverridesController#update Update an assignment override} for available attributes. All current
 // overridden values must be supplied if they are to be retained; e.g. if due_at was overridden, but this PUT omits a
@@ -7423,7 +7610,7 @@ func (c *Canvas) AssignmentsEditAnAssignment(progress *task.Progress, assignment
 // will be returned if any provided dates are invalid, and no changes will be saved. The bulk update is performed in a
 // background job, use the {api:ProgressController#show Progress API} to check its status.
 func (c *Canvas) AssignmentsBulkUpdateAssignmentDates(progress *task.Progress) (*Progress, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/bulk_update'")
+	endpoint := fmt.Sprintf("courses/1/assignments/bulk_update")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &Progress{}
@@ -7431,6 +7618,24 @@ func (c *Canvas) AssignmentsBulkUpdateAssignmentDates(progress *task.Progress) (
 	var res *Progress
 	callback := func(obj interface{}) error {
 		res = obj.(*Progress)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// AssignmentsDeleteAnAssignment API call: Delete the given assignment.
+func (c *Canvas) AssignmentsDeleteAnAssignment(progress *task.Progress, courseID string, assignmentID string) (*Assignment, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s", courseID, assignmentID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &Assignment{}
+	}
+	var res *Assignment
+	callback := func(obj interface{}) error {
+		res = obj.(*Assignment)
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
@@ -7513,7 +7718,7 @@ func (c *Canvas) AuthenticationsLogQueryByUser(progress *task.Progress, startTim
 
 // AuthenticationProvidersListAuthenticationProviders API call: Returns a paginated list of authentication providers
 func (c *Canvas) AuthenticationProvidersListAuthenticationProviders(progress *task.Progress, accountID string) ([]AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("accounts/%s/authentication_providers'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers", accountID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]AuthenticationProvider{}
@@ -7628,7 +7833,7 @@ func (c *Canvas) AuthenticationProvidersListAuthenticationProviders(progress *ta
 // service can be selected at a time so if set to true all others will be set to false - federated_attributes [Optional]
 // See FederatedAttributesConfig. Valid provider attributes are 'name', 'screen_name', 'time_zone', and 'user_id'.
 func (c *Canvas) AuthenticationProvidersAddAuthenticationProvider(progress *task.Progress, accountID string) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("accounts/%s/authentication_providers'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers", accountID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
@@ -7647,7 +7852,7 @@ func (c *Canvas) AuthenticationProvidersAddAuthenticationProvider(progress *task
 // AuthenticationProvidersUpdateAuthenticationProvider API call: Update an authentication provider using the same
 // options as the create endpoint. You can not update an existing provider to a new authentication type.
 func (c *Canvas) AuthenticationProvidersUpdateAuthenticationProvider(progress *task.Progress, accountID string, id string) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s", accountID, id)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
@@ -7665,7 +7870,7 @@ func (c *Canvas) AuthenticationProvidersUpdateAuthenticationProvider(progress *t
 
 // AuthenticationProvidersGetAuthenticationProvider API call: Get the specified authentication provider
 func (c *Canvas) AuthenticationProvidersGetAuthenticationProvider(progress *task.Progress, accountID string, id string) (*AuthenticationProvider, error) {
-	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s", accountID, id)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &AuthenticationProvider{}
@@ -7683,7 +7888,7 @@ func (c *Canvas) AuthenticationProvidersGetAuthenticationProvider(progress *task
 
 // AuthenticationProvidersDeleteAuthenticationProvider API call: Delete the config
 func (c *Canvas) AuthenticationProvidersDeleteAuthenticationProvider(progress *task.Progress, accountID string, id string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s'", accountID, id)
+	endpoint := fmt.Sprintf("accounts/%s/authentication_providers/%s", accountID, id)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -7703,7 +7908,7 @@ func (c *Canvas) AuthenticationProvidersDeleteAuthenticationProvider(progress *t
 // setting that's relevant to Single Sign On configuration You can list the current state of each setting with
 // "update_sso_settings"
 func (c *Canvas) AuthenticationProvidersShowAccountAuthSettings(progress *task.Progress, accountID string) (*SSOSettings, error) {
-	endpoint := fmt.Sprintf("accounts/%s/sso_settings'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/sso_settings", accountID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &SSOSettings{}
@@ -7725,7 +7930,7 @@ func (c *Canvas) AuthenticationProvidersShowAccountAuthSettings(progress *task.P
 // provided at all are simply retained as is.  Any that provide the key but a null-ish value (blank string, null,
 // undefined) will be UN-set. You can list the current state of each setting with "show_sso_settings"
 func (c *Canvas) AuthenticationProvidersUpdateAccountAuthSettings(progress *task.Progress, accountID string) (*SSOSettings, error) {
-	endpoint := fmt.Sprintf("accounts/%s/sso_settings'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/sso_settings", accountID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &SSOSettings{}
@@ -7733,6 +7938,26 @@ func (c *Canvas) AuthenticationProvidersUpdateAccountAuthSettings(progress *task
 	var res *SSOSettings
 	callback := func(obj interface{}) error {
 		res = obj.(*SSOSettings)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// BrandConfigsGetTheBrandConfigVariablesThatShouldBeUsedForThisDomain API call: Will redirect to a static json file
+// that has all of the brand variables used by this account. Even though this is a redirect, do not store the redirected
+// url since if the account makes any changes it will redirect to a new url. Needs no authentication.
+func (c *Canvas) BrandConfigsGetTheBrandConfigVariablesThatShouldBeUsedForThisDomain(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("brand_variables")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
@@ -7832,7 +8057,7 @@ func (c *Canvas) CalendarEventsListCalendarEventsForAUser(progress *task.Progres
 
 // CalendarEventsCreateACalendarEvent API call: Create and return a new calendar event
 func (c *Canvas) CalendarEventsCreateACalendarEvent(progress *task.Progress, calendarEvent *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("calendar_events.json'")
+	endpoint := fmt.Sprintf("calendar_events.json")
 	params := map[string]interface{}{}
 	if calendarEvent != nil {
 		params["calendar_event"] = *calendarEvent
@@ -7871,7 +8096,7 @@ func (c *Canvas) CalendarEventsGetASingleCalendarEventOrAssignment(progress *tas
 
 // CalendarEventsReserveATimeSlot API call: Reserves a particular time slot and return the new reservation
 func (c *Canvas) CalendarEventsReserveATimeSlot(progress *task.Progress, participantID *string, comments *string, cancelExisting *bool) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("calendar_events/345/reservations.json'")
+	endpoint := fmt.Sprintf("calendar_events/345/reservations.json")
 	params := map[string]interface{}{}
 	if participantID != nil {
 		params["participant_id"] = *participantID
@@ -7898,7 +8123,7 @@ func (c *Canvas) CalendarEventsReserveATimeSlot(progress *task.Progress, partici
 
 // CalendarEventsUpdateACalendarEvent API call: Update and return a calendar event
 func (c *Canvas) CalendarEventsUpdateACalendarEvent(progress *task.Progress, calendarEvent *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("calendar_events/234.json'")
+	endpoint := fmt.Sprintf("calendar_events/234.json")
 	params := map[string]interface{}{}
 	if calendarEvent != nil {
 		params["calendar_event"] = *calendarEvent
@@ -7919,7 +8144,7 @@ func (c *Canvas) CalendarEventsUpdateACalendarEvent(progress *task.Progress, cal
 
 // CalendarEventsDeleteACalendarEvent API call: Delete an event from the calendar and return the deleted event
 func (c *Canvas) CalendarEventsDeleteACalendarEvent(progress *task.Progress, cancelReason *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("calendar_events/234.json'")
+	endpoint := fmt.Sprintf("calendar_events/234.json")
 	params := map[string]interface{}{}
 	if cancelReason != nil {
 		params["cancel_reason"] = *cancelReason
@@ -7943,7 +8168,7 @@ func (c *Canvas) CalendarEventsDeleteACalendarEvent(progress *task.Progress, can
 // timetable events for the course and course sections will be updated if they still are part of the timetable.
 // Otherwise, they will be deleted.
 func (c *Canvas) CalendarEventsSetACourseTimetable(progress *task.Progress, timetables []interface{}) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("calendar_events/timetable'")
+	endpoint := fmt.Sprintf("calendar_events/timetable")
 	params := map[string]interface{}{}
 	if timetables != nil && len(timetables) > 0 {
 		params["timetables"] = timetables
@@ -8184,7 +8409,7 @@ func (c *Canvas) CommunicationChannelsDeleteAPushNotificationEndpoint(progress *
 // ConferencesListConferences API call: Retrieve the paginated list of conferences for this context This API returns a
 // JSON object containing the list of conferences, the key for the list of conferences is "conferences"
 func (c *Canvas) ConferencesListConferences(progress *task.Progress, courseID string) ([]Conference, error) {
-	endpoint := fmt.Sprintf("courses/%s/conferences'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/conferences", courseID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]Conference{}
@@ -8205,7 +8430,7 @@ func (c *Canvas) ConferencesListConferences(progress *task.Progress, courseID st
 // groups the current user belongs to This API returns a JSON object containing the list of conferences. The key for the
 // list of conferences is "conferences".
 func (c *Canvas) ConferencesListConferencesForTheCurrentUser(progress *task.Progress, state *string) ([]Conference, error) {
-	endpoint := fmt.Sprintf("conferences'")
+	endpoint := fmt.Sprintf("conferences")
 	params := map[string]interface{}{}
 	if state != nil {
 		params["state"] = *state
@@ -8293,6 +8518,54 @@ func (c *Canvas) ContentExportsExportContent(progress *task.Progress, exportType
 	return res, nil
 }
 
+// CoursesGetCourseCopyStatus API call: DEPRECATED: Please use the {api:ContentMigrationsController#create Content
+// Migrations API} Retrieve the status of a course copy
+func (c *Canvas) CoursesGetCourseCopyStatus(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// CoursesCopyCourseContent API call: DEPRECATED: Please use the {api:ContentMigrationsController#create Content
+// Migrations API} Copies content from one course into another. The default is to copy all course content. You can
+// control specific types to copy by using either the 'except' option or the 'only' option.
+func (c *Canvas) CoursesCopyCourseContent(progress *task.Progress, sourceCourse *string, except *CoursesCopyCourseContentExcept, only *CoursesCopyCourseContentOnly) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if sourceCourse != nil {
+		params["source_course"] = *sourceCourse
+	}
+	if except != nil {
+		params["except"] = *except
+	}
+	if only != nil {
+		params["only"] = *only
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
 // ContentMigrationsListContentMigrations API call: Returns paginated content migrations
 func (c *Canvas) ContentMigrationsListContentMigrations(progress *task.Progress, courseID string) ([]ContentMigration, error) {
 	endpoint := fmt.Sprintf("courses/%s/content_migrations", courseID)
@@ -8342,7 +8615,7 @@ func (c *Canvas) ContentMigrationsGetAContentMigration(progress *task.Progress, 
 // {api:ContentMigrationsController#show GET} the ContentMigration 4. Use the {api:ProgressController#show Progress}
 // specified in _progress_url_ to monitor progress
 func (c *Canvas) ContentMigrationsCreateAContentMigration(progress *task.Progress, migrationType *string, preAttachment *string, settings *interface{}, dateShiftOptions *bool, selectiveImport *bool, selectField *ContentMigrationsCreateAContentMigrationSelect, courseID string) (*ContentMigration, error) {
-	endpoint := fmt.Sprintf("courses/%s/content_migrations'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/content_migrations", courseID)
 	params := map[string]interface{}{}
 	if migrationType != nil {
 		params["migration_type"] = *migrationType
@@ -8476,7 +8749,7 @@ func (c *Canvas) ContentSharesCreateAContentShare(progress *task.Progress, recei
 // +self+ as the user_id to retrieve your own content shares. Only linked observers and administrators may view other
 // users' content shares.
 func (c *Canvas) ContentSharesListContentShares(progress *task.Progress) ([]ContentShare, error) {
-	endpoint := fmt.Sprintf("users/self/content_shares/received'")
+	endpoint := fmt.Sprintf("users/self/content_shares/received")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]ContentShare{}
@@ -8497,7 +8770,7 @@ func (c *Canvas) ContentSharesListContentShares(progress *task.Progress) ([]Cont
 // been read. Use +self+ as the user_id to retrieve your own content shares. Only linked observers and administrators
 // may view other users' content shares.
 func (c *Canvas) ContentSharesGetUnreadSharesCount(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("users/self/content_shares/unread_count'")
+	endpoint := fmt.Sprintf("users/self/content_shares/unread_count")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -8516,7 +8789,7 @@ func (c *Canvas) ContentSharesGetUnreadSharesCount(progress *task.Progress) (*ma
 // ContentSharesGetContentShare API call: Return information about a single content share. You may use +self+ as the
 // user_id to retrieve your own content share.
 func (c *Canvas) ContentSharesGetContentShare(progress *task.Progress) (*ContentShare, error) {
-	endpoint := fmt.Sprintf("users/self/content_shares/123'")
+	endpoint := fmt.Sprintf("users/self/content_shares/123")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &ContentShare{}
@@ -8535,7 +8808,7 @@ func (c *Canvas) ContentSharesGetContentShare(progress *task.Progress) (*Content
 // ContentSharesRemoveContentShare API call: Remove a content share from your list. Use +self+ as the user_id. Note that
 // this endpoint does not delete other users' copies of the content share.
 func (c *Canvas) ContentSharesRemoveContentShare(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("users/self/content_shares/123'")
+	endpoint := fmt.Sprintf("users/self/content_shares/123")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -10204,7 +10477,7 @@ func (c *Canvas) ContentSecurityPolicySettingsRemoveADomainFromAccountWhitelist(
 // with multipart/form-data data: curl 'https://<canvas>/api/v1/users/<user_id>/custom_data/telephone' \ -X PUT \ -F
 // 'ns=com.my-organization.canvas-app' \ -F 'data=555-1234' \ -H 'Authorization: Bearer <token>' Response: !!!javascript
 func (c *Canvas) UsersStoreCustomData(progress *task.Progress, ns *string, data map[string]interface{}, userID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("users/%s/custom_data/food_app'", userID)
+	endpoint := fmt.Sprintf("users/%s/custom_data/food_app", userID)
 	params := map[string]interface{}{}
 	if ns != nil {
 		params["ns"] = *ns
@@ -10232,7 +10505,7 @@ func (c *Canvas) UsersStoreCustomData(progress *task.Progress, ns *string, data 
 // with status code 400 if the namespace parameter, +ns+, is missing or invalid, or if the specified scope does not
 // contain any data.
 func (c *Canvas) UsersLoadCustomData(progress *task.Progress, ns *string, userID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("users/%s/custom_data/food_app/favorites/dessert'", userID)
+	endpoint := fmt.Sprintf("users/%s/custom_data/food_app/favorites/dessert", userID)
 	params := map[string]interface{}{}
 	if ns != nil {
 		params["ns"] = *ns
@@ -10259,7 +10532,7 @@ func (c *Canvas) UsersLoadCustomData(progress *task.Progress, ns *string, userID
 // 'ns=com.my-organization.canvas-app' \ -F 'data[fruit][apple]=so tasty' \ -F 'data[fruit][kiwi]=a bit sour' \ -F
 // 'data[veggies][root][onion]=tear-jerking' \ -H 'Authorization: Bearer <token>' Response: !!!javascript
 func (c *Canvas) UsersDeleteCustomData(progress *task.Progress, ns *string, userID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("users/%s/custom_data/fruit/kiwi'", userID)
+	endpoint := fmt.Sprintf("users/%s/custom_data/fruit/kiwi", userID)
 	params := map[string]interface{}{}
 	if ns != nil {
 		params["ns"] = *ns
@@ -10499,6 +10772,406 @@ func (c *Canvas) SISIntegrationDisableAssignmentsCurrentlyEnabledForGradeExportT
 	if gradingPeriodID != nil {
 		params["grading_period_id"] = *gradingPeriodID
 	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsUpdateAnEntry API call: Update an existing discussion entry. The entry must have been created by the
+// current user, or the current user must have admin rights to the discussion. If the edit is not allowed, a 401 will be
+// returned.
+func (c *Canvas) DiscussionTopicsUpdateAnEntry(progress *task.Progress, message *interface{}, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	if message != nil {
+		params["message"] = *message
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsDeleteAnEntry API call: Delete a discussion entry. The entry must have been created by the current
+// user, or the current user must have admin rights to the discussion. If the delete is not allowed, a 401 will be
+// returned. The discussion will be marked deleted, and the user_id and message will be cleared out.
+func (c *Canvas) DiscussionTopicsDeleteAnEntry(progress *task.Progress, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsGetASingleTopic API call: Returns data on an individual discussion topic. See the List action for the
+// response formatting.
+func (c *Canvas) DiscussionTopicsGetASingleTopic(progress *task.Progress, include *DiscussionTopicsGetASingleTopicInclude, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s", courseID, topicID)
+	params := map[string]interface{}{}
+	if include != nil {
+		params["include"] = *include
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsGetTheFullTopic API call: Return a cached structure of the discussion topic, containing all entries,
+// their authors, and their message bodies. May require (depending on the topic) that the user has posted in the topic.
+// If it is required, and the user has not posted, will respond with a 403 Forbidden status and the body
+// 'require_initial_post'. In some rare situations, this cached structure may not be available yet. In that case, the
+// server will respond with a 503 error, and the caller should try again soon. The response is an object containing the
+// following keys: * "participants": A list of summary information on users who have posted to the discussion. Each
+// value is an object containing their id, display_name, and avatar_url. * "unread_entries": A list of entry ids that
+// are unread by the current user. this implies that any entry not in this list is read. * "entry_ratings": A map of
+// entry ids to ratings by the current user. Entries not in this list have no rating. Only populated if rating is
+// enabled. * "forced_entries": A list of entry ids that have forced_read_state set to true. This flag is meant to
+// indicate the entry's read_state has been manually set to 'unread' by the user, so the entry should not be
+// automatically marked as read. * "view": A threaded view of all the entries in the discussion, containing the id,
+// user_id, and message. * "new_entries": Because this view is eventually consistent, it's possible that newly created
+// or updated entries won't yet be reflected in the view. If the application wants to also get a flat list of all
+// entries not yet reflected in the view, pass include_new_entries=1 to the request and this array of entries will be
+// returned. These entries are returned in a flat array, in ascending created_at order.
+func (c *Canvas) DiscussionTopicsGetTheFullTopic(progress *task.Progress, courseID string, topicID string) (*DiscussionTopicFullView, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/view", courseID, topicID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &DiscussionTopicFullView{}
+	}
+	var res *DiscussionTopicFullView
+	callback := func(obj interface{}) error {
+		res = obj.(*DiscussionTopicFullView)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsPostAnEntry API call: Create a new entry in a discussion topic. Returns a json representation of the
+// created entry (see documentation for 'entries' method) on success.
+func (c *Canvas) DiscussionTopicsPostAnEntry(progress *task.Progress, message *interface{}, attachment *interface{}, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries.json", courseID, topicID)
+	params := map[string]interface{}{}
+	if message != nil {
+		params["message"] = *message
+	}
+	if attachment != nil {
+		params["attachment"] = *attachment
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsListTopicEntries API call: Retrieve the (paginated) top-level entries in a discussion topic. May
+// require (depending on the topic) that the user has posted in the topic. If it is required, and the user has not
+// posted, will respond with a 403 Forbidden status and the body 'require_initial_post'. Will include the 10 most recent
+// replies, if any, for each entry returned. If the topic is a root topic with children corresponding to groups of a
+// group assignment, entries from those subtopics for which the user belongs to the corresponding group will be
+// returned. Ordering of returned entries is newest-first by posting timestamp (reply activity is ignored).
+func (c *Canvas) DiscussionTopicsListTopicEntries(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsPostAReply API call: Add a reply to an entry in a discussion topic. Returns a json representation of
+// the created reply (see documentation for 'replies' method) on success. May require (depending on the topic) that the
+// user has posted in the topic. If it is required, and the user has not posted, will respond with a 403 Forbidden
+// status and the body 'require_initial_post'.
+func (c *Canvas) DiscussionTopicsPostAReply(progress *task.Progress, message *interface{}, attachment *interface{}, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s/replies.json", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	if message != nil {
+		params["message"] = *message
+	}
+	if attachment != nil {
+		params["attachment"] = *attachment
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsListEntryReplies API call: Retrieve the (paginated) replies to a top-level entry in a discussion
+// topic. May require (depending on the topic) that the user has posted in the topic. If it is required, and the user
+// has not posted, will respond with a 403 Forbidden status and the body 'require_initial_post'. Ordering of returned
+// entries is newest-first by creation timestamp.
+func (c *Canvas) DiscussionTopicsListEntryReplies(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsListEntries API call: Retrieve a paginated list of discussion entries, given a list of ids. May
+// require (depending on the topic) that the user has posted in the topic. If it is required, and the user has not
+// posted, will respond with a 403 Forbidden status and the body 'require_initial_post'.
+func (c *Canvas) DiscussionTopicsListEntries(progress *task.Progress, ids *string, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entry_list", courseID, topicID)
+	params := map[string]interface{}{}
+	if ids != nil {
+		params["ids"] = *ids
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkTopicAsRead API call: Mark the initial text of the discussion topic as read. No request fields
+// are necessary. On success, the response will be 204 No Content with an empty body.
+func (c *Canvas) DiscussionTopicsMarkTopicAsRead(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/read.json", courseID, topicID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkTopicAsUnread API call: Mark the initial text of the discussion topic as unread. No request
+// fields are necessary. On success, the response will be 204 No Content with an empty body.
+func (c *Canvas) DiscussionTopicsMarkTopicAsUnread(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/read.json", courseID, topicID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkAllEntriesAsRead API call: Mark the discussion topic and all its entries as read. No request
+// fields are necessary.
+func (c *Canvas) DiscussionTopicsMarkAllEntriesAsRead(progress *task.Progress, forcedReadState *bool, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/read_all.json", courseID, topicID)
+	params := map[string]interface{}{}
+	if forcedReadState != nil {
+		params["forced_read_state"] = *forcedReadState
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkAllEntriesAsUnread API call: Mark the discussion topic and all its entries as unread. No request
+// fields are necessary.
+func (c *Canvas) DiscussionTopicsMarkAllEntriesAsUnread(progress *task.Progress, forcedReadState *bool, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/read_all.json", courseID, topicID)
+	params := map[string]interface{}{}
+	if forcedReadState != nil {
+		params["forced_read_state"] = *forcedReadState
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkEntryAsRead API call: Mark a discussion entry as read. No request fields are necessary.
+func (c *Canvas) DiscussionTopicsMarkEntryAsRead(progress *task.Progress, forcedReadState *bool, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s/read.json", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	if forcedReadState != nil {
+		params["forced_read_state"] = *forcedReadState
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsMarkEntryAsUnread API call: Mark a discussion entry as unread. No request fields are necessary.
+func (c *Canvas) DiscussionTopicsMarkEntryAsUnread(progress *task.Progress, forcedReadState *bool, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s/read.json", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	if forcedReadState != nil {
+		params["forced_read_state"] = *forcedReadState
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsRateEntry API call: Rate a discussion entry.
+func (c *Canvas) DiscussionTopicsRateEntry(progress *task.Progress, rating *int, courseID string, topicID string, entryID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/entries/%s/rating.json", courseID, topicID, entryID)
+	params := map[string]interface{}{}
+	if rating != nil {
+		params["rating"] = *rating
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsSubscribeToATopic API call: Subscribe to a topic to receive notifications about new entries On
+// success, the response will be 204 No Content with an empty body
+func (c *Canvas) DiscussionTopicsSubscribeToATopic(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/subscribed.json", courseID, topicID)
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// DiscussionTopicsUnsubscribeFromATopic API call: Unsubscribe from a topic to stop receiving notifications about new
+// entries On success, the response will be 204 No Content with an empty body
+func (c *Canvas) DiscussionTopicsUnsubscribeFromATopic(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/subscribed.json", courseID, topicID)
+	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
 	}
@@ -10999,7 +11672,7 @@ func (c *Canvas) EPubExportsShowEPubExport(progress *task.Progress) (*EpubExport
 // ErrorReportsCreateErrorReport API call: Create a new error report documenting an experienced problem Performs the
 // same action as when a user uses the "help -> report a problem" dialog.
 func (c *Canvas) ErrorReportsCreateErrorReport(progress *task.Progress, err *string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("error_reports'")
+	endpoint := fmt.Sprintf("error_reports")
 	params := map[string]interface{}{}
 	if err != nil {
 		params["error"] = *err
@@ -11114,7 +11787,7 @@ func (c *Canvas) ExternalToolsListExternalTools(progress *task.Progress, searchT
 // ExternalToolsGetASessionlessLaunchURLForAnExternalTool API call: Returns a sessionless launch url for an external
 // tool. NOTE: Either the id or url must be provided unless launch_type is assessment or module_item.
 func (c *Canvas) ExternalToolsGetASessionlessLaunchURLForAnExternalTool(progress *task.Progress, id *string, url *string, assignmentID *string, moduleItemID *string, launchType *ExternalToolsGetASessionlessLaunchURLForAnExternalToolLaunchType, courseID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/%s/external_tools/sessionless_launch'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/external_tools/sessionless_launch", courseID)
 	params := map[string]interface{}{}
 	if id != nil {
 		params["id"] = *id
@@ -11167,7 +11840,7 @@ func (c *Canvas) ExternalToolsGetASingleExternalTool(progress *task.Progress) (*
 // will be returned, see the "show" endpoint for an example. If a client ID is supplied canvas will attempt to create a
 // context external tool using the LTI 1.3 standard.
 func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clientID *string, name *string, privacyLevel *ExternalToolsCreateAnExternalToolPrivacyLevel, consumerKey *string, sharedSecret *string, description *string, url *string, domain *string, iconURL *string, text *string, customFields *string, accountNavigation *string, userNavigation *string, courseHomeSubNavigation *string, courseNavigation *bool, editorButton *string, homeworkSubmission *string, linkSelection *string, migrationSelection *string, toolConfiguration *string, resourceSelection *string, configType *string, configXML *string, configURL *string, notSelectable *bool, oauthCompliant *bool, accountID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("accounts/%s/external_tools'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/external_tools", accountID)
 	params := map[string]interface{}{}
 	if clientID != nil {
 		params["client_id"] = *clientID
@@ -11263,7 +11936,7 @@ func (c *Canvas) ExternalToolsCreateAnExternalTool(progress *task.Progress, clie
 
 // ExternalToolsEditAnExternalTool API call: Update the specified external tool. Uses same parameters as create
 func (c *Canvas) ExternalToolsEditAnExternalTool(progress *task.Progress, courseID string, externalToolID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/%s/external_tools/%s'", courseID, externalToolID)
+	endpoint := fmt.Sprintf("courses/%s/external_tools/%s", courseID, externalToolID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -11281,7 +11954,7 @@ func (c *Canvas) ExternalToolsEditAnExternalTool(progress *task.Progress, course
 
 // ExternalToolsDeleteAnExternalTool API call: Remove the specified external tool
 func (c *Canvas) ExternalToolsDeleteAnExternalTool(progress *task.Progress, courseID string, externalToolID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/%s/external_tools/%s'", courseID, externalToolID)
+	endpoint := fmt.Sprintf("courses/%s/external_tools/%s", courseID, externalToolID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -11568,7 +12241,7 @@ func (c *Canvas) FeatureFlagsRemoveFeatureFlag(progress *task.Progress) (*Featur
 
 // FilesGetQuotaInformation API call: Returns the total and used storage quota for the course, group, or user.
 func (c *Canvas) FilesGetQuotaInformation(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/1/files/quota'")
+	endpoint := fmt.Sprintf("courses/1/files/quota")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -11626,7 +12299,7 @@ func (c *Canvas) FilesListFiles(progress *task.Progress, contentTypes *string, e
 
 // FilesGetPublicInlinePreviewURL API call: Determine the URL that should be used for inline preview of the file.
 func (c *Canvas) FilesGetPublicInlinePreviewURL(progress *task.Progress, submissionID *int) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("files/1/public_url'")
+	endpoint := fmt.Sprintf("files/1/public_url")
 	params := map[string]interface{}{}
 	if submissionID != nil {
 		params["submission_id"] = *submissionID
@@ -11647,7 +12320,7 @@ func (c *Canvas) FilesGetPublicInlinePreviewURL(progress *task.Progress, submiss
 
 // FilesGetFile API call: Returns the standard attachment json object
 func (c *Canvas) FilesGetFile(progress *task.Progress, include *FilesGetFileInclude, fileID string) (*File, error) {
-	endpoint := fmt.Sprintf("files/%s'", fileID)
+	endpoint := fmt.Sprintf("files/%s", fileID)
 	params := map[string]interface{}{}
 	if include != nil {
 		params["include"] = *include
@@ -11668,7 +12341,7 @@ func (c *Canvas) FilesGetFile(progress *task.Progress, include *FilesGetFileIncl
 
 // FilesUpdateFile API call: Update some settings on the specified file
 func (c *Canvas) FilesUpdateFile(progress *task.Progress, name *string, parentFolderID *string, onDuplicate *FilesUpdateFileOnDuplicate, lockAt *time.Time, unlockAt *time.Time, locked *bool, hidden *bool, fileID string) (*File, error) {
-	endpoint := fmt.Sprintf("files/%s'", fileID)
+	endpoint := fmt.Sprintf("files/%s", fileID)
 	params := map[string]interface{}{}
 	if name != nil {
 		params["name"] = *name
@@ -11709,7 +12382,7 @@ func (c *Canvas) FilesUpdateFile(progress *task.Progress, name *string, parentFo
 // result in comprehensive, irretrievable destruction of the file. It should be used with the `replace` parameter set to
 // true in cases where the file preview also needs to be destroyed (such as to remove files that violate privacy laws).
 func (c *Canvas) FilesDeleteFile(progress *task.Progress, replace *bool, fileID string) (*File, error) {
-	endpoint := fmt.Sprintf("files/%s'", fileID)
+	endpoint := fmt.Sprintf("files/%s", fileID)
 	params := map[string]interface{}{}
 	if replace != nil {
 		params["replace"] = *replace
@@ -11732,7 +12405,7 @@ func (c *Canvas) FilesDeleteFile(progress *task.Progress, replace *bool, fileID 
 // hard-coded "verifier" parameter will no longer automatically grant access. Must have manage files and become other
 // users permissions
 func (c *Canvas) FilesResetLinkVerifier(progress *task.Progress, fileID string) (*File, error) {
-	endpoint := fmt.Sprintf("files/%s/reset_verifier'", fileID)
+	endpoint := fmt.Sprintf("files/%s/reset_verifier", fileID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &File{}
@@ -11750,7 +12423,7 @@ func (c *Canvas) FilesResetLinkVerifier(progress *task.Progress, fileID string) 
 
 // FilesListFolders API call
 func (c *Canvas) FilesListFolders(progress *task.Progress, folderID string) ([]Folder, error) {
-	endpoint := fmt.Sprintf("folders/%s/folders'", folderID)
+	endpoint := fmt.Sprintf("folders/%s/folders", folderID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]Folder{}
@@ -11769,7 +12442,7 @@ func (c *Canvas) FilesListFolders(progress *task.Progress, folderID string) ([]F
 
 // FilesListAllFolders API call
 func (c *Canvas) FilesListAllFolders(progress *task.Progress, courseID string) ([]Folder, error) {
-	endpoint := fmt.Sprintf("courses/%s/folders'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/folders", courseID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]Folder{}
@@ -11788,7 +12461,7 @@ func (c *Canvas) FilesListAllFolders(progress *task.Progress, courseID string) (
 
 // FilesResolvePath API call
 func (c *Canvas) FilesResolvePath(progress *task.Progress, courseID string) ([]Folder, error) {
-	endpoint := fmt.Sprintf("courses/%s/folders/by_path/foo/bar/baz'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/folders/by_path/foo/bar/baz", courseID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]Folder{}
@@ -11807,7 +12480,7 @@ func (c *Canvas) FilesResolvePath(progress *task.Progress, courseID string) ([]F
 
 // FilesGetFolder API call
 func (c *Canvas) FilesGetFolder(progress *task.Progress, folderID string) (*Folder, error) {
-	endpoint := fmt.Sprintf("folders/%s'", folderID)
+	endpoint := fmt.Sprintf("folders/%s", folderID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &Folder{}
@@ -11825,7 +12498,7 @@ func (c *Canvas) FilesGetFolder(progress *task.Progress, folderID string) (*Fold
 
 // FilesUpdateFolder API call
 func (c *Canvas) FilesUpdateFolder(progress *task.Progress, name *string, parentFolderID *string, lockAt *time.Time, unlockAt *time.Time, locked *bool, hidden *bool, position *int, folderID string) (*Folder, error) {
-	endpoint := fmt.Sprintf("folders/%s'", folderID)
+	endpoint := fmt.Sprintf("folders/%s", folderID)
 	params := map[string]interface{}{}
 	if name != nil {
 		params["name"] = *name
@@ -11864,7 +12537,7 @@ func (c *Canvas) FilesUpdateFolder(progress *task.Progress, name *string, parent
 
 // FilesCreateFolder API call
 func (c *Canvas) FilesCreateFolder(progress *task.Progress, name *string, parentFolderID *string, parentFolderPath *string, lockAt *time.Time, unlockAt *time.Time, locked *bool, hidden *bool, position *int, courseID string) (*Folder, error) {
-	endpoint := fmt.Sprintf("courses/%s/folders'", courseID)
+	endpoint := fmt.Sprintf("courses/%s/folders", courseID)
 	params := map[string]interface{}{}
 	if name != nil {
 		params["name"] = *name
@@ -11906,7 +12579,7 @@ func (c *Canvas) FilesCreateFolder(progress *task.Progress, name *string, parent
 
 // FilesDeleteFolder API call
 func (c *Canvas) FilesDeleteFolder(progress *task.Progress, force *bool, folderID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("folders/%s'", folderID)
+	endpoint := fmt.Sprintf("folders/%s", folderID)
 	params := map[string]interface{}{}
 	if force != nil {
 		params["force"] = *force
@@ -11948,7 +12621,7 @@ func (c *Canvas) FilesUploadAFile(progress *task.Progress) (*map[string]interfac
 // FilesCopyAFile API call: Copy a file from elsewhere in Canvas into a folder. Copying a file across contexts (between
 // courses and users) is permitted, but the source and destination must belong to the same institution.
 func (c *Canvas) FilesCopyAFile(progress *task.Progress, sourceFileID *string, onDuplicate *FilesCopyAFileOnDuplicate) (*File, error) {
-	endpoint := fmt.Sprintf("folders/123/copy_file'")
+	endpoint := fmt.Sprintf("folders/123/copy_file")
 	params := map[string]interface{}{}
 	if sourceFileID != nil {
 		params["source_file_id"] = *sourceFileID
@@ -11975,7 +12648,7 @@ func (c *Canvas) FilesCopyAFile(progress *task.Progress, sourceFileID *string, o
 // institution. If the source and destination folders are in the same context, the source folder may not contain the
 // destination folder. A folder will be renamed at its destination if another folder with the same name already exists.
 func (c *Canvas) FilesCopyAFolder(progress *task.Progress, sourceFolderID *string) (*Folder, error) {
-	endpoint := fmt.Sprintf("folders/123/copy_folder'")
+	endpoint := fmt.Sprintf("folders/123/copy_folder")
 	params := map[string]interface{}{}
 	if sourceFolderID != nil {
 		params["source_folder_id"] = *sourceFolderID
@@ -11996,7 +12669,7 @@ func (c *Canvas) FilesCopyAFolder(progress *task.Progress, sourceFolderID *strin
 
 // FilesGetUploadedMediaFolderForUser API call
 func (c *Canvas) FilesGetUploadedMediaFolderForUser(progress *task.Progress) (*Folder, error) {
-	endpoint := fmt.Sprintf("courses/1337/folders/media'")
+	endpoint := fmt.Sprintf("courses/1337/folders/media")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &Folder{}
@@ -13041,7 +13714,7 @@ func (c *Canvas) ImageSearchConfirmImageSelection(progress *task.Progress, id *s
 // JWTsCreateJWT API call: Create a unique jwt for using with other canvas services Generates a different JWT each time
 // it's called, each one expires after a short window (1 hour)
 func (c *Canvas) JWTsCreateJWT(progress *task.Progress) (*JWT, error) {
-	endpoint := fmt.Sprintf("jwts'")
+	endpoint := fmt.Sprintf("jwts")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &JWT{}
@@ -13060,7 +13733,7 @@ func (c *Canvas) JWTsCreateJWT(progress *task.Progress) (*JWT, error) {
 // JWTsRefreshJWT API call: Refresh a JWT for use with other canvas services Generates a different JWT each time it's
 // called, each one expires after a short window (1 hour).
 func (c *Canvas) JWTsRefreshJWT(progress *task.Progress, jwt *string) (*JWT, error) {
-	endpoint := fmt.Sprintf("jwts/refresh'")
+	endpoint := fmt.Sprintf("jwts/refresh")
 	params := map[string]interface{}{}
 	if jwt != nil {
 		params["jwt"] = *jwt
@@ -13547,7 +14220,7 @@ func (c *Canvas) OutcomeGroupsShowAnOutcomeGroup(progress *task.Progress) (*Outc
 // unrecognized fields are ignored. When changing the parent outcome group, the new parent group must belong to the same
 // context as this outcome group, and must not be a descendant of this outcome group (i.e. no cycles allowed).
 func (c *Canvas) OutcomeGroupsUpdateAnOutcomeGroup(progress *task.Progress, title *string, description *string, vendorGUID *string, parentOutcomeGroupID *int) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json'")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json")
 	params := map[string]interface{}{}
 	if title != nil {
 		params["title"] = *title
@@ -13580,7 +14253,7 @@ func (c *Canvas) OutcomeGroupsUpdateAnOutcomeGroup(progress *task.Progress, titl
 // cannot be deleted; as such, if all remaining links to an aligned outcome are included in this group's descendants,
 // the group deletion will fail.
 func (c *Canvas) OutcomeGroupsDeleteAnOutcomeGroup(progress *task.Progress) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json'")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/2.json")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &OutcomeGroup{}
@@ -13632,7 +14305,7 @@ func (c *Canvas) OutcomeGroupsListLinkedOutcomes(progress *task.Progress, outcom
 // description are given a default of "No description". Any ratings lacking a point value are given a default of 0. If
 // no ratings are provided, the mastery_points parameter is ignored.
 func (c *Canvas) OutcomeGroupsCreateLinkAnOutcome(progress *task.Progress, outcomeID *int, moveFrom *int, title *string, displayName *string, description *string, vendorGUID *string, masteryPoints *int, ratings *string, calculationMethod *OutcomeGroupsCreateLinkAnOutcomeCalculationMethod, calculationInt *int) (*OutcomeLink, error) {
-	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes.json'")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes.json")
 	params := map[string]interface{}{}
 	if outcomeID != nil {
 		params["outcome_id"] = *outcomeID
@@ -13682,7 +14355,7 @@ func (c *Canvas) OutcomeGroupsCreateLinkAnOutcome(progress *task.Progress, outco
 // to the outcome in any group in any context. Aligned outcomes cannot be deleted; as such, if this is the last link to
 // an aligned outcome, the unlinking will fail.
 func (c *Canvas) OutcomeGroupsUnlinkAnOutcome(progress *task.Progress) (*OutcomeLink, error) {
-	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes/1.json'")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/outcomes/1.json")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &OutcomeLink{}
@@ -13720,7 +14393,7 @@ func (c *Canvas) OutcomeGroupsListSubgroups(progress *task.Progress) ([]OutcomeG
 // OutcomeGroupsCreateASubgroup API call: Creates a new empty subgroup under the outcome group with the given title and
 // description.
 func (c *Canvas) OutcomeGroupsCreateASubgroup(progress *task.Progress, title *string, description *string, vendorGUID *string) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/subgroups.json'")
+	endpoint := fmt.Sprintf("accounts/1/outcome_groups/1/subgroups.json")
 	params := map[string]interface{}{}
 	if title != nil {
 		params["title"] = *title
@@ -13752,7 +14425,7 @@ func (c *Canvas) OutcomeGroupsCreateASubgroup(progress *task.Progress, title *st
 // The source group must be either global, from the same context as this outcome group, or from an associated account.
 // The source group cannot be the root outcome group of its context.
 func (c *Canvas) OutcomeGroupsImportAnOutcomeGroup(progress *task.Progress, sourceOutcomeGroupID *int, async *bool) (*OutcomeGroup, error) {
-	endpoint := fmt.Sprintf("accounts/2/outcome_groups/3/import.json'")
+	endpoint := fmt.Sprintf("accounts/2/outcome_groups/3/import.json")
 	params := map[string]interface{}{}
 	if sourceOutcomeGroupID != nil {
 		params["source_outcome_group_id"] = *sourceOutcomeGroupID
@@ -13827,7 +14500,7 @@ func (c *Canvas) OutcomeImportsGetOutcomeImportStatus(progress *task.Progress) (
 // ProficiencyRatingsCreateUpdateProficiencyRatings API call: Create or update account-level proficiency ratings. These
 // ratings will apply to all sub-accounts, unless they have their own account-level proficiency ratings defined.
 func (c *Canvas) ProficiencyRatingsCreateUpdateProficiencyRatings(progress *task.Progress, ratings *string, accountID string) (*Proficiency, error) {
-	endpoint := fmt.Sprintf("accounts/%s/outcome_proficiency'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/outcome_proficiency", accountID)
 	params := map[string]interface{}{}
 	if ratings != nil {
 		params["ratings"] = *ratings
@@ -13968,7 +14641,7 @@ func (c *Canvas) OutcomesShowAnOutcome(progress *task.Progress) (*Outcome, error
 // the mastery_points parameter. Any new ratings lacking a description are given a default of "No description". Any new
 // ratings lacking a point value are given a default of 0.
 func (c *Canvas) OutcomesUpdateAnOutcome(progress *task.Progress, title *string, displayName *string, description *string, vendorGUID *string, masteryPoints *int, ratings *string, calculationMethod *OutcomesUpdateAnOutcomeCalculationMethod, calculationInt *int) (*Outcome, error) {
-	endpoint := fmt.Sprintf("outcomes/1.json'")
+	endpoint := fmt.Sprintf("outcomes/1.json")
 	params := map[string]interface{}{}
 	if title != nil {
 		params["title"] = *title
@@ -14425,7 +15098,7 @@ func (c *Canvas) UsersGetUserProfile(progress *task.Progress) (*Profile, error) 
 // the attachment content-type:: ['attachment' type only] the content-type of the attachment filename:: ['attachment'
 // type only] the filename of the attachment size:: ['attachment' type only] the size of the attachment
 func (c *Canvas) UsersListAvatarOptions(progress *task.Progress) ([]Avatar, error) {
-	endpoint := fmt.Sprintf("users/1/avatars.json'")
+	endpoint := fmt.Sprintf("users/1/avatars.json")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &[]Avatar{}
@@ -14526,7 +15199,7 @@ func (c *Canvas) ModeratedGradingSelectProvisionalGrade(progress *task.Progress)
 // publish for a particular submission. Students not in the moderation set will have their one and only provisional
 // grade published. WARNING: This is irreversible. This will overwrite existing grades in the gradebook.
 func (c *Canvas) ModeratedGradingPublishProvisionalGradesForAnAssignment(progress *task.Progress) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/2/provisional_grades/publish'")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/provisional_grades/publish")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -14562,7 +15235,7 @@ func (c *Canvas) LoginsListUserLogins(progress *task.Progress) (*map[string]inte
 
 // LoginsCreateAUserLogin API call: Create a new login for an existing user in the given account.
 func (c *Canvas) LoginsCreateAUserLogin(progress *task.Progress, user *string, login *string, accountID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("accounts/%s/logins'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/logins", accountID)
 	params := map[string]interface{}{}
 	if user != nil {
 		params["user"] = *user
@@ -14680,7 +15353,7 @@ func (c *Canvas) RolesGetASingleRole(progress *task.Progress, accountID *string,
 
 // RolesCreateANewRole API call: Create a new course-level or account-level role.
 func (c *Canvas) RolesCreateANewRole(progress *task.Progress, label *string, role *string, baseRoleType *RolesCreateANewRoleBaseRoleType, permissions *bool, accountID string) (*Role, error) {
-	endpoint := fmt.Sprintf("accounts/%s/roles.json'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/roles.json", accountID)
 	params := map[string]interface{}{}
 	if label != nil {
 		params["label"] = *label
@@ -14984,6 +15657,90 @@ func (c *Canvas) RubricsGetASingleRubric(progress *task.Progress, include *Rubri
 	return res, nil
 }
 
+// RubricsCreateASingleRubric API call: Returns the rubric with the given id. Unfortuantely this endpoint does not
+// return a standard Rubric object, instead it returns a hash that looks like { 'rubric': Rubric, 'rubric_association':
+// RubricAssociation } This may eventually be deprecated in favor of a more standardized return value, but that is not
+// currently planned.
+func (c *Canvas) RubricsCreateASingleRubric(progress *task.Progress, id *int, rubricAssociationID *int, rubric *string, rubricAssociation *int) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if id != nil {
+		params["id"] = *id
+	}
+	if rubricAssociationID != nil {
+		params["rubric_association_id"] = *rubricAssociationID
+	}
+	if rubric != nil {
+		params["rubric"] = *rubric
+	}
+	if rubricAssociation != nil {
+		params["rubric_association"] = *rubricAssociation
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// RubricsUpdateASingleRubric API call: Returns the rubric with the given id. Unfortuantely this endpoint does not
+// return a standard Rubric object, instead it returns a hash that looks like { 'rubric': Rubric, 'rubric_association':
+// RubricAssociation } This may eventually be deprecated in favor of a more standardized return value, but that is not
+// currently planned.
+func (c *Canvas) RubricsUpdateASingleRubric(progress *task.Progress, id *int, rubricAssociationID *int, rubric *string, rubricAssociation *int) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if id != nil {
+		params["id"] = *id
+	}
+	if rubricAssociationID != nil {
+		params["rubric_association_id"] = *rubricAssociationID
+	}
+	if rubric != nil {
+		params["rubric"] = *rubric
+	}
+	if rubricAssociation != nil {
+		params["rubric_association"] = *rubricAssociation
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// RubricsDeleteASingleRubric API call: Deletes a Rubric and removes all RubricAssociations.
+func (c *Canvas) RubricsDeleteASingleRubric(progress *task.Progress) (*Rubric, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &Rubric{}
+	}
+	var res *Rubric
+	callback := func(obj interface{}) error {
+		res = obj.(*Rubric)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
 // APITokenScopesListScopes API call: A list of scopes that can be applied to developer keys and access tokens.
 func (c *Canvas) APITokenScopesListScopes(progress *task.Progress, groupBy *APITokenScopesListScopesGroupBy) ([]Scope, error) {
 	endpoint := fmt.Sprintf("")
@@ -14998,6 +15755,74 @@ func (c *Canvas) APITokenScopesListScopes(progress *task.Progress, groupBy *APIT
 	callback := func(obj interface{}) error {
 		arr := *obj.(*[]Scope)
 		res = append(res, arr...)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// SearchFindRecipients API call: Find valid recipients (users, courses and groups) that the current user can send
+// messages to. The /api/v1/search/recipients path is the preferred endpoint, /api/v1/conversations/find_recipients is
+// deprecated. Pagination is supported.
+func (c *Canvas) SearchFindRecipients(progress *task.Progress, search *string, context *string, exclude *string, typeName *SearchFindRecipientsType, userID *int, fromConversationID *int, permissions *string) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if search != nil {
+		params["search"] = *search
+	}
+	if context != nil {
+		params["context"] = *context
+	}
+	if exclude != nil {
+		params["exclude"] = *exclude
+	}
+	if typeName != nil {
+		params["type"] = *typeName
+	}
+	if userID != nil {
+		params["user_id"] = *userID
+	}
+	if fromConversationID != nil {
+		params["from_conversation_id"] = *fromConversationID
+	}
+	if permissions != nil {
+		params["permissions"] = *permissions
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// SearchListAllCourses API call: A paginated list of all courses visible in the public index
+func (c *Canvas) SearchListAllCourses(progress *task.Progress, search *string, publicOnly *bool, openEnrollmentOnly *bool) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if search != nil {
+		params["search"] = *search
+	}
+	if publicOnly != nil {
+		params["public_only"] = *publicOnly
+	}
+	if openEnrollmentOnly != nil {
+		params["open_enrollment_only"] = *openEnrollmentOnly
+	}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
@@ -15149,10 +15974,47 @@ func (c *Canvas) SectionsDeleteASection(progress *task.Progress) (*Section, erro
 	return res, nil
 }
 
+// ServicesGetKalturaConfig API call: Return the config information for the Kaltura plugin in json format.
+func (c *Canvas) ServicesGetKalturaConfig(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// ServicesStartKalturaSession API call: Start a new Kaltura session, so that new media can be recorded and uploaded to
+// this Canvas instance's Kaltura instance.
+func (c *Canvas) ServicesStartKalturaSession(progress *task.Progress) (*map[string]interface{}, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &map[string]interface{}{}
+	}
+	var res *map[string]interface{}
+	callback := func(obj interface{}) error {
+		res = obj.(*map[string]interface{})
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
 // SharedBrandConfigsShareABrandConfigTheme API call: Create a SharedBrandConfig, which will give the given brand_config
 // a name and make it available to other users of this account.
 func (c *Canvas) SharedBrandConfigsShareABrandConfigTheme(progress *task.Progress, sharedBrandConfig *string, accountID string) (*SharedBrandConfig, error) {
-	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs'", accountID)
+	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs", accountID)
 	params := map[string]interface{}{}
 	if sharedBrandConfig != nil {
 		params["shared_brand_config"] = *sharedBrandConfig
@@ -15174,7 +16036,7 @@ func (c *Canvas) SharedBrandConfigsShareABrandConfigTheme(progress *task.Progres
 // SharedBrandConfigsUpdateASharedTheme API call: Update the specified shared_brand_config with a new name or to point
 // to a new brand_config. Uses same parameters as create.
 func (c *Canvas) SharedBrandConfigsUpdateASharedTheme(progress *task.Progress, accountID string, sharedBrandConfigID string) (*SharedBrandConfig, error) {
-	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs/%s'", accountID, sharedBrandConfigID)
+	endpoint := fmt.Sprintf("accounts/%s/shared_brand_configs/%s", accountID, sharedBrandConfigID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &SharedBrandConfig{}
@@ -15706,7 +16568,7 @@ func (c *Canvas) SubmissionsListMultipleAssignmentsGradeableStudents(progress *t
 // assignment submissions in an asynchronous job. The user must have permission to manage grades in the appropriate
 // context (course or section).
 func (c *Canvas) SubmissionsGradeOrCommentOnMultipleSubmissions(progress *task.Progress, gradeData *string) (*Progress, error) {
-	endpoint := fmt.Sprintf("courses/1/assignments/2/submissions/update_grades'")
+	endpoint := fmt.Sprintf("courses/1/assignments/2/submissions/update_grades")
 	params := map[string]interface{}{}
 	if gradeData != nil {
 		params["grade_data"] = *gradeData
@@ -15728,7 +16590,7 @@ func (c *Canvas) SubmissionsGradeOrCommentOnMultipleSubmissions(progress *task.P
 // SubmissionsMarkSubmissionAsRead API call: No request fields are necessary. On success, the response will be 204 No
 // Content with an empty body.
 func (c *Canvas) SubmissionsMarkSubmissionAsRead(progress *task.Progress, courseID string, assignmentID string, userID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json'", courseID, assignmentID, userID)
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json", courseID, assignmentID, userID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -15747,7 +16609,7 @@ func (c *Canvas) SubmissionsMarkSubmissionAsRead(progress *task.Progress, course
 // SubmissionsMarkSubmissionAsUnread API call: No request fields are necessary. On success, the response will be 204 No
 // Content with an empty body.
 func (c *Canvas) SubmissionsMarkSubmissionAsUnread(progress *task.Progress, courseID string, assignmentID string, userID string) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json'", courseID, assignmentID, userID)
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s/read.json", courseID, assignmentID, userID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &map[string]interface{}{}
@@ -15886,6 +16748,66 @@ func (c *Canvas) EnrollmentTermsListEnrollmentTerms(progress *task.Progress, wor
 // overrides by default.
 func (c *Canvas) EnrollmentTermsRetrieveEnrollmentTerm(progress *task.Progress) (*EnrollmentTerm, error) {
 	endpoint := fmt.Sprintf("accounts/1/terms/2")
+	params := map[string]interface{}{}
+	responseCtor := func() interface{} {
+		return &EnrollmentTerm{}
+	}
+	var res *EnrollmentTerm
+	callback := func(obj interface{}) error {
+		res = obj.(*EnrollmentTerm)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// EnrollmentTermsCreateEnrollmentTerm API call: Create a new enrollment term for the specified account.
+func (c *Canvas) EnrollmentTermsCreateEnrollmentTerm(progress *task.Progress, enrollmentTerm *string) (*EnrollmentTerm, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if enrollmentTerm != nil {
+		params["enrollment_term"] = *enrollmentTerm
+	}
+	responseCtor := func() interface{} {
+		return &EnrollmentTerm{}
+	}
+	var res *EnrollmentTerm
+	callback := func(obj interface{}) error {
+		res = obj.(*EnrollmentTerm)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// EnrollmentTermsUpdateEnrollmentTerm API call: Update an existing enrollment term for the specified account.
+func (c *Canvas) EnrollmentTermsUpdateEnrollmentTerm(progress *task.Progress, enrollmentTerm *string) (*EnrollmentTerm, error) {
+	endpoint := fmt.Sprintf("")
+	params := map[string]interface{}{}
+	if enrollmentTerm != nil {
+		params["enrollment_term"] = *enrollmentTerm
+	}
+	responseCtor := func() interface{} {
+		return &EnrollmentTerm{}
+	}
+	var res *EnrollmentTerm
+	callback := func(obj interface{}) error {
+		res = obj.(*EnrollmentTerm)
+		return nil
+	}
+	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {
+		return nil, err
+	}
+	return res, nil
+}
+
+// EnrollmentTermsDeleteEnrollmentTerm API call: Delete the specified enrollment term.
+func (c *Canvas) EnrollmentTermsDeleteEnrollmentTerm(progress *task.Progress) (*EnrollmentTerm, error) {
+	endpoint := fmt.Sprintf("")
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &EnrollmentTerm{}
@@ -16528,7 +17450,7 @@ func (c *Canvas) UsersUpdateDashboardPositions(progress *task.Progress, userID s
 
 // UsersEditAUser API call: Modify an existing user. To modify a user's login, see the documentation for logins.
 func (c *Canvas) UsersEditAUser(progress *task.Progress, user *string) (*User, error) {
-	endpoint := fmt.Sprintf("users/133.json'")
+	endpoint := fmt.Sprintf("users/133.json")
 	params := map[string]interface{}{}
 	if user != nil {
 		params["user"] = *user
