@@ -10,7 +10,11 @@ var (
 	// AnnouncementChildCtors for parsing a template
 	AnnouncementChildCtors = []htmlgen.ChildConstructor{
 		func() (htmlgen.Section, []htmlgen.ChildConstructor) {
-			return CreateAnnouncementAttachment(), []htmlgen.ChildConstructor{}
+			return CreateAnnouncement(), []htmlgen.ChildConstructor{
+				func() (htmlgen.Section, []htmlgen.ChildConstructor) {
+					return CreateAnnouncementAttachment(), []htmlgen.ChildConstructor{}
+				},
+			}
 		},
 	}
 )

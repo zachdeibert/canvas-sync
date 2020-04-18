@@ -37,7 +37,11 @@ var (
 	%sTemplate *%s
 	// %sChildCtors for parsing a template
 	%sChildCtors = []htmlgen.ChildConstructor{
-		// TODO
+		func() (htmlgen.Section, []htmlgen.ChildConstructor) {
+			return Create%s(), []htmlgen.ChildConstructor{
+				// TODO
+			}
+		},
 	}
 )
 
@@ -97,7 +101,7 @@ func (t *%s) String() string {
 func (t *%s) Parse(str string, childCtors []htmlgen.ChildConstructor) (string, bool) {
 	return t.format.Parse(str, childCtors)
 }
-`, lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, model, uppercase, uppercase, uppercase, uppercase,
+`, lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, uppercase, model, uppercase, uppercase, uppercase, uppercase,
 		lowercase, '`', '`', lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, lowercase, uppercase,
 		uppercase, uppercase, uppercase, uppercase)), 0644)
 }

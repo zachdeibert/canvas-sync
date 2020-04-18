@@ -235,7 +235,19 @@ func (s *FormatSection) Parse(str string, childCtors []ChildConstructor) (string
 				suffix = s.format[f[1]:formats[i+1][0]]
 			}
 			fieldWidth := strings.Index(strLeft, suffix)
-			*(s.args[i].(*string)) = strLeft[0:fieldWidth]
+			readString := strLeft[0:fieldWidth]
+			switch p := s.args[i].(type) {
+			case *string:
+				*p = readString
+				break
+			case CustomFormat:
+				if err := p.ParseHTML(readString); err != nil {
+					return "", false
+				}
+				break
+			default:
+				return "", false
+			}
 			strLeft = strLeft[fieldWidth:]
 		} else {
 			suffix := ""

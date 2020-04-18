@@ -36,13 +36,11 @@ func init() {
 				if len(str) == 0 && ok {
 					children := doc.Children()
 					if len(children) > 0 {
-						switch a := children[0].(type) {
-						case *html.Announcement:
+						if a, ok := children[0].(*html.Announcement); ok {
 							if a.Data.LastReplyAt == announcement.LastReplyAt {
 								fileWrites.Finish(1)
 								continue
 							}
-							break
 						}
 					}
 				}

@@ -13,6 +13,13 @@ func (t *TimeFormat) FormatHTML() string {
 	return t.Ptr.Format(t.Format)
 }
 
+// ParseHTML is the opposite of FormatHTML
+func (t *TimeFormat) ParseHTML(str string) error {
+	var err error
+	*t.Ptr, err = time.Parse(t.Format, str)
+	return err
+}
+
 // CreateTimeFormat creates a new time format
 func CreateTimeFormat(ptr *time.Time, format string) *TimeFormat {
 	return &TimeFormat{
