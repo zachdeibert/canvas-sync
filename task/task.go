@@ -1,5 +1,10 @@
 package task
 
+import (
+	"fmt"
+	"strings"
+)
+
 type taskState int
 
 const (
@@ -124,6 +129,22 @@ func (t *Task) CreateSubtask(name string, start func(*Task, func())) *Task {
 		t.dispatchProgress()
 	}
 	return task
+}
+
+// GetName gets the qualified name of the task, optionally up to a root task
+func (t *Task) GetName(root *Task) string {
+	parts := []string{
+		fmt.Sprintf("'%s'", t.name),
+	}
+	if root != nil {
+		t = t.parent
+		for t != nil && t != root {
+			parts = append([]string{
+				fmt.Sprintf("'%s'", t.name),
+			}, parts...)
+		}
+	}
+	return strings.Join(parts, " > ")
 }
 
 func (t *Task) addInheritProgressListener(child *Task) {

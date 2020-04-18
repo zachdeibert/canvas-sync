@@ -29,7 +29,7 @@ func main2() {
 	ioutil.WriteFile(filename, []byte(fmt.Sprintf(`package html
 
 import (
-	"github.com/zachdeibert/canvas-sync/canvas/model"
+	"github.com/zachdeibert/canvas-sync/canvas"
 	"github.com/zachdeibert/canvas-sync/htmlgen"
 )
 
@@ -43,7 +43,7 @@ var (
 
 // %s HTML template
 type %s struct {
-	Data   model.%s
+	Data   canvas.%s
 	format *htmlgen.FormatSection
 }
 

@@ -8,7 +8,6 @@ import (
 	"time"
 
 	"github.com/zachdeibert/canvas-sync/canvas"
-	"github.com/zachdeibert/canvas-sync/canvas/model"
 	"github.com/zachdeibert/canvas-sync/canvassync/coursetasks/html"
 	"github.com/zachdeibert/canvas-sync/htmlgen"
 	"github.com/zachdeibert/canvas-sync/task"
@@ -17,25 +16,17 @@ import (
 func init() {
 	register("Announcements", func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
 		defer finish()
-		announcements := []model.Announcement{}
-		if err := c.Request("announcements", map[string]interface{}{
-			"context_codes": []string{
-				fmt.Sprintf("course_%d", courseId),
-			},
-			"start_date": "1970-01-01",
-			"end_date":   time.Now().Add(time.Hour * 24).Format("2006-01-02"),
-		}, t.CreateProgress(1), func() interface{} {
-			return &[]model.Announcement{}
-		}, func(obj interface{}) error {
-			part := *obj.(*[]model.Announcement)
-			announcements = append(announcements, part...)
-			return nil
-		}); err != nil {
+		startDate := time.Unix(0, 0)
+		endDate := time.Now().Add(time.Hour * 24)
+		announcements, err := c.AnnouncementsListAnnouncements(t.CreateProgress(1), []string{
+			fmt.Sprintf("course_%d", courseId),
+		}, &startDate, &endDate, nil, nil)
+		if err != nil {
 			panic(err)
 		}
 		fileWrites := t.CreateProgress(1)
 		fileWrites.SetWork(len(announcements))
-		repliedAnnouncements := []model.Announcement{}
+		repliedAnnouncements := []canvas.DiscussionTopic{}
 		for _, announcement := range announcements {
 			filename := path.Join(db, fmt.Sprintf("%d - %s.html", announcement.ID, InvalidPathRunes.ReplaceAllLiteralString(announcement.Title, "_")))
 			content, err := ioutil.ReadFile(filename)

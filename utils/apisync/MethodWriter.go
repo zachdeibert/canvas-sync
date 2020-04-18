@@ -48,6 +48,14 @@ func (c *Canvas) %s(progress *task.Progress%s) ([]%s, error) {
 		var tmp %s
 		return &tmp
 	}`
+	paramCodeScalar = `
+	if %s != nil {
+		params["%s"] = *%s
+	}`
+	paramCodeVector = `
+	if %s != nil && len(%s) > 0 {
+		params["%s"] = %s
+	}`
 )
 
 var (
@@ -72,12 +80,17 @@ func (m *Method) Write(apiName string, imports *[]string) (string, error) {
 		responseCtor = primitiveResponseCtor
 	}
 	endpointMatches := endpointArgRegex.FindAllStringSubmatchIndex(m.EndPoint, -1)
-	paramsCodes := make([]string, len(m.Arguments)+1)
-	paramsArgs := make([]string, len(paramsCodes)+len(endpointMatches))
+	paramsCodes := make([]string, len(m.Arguments))
+	paramsArgs := make([]string, len(paramsCodes)+len(endpointMatches)+1)
 	for i, arg := range m.Arguments {
 		name := toGoIdentifier(arg.Name, false)
-		paramsArgs[i+1] = fmt.Sprintf("%s %s", name, arg.Type)
-		paramsCodes[i+1] = fmt.Sprintf(`    params["%s"] = %s`, arg.Name, name)
+		if strings.HasPrefix(arg.Type, "[]") || strings.HasPrefix(arg.Type, "map[") {
+			paramsArgs[i+1] = fmt.Sprintf("%s %s", name, arg.Type)
+			paramsCodes[i] = fmt.Sprintf(paramCodeVector, name, name, arg.Name, name)
+		} else {
+			paramsArgs[i+1] = fmt.Sprintf("%s *%s", name, arg.Type)
+			paramsCodes[i] = fmt.Sprintf(paramCodeScalar, name, arg.Name, name)
+		}
 	}
 	start := 0
 	endpointConstants := make([]string, len(endpointMatches)+1)
@@ -91,7 +104,7 @@ func (m *Method) Write(apiName string, imports *[]string) (string, error) {
 	}
 	endpointConstants[len(endpointMatches)] = m.EndPoint[start:]
 	paramArgsStr := strings.Join(paramsArgs, ", ")
-	paramsCode := strings.Join(paramsCodes, "\n")
+	paramsCode := strings.Join(paramsCodes, "")
 	endpointFormat := strings.Join(endpointConstants, "%s")
 	endpointFormatArgsStr := strings.Join(endpointFormatArgs, ", ")
 	return fmt.Sprintf(format, comment, name, paramArgsStr, resType, endpointFormat, endpointFormatArgsStr, paramsCode, fmt.Sprintf(responseCtor, resType), resType, resType), nil

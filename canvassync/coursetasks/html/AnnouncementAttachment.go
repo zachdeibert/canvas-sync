@@ -1,7 +1,7 @@
 package html
 
 import (
-	"github.com/zachdeibert/canvas-sync/canvas/model"
+	"github.com/zachdeibert/canvas-sync/canvas"
 	"github.com/zachdeibert/canvas-sync/htmlgen"
 )
 
@@ -13,7 +13,7 @@ var (
 
 // AnnouncementAttachment HTML template
 type AnnouncementAttachment struct {
-	Data   model.File
+	Data   canvas.FileAttachment
 	format *htmlgen.FormatSection
 }
 
@@ -22,13 +22,12 @@ func CreateAnnouncementAttachment() *AnnouncementAttachment {
 	obj := &AnnouncementAttachment{}
 	args := []interface{}{
 		&obj.Data.DisplayName,
-		&obj.Data.ID,
 	}
 	if announcementAttachmentTemplate == nil {
 		var err error
 		if obj.format, err = htmlgen.CreateFormatSection(`
 <div>
-	Attached file %s (id = %d)
+	Attached file %s
 </div>
 `, args); err != nil {
 			panic(err)

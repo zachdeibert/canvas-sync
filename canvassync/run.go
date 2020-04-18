@@ -10,6 +10,11 @@ import (
 	"github.com/zachdeibert/canvas-sync/task"
 )
 
+type taskPanic struct {
+	t   *task.Task
+	err interface{}
+}
+
 // Run the Canvas Sync program
 func Run(c *canvas.Canvas) {
 	dummyRoot := task.CreateRootTask()
@@ -18,9 +23,12 @@ func Run(c *canvas.Canvas) {
 		<-dummyExit
 		finish()
 	})
-	panicCh := make(chan interface{})
+	panicCh := make(chan taskPanic)
 	root.AddPanicListener(func(src *task.Task, err interface{}) {
-		panicCh <- err
+		panicCh <- taskPanic{
+			t:   src,
+			err: err,
+		}
 	})
 	name := make(chan string)
 	dbCh := make(chan string)
@@ -58,7 +66,8 @@ func Run(c *canvas.Canvas) {
 			break
 		case err := <-panicCh:
 			mon.Close()
-			panic(err)
+			fmt.Fprintf(os.Stderr, "Panic in task %s\n", err.t.GetName(root))
+			panic(err.err)
 		}
 	}
 }

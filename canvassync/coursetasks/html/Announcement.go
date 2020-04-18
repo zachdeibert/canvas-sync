@@ -1,7 +1,7 @@
 package html
 
 import (
-	"github.com/zachdeibert/canvas-sync/canvas/model"
+	"github.com/zachdeibert/canvas-sync/canvas"
 	"github.com/zachdeibert/canvas-sync/htmlgen"
 )
 
@@ -17,7 +17,7 @@ var (
 
 // Announcement HTML template
 type Announcement struct {
-	Data   model.Announcement
+	Data   canvas.DiscussionTopic
 	format *htmlgen.FormatSection
 }
 
@@ -29,7 +29,7 @@ func CreateAnnouncement() *Announcement {
 		&obj.Data.UserName,
 		&obj.Data.Message,
 		htmlgen.FormatSectionChild,
-		&obj.Data.LastReplyAt,
+		htmlgen.CreateDateTimeFormat(&obj.Data.LastReplyAt),
 	}
 	if announcementTemplate == nil {
 		var err error

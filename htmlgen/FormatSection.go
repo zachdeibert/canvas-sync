@@ -74,7 +74,7 @@ func CreateFormatSection(format string, args []interface{}) (*FormatSection, err
 			case 's':
 				if argI < len(args) {
 					switch (args[argI]).(type) {
-					case *string, *fmt.Stringer, *[]byte:
+					case *string, *fmt.Stringer, *[]byte, CustomFormat:
 						argI++
 						break
 					default:
@@ -183,6 +183,9 @@ func (s *FormatSection) String() string {
 				break
 			case *[]byte:
 				args[i] = *v
+				break
+			case CustomFormat:
+				args[i] = v.FormatHTML()
 				break
 			}
 		}

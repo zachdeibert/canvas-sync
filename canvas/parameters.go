@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+	"time"
 )
 
 type parameterType struct {
@@ -85,6 +86,14 @@ func (c *Canvas) registerDefaultParameterTypes() error {
 			}
 		}
 		return strings.Join(strs, "&"), nil
+	})
+	c.RegisterParameterType4(reflect.TypeOf(time.Time{}), func(val interface{}) (string, error) {
+		return val.(time.Time).Format("2006-01-02"), nil
+	})
+	c.RegisterParameterType3(func(t reflect.Type) (bool, error) {
+		return t.Kind() == reflect.String, nil
+	}, func(val interface{}) (string, error) {
+		return url.QueryEscape(val.(string)), nil
 	})
 	return nil
 }
