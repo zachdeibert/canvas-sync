@@ -31,9 +31,8 @@ func init() {
 			filename := path.Join(db, fmt.Sprintf("%d - %s.html", announcement.ID, InvalidPathRunes.ReplaceAllLiteralString(announcement.Title, "_")))
 			content, err := ioutil.ReadFile(filename)
 			if err == nil {
-				doc := htmlgen.CreateDocument()
-				str, ok := doc.Parse(string(content), html.AnnouncementChildCtors)
-				if len(str) == 0 && ok {
+				doc := htmlgen.ParseDocument(string(content), []htmlgen.ChildConstructor{html.AnnouncementChildCtor})
+				if doc != nil {
 					children := doc.Children()
 					if len(children) > 0 {
 						if a, ok := children[0].(*html.Announcement); ok {

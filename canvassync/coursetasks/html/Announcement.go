@@ -7,15 +7,11 @@ import (
 
 var (
 	announcementTemplate *Announcement
-	// AnnouncementChildCtors for parsing a template
-	AnnouncementChildCtors = []htmlgen.ChildConstructor{
-		func() (htmlgen.Section, []htmlgen.ChildConstructor) {
-			return CreateAnnouncement(), []htmlgen.ChildConstructor{
-				func() (htmlgen.Section, []htmlgen.ChildConstructor) {
-					return CreateAnnouncementAttachment(), []htmlgen.ChildConstructor{}
-				},
-			}
-		},
+	// AnnouncementChildCtor for parsing a template
+	AnnouncementChildCtor = func() (htmlgen.Section, []htmlgen.ChildConstructor) {
+		return CreateAnnouncement(), []htmlgen.ChildConstructor{
+			AnnouncementAttachmentChildCtor,
+		}
 	}
 )
 
@@ -58,15 +54,6 @@ func CreateAnnouncement() *Announcement {
 		obj.format = announcementTemplate.format.Clone(args)
 	}
 	return obj
-}
-
-// ParseAnnouncement parses a string to a template
-func ParseAnnouncement(str string) *Announcement {
-	o := CreateAnnouncement()
-	if _, ok := o.Parse(str, AnnouncementChildCtors); ok {
-		return o
-	}
-	return nil
 }
 
 func init() {

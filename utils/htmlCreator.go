@@ -35,13 +35,11 @@ import (
 
 var (
 	%sTemplate *%s
-	// %sChildCtors for parsing a template
-	%sChildCtors = []htmlgen.ChildConstructor{
-		func() (htmlgen.Section, []htmlgen.ChildConstructor) {
-			return Create%s(), []htmlgen.ChildConstructor{
-				// TODO
-			}
-		},
+	// %sChildCtor for parsing a template
+	%sChildCtor = func() (htmlgen.Section, []htmlgen.ChildConstructor) {
+		return Create%s(), []htmlgen.ChildConstructor{
+			// TODO
+		}
 	}
 )
 
@@ -70,15 +68,6 @@ func Create%s() *%s {
 	return obj
 }
 
-// Parse%s parses a string to a template
-func Parse%s(str string) *%s {
-	o := Create%s()
-	if _, ok := o.Parse(str, %sChildCtors); ok {
-		return o
-	}
-	return nil
-}
-
 func init() {
 	%sTemplate = Create%s()
 }
@@ -101,7 +90,6 @@ func (t *%s) String() string {
 func (t *%s) Parse(str string, childCtors []htmlgen.ChildConstructor) (string, bool) {
 	return t.format.Parse(str, childCtors)
 }
-`, lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, uppercase, model, uppercase, uppercase, uppercase, uppercase,
-		lowercase, '`', '`', lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, lowercase, uppercase,
-		uppercase, uppercase, uppercase, uppercase)), 0644)
+`, lowercase, uppercase, uppercase, uppercase, uppercase, uppercase, uppercase, model, uppercase, uppercase, uppercase,
+		uppercase, lowercase, '`', '`', lowercase, lowercase, uppercase, uppercase, uppercase, uppercase, uppercase)), 0644)
 }

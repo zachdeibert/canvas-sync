@@ -61,3 +61,12 @@ func (d *Document) String() string {
 func (d *Document) Parse(str string, childCtors []ChildConstructor) (string, bool) {
 	return d.format.Parse(str, childCtors)
 }
+
+// ParseDocument parses an entire document
+func ParseDocument(str string, childCtors []ChildConstructor) *Document {
+	d := CreateDocument()
+	if str, ok := d.Parse(str, childCtors); len(str) == 0 && ok {
+		return d
+	}
+	return nil
+}
