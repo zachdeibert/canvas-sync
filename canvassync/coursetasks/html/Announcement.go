@@ -11,6 +11,7 @@ var (
 	AnnouncementChildCtor = func() (htmlgen.Section, []htmlgen.ChildConstructor) {
 		return CreateAnnouncement(), []htmlgen.ChildConstructor{
 			AnnouncementAttachmentChildCtor,
+			AnnouncementReplyChildCtor,
 		}
 	}
 )

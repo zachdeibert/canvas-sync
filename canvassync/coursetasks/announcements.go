@@ -26,7 +26,6 @@ func init() {
 		}
 		fileWrites := t.CreateProgress(1)
 		fileWrites.SetWork(len(announcements))
-		repliedAnnouncements := []canvas.DiscussionTopic{}
 		for _, announcement := range announcements {
 			filename := path.Join(db, fmt.Sprintf("%d - %s.html", announcement.ID, InvalidPathRunes.ReplaceAllLiteralString(announcement.Title, "_")))
 			content, err := ioutil.ReadFile(filename)
@@ -46,24 +45,48 @@ func init() {
 			} else if !os.IsNotExist(err) {
 				panic(err)
 			}
+			doc := htmlgen.CreateDocument()
+			doc.Title = announcement.Title
+			a := html.CreateAnnouncement()
+			a.Data = announcement
+			for _, attachment := range announcement.Attachments {
+				at := html.CreateAnnouncementAttachment()
+				at.Data = attachment
+				a.AppendChild(at)
+			}
+			doc.AppendChild(a)
 			if announcement.DiscussionSubentryCount > 0 {
-				repliedAnnouncements = append(repliedAnnouncements, announcement)
-			} else {
-				doc := htmlgen.CreateDocument()
-				doc.Title = announcement.Title
-				a := html.CreateAnnouncement()
-				a.Data = announcement
-				for _, attachment := range announcement.Attachments {
-					at := html.CreateAnnouncementAttachment()
-					at.Data = attachment
-					a.AppendChild(at)
-				}
-				doc.AppendChild(a)
-				if err := ioutil.WriteFile(filename, []byte(doc.String()), 0644); err != nil {
+				view, err := c.DiscussionTopicsGetTheFullTopic(t.CreateProgress(0.01), fmt.Sprint(courseId), fmt.Sprint(announcement.ID))
+				if err != nil {
 					panic(err)
 				}
-				fileWrites.Finish(1)
+				for _, rv1 := range view.View {
+					r1 := html.CreateAnnouncementReply()
+					r1.Data = rv1
+					for _, u := range view.Participants {
+						if u.ID == rv1.UserID {
+							r1.User = u
+							break
+						}
+					}
+					for _, rv2 := range rv1.Replies {
+						r2 := html.CreateAnnouncementReply()
+						r2.Data = rv2
+						for _, u := range view.Participants {
+							if u.ID == rv2.UserID {
+								r2.User = u
+								break
+							}
+						}
+						r1.AppendChild(r2)
+					}
+					a.AppendChild(r1)
+				}
 			}
+			if err := ioutil.WriteFile(filename, []byte(doc.String()), 0644); err != nil {
+				panic(err)
+			}
+			fileWrites.Finish(1)
 		}
 	})
 }
