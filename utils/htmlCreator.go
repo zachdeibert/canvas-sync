@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func main2() {
+func main() {
 	if len(os.Args) < 2 || len(os.Args) > 3 {
 		fmt.Fprintf(os.Stderr, "Usage: %s <struct name> [model name]\n", os.Args[0])
 		os.Exit(1)

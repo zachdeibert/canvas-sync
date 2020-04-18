@@ -61,7 +61,7 @@ var (
 	commentRegex = regexp.MustCompile("(?m:^\\s*//.+)")
 )
 
-func main3() {
+func main() {
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "Usage: %s <struct name>\n", os.Args[0])
 		os.Exit(1)
