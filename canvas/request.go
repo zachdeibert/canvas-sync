@@ -43,7 +43,7 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, progres
 			return err
 		}
 		if res.StatusCode < 200 || res.StatusCode >= 300 {
-			return fmt.Errorf("Invalid status code: %d %s", res.StatusCode, res.Status)
+			return fmt.Errorf("Invalid status code at URL %s: %s", url, res.Status)
 		}
 		body, err := ioutil.ReadAll(res.Body)
 		if err != nil {
