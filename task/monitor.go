@@ -14,6 +14,8 @@ type Monitor interface {
 	GetHeader() *Section
 	// GetFooter gets the footer
 	GetFooter() *Section
+	// IsInteractive determines if the monitor is interactive
+	IsInteractive() bool
 }
 
 // CreateMonitor creates a Monitor

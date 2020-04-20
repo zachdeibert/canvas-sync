@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/zachdeibert/canvas-sync/canvas"
 	"github.com/zachdeibert/canvas-sync/task"
@@ -57,10 +58,15 @@ func Run(c *canvas.Canvas) {
 		ch <- nil
 	})
 	signal.Notify(ch, os.Interrupt, syscall.SIGTERM)
+	rlTimer := time.NewTicker(time.Second / 10)
+	if !mon.IsInteractive() {
+		rlTimer.Stop()
+	}
 	var db string
 	for {
 		select {
 		case <-ch:
+			rlTimer.Stop()
 			return
 		case n := <-name:
 			header.SetText(1, task.AlignLeft, n)
@@ -73,6 +79,9 @@ func Run(c *canvas.Canvas) {
 			}
 			root.CreateSubtask("Write Database to Disk", writeDatabaseTask(db))
 			dummyExit <- nil
+			break
+		case <-rlTimer.C:
+			header.SetText(1, task.AlignRight, fmt.Sprintf("Quota: %.3f", c.GetQuotaAvailable()))
 			break
 		case err := <-panicCh:
 			mon.Close()

@@ -237,6 +237,10 @@ func (m *interactiveMonitor) GetFooter() *Section {
 	return m.footer
 }
 
+func (m *interactiveMonitor) IsInteractive() bool {
+	return true
+}
+
 func (m *interactiveMonitor) flushRender() {
 	fmt.Fprint(m.stdout, "\033[1;1H")
 	if !m.closed {

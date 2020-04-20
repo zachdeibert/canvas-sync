@@ -38,7 +38,9 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, progres
 		}
 		req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token))
 		req.Header.Add("Accept", "application/json")
+		c.onRequestStart()
 		res, err := c.client.Do(req)
+		c.onRequestFinish(res, err)
 		if err != nil {
 			return err
 		}

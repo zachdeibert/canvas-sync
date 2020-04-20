@@ -51,3 +51,7 @@ func (m *noninteractiveMonitor) GetHeader() *Section {
 func (m *noninteractiveMonitor) GetFooter() *Section {
 	return m.footer
 }
+
+func (m *noninteractiveMonitor) IsInteractive() bool {
+	return false
+}
