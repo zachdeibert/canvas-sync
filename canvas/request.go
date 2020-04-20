@@ -2,6 +2,7 @@ package canvas
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -14,6 +15,40 @@ import (
 var (
 	linkRe = regexp.MustCompile("<([^>]+)>;\\s*rel=\"([^\"]+)\"")
 )
+
+// RequestRaw performs a raw HTTP request
+func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]byte, *http.Response, error) {
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token))
+	req.Header.Add("Accept", accept)
+	c.onRequestStart()
+	res, err := c.client.Do(req)
+	c.onRequestFinish(res, err)
+	if err != nil {
+		return nil, nil, err
+	}
+	if res.StatusCode < 200 || res.StatusCode >= 400 {
+		return nil, nil, fmt.Errorf("Invalid status code at URL %s: %s", url, res.Status)
+	}
+	if res.StatusCode >= 300 {
+		loc := res.Header.Get("Location")
+		if len(loc) > 0 {
+			if allowedRedirects > 0 {
+				return c.RequestRaw(loc, accept, allowedRedirects-1)
+			}
+			return nil, nil, errors.New("Too many redirects")
+		}
+		return nil, nil, errors.New("Redirect requested with no target location")
+	}
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, nil, err
+	}
+	return body, res, nil
+}
 
 // Request sends a request to the API
 func (c *Canvas) Request(endpoint string, params map[string]interface{}, progress *task.Progress, responseCtor func() interface{}, callback func(interface{}) error) error {
@@ -32,22 +67,7 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, progres
 	progress.SetWork(1)
 	first := true
 	for {
-		req, err := http.NewRequest("GET", url, nil)
-		if err != nil {
-			return err
-		}
-		req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token))
-		req.Header.Add("Accept", "application/json")
-		c.onRequestStart()
-		res, err := c.client.Do(req)
-		c.onRequestFinish(res, err)
-		if err != nil {
-			return err
-		}
-		if res.StatusCode < 200 || res.StatusCode >= 300 {
-			return fmt.Errorf("Invalid status code at URL %s: %s", url, res.Status)
-		}
-		body, err := ioutil.ReadAll(res.Body)
+		body, res, err := c.RequestRaw(url, "application/json", 10)
 		if err != nil {
 			return err
 		}

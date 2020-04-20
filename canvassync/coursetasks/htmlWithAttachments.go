@@ -3,6 +3,7 @@ package coursetasks
 import (
 	"fmt"
 	"io/ioutil"
+	"net/url"
 	"os"
 	"path"
 
@@ -25,9 +26,20 @@ func registerHTMLWithFileAttachments(name string, docType htmlgen.ChildConstruct
 		}
 		return b
 	}, func(a interface{}) string {
-		return a.(canvas.FileAttachment).Filename
-	}, func(a interface{}, filename string) {
-		// TODO
+		str, err := url.QueryUnescape(a.(canvas.FileAttachment).Filename)
+		if err != nil {
+			panic(err)
+		}
+		return InvalidPathRunes.ReplaceAllLiteralString(str, "_")
+	}, func(o interface{}, filename string, c *canvas.Canvas) {
+		a := o.(canvas.FileAttachment)
+		body, _, err := c.RequestRaw(a.URL, a.ContentType, 10)
+		if err != nil {
+			panic(err)
+		}
+		if err := ioutil.WriteFile(filename, body, 0644); err != nil {
+			panic(err)
+		}
 	}, func(a interface{}, filename string) bool {
 		return false
 	}, isModified, createDoc)
@@ -38,7 +50,7 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 	getFilename func(interface{}) string,
 	getAttachments func(interface{}) []interface{},
 	getAttachmentFilename func(interface{}) string,
-	downloadAttachment func(interface{}, string),
+	downloadAttachment func(interface{}, string, *canvas.Canvas),
 	attachmentChanged func(interface{}, string) bool,
 	isModified func(interface{}, *htmlgen.Document) bool,
 	createDoc func(interface{}, *htmlgen.Document, *canvas.Canvas, *task.Task, int)) {
@@ -106,8 +118,9 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 						for i, af := range filenames {
 							if f.Name() == af {
 								found = true
-								if attachmentChanged(attachments[i], af) {
-									downloadAttachment(attachments[i], af)
+								fname := path.Join(fileBaseName, af)
+								if attachmentChanged(attachments[i], fname) {
+									downloadAttachment(attachments[i], fname, c)
 								}
 							}
 						}
@@ -126,7 +139,7 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 						}
 					}
 					if !found {
-						downloadAttachment(attachments[i], af)
+						downloadAttachment(attachments[i], path.Join(fileBaseName, af), c)
 					}
 				}
 			}

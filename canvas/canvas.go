@@ -24,10 +24,14 @@ type Canvas struct {
 // CreateCanvas creates a new Canvas object
 func CreateCanvas(subdomain, token string) (*Canvas, error) {
 	c := &Canvas{
-		subdomain:       subdomain,
-		token:           token,
-		parameterTypes:  []parameterType{},
-		client:          &http.Client{},
+		subdomain:      subdomain,
+		token:          token,
+		parameterTypes: []parameterType{},
+		client: &http.Client{
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+				return http.ErrUseLastResponse
+			},
+		},
 		lastQuota:       rateLimitMax,
 		lastQuotaTime:   time.Now(),
 		quotaMutex:      sync.Mutex{},
