@@ -144,8 +144,7 @@ func (t *Task) GetName(root *Task) string {
 		fmt.Sprintf("'%s'", t.name),
 	}
 	if root != nil {
-		t = t.parent
-		for t != nil && t != root {
+		for t = t.parent; t != nil && t != root; t = t.parent {
 			parts = append([]string{
 				fmt.Sprintf("'%s'", t.name),
 			}, parts...)
