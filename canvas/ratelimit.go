@@ -26,9 +26,11 @@ func (c *Canvas) onRequestStart() {
 		}
 		timer.Stop()
 	}
+	c.pendingRequests++
 }
 
 func (c *Canvas) onRequestFinish(res *http.Response, err error) {
+	c.pendingRequests--
 	now := time.Now()
 	header := res.Header.Get("X-Rate-Limit-Remaining")
 	if len(header) > 0 {
@@ -50,5 +52,5 @@ func (c *Canvas) GetQuotaAvailable() float64 {
 	if tot >= rateLimitMax {
 		return rateLimitMax
 	}
-	return tot
+	return tot - float64(rateLimitPreflight*c.pendingRequests)
 }

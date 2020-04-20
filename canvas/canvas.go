@@ -9,29 +9,31 @@ import (
 
 // Canvas represents the Canvas API
 type Canvas struct {
-	subdomain      string
-	token          string
-	parameterTypes []parameterType
-	client         *http.Client
-	lastQuota      float64
-	lastQuotaTime  time.Time
-	quotaMutex     sync.Mutex
-	quotaCalcMutex sync.Mutex
-	quotaNotify    chan interface{}
+	subdomain       string
+	token           string
+	parameterTypes  []parameterType
+	client          *http.Client
+	lastQuota       float64
+	lastQuotaTime   time.Time
+	quotaMutex      sync.Mutex
+	quotaCalcMutex  sync.Mutex
+	quotaNotify     chan interface{}
+	pendingRequests int
 }
 
 // CreateCanvas creates a new Canvas object
 func CreateCanvas(subdomain, token string) (*Canvas, error) {
 	c := &Canvas{
-		subdomain:      subdomain,
-		token:          token,
-		parameterTypes: []parameterType{},
-		client:         &http.Client{},
-		lastQuota:      rateLimitMax,
-		lastQuotaTime:  time.Now(),
-		quotaMutex:     sync.Mutex{},
-		quotaCalcMutex: sync.Mutex{},
-		quotaNotify:    make(chan interface{}),
+		subdomain:       subdomain,
+		token:           token,
+		parameterTypes:  []parameterType{},
+		client:          &http.Client{},
+		lastQuota:       rateLimitMax,
+		lastQuotaTime:   time.Now(),
+		quotaMutex:      sync.Mutex{},
+		quotaCalcMutex:  sync.Mutex{},
+		quotaNotify:     make(chan interface{}),
+		pendingRequests: 0,
 	}
 	if err := c.registerDefaultParameterTypes(); err != nil {
 		return nil, err
