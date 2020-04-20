@@ -29,7 +29,7 @@ func (m *Model) Write(imports *[]string) (string, error) {
 		if t[0] >= 'A' && t[0] <= 'Z' {
 			t = fmt.Sprintf("*%s", t)
 		}
-		name := toGoIdentifier(p.Name, true)
+		name := ToGoIdentifier(p.Name, true)
 		props[i] = fmt.Sprintf(modelPropFormat, descComment(name, "field", p.Description, 4, 120), name, t, '`', p.Name, '`')
 	}
 	return fmt.Sprintf(modelFormat, descComment(m.Name, "model object", m.Description, 0, 120), m.Name, strings.Join(props, "\n")), nil

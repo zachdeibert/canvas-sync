@@ -17,16 +17,21 @@ const (
 )
 
 func defineEnum(values []string, typeName *string, propName string) string {
-	*typeName = toGoIdentifier(propName, true)
+	t := ToGoIdentifier(propName, true)
+	if strings.HasPrefix(*typeName, "[]") {
+		*typeName = fmt.Sprintf("[]%s", t)
+	} else {
+		*typeName = t
+	}
 	vals := make([]string, len(values))
 	for i, val := range values {
-		name := toGoIdentifier(fmt.Sprintf("%s_%s", propName, val), true)
+		name := ToGoIdentifier(fmt.Sprintf("%s_%s", propName, val), true)
 		if val == "" {
 			name = fmt.Sprintf("%sNone", name)
 		}
-		vals[i] = fmt.Sprintf(enumValFormat, name, val, name, *typeName, val)
+		vals[i] = fmt.Sprintf(enumValFormat, name, val, name, t, val)
 	}
-	return fmt.Sprintf(enumFormat, *typeName, *typeName, strings.Join(vals, "\n"))
+	return fmt.Sprintf(enumFormat, t, t, strings.Join(vals, "\n"))
 }
 
 // DefineEnums creates enums for the string parameters that have specific allowed values

@@ -10,7 +10,7 @@ import (
 
 // MethodArgument for a method
 type MethodArgument struct {
-	Name        string
+	Name        string `overridegen:"arg"`
 	Required    bool
 	Type        string
 	Description string

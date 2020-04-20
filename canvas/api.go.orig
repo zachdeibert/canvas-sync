@@ -2994,7 +2994,7 @@ type LockInfo struct {
     // AssetString field: Asset string for the object causing the lock
     AssetString string `json:"asset_string"`
     // ContextModule field: (Optional) Context module causing the lock.
-    ContextModule string `json:"context_module"`
+    ContextModule interface{} `json:"context_module"`
     // LockAt field: (Optional) Time at which this was/will be locked. Must be after the due date.
     LockAt time.Time `json:"lock_at"`
     // ManuallyLocked field
@@ -3012,7 +3012,7 @@ type RubricRating struct {
     // LongDescription field
     LongDescription string `json:"long_description"`
     // Points field
-    Points int `json:"points"`
+    Points float64 `json:"points"`
     // CriterionID field
     CriterionID string `json:"criterion_id"`
 }
@@ -3032,7 +3032,7 @@ type RubricCriteria struct {
     // LongDescription field
     LongDescription string `json:"long_description"`
     // Points field
-    Points int `json:"points"`
+    Points float64 `json:"points"`
     // Ratings field
     Ratings []RubricRating `json:"ratings"`
     // VendorGUID field: (Optional) The 3rd party vendor's GUID for the outcome this criteria references, if any.
@@ -3248,7 +3248,7 @@ type Assignment struct {
     Rubric []RubricCriteria `json:"rubric"`
     // RubricSettings field: (Optional) An object describing the basic attributes of the rubric, including the point
     // total. Included if there is an associated rubric.
-    RubricSettings string `json:"rubric_settings"`
+    RubricSettings interface{} `json:"rubric_settings"`
     // Submission field: (Optional) If 'submission' is included in the 'include' parameter, includes a Submission object
     // that represents the current user's (user who is requesting information from the api) current submission for the
     // assignment. See the Submissions API for an example response. If the user does not have a submission, this key
@@ -3257,7 +3257,7 @@ type Assignment struct {
     // SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
     // following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
     // 'online_url', 'online_upload' 'media_recording'
-    SubmissionTypes *AssignmentSubmissionTypes `json:"submission_types"`
+    SubmissionTypes []AssignmentSubmissionTypes `json:"submission_types"`
     // SubmissionsDownloadURL field: the URL to download all submissions as a zip
     SubmissionsDownloadURL string `json:"submissions_download_url"`
     // TurnitinEnabled field: Boolean flag indicating whether or not Turnitin has been enabled for the assignment. NOTE:
@@ -5718,7 +5718,7 @@ type SisAssignment struct {
     // SubmissionTypes field: the types of submissions allowed for this assignment list containing one or more of the
     // following: 'discussion_topic', 'online_quiz', 'on_paper', 'none', 'external_tool', 'online_text_entry',
     // 'online_url', 'online_upload' 'media_recording'
-    SubmissionTypes *SisAssignmentSubmissionTypes `json:"submission_types"`
+    SubmissionTypes []SisAssignmentSubmissionTypes `json:"submission_types"`
     // UnlockAt field: (Optional) Time at which this was/will be unlocked.
     UnlockAt time.Time `json:"unlock_at"`
     // UserOverrides field: Includes attributes of a user assignment overrides. For more details see Assignments API.
@@ -6072,6 +6072,8 @@ type Submission struct {
     UserID int `json:"user_id"`
     // WorkflowState field: The current state of the submission
     WorkflowState *SubmissionWorkflowState `json:"workflow_state"`
+    // Attachments field
+    Attachments []FileAttachment `json:"attachments"`
 }
 
 // MediaComment model object
@@ -6845,11 +6847,11 @@ func (c *Canvas) AdminsListAccountAdmins(progress *task.Progress, userID *interf
 // AnnouncementsListAnnouncements API call: Returns the paginated list of announcements for the given courses and date
 // range.  Note that a +context_code+ field is added to the responses so you can tell which course each announcement
 // belongs to.
-func (c *Canvas) AnnouncementsListAnnouncements(progress *task.Progress, contextCodes *interface{}, startDate *time.Time, endDate *time.Time, activeOnly *bool, include []interface{}) ([]DiscussionTopic, error) {
+func (c *Canvas) AnnouncementsListAnnouncements(progress *task.Progress, contextCodes []string, startDate *time.Time, endDate *time.Time, activeOnly *bool, include []interface{}) ([]DiscussionTopic, error) {
 	endpoint := fmt.Sprintf("announcements")
 	params := map[string]interface{}{}
-	if contextCodes != nil {
-		params["context_codes"] = *contextCodes
+	if contextCodes != nil && len(contextCodes) > 0 {
+		params["context_codes"] = contextCodes
 	}
 	if startDate != nil {
 		params["start_date"] = *startDate
@@ -7466,11 +7468,11 @@ func (c *Canvas) AssignmentsBatchUpdateOverridesInACourse(progress *task.Progres
 
 // AssignmentsListAssignments API call: Returns the paginated list of assignments for the current course or assignment
 // group.
-func (c *Canvas) AssignmentsListAssignments(progress *task.Progress, include *AssignmentsListAssignmentsInclude, searchTerm *string, overrideAssignmentDates *bool, needsGradingCountBySection *bool, bucket *AssignmentsListAssignmentsBucket, assignmentIds *interface{}, orderBy *AssignmentsListAssignmentsOrderBy, postToSis *bool) ([]Assignment, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentsListAssignments(progress *task.Progress, include []AssignmentsListAssignmentsInclude, searchTerm *string, overrideAssignmentDates *bool, needsGradingCountBySection *bool, bucket *AssignmentsListAssignmentsBucket, assignmentIds *interface{}, orderBy *AssignmentsListAssignmentsOrderBy, postToSis *bool, courseID string) ([]Assignment, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignments", courseID)
 	params := map[string]interface{}{}
-	if include != nil {
-		params["include"] = *include
+	if include != nil && len(include) > 0 {
+		params["include"] = include
 	}
 	if searchTerm != nil {
 		params["search_term"] = *searchTerm
@@ -9735,7 +9737,7 @@ func (c *Canvas) UsersClearCourseNicknames(progress *task.Progress) (*map[string
 
 // CoursesListYourCourses API call: Returns the paginated list of active courses for the current user.
 func (c *Canvas) CoursesListYourCourses(progress *task.Progress, enrollmentType *CoursesListYourCoursesEnrollmentType, enrollmentRole *interface{}, enrollmentRoleID *int, enrollmentState *CoursesListYourCoursesEnrollmentState, excludeBlueprintCourses *bool, include *CoursesListYourCoursesInclude, state *CoursesListYourCoursesState) ([]Course, error) {
-	endpoint := fmt.Sprintf("")
+	endpoint := fmt.Sprintf("courses")
 	params := map[string]interface{}{}
 	if enrollmentType != nil {
 		params["enrollment_type"] = *enrollmentType
@@ -10867,15 +10869,15 @@ func (c *Canvas) DiscussionTopicsGetASingleTopic(progress *task.Progress, includ
 // or updated entries won't yet be reflected in the view. If the application wants to also get a flat list of all
 // entries not yet reflected in the view, pass include_new_entries=1 to the request and this array of entries will be
 // returned. These entries are returned in a flat array, in ascending created_at order.
-func (c *Canvas) DiscussionTopicsGetTheFullTopic(progress *task.Progress, courseID string, topicID string) (*map[string]interface{}, error) {
+func (c *Canvas) DiscussionTopicsGetTheFullTopic(progress *task.Progress, courseID string, topicID string) (*DiscussionTopicFullView, error) {
 	endpoint := fmt.Sprintf("courses/%s/discussion_topics/%s/view", courseID, topicID)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
-		return &map[string]interface{}{}
+		return &DiscussionTopicFullView{}
 	}
-	var res *map[string]interface{}
+	var res *DiscussionTopicFullView
 	callback := func(obj interface{}) error {
-		res = obj.(*map[string]interface{})
+		res = obj.(*DiscussionTopicFullView)
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {

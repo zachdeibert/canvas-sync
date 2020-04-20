@@ -33,7 +33,7 @@ type modelJSON struct {
 
 // ModelProperty is a property of a model
 type ModelProperty struct {
-	Name        string
+	Name        string `overridegen:"property"`
 	Description string
 	Example     string
 	Type        string
@@ -42,7 +42,7 @@ type ModelProperty struct {
 
 // Model of an object
 type Model struct {
-	Name        string
+	Name        string `overridegen:"model"`
 	Description string
 	Properties  []ModelProperty
 }

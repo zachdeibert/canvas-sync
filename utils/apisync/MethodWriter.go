@@ -65,7 +65,7 @@ var (
 func (m *Method) Write(apiName string, imports *[]string) (string, error) {
 	addImport(imports, "fmt")
 	addImport(imports, "github.com/zachdeibert/canvas-sync/task")
-	name := toGoIdentifier(fmt.Sprintf("%s_%s", apiName, m.Name), true)
+	name := ToGoIdentifier(fmt.Sprintf("%s_%s", apiName, m.Name), true)
 	comment := descComment(name, "API call", m.Description, 0, 120)
 	resType := m.ReturnType
 	format := scalarMethodFormat
@@ -83,7 +83,7 @@ func (m *Method) Write(apiName string, imports *[]string) (string, error) {
 	paramsCodes := make([]string, len(m.Arguments))
 	paramsArgs := make([]string, len(paramsCodes)+len(endpointMatches)+1)
 	for i, arg := range m.Arguments {
-		name := toGoIdentifier(arg.Name, false)
+		name := ToGoIdentifier(arg.Name, false)
 		if strings.HasPrefix(arg.Type, "[]") || strings.HasPrefix(arg.Type, "map[") {
 			paramsArgs[i+1] = fmt.Sprintf("%s %s", name, arg.Type)
 			paramsCodes[i] = fmt.Sprintf(paramCodeVector, name, name, arg.Name, name)
@@ -98,7 +98,7 @@ func (m *Method) Write(apiName string, imports *[]string) (string, error) {
 	for i, match := range endpointMatches {
 		endpointConstants[i] = m.EndPoint[start:match[0]]
 		start = match[1]
-		name := toGoIdentifier(m.EndPoint[match[2]:match[3]], false)
+		name := ToGoIdentifier(m.EndPoint[match[2]:match[3]], false)
 		paramsArgs[len(m.Arguments)+1+i] = fmt.Sprintf("%s string", name)
 		endpointFormatArgs[i+1] = name
 	}

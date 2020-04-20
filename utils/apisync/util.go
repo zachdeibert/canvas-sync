@@ -74,7 +74,8 @@ func importString(pkgs []string) string {
 	}
 }
 
-func toGoIdentifier(jsonIdentifier string, exported bool) string {
+// ToGoIdentifier converts an identifier from JSON to a Go identifier
+func ToGoIdentifier(jsonIdentifier string, exported bool) string {
 	words := goIdentifierParts.FindAllString(jsonIdentifier, -1)
 	for i, word := range words {
 		switch w := strings.ToLower(word); w {

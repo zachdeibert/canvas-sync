@@ -10,6 +10,7 @@ import (
 
 	"github.com/sergi/go-diff/diffmatchpatch"
 	"github.com/zachdeibert/canvas-sync/utils/apisync"
+	"github.com/zachdeibert/canvas-sync/utils/apisync/overrides"
 )
 
 const (
@@ -105,6 +106,7 @@ func main() {
 	apisync.DedupModels(&models)
 	apisync.DedupMethods(&methods)
 	apisync.FixMissingTypes(models, methods)
+	overrides.ApplyOverrides(&models, &methods)
 	imports := []string{}
 	parts := apisync.DefineEnums(models, methods)
 	for _, m := range models {
