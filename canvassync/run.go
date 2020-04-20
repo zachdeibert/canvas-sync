@@ -47,7 +47,11 @@ func Run(c *canvas.Canvas) {
 	header.SetSize(3)
 	header.SetText(0, task.AlignCenter, "Canvas Sync Utility")
 	header.SetText(1, task.AlignCenter, c.GetBaseURL())
-	manager := task.CreateManager(dummyRoot, []int{0, 1, 1, 3}, 0)
+	taskLimit := 3
+	if os.Getenv("DEBUG") == "true" {
+		taskLimit = 1
+	}
+	manager := task.CreateManager(dummyRoot, []int{0, 1, 1, taskLimit}, 0)
 	ch := make(chan os.Signal)
 	manager.AddListener(func() {
 		ch <- nil

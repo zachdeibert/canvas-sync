@@ -2,6 +2,7 @@ package task
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -11,6 +12,10 @@ const (
 	taskStateQueued   taskState = iota
 	taskStateRunning  taskState = iota
 	taskStateFinished taskState = iota
+)
+
+var (
+	taskDebug = os.Getenv("DEBUG") == "true"
 )
 
 type taskProgress struct {
@@ -56,11 +61,13 @@ func (t *Task) Start() {
 	if t.startFunc != nil && t.state == taskStateQueued {
 		t.state = taskStateRunning
 		go func() {
-			defer func() {
-				if err := recover(); err != nil {
-					t.dispatchPanic(t, err)
-				}
-			}()
+			if !taskDebug {
+				defer func() {
+					if err := recover(); err != nil {
+						t.dispatchPanic(t, err)
+					}
+				}()
+			}
 			t.startFunc(t, func() {
 				t.state = taskStateFinished
 				t.dispatchFinish()
