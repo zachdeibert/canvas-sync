@@ -93,7 +93,7 @@ func (c *Canvas) registerDefaultParameterTypes() error {
 	c.RegisterParameterType3(func(t reflect.Type) (bool, error) {
 		return t.Kind() == reflect.String, nil
 	}, func(val interface{}) (string, error) {
-		return url.QueryEscape(val.(string)), nil
+		return url.QueryEscape(reflect.ValueOf(val).String()), nil
 	})
 	return nil
 }
