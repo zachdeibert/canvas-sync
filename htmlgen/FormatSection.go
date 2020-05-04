@@ -19,12 +19,13 @@ type FormatSection struct {
 var (
 	formatSectionChild interface{}
 	// FormatSectionChild is a formatting argument that represents the children nodes
-	FormatSectionChild interface{} = &formatSectionChild
-	errNotEnoughArgs               = errors.New("Not enough arguments for format string")
-	errInvalidType                 = errors.New("Invalid argument type")
-	errChildFormat                 = errors.New("Child format must be %s")
-	errFormatString                = errors.New("Invalid format string")
-	formatRegex                    = regexp.MustCompile("%[^a-zA-Z%]*[a-zA-Z]")
+	FormatSectionChild     interface{} = &formatSectionChild
+	errNotEnoughArgs                   = errors.New("Not enough arguments for format string")
+	errInvalidType                     = errors.New("Invalid argument type")
+	errChildFormat                     = errors.New("Child format must be %s")
+	errFormatString                    = errors.New("Invalid format string")
+	formatRegex                        = regexp.MustCompile("%[^a-zA-Z%]*[a-zA-Z]")
+	printToScanRemoveRegex             = regexp.MustCompile("[.0-9]+")
 )
 
 // CreateFormatSection creates a new FormatSection
@@ -250,13 +251,15 @@ func (s *FormatSection) Parse(str string, childCtors []ChildConstructor) (string
 			}
 			strLeft = strLeft[fieldWidth:]
 		} else {
-			suffix := ""
-			if n, err := fmt.Sscanf(strLeft, fmt.Sprintf("%s%%s", s.format[f[0]:f[1]]), s.args[i], &suffix); n != 2 || err != nil {
+			rdr := &stringReader{
+				data:  strLeft,
+				count: 0,
+			}
+			if n, err := fmt.Fscanf(rdr, printToScanRemoveRegex.ReplaceAllLiteralString(s.format[f[0]:f[1]], ""), s.args[i]); n != 1 || err != nil {
 				s.children = []Section{}
 				return "", false
 			}
-			fieldWidth := strings.Index(strLeft, suffix)
-			strLeft = strLeft[fieldWidth:]
+			strLeft = strLeft[rdr.count:]
 		}
 	}
 	suffix := s.format[start:]
