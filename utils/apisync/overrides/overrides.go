@@ -21,5 +21,6 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		model("LockInfo").property("context_module").setType("string", "interface{}").done().done().
 		model("RubricCriteria").property("points").setType("int", "float64").done().done().
 		model("RubricRating").property("points").setType("int", "float64").done().done().
-		model("Assignment").property("rubric_settings").setType("string", "interface{}").done().done()
+		model("Assignment").property("rubric_settings").setType("string", "interface{}").done().done().
+		method("FilesListFiles").setMethodEndPoint("folders/<folder_id>/files", "courses/<course_id>/files").done()
 }

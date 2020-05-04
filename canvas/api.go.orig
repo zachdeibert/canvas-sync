@@ -12260,8 +12260,8 @@ func (c *Canvas) FilesGetQuotaInformation(progress *task.Progress) (*map[string]
 }
 
 // FilesListFiles API call: Returns the paginated list of files for the folder or course.
-func (c *Canvas) FilesListFiles(progress *task.Progress, contentTypes *string, excludeContentTypes *string, searchTerm *string, include *FilesListFilesInclude, only []interface{}, sort *FilesListFilesSort, order *FilesListFilesOrder, folderID string) ([]File, error) {
-	endpoint := fmt.Sprintf("folders/%s/files", folderID)
+func (c *Canvas) FilesListFiles(progress *task.Progress, contentTypes *string, excludeContentTypes *string, searchTerm *string, include *FilesListFilesInclude, only []interface{}, sort *FilesListFilesSort, order *FilesListFilesOrder, courseID string) ([]File, error) {
+	endpoint := fmt.Sprintf("courses/%s/files", courseID)
 	params := map[string]interface{}{}
 	if contentTypes != nil {
 		params["content_types"] = *contentTypes
