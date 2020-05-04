@@ -16,6 +16,18 @@ var (
 	linkRe = regexp.MustCompile("<([^>]+)>;\\s*rel=\"([^\"]+)\"")
 )
 
+// InvalidStatusCodeError is an error when the server responds with an invalid status code
+type InvalidStatusCodeError struct {
+	URL    string
+	Status string
+	Code   int
+	Body   string
+}
+
+func (err InvalidStatusCodeError) Error() string {
+	return fmt.Sprintf("Invalid status code at URL %s: %s", err.URL, err.Status)
+}
+
 // RequestRaw performs a raw HTTP request
 func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]byte, *http.Response, error) {
 	req, err := http.NewRequest("GET", url, nil)
@@ -33,7 +45,13 @@ func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]
 		return nil, nil, err
 	}
 	if res.StatusCode < 200 || res.StatusCode >= 400 {
-		return nil, nil, fmt.Errorf("Invalid status code at URL %s: %s", url, res.Status)
+		body, _ := ioutil.ReadAll(res.Body)
+		return nil, nil, InvalidStatusCodeError{
+			URL:    url,
+			Status: res.Status,
+			Code:   res.StatusCode,
+			Body:   string(body),
+		}
 	}
 	if res.StatusCode >= 300 {
 		loc := res.Header.Get("Location")

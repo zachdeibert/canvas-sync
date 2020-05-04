@@ -58,7 +58,11 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 	register(name, func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
 		list, err := apiGet(t.CreateProgress(1), c, courseId)
 		if err != nil {
-			panic(err)
+			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
+				finish()
+			} else {
+				panic(err)
+			}
 		}
 		fileWrites := t.CreateProgress(1)
 		fileWrites.SetWork(len(list))
