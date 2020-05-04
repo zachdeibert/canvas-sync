@@ -22,7 +22,9 @@ func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]
 	if err != nil {
 		return nil, nil, err
 	}
-	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token))
+	if req.URL.Host == fmt.Sprintf("%s.instructure.com", c.subdomain) {
+		req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.token))
+	}
 	req.Header.Add("Accept", accept)
 	c.onRequestStart()
 	res, err := c.client.Do(req)
