@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	registerHTMLWithFileAttachments("Announcements", html.AssignmentChildCtor, func(p *task.Progress, c *canvas.Canvas, courseId int) ([]interface{}, error) {
+	registerHTMLWithFileAttachments("Announcements", html.AnnouncementChildCtor, func(p *task.Progress, c *canvas.Canvas, courseId int) ([]interface{}, error) {
 		// apiGet
 		startDate := time.Unix(0, 0)
 		endDate := time.Now().Add(time.Hour * 24)
