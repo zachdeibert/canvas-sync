@@ -2934,13 +2934,13 @@ type GradingRules struct {
 type AssignmentGroup struct {
     // Assignments field: the assignments in this Assignment Group (see the Assignment API for a detailed list of
     // fields)
-    Assignments []int `json:"assignments"`
+    Assignments []Assignment `json:"assignments"`
     // GroupWeight field: the weight of the Assignment Group
-    GroupWeight int `json:"group_weight"`
+    GroupWeight float64 `json:"group_weight"`
     // ID field: the id of the Assignment Group
     ID int `json:"id"`
     // IntegrationData field: the integration data of the Assignment Group
-    IntegrationData map[interface{}]interface{} `json:"integration_data"`
+    IntegrationData map[string]interface{} `json:"integration_data"`
     // Name field: the name of the Assignment Group
     Name string `json:"name"`
     // Position field: the position of the Assignment Group
@@ -7217,11 +7217,11 @@ func (c *Canvas) AssignmentGroupsDestroyAnAssignmentGroup(progress *task.Progres
 
 // AssignmentGroupsListAssignmentGroups API call: Returns the paginated list of assignment groups for the current
 // context. The returned groups are sorted by their position field.
-func (c *Canvas) AssignmentGroupsListAssignmentGroups(progress *task.Progress, include *AssignmentGroupsListAssignmentGroupsInclude, excludeAssignmentSubmissionTypes *AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes, overrideAssignmentDates *bool, gradingPeriodID *int, scopeAssignmentsToStudent *bool) ([]AssignmentGroup, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) AssignmentGroupsListAssignmentGroups(progress *task.Progress, include []AssignmentGroupsListAssignmentGroupsInclude, excludeAssignmentSubmissionTypes *AssignmentGroupsListAssignmentGroupsExcludeAssignmentSubmissionTypes, overrideAssignmentDates *bool, gradingPeriodID *int, scopeAssignmentsToStudent *bool, courseID string) ([]AssignmentGroup, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignment_groups", courseID)
 	params := map[string]interface{}{}
-	if include != nil {
-		params["include"] = *include
+	if include != nil && len(include) > 0 {
+		params["include"] = include
 	}
 	if excludeAssignmentSubmissionTypes != nil {
 		params["exclude_assignment_submission_types"] = *excludeAssignmentSubmissionTypes

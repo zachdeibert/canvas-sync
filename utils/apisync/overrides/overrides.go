@@ -22,5 +22,10 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		model("RubricCriteria").property("points").setType("int", "float64").done().done().
 		model("RubricRating").property("points").setType("int", "float64").done().done().
 		model("Assignment").property("rubric_settings").setType("string", "interface{}").done().done().
-		method("FilesListFiles").setMethodEndPoint("folders/<folder_id>/files", "courses/<course_id>/files").done()
+		method("FilesListFiles").setMethodEndPoint("folders/<folder_id>/files", "courses/<course_id>/files").done().
+		method("AssignmentGroupsListAssignmentGroups").setMethodEndPoint("", "courses/<course_id>/assignment_groups").
+		arg("include").setType("string", "[]string").done().done().
+		model("AssignmentGroup").property("assignments").setType("[]int", "[]Assignment").done().
+		property("group_weight").setType("int", "float64").done().
+		property("integration_data").setType("map[interface{}]interface{}", "map[string]interface{}").done().done()
 }
