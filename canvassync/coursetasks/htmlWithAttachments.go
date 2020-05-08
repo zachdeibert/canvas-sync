@@ -60,9 +60,9 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 		if err != nil {
 			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
 				finish()
-			} else {
-				panic(err)
+				return
 			}
+			panic(err)
 		}
 		fileWrites := t.CreateProgress(1)
 		fileWrites.SetWork(len(list))

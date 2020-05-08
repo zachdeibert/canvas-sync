@@ -9091,11 +9091,11 @@ func (c *Canvas) ModulesDuplicateModuleItem(progress *task.Progress, courseID st
 }
 
 // ModulesListModules API call: A paginated list of the modules in a course
-func (c *Canvas) ModulesListModules(progress *task.Progress, include *ModulesListModulesInclude, searchTerm *string, studentID *interface{}) ([]Module, error) {
-	endpoint := fmt.Sprintf("courses/222/modules")
+func (c *Canvas) ModulesListModules(progress *task.Progress, include []ModulesListModulesInclude, searchTerm *string, studentID *interface{}, courseID string) ([]Module, error) {
+	endpoint := fmt.Sprintf("courses/%s/modules", courseID)
 	params := map[string]interface{}{}
-	if include != nil {
-		params["include"] = *include
+	if include != nil && len(include) > 0 {
+		params["include"] = include
 	}
 	if searchTerm != nil {
 		params["search_term"] = *searchTerm

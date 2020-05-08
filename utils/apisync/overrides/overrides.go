@@ -27,5 +27,7 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		arg("include").setType("string", "[]string").done().done().
 		model("AssignmentGroup").property("assignments").setType("[]int", "[]Assignment").done().
 		property("group_weight").setType("int", "float64").done().
-		property("integration_data").setType("map[interface{}]interface{}", "map[string]interface{}").done().done()
+		property("integration_data").setType("map[interface{}]interface{}", "map[string]interface{}").done().done().
+		method("ModulesListModules").setMethodEndPoint("courses/222/modules", "courses/<course_id>/modules").
+		arg("include").setType("string", "[]string").done().done()
 }

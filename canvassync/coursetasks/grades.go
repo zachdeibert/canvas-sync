@@ -81,9 +81,9 @@ func init() {
 		if err != nil {
 			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
 				finish()
-			} else {
-				panic(err)
+				return
 			}
+			panic(err)
 		}
 		str := &strings.Builder{}
 		fmt.Fprintln(str, "Assignment Group,Assignment Name,Due Date,Score,Max Score,Percentage,Status,Total Grade Contribution,Max Grade Contribution")
