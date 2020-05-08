@@ -2,10 +2,7 @@ package coursetasks
 
 import (
 	"fmt"
-	"io/ioutil"
-	"math"
 	"net/url"
-	"os"
 	"path"
 	"strings"
 	"time"
@@ -19,97 +16,65 @@ type fileFolderMapData struct {
 	MetaFolder string
 }
 
+type fileEntry struct {
+	Filename    string
+	ModTime     *time.Time
+	ContentType string
+	URL         string
+}
+
 func init() {
-	register("Files", func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
-		files, err := c.FilesListFiles(t.CreateProgress(0.1), nil, nil, nil, nil, nil, nil, nil, fmt.Sprint(courseId))
+	registerFileStructure("Files", func(p *task.Progress, c *canvas.Canvas, courseId int) ([]interface{}, error) {
+		// apiGet
+		files, err := c.FilesListFiles(p, nil, nil, nil, nil, nil, nil, nil, fmt.Sprint(courseId))
 		if err != nil {
-			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
-				finish()
-			} else {
-				panic(err)
-			}
+			return nil, err
 		}
-		downloadProg := t.CreateProgress(1)
-		downloadProg.SetWork(len(files))
-		folders, err := c.FilesListAllFolders(t.CreateProgress(0.1), fmt.Sprint(courseId))
+		folders, err := c.FilesListAllFolders(p, fmt.Sprint(courseId))
 		if err != nil {
-			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
-				finish()
-			} else {
-				panic(err)
-			}
+			return nil, err
 		}
-		metaFolderRoot := path.Join(db, ".syncmeta")
-		if err := os.MkdirAll(metaFolderRoot, 0755); err != nil {
-			panic(err)
-		}
-		folderMap := make(map[int]fileFolderMapData)
+		folderMap := make(map[int]string)
 		for _, folder := range folders {
 			if folder.FullName == "course files" {
-				folderMap[folder.ID] = fileFolderMapData{
-					RealFolder: db,
-					MetaFolder: metaFolderRoot,
-				}
+				folderMap[folder.ID] = ""
 			} else {
 				if strings.HasPrefix(folder.FullName, "course files/") {
 					folder.FullName = folder.FullName[len("course files/"):]
 				}
-				part := path.Join(strings.Split(folder.FullName, "/")...)
-				dirname := path.Join(db, part)
-				if err := os.MkdirAll(dirname, 0755); err != nil {
-					panic(err)
-				}
-				metaDirname := path.Join(metaFolderRoot, part)
-				if err := os.MkdirAll(metaDirname, 0755); err != nil {
-					panic(err)
-				}
-				folderMap[folder.ID] = fileFolderMapData{
-					RealFolder: dirname,
-					MetaFolder: metaDirname,
-				}
+				folderMap[folder.ID] = path.Join(strings.Split(folder.FullName, "/")...)
 			}
 		}
-		for _, file := range files {
+		entries := make([]interface{}, len(files))
+		for i, file := range files {
 			basename, err := url.QueryUnescape(file.Filename)
 			if err != nil {
-				panic(err)
+				return nil, err
 			}
 			folder := folderMap[file.FolderID]
-			filename := path.Join(folder.RealFolder, basename)
-			modFilename := path.Join(folder.MetaFolder, fmt.Sprintf("%s.txt", basename))
+			filename := path.Join(folder, basename)
 			newMod := file.ModifiedAt
 			if file.UpdatedAt.After(newMod) {
 				newMod = file.UpdatedAt
 			}
-			if _, err1 := os.Stat(filename); err1 == nil {
-				if _, err2 := os.Stat(modFilename); err2 == nil {
-					modRaw, err := ioutil.ReadFile(modFilename)
-					if err != nil {
-						panic(err)
-					}
-					mod, err := time.Parse(time.RFC3339, string(modRaw))
-					if math.Abs(mod.Sub(newMod).Seconds()) < 2 {
-						downloadProg.Finish(1)
-						continue
-					}
-				} else if !os.IsNotExist(err2) {
-					panic(err2)
-				}
-			} else if !os.IsNotExist(err1) {
-				panic(err1)
+			entries[i] = fileEntry{
+				Filename:    filename,
+				ModTime:     &newMod,
+				ContentType: file.ContentType,
+				URL:         file.URL,
 			}
-			data, _, err := c.RequestRaw(file.URL, file.ContentType, 10)
-			if err != nil {
-				panic(err)
-			}
-			if err := ioutil.WriteFile(filename, data, 0644); err != nil {
-				panic(err)
-			}
-			if err := ioutil.WriteFile(modFilename, []byte(newMod.Format(time.RFC3339)), 0644); err != nil {
-				panic(err)
-			}
-			downloadProg.Finish(1)
 		}
-		finish()
+		return entries, nil
+	}, func(f interface{}) string {
+		// getFilename
+		return f.(fileEntry).Filename
+	}, func(t *task.Task, c *canvas.Canvas, f interface{}) (*time.Time, error) {
+		// determineLastModTime
+		return f.(fileEntry).ModTime, nil
+	}, func(t *task.Task, c *canvas.Canvas, f interface{}) ([]byte, error) {
+		// downloadFile
+		file := f.(fileEntry)
+		data, _, err := c.RequestRaw(file.URL, file.ContentType, 10)
+		return data, err
 	})
 }

@@ -45,6 +45,9 @@ func (p *Progress) GetStatus() float32 {
 	if p.total == 0 {
 		return 0
 	}
+	if p.done > p.total {
+		return 1
+	}
 	return float32(p.done) / float32(p.total)
 }
 

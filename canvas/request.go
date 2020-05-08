@@ -84,9 +84,9 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, progres
 		}
 	}
 	url := fmt.Sprintf("https://%s.instructure.com/api/v1/%s?%s", c.subdomain, endpoint, strings.Join(sParams, "&"))
-	progress.SetWork(1)
+	progress.AddWork(1)
 	first := true
-	for {
+	for i = 1; ; i++ {
 		body, res, err := c.RequestRaw(url, "application/json", 10)
 		if err != nil {
 			return err
@@ -118,7 +118,7 @@ func (c *Canvas) Request(endpoint string, params map[string]interface{}, progres
 						if parts[0] == "page" {
 							var numPages int
 							fmt.Sscanf(parts[1], "%d", &numPages)
-							progress.SetWork(numPages)
+							progress.AddWork(numPages - i)
 							first = false
 							break
 						}

@@ -3,9 +3,6 @@ package coursetasks
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"math"
-	"os"
 	"path"
 	"regexp"
 	"time"
@@ -15,9 +12,17 @@ import (
 )
 
 type moduleHandler struct {
-	Types         []string
-	FileExtension string
-	Handler       func(*task.Task, *canvas.Canvas, canvas.ModuleItem, string, string) error
+	Types            []string
+	FileExtension    string
+	DetermineModTime func(*task.Task, *canvas.Canvas, canvas.ModuleItem) (*time.Time, interface{}, error)
+	Download         func(*task.Task, *canvas.Canvas, canvas.ModuleItem, interface{}) ([]byte, error)
+}
+
+type moduleEntry struct {
+	Filename string
+	Item     canvas.ModuleItem
+	Data     interface{}
+	Handler  moduleHandler
 }
 
 var (
@@ -27,12 +32,11 @@ var (
 		{
 			Types:         []string{},
 			FileExtension: ".json",
-			Handler: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, outFile string, metaFile string) error {
-				data, err := json.Marshal(item)
-				if err != nil {
-					return err
-				}
-				return ioutil.WriteFile(outFile, data, 0644)
+			DetermineModTime: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem) (*time.Time, interface{}, error) {
+				return nil, nil, nil
+			},
+			Download: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, data interface{}) ([]byte, error) {
+				return json.Marshal(item)
 			},
 		},
 		{
@@ -45,8 +49,11 @@ var (
 				"ExternalTool",
 			},
 			FileExtension: ".txt",
-			Handler: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, outFile string, metaFile string) error {
-				return ioutil.WriteFile(outFile, []byte(fmt.Sprintf("%s %d\n%s\n", *item.Type, item.ContentID, item.URL)), 0644)
+			DetermineModTime: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem) (*time.Time, interface{}, error) {
+				return nil, nil, nil
+			},
+			Download: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, data interface{}) ([]byte, error) {
+				return []byte(fmt.Sprintf("%s %d\n%s\n", *item.Type, item.ContentID, item.URL)), nil
 			},
 		},
 		{
@@ -54,48 +61,34 @@ var (
 				"File",
 			},
 			FileExtension: "",
-			Handler: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, outFile string, metaFile string) error {
+			DetermineModTime: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem) (*time.Time, interface{}, error) {
 				res := fileIDRegex.FindStringSubmatch(item.URL)
 				if res == nil || len(res) != 2 {
-					return fmt.Errorf("Invalid file URL '%s'", item.URL)
+					return nil, nil, fmt.Errorf("Invalid file URL '%s'", item.URL)
 				}
 				file, err := c.FilesGetFile(t.CreateProgress(0), nil, res[1])
 				if err != nil {
-					return err
+					return nil, nil, err
 				}
 				if len(file.URL) > 0 {
 					newMod := file.ModifiedAt
 					if file.UpdatedAt.After(newMod) {
 						newMod = file.UpdatedAt
 					}
-					if _, err1 := os.Stat(outFile); err1 == nil {
-						if _, err2 := os.Stat(metaFile); err2 == nil {
-							modRaw, err := ioutil.ReadFile(metaFile)
-							if err != nil {
-								return err
-							}
-							mod, err := time.Parse(time.RFC3339, string(modRaw))
-							if math.Abs(mod.Sub(newMod).Seconds()) < 2 {
-								return nil
-							}
-						} else if !os.IsNotExist(err2) {
-							return err2
-						}
-					} else if !os.IsNotExist(err1) {
-						return err1
-					}
-					data, _, err := c.RequestRaw(file.URL, file.ContentType, 10)
-					if err != nil {
-						return err
-					}
-					if err = ioutil.WriteFile(outFile, data, 0644); err != nil {
-						return err
-					}
-					if err = ioutil.WriteFile(metaFile, []byte(newMod.Format(time.RFC3339)), 0644); err != nil {
-						return err
-					}
+					return &newMod, []string{
+						file.URL,
+						file.ContentType,
+					}, nil
 				}
-				return nil
+				return nil, nil, nil
+			},
+			Download: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, data interface{}) ([]byte, error) {
+				if data == nil {
+					return nil, errFileLocked
+				}
+				d := data.([]string)
+				res, _, err := c.RequestRaw(d[0], d[1], 10)
+				return res, err
 			},
 		},
 		{
@@ -103,44 +96,30 @@ var (
 				"ExternalUrl",
 			},
 			FileExtension: ".url",
-			Handler: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, outFile string, metaFile string) error {
-				return ioutil.WriteFile(outFile, []byte(fmt.Sprintf("%s\n", item.ExternalURL)), 0644)
+			DetermineModTime: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem) (*time.Time, interface{}, error) {
+				return nil, nil, nil
+			},
+			Download: func(t *task.Task, c *canvas.Canvas, item canvas.ModuleItem, data interface{}) ([]byte, error) {
+				return []byte(fmt.Sprintf("%s\n", item.ExternalURL)), nil
 			},
 		},
 	}
 )
 
 func init() {
-	register("Modules", func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
-		modules, err := c.ModulesListModules(t.CreateProgress(0.1), []canvas.ModulesListModulesInclude{
+	registerFileStructure("Modules", func(p *task.Progress, c *canvas.Canvas, courseId int) ([]interface{}, error) {
+		// apiGet
+		modules, err := c.ModulesListModules(p, []canvas.ModulesListModulesInclude{
 			canvas.ModulesListModulesIncludeItems,
 		}, nil, nil, fmt.Sprint(courseId))
 		if err != nil {
-			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
-				finish()
-				return
-			}
-			panic(err)
+			return nil, err
 		}
-		p := t.CreateProgress(1)
-		for _, module := range modules {
-			p.AddWork(len(module.Items))
-		}
-		metaFolderRoot := path.Join(db, ".syncmeta")
-		if err := os.MkdirAll(metaFolderRoot, 0755); err != nil {
-			panic(err)
-		}
+		res := []interface{}{}
 		for _, module := range modules {
 			modPart := fmt.Sprintf("%d - %s", module.ID, InvalidPathRunes.ReplaceAllLiteralString(module.Name, "_"))
-			modDir := path.Join(db, modPart)
-			modMetaDir := path.Join(metaFolderRoot, modPart)
-			if err := os.Mkdir(modDir, 0755); err != nil && !os.IsExist(err) {
-				panic(err)
-			}
-			if err := os.Mkdir(modMetaDir, 0755); err != nil && !os.IsExist(err) {
-				panic(err)
-			}
-			for _, item := range module.Items {
+			entries := make([]interface{}, len(module.Items))
+			for i, item := range module.Items {
 				var h *moduleHandler = nil
 				if item.Type != nil {
 					for _, handler := range moduleHandlers {
@@ -154,19 +133,32 @@ func init() {
 							break
 						}
 					}
+					itemPart := fmt.Sprintf("%d - %s%s", item.ID, InvalidPathRunes.ReplaceAllLiteralString(item.Title, "_"), h.FileExtension)
+					entries[i] = &moduleEntry{
+						Filename: path.Join(modPart, itemPart),
+						Item:     item,
+						Handler:  *h,
+					}
 				}
 				if h == nil {
 					h = moduleHandlers[0]
 				}
-				itemPart := fmt.Sprintf("%d - %s%s", item.ID, InvalidPathRunes.ReplaceAllLiteralString(item.Title, "_"), h.FileExtension)
-				filename := path.Join(modDir, itemPart)
-				metaFile := path.Join(modMetaDir, fmt.Sprintf("%s.txt", itemPart))
-				if err := h.Handler(t, c, item, filename, metaFile); err != nil {
-					panic(err)
-				}
-				p.Finish(1)
 			}
+			res = append(res, entries...)
 		}
-		finish()
+		return res, nil
+	}, func(f interface{}) string {
+		// getFilename
+		return f.(*moduleEntry).Filename
+	}, func(t *task.Task, c *canvas.Canvas, f interface{}) (*time.Time, error) {
+		// determineLastModTime
+		entry := f.(*moduleEntry)
+		tm, data, err := entry.Handler.DetermineModTime(t, c, entry.Item)
+		entry.Data = data
+		return tm, err
+	}, func(t *task.Task, c *canvas.Canvas, f interface{}) ([]byte, error) {
+		// downloadFile
+		entry := f.(*moduleEntry)
+		return entry.Handler.Download(t, c, entry.Item, entry.Data)
 	})
 }
