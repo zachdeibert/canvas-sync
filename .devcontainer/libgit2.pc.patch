@@ -1,0 +1,9 @@
+--- libgit2.pc  2020-05-09 04:46:31.400634627 +0000
++++ libgit2.pc  2020-05-09 04:47:31.177633075 +0000
+@@ -7,5 +7,5 @@
+ Version: 1.0.0
+ Libs: -L${libdir} -lgit2
+ Libs.private: -lrt -lpthread -L/usr/lib/x86_64-linux-gnu -lmbedtls -lmbedx509 -lmbedcrypto -lhttp_parser -lssh2
+-Requires.private: libpcre zlib
++Requires.private: libpcre2-8 zlib
+ Cflags: -I${includedir}

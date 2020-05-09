@@ -16,12 +16,21 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+COPY libgit2-1.0_1.0.0+dfsg.1-1+salsaci_amd64.deb /tmp/libgit2.deb
+COPY libgit2-dev_1.0.0+dfsg.1-1+salsaci_amd64.deb /tmp/libgit2-dev.deb
+COPY libhttp-parser2.9_2.9.3-1_amd64.deb /tmp/libhttp-parser2.9.deb
+COPY libgit2.pc.patch /tmp/libgit2.pc.patch
+
 # Configure apt, install packages and tools
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git openssh-client less iproute2 procps lsb-release \
+    #
+    # Install updated version of libgit2
+    && apt-get -y install /tmp/libgit2.deb /tmp/libgit2-dev.deb /tmp/libhttp-parser2.9.deb libpcre2-dev patch \
+    && patch -l /usr/lib/x86_64-linux-gnu/pkgconfig/libgit2.pc < /tmp/libgit2.pc.patch \
     #
     # Install Go tools w/module support
     && mkdir -p /tmp/gotools \
