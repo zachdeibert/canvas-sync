@@ -2,13 +2,12 @@ package coursetasks
 
 import (
 	"fmt"
-	"io/ioutil"
-	"path"
 	"sort"
 	"strings"
 	"time"
 
 	"github.com/zachdeibert/canvas-sync/canvas"
+	"github.com/zachdeibert/canvas-sync/csvgen"
 	"github.com/zachdeibert/canvas-sync/task"
 )
 
@@ -24,6 +23,37 @@ type gradedAssignment struct {
 	Missing  bool
 	Excused  bool
 	Graded   bool
+	Section  *gradeSection
+}
+
+func (a gradedAssignment) csv(csv csvgen.CSV) {
+	percentage := a.Score * 100 / a.MaxScore
+	if a.MaxScore == 0 {
+		percentage = 0
+	}
+	status := []string{}
+	if a.Dropped {
+		status = append(status, "Dropped")
+	}
+	if a.Late {
+		status = append(status, "Late")
+	}
+	if a.Missing {
+		status = append(status, "Missing")
+	}
+	if a.Excused {
+		status = append(status, "Excused")
+	}
+	if !a.Graded {
+		status = append(status, "Not Graded")
+	}
+	contrib := a.MaxScore * a.Section.RealWeight / a.Section.TotalPoints
+	gradeContrib := a.Score * a.Section.RealWeight / a.Section.TotalPoints
+	if a.Section.TotalPoints == 0 {
+		contrib = 0
+		gradeContrib = 0
+	}
+	csv.AddRow(a.Name, a.Due.Format("1/2/06 3:04:05 PM"), a.Score, a.MaxScore, percentage, strings.Join(status, ", "), gradeContrib, contrib)
 }
 
 type gradedAssignmentSortingMethod int
@@ -34,21 +64,83 @@ const (
 	gradedAssignmentSortHighestFirst = iota
 )
 
-type gradedAssignmentSorter struct {
-	grades []gradedAssignment
-	mode   gradedAssignmentSortingMethod
+type gradeSection struct {
+	Name        string
+	Weight      float64
+	TotalScore  float64
+	TotalPoints float64
+	RealWeight  float64
+	Grades      []gradedAssignment
+	Order       gradedAssignmentSortingMethod
 }
 
-func (s *gradedAssignmentSorter) Len() int {
-	return len(s.grades)
+func (s *gradeSection) csv(csv csvgen.CSV) {
+	s.Order = gradedAssignmentSortViewOrder
+	sort.Sort(s)
+	percentage := s.TotalScore * 100 / s.TotalPoints
+	if s.TotalPoints == 0 {
+		percentage = 0
+	}
+	sect := csv.AddSection([]interface{}{s.Name}, "", "", s.TotalScore, s.TotalPoints, percentage, "", percentage*s.RealWeight, s.RealWeight*100)
+	for _, grade := range s.Grades {
+		grade.csv(sect)
+	}
 }
 
-func (s *gradedAssignmentSorter) Less(i, j int) bool {
-	a := s.grades[i]
-	b := s.grades[j]
+func (s *gradeSection) countPoints() {
+	s.TotalScore = 0
+	s.TotalPoints = 0
+	for _, grade := range s.Grades {
+		if grade.Graded && !grade.Dropped {
+			s.TotalScore += grade.Score
+			s.TotalPoints += grade.MaxScore
+		}
+	}
+}
+
+func (s *gradeSection) dropGrades(lowest, highest int, protect []int) {
+	undroppable := map[int]interface{}{}
+	for _, id := range protect {
+		undroppable[id] = nil
+	}
+	if lowest > 0 {
+		s.Order = gradedAssignmentSortLowestFirst
+		sort.Sort(s)
+		for i, grade := range s.Grades {
+			if _, ok := undroppable[grade.ID]; !ok && !grade.Excused && grade.Graded {
+				s.Grades[i].Dropped = true
+				lowest--
+				if lowest == 0 {
+					break
+				}
+			}
+		}
+	}
+	if highest > 0 {
+		s.Order = gradedAssignmentSortHighestFirst
+		sort.Sort(s)
+		for i, grade := range s.Grades {
+			if _, ok := undroppable[grade.ID]; !ok && !grade.Excused && grade.Graded {
+				s.Grades[i].Dropped = true
+				highest--
+				if highest == 0 {
+					break
+				}
+			}
+		}
+	}
+}
+
+func (s *gradeSection) Len() int {
+	return len(s.Grades)
+}
+
+func (s *gradeSection) Less(i, j int) bool {
+	a := s.Grades[i]
+	b := s.Grades[j]
 	x := a.Score / a.MaxScore
 	y := b.Score / b.MaxScore
-	switch s.mode {
+	switch s.Order {
 	case gradedAssignmentSortViewOrder:
 		return a.Position < b.Position
 	case gradedAssignmentSortLowestFirst:
@@ -66,42 +158,74 @@ func (s *gradedAssignmentSorter) Less(i, j int) bool {
 	}
 }
 
-func (s *gradedAssignmentSorter) Swap(i, j int) {
-	tmp := s.grades[i]
-	s.grades[i] = s.grades[j]
-	s.grades[j] = tmp
+func (s *gradeSection) Swap(i, j int) {
+	tmp := s.Grades[i]
+	s.Grades[i] = s.Grades[j]
+	s.Grades[j] = tmp
+}
+
+type grades struct {
+	Sections []*gradeSection
+}
+
+func (g *grades) calculateRealWeights() {
+	var totalWeight float64 = 0
+	var totalPoints float64 = 0
+	for _, s := range g.Sections {
+		s.countPoints()
+		if s.TotalPoints > 0 {
+			totalWeight += s.Weight
+			totalPoints += s.TotalPoints
+		}
+	}
+	if totalWeight == 0 {
+		for _, s := range g.Sections {
+			s.RealWeight = s.TotalPoints / totalPoints
+		}
+	} else {
+		for _, s := range g.Sections {
+			s.RealWeight = s.Weight / totalWeight
+		}
+	}
+}
+
+func (g grades) csv(csv csvgen.CSV) {
+	var grade float64 = 0
+	var score float64 = 0
+	var max float64 = 0
+	for _, s := range g.Sections {
+		s.csv(csv)
+		contrib := s.TotalScore * s.RealWeight / s.TotalPoints
+		if s.TotalPoints == 0 {
+			contrib = 0
+		}
+		grade += contrib
+		score += s.TotalScore
+		max += s.TotalPoints
+	}
+	csv.AddRow("Total", "", "", score, max, 100*grade, "", 100*grade, float64(100))
 }
 
 func init() {
-	register("Grades", func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
+	registerCSV("Grades", func(t *task.Task, c *canvas.Canvas, courseId int, csv csvgen.CSV) {
 		groups, err := c.AssignmentGroupsListAssignmentGroups(t.CreateProgress(1), []canvas.AssignmentGroupsListAssignmentGroupsInclude{
 			canvas.AssignmentGroupsListAssignmentGroupsIncludeAssignments,
 			canvas.AssignmentGroupsListAssignmentGroupsIncludeSubmission,
 		}, nil, nil, nil, nil, fmt.Sprint(courseId))
 		if err != nil {
-			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
-				finish()
-				return
-			}
 			panic(err)
 		}
-		str := &strings.Builder{}
-		fmt.Fprintln(str, "Assignment Group,Assignment Name,Due Date,Score,Max Score,Percentage,Status,Total Grade Contribution,Max Grade Contribution")
-		var totalWeight float64 = 0
-		var missingWeight float64 = 0
-		for _, group := range groups {
-			totalWeight += float64(group.GroupWeight)
+		g := &grades{
+			Sections: make([]*gradeSection, len(groups)),
 		}
-		var totalGrade float64 = 0
-		var courseTotalPoints float64 = 0
-		gradeList := make([][]gradedAssignment, len(groups))
-		for idx, group := range groups {
-			undroppable := map[int]interface{}{}
-			for _, id := range group.Rules.NeverDrop {
-				undroppable[id] = nil
-			}
+		for i, group := range groups {
 			grades := make([]gradedAssignment, len(group.Assignments))
-			gradeList[idx] = grades
+			section := &gradeSection{
+				Name:   group.Name,
+				Weight: group.GroupWeight,
+				Grades: grades,
+			}
+			g.Sections[i] = section
 			for i, assignment := range group.Assignments {
 				graded := !assignment.Submission.PostedAt.IsZero() &&
 					!assignment.Submission.GradedAt.IsZero() &&
@@ -118,102 +242,13 @@ func init() {
 					Missing:  assignment.Submission.Missing,
 					Excused:  assignment.Submission.Excused,
 					Graded:   graded,
+					Section:  section,
 				}
 			}
-			sorter := &gradedAssignmentSorter{
-				grades: grades,
-			}
-			if group.Rules.DropLowest > 0 {
-				sorter.mode = gradedAssignmentSortLowestFirst
-				sort.Sort(sorter)
-				count := group.Rules.DropLowest
-				for i, grade := range grades {
-					if _, ok := undroppable[grade.ID]; !ok && !grades[i].Excused && grades[i].Graded {
-						grades[i].Dropped = true
-						count--
-						if count == 0 {
-							break
-						}
-					}
-				}
-			}
-			if group.Rules.DropHighest > 0 {
-				sorter.mode = gradedAssignmentSortHighestFirst
-				sort.Sort(sorter)
-				count := group.Rules.DropHighest
-				for i, grade := range grades {
-					if _, ok := undroppable[grade.ID]; !ok && !grades[i].Excused && grades[i].Graded {
-						grades[i].Dropped = true
-						count--
-						if count == 0 {
-							break
-						}
-					}
-				}
-			}
-			sorter.mode = gradedAssignmentSortViewOrder
-			sort.Sort(sorter)
-			for _, grade := range grades {
-				if grade.Graded && !grade.Dropped {
-					courseTotalPoints += grade.MaxScore
-				}
-			}
+			section.dropGrades(group.Rules.DropLowest, group.Rules.DropHighest, group.Rules.NeverDrop)
 		}
-		for idx, group := range groups {
-			grades := gradeList[idx]
-			var totalScore float64 = 0
-			var totalMaxScore float64 = 0
-			for _, grade := range grades {
-				if grade.Graded && !grade.Dropped {
-					totalScore += grade.Score
-					totalMaxScore += grade.MaxScore
-				}
-			}
-			contribution := float64(group.GroupWeight) / totalWeight * 100
-			if totalWeight == 0 {
-				contribution = 100 * totalMaxScore / courseTotalPoints
-			}
-			groupTotal := totalScore / totalMaxScore
-			if totalMaxScore == 0 {
-				groupTotal = 0
-				if contribution != 0 {
-					missingWeight += contribution / 100
-				}
-			}
-			totalGrade += contribution * groupTotal
-			fmt.Fprintf(str, "\"%s\",,,%.0f,%.0f,%.2f%%,,%.2f%%,%.2f%%\n", group.Name, totalScore, totalMaxScore, groupTotal*100, contribution*groupTotal, contribution)
-			if totalMaxScore == 0 && totalScore == 0 {
-				totalMaxScore = 1
-			}
-			for _, grade := range grades {
-				frac := grade.Score / grade.MaxScore
-				if grade.MaxScore == 0 {
-					frac = 0
-				}
-				gradeContribution := grade.MaxScore / totalMaxScore * contribution
-				status := []string{}
-				if grade.Dropped {
-					status = append(status, "Dropped")
-				}
-				if grade.Late {
-					status = append(status, "Late")
-				}
-				if grade.Missing {
-					status = append(status, "Missing")
-				}
-				if grade.Excused {
-					status = append(status, "Excused")
-				}
-				if !grade.Graded {
-					status = append(status, "Not Graded")
-				}
-				fmt.Fprintf(str, ",\"%s\",%s,%.0f,%.0f,%.2f%%,\"%s\",%.2f%%,%.2f%%\n", grade.Name, grade.Due.Format(""), grade.Score, grade.MaxScore, frac*100, strings.Join(status, ", "), grade.Score/totalMaxScore*contribution, gradeContribution)
-			}
-		}
-		fmt.Fprintf(str, "Total,,,,,%.2f%%,,,\n", totalGrade/(1-missingWeight))
-		if err := ioutil.WriteFile(path.Join(db, "Grades.csv"), []byte(str.String()), 0644); err != nil {
-			panic(err)
-		}
-		finish()
-	})
+		g.calculateRealWeights()
+		g.csv(csv)
+	}, "Assignment Group", "%s", "Assignment Name", "%s", "Due Date", "%s", "Score", "%.0f", "Max Score", "%.0f",
+		"Percentage", "%.2f%%", "Status", "%s", "Total Grade Contribution", "%.2f%%", "Max Grade Contribution", "%.2f%%")
 }
