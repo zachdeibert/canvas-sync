@@ -12,6 +12,16 @@ import (
 	"github.com/zachdeibert/canvas-sync/task"
 )
 
+func registerHTML(name string, docType htmlgen.ChildConstructor,
+	apiGet func(*task.Progress, *canvas.Canvas, int) ([]interface{}, error),
+	getFilename func(interface{}) string,
+	isModified func(interface{}, *htmlgen.Document) bool,
+	createDoc func(interface{}, *htmlgen.Document, *canvas.Canvas, *task.Task, int)) {
+	registerHTMLWithFileAttachments(name, docType, apiGet, getFilename, func(_ interface{}) []canvas.FileAttachment {
+		return []canvas.FileAttachment{}
+	}, isModified, createDoc)
+}
+
 func registerHTMLWithFileAttachments(name string, docType htmlgen.ChildConstructor,
 	apiGet func(*task.Progress, *canvas.Canvas, int) ([]interface{}, error),
 	getFilename func(interface{}) string,
@@ -58,7 +68,7 @@ func registerHTMLWithAttachments(name string, docType htmlgen.ChildConstructor,
 	register(name, func(t *task.Task, c *canvas.Canvas, db string, courseId int, finish func()) {
 		list, err := apiGet(t.CreateProgress(1), c, courseId)
 		if err != nil {
-			if e, ok := err.(canvas.InvalidStatusCodeError); ok && e.Code == 401 {
+			if e, ok := err.(canvas.InvalidStatusCodeError); ok && (e.Code == 401 || e.Code == 404) {
 				finish()
 				return
 			}

@@ -33,5 +33,14 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		method("CoursesListUsersInCourse").setMethodEndPoint("", "courses/<course_id>/users").
 		arg("include").setType("string", "[]string").done().done().
 		model("Grade").property("current_score").setType("string", "float64").done().
-		property("final_score").setType("string", "float64").done()
+		property("final_score").setType("string", "float64").done().done().
+		method("PagesListPages").setMethodEndPoint("courses/123/pages", "courses/<course_id>/pages").done().
+		model("User").addProperties(apisync.ModelProperty{
+		Name:        "display_name",
+		Description: "",
+		Example:     "",
+		Type:        "string",
+		EnumValues:  []string{},
+	}).done().
+		method("PagesShowPage").setMethodEndPoint("courses/123/pages/my-page-url", "courses/<course_id>/pages/<url>").done()
 }

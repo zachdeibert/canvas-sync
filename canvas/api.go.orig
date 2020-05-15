@@ -6249,6 +6249,8 @@ type User struct {
     // TimeZone field: Optional: This field is only returned in certain API calls, and will return the IANA time zone
     // name of the user's preferred timezone.
     TimeZone string `json:"time_zone"`
+    // DisplayName field
+    DisplayName string `json:"display_name"`
 }
 
 // Page model object
@@ -17667,8 +17669,8 @@ func (c *Canvas) PagesUpdateCreateFrontPage(progress *task.Progress, wikiPage *s
 }
 
 // PagesListPages API call: A paginated list of the wiki pages associated with a course or group
-func (c *Canvas) PagesListPages(progress *task.Progress, sort *PagesListPagesSort, order *PagesListPagesOrder, searchTerm *string, published *bool) ([]Page, error) {
-	endpoint := fmt.Sprintf("courses/123/pages")
+func (c *Canvas) PagesListPages(progress *task.Progress, sort *PagesListPagesSort, order *PagesListPagesOrder, searchTerm *string, published *bool, courseID string) ([]Page, error) {
+	endpoint := fmt.Sprintf("courses/%s/pages", courseID)
 	params := map[string]interface{}{}
 	if sort != nil {
 		params["sort"] = *sort
@@ -17719,8 +17721,8 @@ func (c *Canvas) PagesCreatePage(progress *task.Progress, wikiPage *string) (*Pa
 }
 
 // PagesShowPage API call: Retrieve the content of a wiki page
-func (c *Canvas) PagesShowPage(progress *task.Progress) (*Page, error) {
-	endpoint := fmt.Sprintf("courses/123/pages/my-page-url")
+func (c *Canvas) PagesShowPage(progress *task.Progress, courseID string, url string) (*Page, error) {
+	endpoint := fmt.Sprintf("courses/%s/pages/%s", courseID, url)
 	params := map[string]interface{}{}
 	responseCtor := func() interface{} {
 		return &Page{}
