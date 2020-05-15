@@ -4291,11 +4291,11 @@ type Grade struct {
     CurrentGrade string `json:"current_grade"`
     // CurrentScore field: The user's current score in the class. Only included if user has permissions to view this
     // score.
-    CurrentScore string `json:"current_score"`
+    CurrentScore float64 `json:"current_score"`
     // FinalGrade field: The user's final grade for the class. Only included if user has permissions to view this grade.
     FinalGrade string `json:"final_grade"`
     // FinalScore field: The user's final score for the class. Only included if user has permissions to view this score.
-    FinalScore string `json:"final_score"`
+    FinalScore float64 `json:"final_score"`
     // HTMLURL field: The URL to the Canvas web UI page for the user's grades, if this is a student enrollment.
     HTMLURL string `json:"html_url"`
     // UnpostedCurrentGrade field: The user's current grade in the class including muted/unposted assignments. Only
@@ -9877,8 +9877,8 @@ func (c *Canvas) CoursesListStudents(progress *task.Progress) ([]User, error) {
 
 // CoursesListUsersInCourse API call: Returns the paginated list of users in this course. And optionally the user's
 // enrollments in the course.
-func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress, searchTerm *string, sort *CoursesListUsersInCourseSort, enrollmentType *CoursesListUsersInCourseEnrollmentType, enrollmentRole *interface{}, enrollmentRoleID *int, include *CoursesListUsersInCourseInclude, userID *string, userIds *int, enrollmentState *CoursesListUsersInCourseEnrollmentState) ([]User, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress, searchTerm *string, sort *CoursesListUsersInCourseSort, enrollmentType *CoursesListUsersInCourseEnrollmentType, enrollmentRole *interface{}, enrollmentRoleID *int, include []CoursesListUsersInCourseInclude, userID *string, userIds *int, enrollmentState *CoursesListUsersInCourseEnrollmentState, courseID string) ([]User, error) {
+	endpoint := fmt.Sprintf("courses/%s/users", courseID)
 	params := map[string]interface{}{}
 	if searchTerm != nil {
 		params["search_term"] = *searchTerm
@@ -9895,8 +9895,8 @@ func (c *Canvas) CoursesListUsersInCourse(progress *task.Progress, searchTerm *s
 	if enrollmentRoleID != nil {
 		params["enrollment_role_id"] = *enrollmentRoleID
 	}
-	if include != nil {
-		params["include"] = *include
+	if include != nil && len(include) > 0 {
+		params["include"] = include
 	}
 	if userID != nil {
 		params["user_id"] = *userID
