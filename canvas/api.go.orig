@@ -6093,7 +6093,7 @@ type MediaComment struct {
 // SubmissionComment model object
 type SubmissionComment struct {
     // Author field: Abbreviated user object UserDisplay (see users API).
-    Author string `json:"author"`
+    Author *User `json:"author"`
     // AuthorID field
     AuthorID int `json:"author_id"`
     // AuthorName field
@@ -6108,6 +6108,8 @@ type SubmissionComment struct {
     ID int `json:"id"`
     // MediaComment field
     MediaComment *MediaComment `json:"media_comment"`
+    // Attachments field
+    Attachments []FileAttachment `json:"attachments"`
 }
 
 // Tab model object
@@ -16484,18 +16486,18 @@ func (c *Canvas) SubmissionsListSubmissionsForMultipleAssignments(progress *task
 }
 
 // SubmissionsGetASingleSubmission API call: Get a single submission, based on user id.
-func (c *Canvas) SubmissionsGetASingleSubmission(progress *task.Progress, include *SubmissionsGetASingleSubmissionInclude) (*map[string]interface{}, error) {
-	endpoint := fmt.Sprintf("")
+func (c *Canvas) SubmissionsGetASingleSubmission(progress *task.Progress, include []SubmissionsGetASingleSubmissionInclude, courseID string, assignmentID string, userID string) (*Submission, error) {
+	endpoint := fmt.Sprintf("courses/%s/assignments/%s/submissions/%s", courseID, assignmentID, userID)
 	params := map[string]interface{}{}
-	if include != nil {
-		params["include"] = *include
+	if include != nil && len(include) > 0 {
+		params["include"] = include
 	}
 	responseCtor := func() interface{} {
-		return &map[string]interface{}{}
+		return &Submission{}
 	}
-	var res *map[string]interface{}
+	var res *Submission
 	callback := func(obj interface{}) error {
-		res = obj.(*map[string]interface{})
+		res = obj.(*Submission)
 		return nil
 	}
 	if err := c.Request(endpoint, params, progress, responseCtor, callback); err != nil {

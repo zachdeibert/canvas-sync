@@ -9,7 +9,9 @@ var (
 	assignmentSubmissionCommentTemplate *AssignmentSubmissionComment
 	// AssignmentSubmissionCommentChildCtor for parsing a template
 	AssignmentSubmissionCommentChildCtor = func() (htmlgen.Section, []htmlgen.ChildConstructor) {
-		return CreateAssignmentSubmissionComment(), []htmlgen.ChildConstructor{}
+		return CreateAssignmentSubmissionComment(), []htmlgen.ChildConstructor{
+			AssignmentSubmissionAttachmentChildCtor,
+		}
 	}
 )
 
@@ -26,12 +28,16 @@ func CreateAssignmentSubmissionComment() *AssignmentSubmissionComment {
 		&obj.Data.AuthorName,
 		htmlgen.CreateDateTimeFormat(&obj.Data.EditedAt),
 		&obj.Data.Comment,
+		htmlgen.FormatSectionChild,
 	}
 	if assignmentSubmissionCommentTemplate == nil {
 		var err error
 		if obj.format, err = htmlgen.CreateFormatSection(`
 <div>
 	<h3>Comment from %s at %s:</h3>
+	<div>
+		%s
+	</div>
 	<div>
 		%s
 	</div>

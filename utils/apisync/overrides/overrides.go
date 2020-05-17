@@ -42,5 +42,15 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		Type:        "string",
 		EnumValues:  []string{},
 	}).done().
-		method("PagesShowPage").setMethodEndPoint("courses/123/pages/my-page-url", "courses/<course_id>/pages/<url>").done()
+		method("PagesShowPage").setMethodEndPoint("courses/123/pages/my-page-url", "courses/<course_id>/pages/<url>").done().
+		method("SubmissionsGetASingleSubmission").setMethodEndPoint("", "courses/<course_id>/assignments/<assignment_id>/submissions/<user_id>").
+		setMethodReturnType("interface{}", "Submission").
+		arg("include").setType("string", "[]string").done().done().
+		model("SubmissionComment").addProperties(apisync.ModelProperty{
+		Name:        "attachments",
+		Description: "",
+		Example:     "",
+		Type:        "[]FileAttachment",
+		EnumValues:  []string{},
+	}).property("author").setType("string", "User").done()
 }

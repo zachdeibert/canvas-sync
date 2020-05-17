@@ -1,6 +1,8 @@
 package html
 
 import (
+	"time"
+
 	"github.com/zachdeibert/canvas-sync/canvas"
 	"github.com/zachdeibert/canvas-sync/htmlgen"
 )
@@ -17,8 +19,9 @@ var (
 
 // Assignment HTML template
 type Assignment struct {
-	Data   canvas.Assignment
-	format *htmlgen.FormatSection
+	Data       canvas.Assignment
+	LastUpdate time.Time
+	format     *htmlgen.FormatSection
 }
 
 // CreateAssignment creates a new template
@@ -33,7 +36,7 @@ func CreateAssignment() *Assignment {
 		htmlgen.CreateDateTimeFormat(&obj.Data.UnlockAt),
 		htmlgen.CreateDateTimeFormat(&obj.Data.DueAt),
 		htmlgen.CreateDateTimeFormat(&obj.Data.LockAt),
-		htmlgen.CreateDateTimeFormat(&obj.Data.UpdatedAt),
+		htmlgen.CreateDateTimeFormat(&obj.LastUpdate),
 	}
 	if assignmentTemplate == nil {
 		var err error
