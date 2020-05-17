@@ -378,6 +378,12 @@ func (m *interactiveMonitor) readScreenSize() (int, int) {
 	var rows int
 	var cols int
 	fmt.Scanf("\033[%d;%dR", &rows, &cols)
+	if rows == 0 {
+		rows = 24
+	}
+	if cols == 0 {
+		cols = 80
+	}
 	return rows, cols
 }
 
