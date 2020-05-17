@@ -82,9 +82,13 @@ type interactiveMonitor struct {
 
 func createInteractiveMonitor(root *Task) *interactiveMonitor {
 	m := &interactiveMonitor{
-		root:          root,
-		header:        CreateSection(),
-		footer:        CreateSection(),
+		root:   root,
+		header: CreateSection(),
+		footer: CreateSection(),
+		layout: monitorLayout{
+			screenWidth:  80,
+			screenHeight: 24,
+		},
 		tickerCleanup: make(chan interface{}),
 		stdout:        bufio.NewWriterSize(os.Stdout, 81920),
 		closed:        false,
@@ -378,18 +382,12 @@ func (m *interactiveMonitor) readScreenSize() (int, int) {
 	var rows int
 	var cols int
 	fmt.Scanf("\033[%d;%dR", &rows, &cols)
-	if rows == 0 {
-		rows = 24
-	}
-	if cols == 0 {
-		cols = 80
-	}
 	return rows, cols
 }
 
 func (m *interactiveMonitor) detectScreenSize(locking bool) {
 	rows, cols := m.readScreenSize()
-	if m.layout.screenWidth != cols || m.layout.screenHeight != rows {
+	if (m.layout.screenWidth != cols || m.layout.screenHeight != rows) && cols != 0 && rows != 0 {
 		if locking {
 			m.mutex.Lock()
 			defer m.mutex.Unlock()
