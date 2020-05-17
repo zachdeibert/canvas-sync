@@ -39,7 +39,10 @@ func main() {
 			"                     present in the current directory that contains the token.\n", os.Args[0])
 		os.Exit(1)
 	}
-	c, err := canvas.CreateCanvas(strings.TrimSpace(subdomain), strings.TrimSpace(token))
+	if err := os.RemoveAll("db/tmp"); err != nil {
+		panic(err)
+	}
+	c, err := canvas.CreateCanvas(strings.TrimSpace(subdomain), strings.TrimSpace(token), "db/tmp")
 	if err != nil {
 		panic(err)
 	}

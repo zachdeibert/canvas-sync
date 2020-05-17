@@ -57,7 +57,11 @@ func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]
 		loc := res.Header.Get("Location")
 		if len(loc) > 0 {
 			if allowedRedirects > 0 {
-				return c.RequestRaw(loc, accept, allowedRedirects-1)
+				body, res, err := c.RequestRaw(loc, accept, allowedRedirects-1)
+				if err == nil {
+					err = c.saveRequest(*req.URL, fmt.Sprintf("%s+%s", accept, RedirectType), []byte(loc), res)
+				}
+				return body, res, err
 			}
 			return nil, nil, errors.New("Too many redirects")
 		}
@@ -67,7 +71,8 @@ func (c *Canvas) RequestRaw(url string, accept string, allowedRedirects int) ([]
 	if err != nil {
 		return nil, nil, err
 	}
-	return body, res, nil
+	err = c.saveRequest(*req.URL, accept, body, res)
+	return body, res, err
 }
 
 // Request sends a request to the API

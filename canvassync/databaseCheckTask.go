@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"path/filepath"
 	"strings"
 
 	git "github.com/libgit2/git2go/v30"
@@ -14,7 +15,7 @@ import (
 func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string) func(*task.Task, func()) {
 	return func(t *task.Task, finish func()) {
 		p := t.CreateProgress(1)
-		p.SetWork(4)
+		p.SetWork(5)
 		user, err := c.UsersShowUserDetails(t.CreateProgress(1), nil)
 		if err != nil {
 			panic(err)
@@ -70,6 +71,31 @@ func databaseCheckTask(c *canvas.Canvas, name chan<- string, dbCh chan<- string)
 				}
 			}
 			panic(str.String())
+		}
+		p.Finish(1)
+		// Copy old raw request cache over to new folder
+		oldDir := c.RawSaveFolder
+		c.RawSaveFolder = path.Join(db, ".raw")
+		files := []string{}
+		if err = filepath.Walk(oldDir, func(p string, info os.FileInfo, err error) error {
+			if err != nil {
+				return err
+			}
+			if !info.IsDir() {
+				files = append(files, p[len(oldDir):])
+			}
+			return nil
+		}); err != nil {
+			panic(err)
+		}
+		for _, file := range files {
+			dest := path.Join(c.RawSaveFolder, file)
+			if err = os.MkdirAll(path.Dir(dest), 0755); err != nil {
+				panic(err)
+			}
+			if err = os.Rename(path.Join(oldDir, file), dest); err != nil {
+				panic(err)
+			}
 		}
 		p.Finish(1)
 		// Done!

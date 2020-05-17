@@ -19,10 +19,11 @@ type Canvas struct {
 	quotaCalcMutex  sync.Mutex
 	quotaNotify     chan interface{}
 	pendingRequests int
+	RawSaveFolder   string
 }
 
 // CreateCanvas creates a new Canvas object
-func CreateCanvas(subdomain, token string) (*Canvas, error) {
+func CreateCanvas(subdomain, token string, rawSaveFolder string) (*Canvas, error) {
 	c := &Canvas{
 		subdomain:      subdomain,
 		token:          token,
@@ -38,6 +39,7 @@ func CreateCanvas(subdomain, token string) (*Canvas, error) {
 		quotaCalcMutex:  sync.Mutex{},
 		quotaNotify:     make(chan interface{}),
 		pendingRequests: 0,
+		RawSaveFolder:   rawSaveFolder,
 	}
 	if err := c.registerDefaultParameterTypes(); err != nil {
 		return nil, err
