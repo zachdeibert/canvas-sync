@@ -52,5 +52,7 @@ func ApplyOverrides(models *[]*apisync.Model, methods *[]apisync.MethodAPIPair) 
 		Example:     "",
 		Type:        "[]FileAttachment",
 		EnumValues:  []string{},
-	}).property("author").setType("string", "User").done()
+	}).property("author").setType("string", "User").done().done().
+		model("DiscussionTopic").property("group_topic_children").setType("[]map[interface{}]interface{}", "[]interface{}").done().done().
+		model("CompletionRequirement").property("min_score").setType("int", "float64").done().done()
 }
