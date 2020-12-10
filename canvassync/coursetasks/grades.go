@@ -227,22 +227,28 @@ func init() {
 			}
 			g.Sections[i] = section
 			for i, assignment := range group.Assignments {
-				graded := !assignment.Submission.PostedAt.IsZero() &&
-					!assignment.Submission.GradedAt.IsZero() &&
-					*assignment.Submission.WorkflowState != canvas.SubmissionWorkflowStatePendingReview
 				grades[i] = gradedAssignment{
 					Name:     assignment.Name,
 					Due:      assignment.DueAt,
 					ID:       assignment.ID,
 					Position: assignment.Position,
-					Score:    assignment.Submission.Score,
+					Score:    -1,
 					MaxScore: assignment.PointsPossible,
 					Dropped:  false,
-					Late:     assignment.Submission.Late,
-					Missing:  assignment.Submission.Missing,
-					Excused:  assignment.Submission.Excused,
-					Graded:   graded,
+					Late:     false,
+					Missing:  false,
+					Excused:  false,
+					Graded:   assignment.Submission != nil &&
+							  !assignment.Submission.PostedAt.IsZero() &&
+							  !assignment.Submission.GradedAt.IsZero() &&
+							  *assignment.Submission.WorkflowState != canvas.SubmissionWorkflowStatePendingReview,
 					Section:  section,
+				}
+				if assignment.Submission != nil {
+					grades[i].Score = assignment.Submission.Score
+					grades[i].Late = assignment.Submission.Late
+					grades[i].Missing = assignment.Submission.Missing
+					grades[i].Excused = assignment.Submission.Excused
 				}
 			}
 			section.dropGrades(group.Rules.DropLowest, group.Rules.DropHighest, group.Rules.NeverDrop)

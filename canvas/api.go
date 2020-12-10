@@ -4303,13 +4303,13 @@ type Grade struct {
 	UnpostedCurrentGrade string `json:"unposted_current_grade"`
 	// UnpostedCurrentScore field: The user's current score in the class including muted/unposted assignments. Only
 	// included if user has permissions to view this score, typically teachers, TAs, and admins..
-	UnpostedCurrentScore string `json:"unposted_current_score"`
+	UnpostedCurrentScore float64 `json:"unposted_current_score"`
 	// UnpostedFinalGrade field: The user's final grade for the class including muted/unposted assignments. Only
 	// included if user has permissions to view this grade, typically teachers, TAs, and admins..
 	UnpostedFinalGrade string `json:"unposted_final_grade"`
 	// UnpostedFinalScore field: The user's final score for the class including muted/unposted assignments. Only
 	// included if user has permissions to view this score, typically teachers, TAs, and admins..
-	UnpostedFinalScore string `json:"unposted_final_score"`
+	UnpostedFinalScore float64 `json:"unposted_final_score"`
 }
 
 // Enrollment model object
