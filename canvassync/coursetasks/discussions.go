@@ -46,7 +46,7 @@ func init() {
 		doc.Title = topic.Title
 		d := html.CreateDiscussionRoot()
 		d.Data = topic
-		if topic.DiscussionSubentryCount > 0 {
+		if topic.DiscussionSubentryCount > 0 && topic.UserCanSeePosts {
 			view, err := c.DiscussionTopicsGetTheFullTopic(t.CreateProgress(0.01), fmt.Sprint(courseId), fmt.Sprint(topic.ID))
 			if err != nil {
 				panic(err)
